@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="148.86819mm"
+   height="162.65251mm"
+   viewBox="0 0 148.86819 162.65251"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="tutorial-character.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.77771465"
+     inkscape:cx="397.31796"
+     inkscape:cy="559.97402"
+     inkscape:window-width="2560"
+     inkscape:window-height="1361"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <style
+       id="style824">.cls-1{fill:#7a5415;}.cls-2{fill:#926f3e;}.cls-3{fill:#604115;}.cls-4{fill:#4e3615;}.cls-5{fill:none;stroke:#282828;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px;}.cls-6{fill:#282828;}.cls-7{fill:#efefef;}.cls-8{fill:#4a494a;}</style>
+  </defs>
+  <g
+     inkscape:label="Vrstva 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-0.07105751,-0.32323109)">
+    <g
+       id="Medvídek"
+       transform="matrix(0.26458333,0,0,0.26458333,-60.961358,-55.170478)">
+      <g
+         id="Torso_medved"
+         data-name="Torso medved">
+        <path
+           id="Obrys_torsa_medved"
+           data-name="Obrys torsa medved"
+           class="cls-1"
+           d="m 663.08,564.16 q 0,6 -0.29,11.86 c -4.86,98 -69.47,175.67 -148.46,175.67 -79.66,0 -144.7,-79 -148.57,-178.17 a 2.26,2.26 0 0 0 0,-0.26 c 0,-0.39 0,-0.77 0,-1.16 V 572 c -0.09,-2.61 -0.13,-5.23 -0.13,-7.88 0,-5.35 0.18,-10.66 0.53,-15.9 a 232.43,232.43 0 0 1 3.9,-29.69 208.69,208.69 0 0 1 29.09,-73 c 0.85,-1.3 1.71,-2.58 2.58,-3.86 0.2,-0.32 0.42,-0.62 0.63,-0.94 0.73,-0.15 1.45,-0.3 2.17,-0.43 l 1.62,-0.31 c 38.83,-7.44 68.73,-4.35 76.19,10.27 4.28,8.38 0.57,19.38 -9.29,31.38 a 157.64,157.64 0 0 0 78.83,1 c -10.48,-12.38 -14.51,-23.77 -10.12,-32.38 7.81,-15.31 40.22,-18 81.74,-9.17 l 3.39,0.75 a 1.15,1.15 0 0 0 0.14,-0.17 2.2,2.2 0 0 1 0.17,0.25 c 15.3,22.42 26.46,49.46 32,79.22 a 233,233 0 0 1 3.46,28.86 c 0.28,4.69 0.42,9.41 0.42,14.16 z" />
+        <ellipse
+           id="Bricho_medved"
+           data-name="Bricho medved"
+           class="cls-2"
+           cx="514.34998"
+           cy="600.09998"
+           rx="91.339996"
+           ry="102.35" />
+      </g>
+      <g
+         id="Leva_noha_medved"
+         data-name="Leva noha medved">
+        <path
+           class="cls-1"
+           d="m 365.58,681.15 c 0,0 -9.53,-38 49.47,-90.3 5.33,64.23 35.24,110.36 73.86,111.61 0,0 0.9,9.25 -76.7,102.8 L 338.69,691.14 Z"
+           id="path831" />
+        <g
+           id="Leve_chodidlo_medved"
+           data-name="Leve chodidlo medved">
+          <ellipse
+             class="cls-3"
+             cx="375.67999"
+             cy="732.39001"
+             rx="66.330002"
+             ry="85.870003"
+             transform="rotate(-13.29,375.54337,732.24078)"
+             id="ellipse833" />
+          <ellipse
+             class="cls-1"
+             cx="371.16"
+             cy="739.48999"
+             rx="66.330002"
+             ry="85.870003"
+             transform="rotate(-13.29,371.06322,739.33151)"
+             id="ellipse835" />
+          <g
+             id="Chodidla_medved"
+             data-name="Chodidla medved">
+            <ellipse
+               id="Chodidlo"
+               class="cls-4"
+               cx="372.60001"
+               cy="757.92999"
+               rx="31.15"
+               ry="39.07"
+               transform="rotate(-6.62,372.77477,758.17566)" />
+            <ellipse
+               id="Prst_3_medved"
+               data-name="Prst 3 medved"
+               class="cls-4"
+               cx="397.03"
+               cy="701.03003"
+               rx="10.63"
+               ry="11.4"
+               transform="rotate(-6.64,397.26244,701.32564)" />
+            <ellipse
+               id="Prst_2_medved"
+               data-name="Prst 2 medved"
+               class="cls-4"
+               cx="366.60001"
+               cy="689.84998"
+               rx="10.63"
+               ry="11.4"
+               transform="rotate(-6.64,366.77324,690.21688)" />
+            <ellipse
+               id="Prst_1_medved"
+               data-name="Prst 1 medved"
+               class="cls-4"
+               cx="338.56"
+               cy="699.90002"
+               rx="10.63"
+               ry="11.4"
+               transform="rotate(-6.64,338.7753,700.26783)" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="Prava_noha_medved"
+         data-name="Prava noha medved">
+        <path
+           class="cls-1"
+           d="m 661.86,681.15 c 0,0 9.53,-38 -49.47,-90.3 -5.33,64.23 -35.24,110.36 -73.86,111.61 0,0 -0.9,9.25 76.7,102.8 l 73.52,-114.12 z"
+           id="path844" />
+        <g
+           id="Prave_chodidlo_medved"
+           data-name="Prave chodidlo medved">
+          <ellipse
+             class="cls-3"
+             cx="651.76001"
+             cy="732.39001"
+             rx="85.870003"
+             ry="66.330002"
+             transform="rotate(-76.71,651.80689,732.40411)"
+             id="ellipse846" />
+          <ellipse
+             class="cls-1"
+             cx="656.28003"
+             cy="739.48999"
+             rx="85.870003"
+             ry="66.330002"
+             transform="rotate(-76.71,656.32205,739.5014)"
+             id="ellipse848" />
+          <g
+             id="Chodidla_medved-2"
+             data-name="Chodidla medved">
+            <ellipse
+               id="Chodidlo-2"
+               data-name="Chodidlo"
+               class="cls-4"
+               cx="654.84003"
+               cy="757.92999"
+               rx="39.07"
+               ry="31.15"
+               transform="rotate(-83.38,654.8145,757.92836)" />
+            <ellipse
+               id="Prst_3_medved-2"
+               data-name="Prst 3 medved"
+               class="cls-4"
+               cx="630.40997"
+               cy="701.03003"
+               rx="11.4"
+               ry="10.63"
+               transform="rotate(-83.36,630.37326,701.02508)" />
+            <ellipse
+               id="Prst_2_medved-2"
+               data-name="Prst 2 medved"
+               class="cls-4"
+               cx="660.83002"
+               cy="689.84998"
+               rx="11.4"
+               ry="10.63"
+               transform="rotate(-83.36,660.79522,689.84434)" />
+            <ellipse
+               id="Prst_1_medved-2"
+               data-name="Prst 1 medved"
+               class="cls-4"
+               cx="688.88"
+               cy="699.90002"
+               rx="11.4"
+               ry="10.63"
+               transform="rotate(-83.36,688.83776,699.89169)" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="Shadows">
+        <path
+           class="cls-3"
+           d="m 394.15,546.94 c 0,0 -28.38,18.95 -28.44,39.43 q -0.13,-4.33 -0.13,-8.71 a 286.11,286.11 0 0 1 4.43,-50.4 l 18.15,-3.4 z"
+           id="path857" />
+        <path
+           class="cls-3"
+           d="m 663.08,577.66 c 0,4.4 -0.1,8.78 -0.29,13.11 v 0 c 1.52,-21.09 -28.38,-41.06 -28.38,-41.06 l 6,-23.08 18.79,3.52 a 286.1,286.1 0 0 1 3.88,47.51 z"
+           id="path859" />
+      </g>
+      <g
+         id="Ruce_medved"
+         data-name="Ruce medved">
+        <path
+           class="cls-1"
+           d="m 473,486.48 q -1.49,2 -3.15,4 c -17.71,21.52 -50.71,45.38 -91.59,64.24 q -6.11,2.82 -12.15,5.35 c -64.35,27 -122.81,30.56 -133.68,7 -11.54,-25 35,-71.09 104,-102.94 a 356,356 0 0 1 48.74,-18.43 c 5.42,-1.59 10.73,-3 15.89,-4.19 l 1.22,-0.28 2.17,-0.48 1.62,-0.34 c 38.83,-8.22 68.73,-4.81 76.19,11.35 4.31,9.3 0.6,21.46 -9.26,34.72 z"
+           id="path862" />
+        <path
+           class="cls-1"
+           d="M 791.57,567.1 C 781,590.05 725.1,587.27 662.66,562 q -8.4,-3.37 -16.92,-7.31 c -40.14,-18.53 -72.69,-41.87 -90.62,-63.08 -1.16,-1.36 -2.25,-2.72 -3.28,-4.06 v 0 c -10.48,-13.69 -14.51,-26.28 -10.12,-35.8 7.81,-16.92 40.22,-19.86 81.74,-10.13 1.12,0.27 2.25,0.54 3.39,0.83 a 2,2 0 0 1 0.31,0.08 344.92,344.92 0 0 1 60.39,21.59 C 756.53,496 803.11,542.1 791.57,567.1 Z"
+           id="path864" />
+      </g>
+      <g
+         id="Shadows-2"
+         data-name="Shadows">
+        <path
+           class="cls-4"
+           d="m 426.72,459 c -0.55,-0.33 -14.82,-8.91 -27.62,-12.4 -5.22,-1.43 -10.2,-2 -13.9,-0.84 5.42,-1.59 10.73,-3 15.89,-4.19 l 1.22,-0.28 2.17,-0.48 1.62,-0.34 z"
+           id="path867" />
+        <path
+           class="cls-4"
+           d="m 597.35,459 c 0.55,-0.33 14.82,-8.91 27.62,-12.4 5.22,-1.43 10.2,-2 13.9,-0.84 -5.42,-1.59 -10.73,-3 -15.89,-4.19 l -1.22,-0.28 -2.17,-0.48 -1.62,-0.34 z"
+           id="path869" />
+      </g>
+      <g
+         id="Leve_ucho_medved"
+         data-name="Leve ucho medved">
+        <circle
+           class="cls-1"
+           cx="403"
+           cy="257.16"
+           r="47.419998"
+           id="circle872" />
+        <circle
+           class="cls-4"
+           cx="403"
+           cy="257.16"
+           r="30.139999"
+           id="circle874" />
+      </g>
+      <g
+         id="Prave_ucho_medved"
+         data-name="Prave ucho medved">
+        <circle
+           class="cls-1"
+           cx="625.16998"
+           cy="257.16"
+           r="47.419998"
+           id="circle877" />
+        <circle
+           class="cls-4"
+           cx="628.08002"
+           cy="257.16"
+           r="30.139999"
+           id="circle879" />
+      </g>
+      <circle
+         id="Hlava"
+         class="cls-1"
+         cx="514.33002"
+         cy="352.16"
+         r="142.42" />
+      <g
+         id="Nos_a_usta_medved"
+         data-name="Nos a usta medved">
+        <ellipse
+           class="cls-2"
+           cx="514.32001"
+           cy="393.57001"
+           rx="55.73"
+           ry="41.41"
+           id="ellipse883" />
+        <g
+           id="Usta_medved"
+           data-name="Usta medved">
+          <path
+             class="cls-5"
+             d="m 478.74,403.68 c 0,0 16.22,20.57 35.61,0"
+             id="path885" />
+          <path
+             class="cls-5"
+             d="m 514.35,387.59 v 16.09 c 0,0 16.22,20.57 35.6,0"
+             id="path887" />
+        </g>
+        <g
+           id="Nos_medved"
+           data-name="Nos medved">
+          <path
+             id="Nos_medved_obrys"
+             data-name="Nos medved obrys"
+             class="cls-6"
+             d="m 532.38,379.77 c 0,4.32 -18.06,7.82 -18.06,7.82 0,0 -18.07,-3.5 -18.07,-7.82 0,-4.32 8.09,-7.82 18.07,-7.82 9.98,0 18.06,3.5 18.06,7.82 z" />
+          <ellipse
+             id="Nos_medved_odraz"
+             data-name="Nos medved odraz"
+             class="cls-7"
+             cx="506.95999"
+             cy="376.07999"
+             rx="4.71"
+             ry="1.42"
+             transform="rotate(-12.52,506.95152,376.07233)" />
+        </g>
+      </g>
+      <g
+         id="Prave_oko_medved"
+         data-name="Prave oko medved">
+        <ellipse
+           id="Prave_oko_obrys"
+           data-name="Prave oko obrys"
+           class="cls-6"
+           cx="570.04999"
+           cy="326.34"
+           rx="18.99"
+           ry="21.76" />
+        <g
+           id="Prave_oko_odraz"
+           data-name="Prave oko odraz">
+          <ellipse
+             class="cls-7"
+             cx="564.59998"
+             cy="317.32999"
+             rx="6.4699998"
+             ry="5.1700001"
+             transform="rotate(-69.86,564.63103,317.32297)"
+             id="ellipse895" />
+          <ellipse
+             class="cls-8"
+             cx="578.14001"
+             cy="338.76001"
+             rx="3.1099999"
+             ry="2.48"
+             transform="rotate(-55.7,578.17603,338.75966)"
+             id="ellipse897" />
+        </g>
+      </g>
+      <g
+         id="Leve_oko_medved"
+         data-name="Leve oko medved">
+        <ellipse
+           id="Leve_oko_obrys"
+           data-name="Leve oko obrys"
+           class="cls-6"
+           cx="450.42001"
+           cy="326.34"
+           rx="18.99"
+           ry="21.76" />
+        <g
+           id="Leve_oko_odraz"
+           data-name="Leve oko odraz">
+          <ellipse
+             class="cls-7"
+             cx="458"
+             cy="317.79001"
+             rx="5.1700001"
+             ry="6.4699998"
+             transform="rotate(-20.14,457.89577,317.75664)"
+             id="ellipse902" />
+          <ellipse
+             class="cls-8"
+             cx="444.45001"
+             cy="339.22"
+             rx="2.48"
+             ry="3.1099999"
+             transform="rotate(-34.3,444.4168,339.21207)"
+             id="ellipse904" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

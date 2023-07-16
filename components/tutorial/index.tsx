@@ -2,10 +2,10 @@ import React, { useContext } from "react"
 import { ThemeContext } from 'styled-components'
 
 import Bubble from '@components/bubble'
-import Logousek from '@components/svg/templates/logousek'
 import { useTutorial, TutorialConfigType } from "@hooks/useTutorial"
 import Button, { ButtonSizesEnum } from "@components/button"
 import Blob from "@components/svg/blob/blob"
+import publicImages from "@constants/public-images"
 
 import * as S from './styled'
 
@@ -38,17 +38,17 @@ const Tutorial: React.FC = () => {
             <S.TutorialContainer>
                 <Blob color={themeContext.colors.red} isBlobShowed={isTutorialOpened}>
                     <S.BlobContainer isTutorialOpened={isTutorialOpened}>
-                        <S.LogosekWrapper onClick={startTutorial} isTutorialOpened={isTutorialOpened}>
-                            <Logousek />
-                        </S.LogosekWrapper>
+                        <S.CharacterWrapper onClick={startTutorial} isTutorialOpened={isTutorialOpened}>
+                            <S.Character src={publicImages.tutorial.character} />
+                        </S.CharacterWrapper>
                     </S.BlobContainer>
                 </Blob>
                 {text &&
                     (<S.BubbleWrapper>
                         <Bubble leftSide={true} desc={text} fillWidth={true} />
                         <S.ButtonRow>
-                            <Button backgroundColor="green" color="white" size={ButtonSizesEnum.xs} onClick={next}>Další</Button>
-                            <Button backgroundColor="red" color="white" size={ButtonSizesEnum.xs} onClick={reset}>Zavřít</Button>
+                            <Button backgroundColor={themeContext.colors.darkGreen} color={themeContext.colors.white} size={ButtonSizesEnum.xs} onClick={next}>Další</Button>
+                            <Button backgroundColor={themeContext.colors.red} color={themeContext.colors.white} size={ButtonSizesEnum.xs} onClick={reset}>Zavřít</Button>
                         </S.ButtonRow>
                     </S.BubbleWrapper>)
                 }

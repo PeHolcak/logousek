@@ -19,7 +19,6 @@ export const HomeWrapper = styled.div`
   scroll-behavior: smooth;
   overflow-y: overlay;
   overflow-x: hidden;
-  scrollbar-gutter: stable;
 `
 
 export const Section = styled.section`

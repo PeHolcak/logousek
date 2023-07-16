@@ -1,10 +1,31 @@
-import styled, { css } from "styled-components";
-import { zIndex } from "styles";
+import styled, { css } from 'styled-components'
+import { zIndex } from 'styles'
 
-import { devices } from "@constants/screens-conf";
+import { devices } from '@constants/screens-conf'
 
 type TutorialWrapperProps = { isTutorialOpened: boolean }
-type LogosekWrapperProps = { isTutorialOpened: boolean }
+type CharacterWrapperProps = { isTutorialOpened: boolean }
+
+const getSizes = (mobileHeight: number, deviceHeight: number, mobileHeightOpened: number, deviceHeightOpened: number,) => css<{ isTutorialOpened: boolean }>`
+  height: ${mobileHeight}px;
+  aspect-ratio: 1;
+
+  @media ${devices.laptop} {
+    height: ${deviceHeight}px;
+  }
+
+  ${({ isTutorialOpened }) =>
+    isTutorialOpened
+      ? css`
+          height: ${mobileHeightOpened}px;
+          transition-duration: 1s;
+
+          @media ${devices.laptop} {
+            height: ${deviceHeightOpened}px;
+          }
+        `
+      : null}
+`
 
 export const TutorialWrapper = styled.div<TutorialWrapperProps>`
   position: fixed;
@@ -12,38 +33,38 @@ export const TutorialWrapper = styled.div<TutorialWrapperProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 0px;
-  left: 0px;
-  width: 160px;
-  height: 160px;
+  transition-duration: 1s;
+  ${getSizes(120, 200, 200, 240)};
 
-  ${({ isTutorialOpened }) => isTutorialOpened ? css`
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  ` : css`
-    left: 0%;
-    bottom: 0%;
+  ${({ isTutorialOpened }) =>
+    isTutorialOpened
+      ? css`
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        `
+      : css`
+          bottom: 24px;
+          left: 24px;
+                  
+          @media ${devices.laptop} {
+            bottom: 64px;
+            left: 64px;
+          }
 
-    transform: translate(-0%, -0%);
-    `}
+          transform: translate(-0%, -0%);
+        `}
+
 
   & > div {
     transition-duration: 1s;
-    width: ${({ isTutorialOpened }) => isTutorialOpened ? "344px" : "auto"};
+    width: ${({ isTutorialOpened }) => (isTutorialOpened ? '344px' : 'auto')};
 
     @media ${devices.laptop} {
-      width: ${({ isTutorialOpened }) => isTutorialOpened ? "440px" : "auto"};
+      width: ${({ isTutorialOpened }) => (isTutorialOpened ? '440px' : 'auto')};
     }
   }
-
-  
-  @media ${devices.laptop} {
-    transition-duration: 1s;
-    width: 280px;
-    height: 280px;
-  }
-`;
+`
 
 export const BlobContainer = styled.div<TutorialWrapperProps>`
   position: relative;
@@ -54,58 +75,48 @@ export const BlobContainer = styled.div<TutorialWrapperProps>`
   @media ${devices.laptop} {
     flex-direction: row;
   }
-`;
+`
 
-export const LogosekWrapper = styled.div<LogosekWrapperProps>`
+export const CharacterWrapper = styled.div<CharacterWrapperProps>`
   cursor: pointer;
-  height: 160px;
-  width: 160px;
-  
-  @media ${devices.laptop} {
-    height: 280px;
-    width: 280px;
-  }
 
-  ${({ isTutorialOpened }) => isTutorialOpened ? css`
-      height: 280px;
-      width: 280px;
-      transition-duration: 1s;
+  ${getSizes(120, 200, 200, 240)};
+`
 
-      @media ${devices.laptop} {
-        height: 360px;
-        width: 360px;
-      }
-  ` : null}
+export const Character = styled.img`
+  width: 100%;
+  height: 100%;
+  /* padding: 20px; */
 `
 
 export const BubbleWrapper = styled.div`
   position: relative;
-
-  @media ${devices.laptop} {
-    position: absolute;
-    top: 147px;
-    left: 320px;
-  }
+  margin-top: -32px;
 
   article > div > p {
-  overflow: hidden;
-  border-right: 2px solid transparent;
-  padding-right: 2px;
-  margin: 0 auto;
-  animation: 
-    typing 4s steps(21, end),
-    blink-caret 0.8s step-end 5;
+    overflow: hidden;
+    border-right: 2px solid transparent;
+    padding-right: 2px;
+    margin: 0 auto;
   }
 
-  @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: ${({ theme }) => theme.colors.red};
+    }
+  }
 
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% {  border-color: ${({ theme }) => theme.colors.red}; }
-}
+  @media ${devices.laptop} {
+    width: 100%;
+    position: absolute;    
+    left: 300px;
+    top: 150px;
+    margin-top: 0;
+  }
 `
 
 export const ButtonRow = styled.div`

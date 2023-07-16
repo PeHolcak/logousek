@@ -21,6 +21,7 @@ export const AuthorContainer = styled.div`
   align-items: center;
   margin-bottom: 2rem;
   width: 100%;
+  max-width: 280px;
   align-self: center;
   justify-self: center;
   background-color: ${({ theme }) => theme.colors.wtiteTransparent};

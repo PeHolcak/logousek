@@ -117,7 +117,7 @@ export const games: GamesType = {
       title: 'Slabiky',
       description:
         'Hra rozvíjí schopnost vnímání 1. slabiky ve slově, rozvíjí také schopnost rozkladu slova na slabiky.',
-      image: '',
+      image: publicImages.activityIcons.syllables,
       difficulty: [{ id: 1, level: 1, points: 10, exercisesCount: 5 }],
     },
   ],

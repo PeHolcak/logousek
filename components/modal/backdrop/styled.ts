@@ -16,7 +16,7 @@ export const StyledBackdrop = styled.div<StyledBackdrop>`
           opacity: 1;
         `};
 
-  width: 100vw;
+  width: 100%;
   z-index: ${({ theme }) => theme.zIndex.xxl};
   background-color: ${({ theme }) => theme.colors.black};
   filter: ${({ show }) => (show ? 'blur(0.25rem)' : 'none')};
