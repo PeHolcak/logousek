@@ -12838,13 +12838,6 @@ tsparticles-shape-circle@^2.9.3:
   dependencies:
     tsparticles-engine "^2.9.3"
 
-tsparticles-shape-confetti@^1.14.2:
-  version "1.14.2"
-  resolved "https://registry.npmjs.org/tsparticles-shape-confetti/-/tsparticles-shape-confetti-1.14.2.tgz"
-  integrity sha512-JKS8GcAJX54b5xD4m/CkZaiQ7E3oBPQcpr4oAJOVrWIFWekEgEnYlHIIsNgb7hzAoUFeEJqYSu/rkRNnM5/+UQ==
-  dependencies:
-    tsparticles "^1.29.2"
-
 tsparticles-shape-image@^2.9.3:
   version "2.9.3"
   resolved "https://registry.npmjs.org/tsparticles-shape-image/-/tsparticles-shape-image-2.9.3.tgz"
