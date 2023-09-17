@@ -1,33 +1,24 @@
-import React, { useEffect, useState } from "react"
-import { css } from "styled-components";
+import { useEffect, useState, useCallback } from 'react'
 
-export type TutorialConfigType = {
-    text: string,
-    sound: string,
-    higlighttedIds?: string[],
-    confirm: boolean,
-    waitMilis: number
-}[]
-
-const pump = `
-@keyframes beat {
-    0%, 50%, 100% { 
-        transform: scale(1.2, 1.2);
-        box-shadow: 0 0 20px 5px #F0E400;
- }
-    30%, 80% { transform: scale(0.85, 0.9); 
-box-shadow: 0 0 6px #E0681B;}
+type TutorialConfigItemType = {
+    text: string
+    sound: string
+    higlighttedIds?: string[]
+    confirm: boolean
+    waitMilis?: number
 }
-animation: 3s ease 0s infinite beat;
 
-background-color: red;
-`
+export type TutorialConfigType = TutorialConfigItemType[]
 
 export const useTutorial = (config: TutorialConfigType) => {
-    const [isTutorialOpened, setIsTutorialOpened] = useState(false);
-    const [index, setIndex] = useState<number | undefined>()
+    const [isTutorialOpened, setIsTutorialOpened] = useState(false)
+    const [index, setIndex] = useState<number | undefined>(undefined)
+    const [activeItem, setActiveItem] = useState<
+        TutorialConfigItemType | undefined
+    >()
     const [_document, set_document] = useState<any>(null)
-
+    const [timerIdForNextItem, setTimerIdForNextItem] =
+        useState<NodeJS.Timeout | null>(null)
 
     useEffect(() => {
         set_document(document)
@@ -35,34 +26,58 @@ export const useTutorial = (config: TutorialConfigType) => {
 
     const runTutorial = () => {
         setIsTutorialOpened(true)
-        next();
+        next()
     }
 
-    const getText = () => {
-        if (typeof index === "number") {
-            return config[index]?.text
-        }
-        return null;
-    }
-
-    const next = () => {
-        const newIndex = typeof index === "number" ? index + 1 : 0
-        const higlighttedIds = config[newIndex]?.higlighttedIds;
+    const next = useCallback(() => {
+        const newIndex = typeof index === 'number' ? index + 1 : 0
+        const higlighttedIds = config[newIndex]?.higlighttedIds
 
         if (_document && Array.isArray(higlighttedIds)) {
-            higlighttedIds.map(higlighttedId => {
-                _document.getElementById(higlighttedId)?.classList.add("highlight");
+            higlighttedIds.map((higlighttedId) => {
+                _document.getElementById(higlighttedId)?.classList.add('highlight')
             })
         }
 
         setIndex(newIndex)
+        setActiveItem(config[newIndex])
+    }, [_document, config, index])
 
-    }
+    useEffect(() => {
+        if (
+            activeItem?.waitMilis &&
+            typeof index === 'number' &&
+            config[index + 1] &&
+            isTutorialOpened
+        ) {
+            console.log('waiting...', activeItem)
+            // Nastavíme časovač
+            const showNextTimer = setTimeout(() => {
+                next()
+            }, activeItem?.waitMilis) // Po 5 sekundách
 
-    const reset = () => {
-        setIsTutorialOpened(false);
+            setTimerIdForNextItem(showNextTimer)
+            // Úklid: vymazání časovače, pokud se komponenta odstraní dříve, než časovač skončí
+            return () => clearTimeout(showNextTimer)
+        }
+    }, [activeItem, config, index, isTutorialOpened, next])
+
+    const reset = useCallback(() => {
+        setIsTutorialOpened(false)
+        setActiveItem(undefined)
         setIndex(undefined)
-    }
+        if (timerIdForNextItem) {
+            clearTimeout(timerIdForNextItem)
+        }
+    }, [timerIdForNextItem])
 
-    return { runTutorial, text: getText(), index, isTutorialOpened, reset, next }
-};
+    return {
+        runTutorial,
+        text: activeItem?.text,
+        index,
+        isTutorialOpened,
+        reset,
+        next,
+        canBeConfirmed: activeItem?.confirm,
+    }
+}

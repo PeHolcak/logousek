@@ -2,7 +2,10 @@ import * as React from 'react'
 import { DEFAULT_VIEWBOX } from '../../../../constants/svg-conf'
 
 const Bear = ({ changeConfig = {}, customViewBox }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox={customViewBox || DEFAULT_VIEWBOX}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox={customViewBox || DEFAULT_VIEWBOX}
+  >
     <defs>
       <style>
         {
@@ -50,47 +53,49 @@ const Bear = ({ changeConfig = {}, customViewBox }) => (
             ry={85.87}
             transform="rotate(-13.29 371.063 739.332)"
           />
-          {changeConfig.hideLeftFoot || <g id="Chodidla_medved" data-name="Chodidla medved">
-            <ellipse
-              id="Chodidlo"
-              fill="#4e3615"
-              cx={372.6}
-              cy={757.93}
-              rx={31.15}
-              ry={39.07}
-              transform="rotate(-6.62 372.775 758.176)"
-            />
-            <ellipse
-              id="Prst_3_medved"
-              data-name="Prst 3 medved"
-              fill="#4e3615"
-              cx={397.03}
-              cy={701.03}
-              rx={10.63}
-              ry={11.4}
-              transform="rotate(-6.64 397.262 701.326)"
-            />
-            <ellipse
-              id="Prst_2_medved"
-              data-name="Prst 2 medved"
-              fill="#4e3615"
-              cx={366.6}
-              cy={689.85}
-              rx={10.63}
-              ry={11.4}
-              transform="rotate(-6.64 366.773 690.217)"
-            />
-            <ellipse
-              id="Prst_1_medved"
-              data-name="Prst 1 medved"
-              fill="#4e3615"
-              cx={338.56}
-              cy={699.9}
-              rx={10.63}
-              ry={11.4}
-              transform="rotate(-6.64 338.775 700.268)"
-            />
-          </g>}
+          {changeConfig.hideLeftFoot || (
+            <g id="Chodidla_medved" data-name="Chodidla medved">
+              <ellipse
+                id="Chodidlo"
+                fill="#4e3615"
+                cx={372.6}
+                cy={757.93}
+                rx={31.15}
+                ry={39.07}
+                transform="rotate(-6.62 372.775 758.176)"
+              />
+              <ellipse
+                id="Prst_3_medved"
+                data-name="Prst 3 medved"
+                fill="#4e3615"
+                cx={397.03}
+                cy={701.03}
+                rx={10.63}
+                ry={11.4}
+                transform="rotate(-6.64 397.262 701.326)"
+              />
+              <ellipse
+                id="Prst_2_medved"
+                data-name="Prst 2 medved"
+                fill="#4e3615"
+                cx={366.6}
+                cy={689.85}
+                rx={10.63}
+                ry={11.4}
+                transform="rotate(-6.64 366.773 690.217)"
+              />
+              <ellipse
+                id="Prst_1_medved"
+                data-name="Prst 1 medved"
+                fill="#4e3615"
+                cx={338.56}
+                cy={699.9}
+                rx={10.63}
+                ry={11.4}
+                transform="rotate(-6.64 338.775 700.268)"
+              />
+            </g>
+          )}
         </g>
       </g>
       <g id="Prava_noha_medved" data-name="Prava noha medved">
@@ -115,48 +120,50 @@ const Bear = ({ changeConfig = {}, customViewBox }) => (
             ry={66.33}
             transform="rotate(-76.71 656.322 739.501)"
           />
-          {changeConfig.hideRightFoot || <g id="Chodidla_medved-2" data-name="Chodidla medved">
-            <ellipse
-              id="Chodidlo-2"
-              data-name="Chodidlo"
-              fill="#4e3615"
-              cx={654.84}
-              cy={757.93}
-              rx={39.07}
-              ry={31.15}
-              transform="rotate(-83.38 654.814 757.928)"
-            />
-            <ellipse
-              id="Prst_3_medved-2"
-              data-name="Prst 3 medved"
-              fill="#4e3615"
-              cx={630.41}
-              cy={701.03}
-              rx={11.4}
-              ry={10.63}
-              transform="rotate(-83.36 630.373 701.025)"
-            />
-            <ellipse
-              id="Prst_2_medved-2"
-              data-name="Prst 2 medved"
-              fill="#4e3615"
-              cx={660.83}
-              cy={689.85}
-              rx={11.4}
-              ry={10.63}
-              transform="rotate(-83.36 660.795 689.844)"
-            />
-            <ellipse
-              id="Prst_1_medved-2"
-              data-name="Prst 1 medved"
-              fill="#4e3615"
-              cx={688.88}
-              cy={699.9}
-              rx={11.4}
-              ry={10.63}
-              transform="rotate(-83.36 688.838 699.892)"
-            />
-          </g>}
+          {changeConfig.hideRightFoot || (
+            <g id="Chodidla_medved-2" data-name="Chodidla medved">
+              <ellipse
+                id="Chodidlo-2"
+                data-name="Chodidlo"
+                fill="#4e3615"
+                cx={654.84}
+                cy={757.93}
+                rx={39.07}
+                ry={31.15}
+                transform="rotate(-83.38 654.814 757.928)"
+              />
+              <ellipse
+                id="Prst_3_medved-2"
+                data-name="Prst 3 medved"
+                fill="#4e3615"
+                cx={630.41}
+                cy={701.03}
+                rx={11.4}
+                ry={10.63}
+                transform="rotate(-83.36 630.373 701.025)"
+              />
+              <ellipse
+                id="Prst_2_medved-2"
+                data-name="Prst 2 medved"
+                fill="#4e3615"
+                cx={660.83}
+                cy={689.85}
+                rx={11.4}
+                ry={10.63}
+                transform="rotate(-83.36 660.795 689.844)"
+              />
+              <ellipse
+                id="Prst_1_medved-2"
+                data-name="Prst 1 medved"
+                fill="#4e3615"
+                cx={688.88}
+                cy={699.9}
+                rx={11.4}
+                ry={10.63}
+                transform="rotate(-83.36 688.838 699.892)"
+              />
+            </g>
+          )}
         </g>
       </g>
       <g id="Shadows">
@@ -179,21 +186,19 @@ const Bear = ({ changeConfig = {}, customViewBox }) => (
       </g>
       <g id="Leve_ucho_medved" data-name="Leve ucho medved">
         <circle fill="#7a5415" cx={403} cy={257.16} r={47.42} />
-        {changeConfig.hideLeftEarFilling || <circle fill="#4e3615" cx={403} cy={257.16} r={30.14} />}
+        {changeConfig.hideLeftEarFilling || (
+          <circle fill="#4e3615" cx={403} cy={257.16} r={30.14} />
+        )}
       </g>
       <g id="Prave_ucho_medved" data-name="Prave ucho medved">
         <circle fill="#7a5415" cx={625.17} cy={257.16} r={47.42} />
-        {changeConfig.hideRightEarFilling || <circle fill="#4e3615" cx={628.08} cy={257.16} r={30.14} />}
+        {changeConfig.hideRightEarFilling || (
+          <circle fill="#4e3615" cx={628.08} cy={257.16} r={30.14} />
+        )}
       </g>
       <circle id="Hlava" fill="#7a5415" cx={514.33} cy={352.16} r={142.42} />
       <g id="Nos_a_usta_medved" data-name="Nos a usta medved">
-        <ellipse
-          fill="#926f3e"
-          cx={514.32}
-          cy={393.57}
-          rx={55.73}
-          ry={41.41}
-        />
+        <ellipse fill="#926f3e" cx={514.32} cy={393.57} rx={55.73} ry={41.41} />
         <g id="Usta_medved" data-name="Usta medved">
           <path
             className="cls-5-bear"

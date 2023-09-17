@@ -25,6 +25,7 @@ export const Container = styled.article<{ fillWidth?: boolean }>`
   position: relative;
   background-color: ${({ theme }) => theme.colors.primary};
   border-radius: ${({ theme }) => theme.radius.primary};
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
   width: 100%;
   padding: 1rem;
 

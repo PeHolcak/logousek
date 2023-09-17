@@ -16,7 +16,7 @@ const TimeLine = () => {
           key={`new-${index}`}
           leftSide={index % 2 === 0}
           desc={newObj.desc}
-          date={newObj.data ? getFormatedDate(newObj.data) : "Zatím neproběhlo"}
+          caption={newObj.data ? getFormatedDate(newObj.data) : "Zatím neproběhlo"}
         />
       ))}
     </S.Wrapper>

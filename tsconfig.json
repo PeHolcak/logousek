@@ -139,7 +139,8 @@
     "components/modal/backdrop/particles/confetti/index.js",
     "backend/middleware/authorize.ts",
     "prisma/prisma.ts",
-    "prisma/score.js"
+    "prisma/score.js",
+    "components/svg/templates/bear/index.js"
   ],
   "exclude": [
     "node_modules"
