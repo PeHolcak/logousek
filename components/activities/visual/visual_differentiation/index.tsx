@@ -15,6 +15,7 @@ export type AddictionObjType = {
 export type CardType = {
   name: string
   Component: React.FC<{ changeConfig?: { [key: string]: boolean } }>
+  reference?: string
 } & AddictionObjType
 
 export type AnswerType = {

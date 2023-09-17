@@ -52,9 +52,9 @@ const getWordDiffConf = (): AudioDiffConfType => ({
     "1": [
         {
             name: "chalks",
-            incorrect: [{ name: "training", svg: Images.training }],
+            incorrect: [{ name: "training", svg: Images.training, reference: "" }],
             correct: {
-                name: "chalks", svg: Images.chalks
+                name: "chalks", svg: Images.chalks, reference: ""
             },
             sound: chalks,
         },
@@ -134,9 +134,9 @@ const getWordDiffConf = (): AudioDiffConfType => ({
         {
             name: "archery",
             incorrect: [
-                { name: "roseHip", svg: Images.roseHip }],
+                { name: "roseHip", svg: Images.roseHip, reference: <><a href="https://www.flaticon.com/free-icons/rose-hip" title="rose hip icons">Rose hip icons created by popo2021 - Flaticon</a></> }],
             correct: {
-                name: "archery", svg: Images.archery
+                name: "archery", svg: Images.archery, reference: <><a href="https://www.freepik.com/free-vector/crossed-arrows-vector-illustration-medieval-weapon-war-battle-accessory_11235613.htm#query=archery&position=2&from_view=search&track=sph">Image by pch.vector</a> on Freepik</>
             },
             sound: archery,
         },
@@ -166,9 +166,9 @@ const getWordDiffConf = (): AudioDiffConfType => ({
         },
         {
             name: "roseHip",
-            incorrect: [{ name: "archery", svg: Images.archery }],
+            incorrect: [{ name: "archery", svg: Images.archery, reference: <><a href="https://www.freepik.com/free-vector/crossed-arrows-vector-illustration-medieval-weapon-war-battle-accessory_11235613.htm#query=archery&position=2&from_view=search&track=sph">Image by pch.vector</a> on Freepik</> }],
             correct: {
-                name: "roseHip", svg: Images.roseHip
+                name: "roseHip", svg: Images.roseHip, reference: <><a href="https://www.flaticon.com/free-icons/rose-hip" title="rose hip icons">Rose hip icons created by popo2021 - Flaticon</a></>
             },
             sound: roseHip,
         },

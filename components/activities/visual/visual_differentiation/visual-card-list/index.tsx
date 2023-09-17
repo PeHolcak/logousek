@@ -8,6 +8,7 @@ type CardListType = {
   cards: CardType[],
   selectedName?: string,
   setSelectedName: (name?: string) => void
+  reference?: React.ReactNode
 }
 
 const VisualCardList: React.FC<CardListType> = ({
@@ -24,15 +25,14 @@ const VisualCardList: React.FC<CardListType> = ({
     }
   }
 
-
-
   const getCard = (card: CardType): PictureType => {
     const Component = card.Component
 
     return {
       name: card.name,
       svg: <Component changeConfig={card.hideConfing} />,
-      rotateDegrees: card.rotateDegrees
+      rotateDegrees: card.rotateDegrees,
+      reference: card.reference
     }
   }
 
