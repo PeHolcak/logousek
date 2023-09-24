@@ -14,7 +14,7 @@ async function registerUser(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
 
     //2. Check dtoIn
-    if (typeof req?.query !== "object" || !await registerUserDtoIn.isValid(req.body.params)) {
+    if (typeof req.body !== "object" || !await registerUserDtoIn.isValid(req.body)) {
       //2.1. dtoIn is not valid
       return res.status(400).json({
         errorCode: 'wrong_dto_in',
@@ -22,13 +22,13 @@ async function registerUser(req: NextApiRequest, res: NextApiResponse) {
     }
 
     //2.2. dtoIn contains keys beyond the scope of dtoInType
-    const warnings = checkUnsupportedKeys(["firstName", "nickName", "password", "surName"], req?.query)
+    const warnings = checkUnsupportedKeys(["firstName", "nickName", "password", "surName"], req.body)
 
     //3. Check if a user with the same name already exists
-    const user = req.body.params
+    const user = req.body
     let usersWithSameNick;
     try {
-      usersWithSameNick = await getUserByName({ nickName: user.nickName })
+      usersWithSameNick = await getUserByName(user.nickName)
     } catch (err) {
       //3.1.1. ERROR - Failed to get data from the database and an error was thrown.
       console.error(err)
