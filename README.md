@@ -1,34 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Logopedic Application "Logousek"
 
-## Getting Started
+Logousek is an interactive logopedic application crafted specifically for preschool children. Offering a variety of game types, each game focuses on a distinct aspect of logopedics.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
+- **Variety of Games**: Each game type hones in on a specific area of logopedics and comprises multiple individual games.
+- **Scoring System**: Children can accumulate points as they play, fostering a greater motivation to learn.
+- **Child-friendly Design**: With the use of vibrant colors, this application is tailored for children who are still learning to read. An in-depth tutorial ensures a seamless user experience.
+- **Administrator's Page**: Administrators have access to a dedicated page where they can:
+  - Monitor user activity.
+  - Remove users if necessary.
+
+## Deployment
+
+The application is live at [link](https://www.logousek.cz/).
+
+For documentation, visit the [Storybook](https://logousek-storybook.vercel.app/?path=/docs/applicationmodel-apiroutes-activity-add-score--docs).
+
+## Documentation
+
+The documentation provides a detailed overview of:
+
+- Components.
+- Endpoints.
+- Database models.
+
+## Technical Details
+
+The application is built with:
+
+- Next.js for the frontend and backend.
+- Styled-components for styling.
+- React with hooks.
+- Prisma for database operations.
+
+## Package.json Overview
+
+This section gives an overview of the project's `package.json`.
+
+### Scripts
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+ yard dev // run application
+ yarn storybook // run documentation
+```
