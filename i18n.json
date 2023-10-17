@@ -9,7 +9,8 @@
       "notFound",
       "gameMenu",
       "activity",
-      "admin"
+      "admin",
+      "error"
     ]
   }
 }

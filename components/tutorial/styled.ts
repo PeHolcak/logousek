@@ -1,32 +1,54 @@
 import styled, { css } from 'styled-components'
 import { zIndex } from 'styles'
 
-import { devices } from '@constants/screens-conf'
+import { devices, size } from '@constants/screens-conf'
+import { OffsetType } from '@components/route-wrapper'
 
-type TutorialWrapperProps = { isTutorialOpened: boolean }
-type LogosekWrapperProps = { isTutorialOpened: boolean }
+type BlobContainer = { isTutorialOpened: boolean }
+
+type TutorialWrapperProps = { isTutorialOpened: boolean, mobileOffset: OffsetType, desktopOffset: OffsetType }
+
+type CharacterWrapperProps = { isTutorialOpened: boolean }
+
+const OFFSET = "72px"
+
+const getOffset = (offsetType: OffsetType) => {
+  switch (offsetType) {
+    case "left":
+      return css`left: ${OFFSET};`
+    case "right":
+      return css`right: ${OFFSET};`
+    case "top":
+      return css`top: ${OFFSET};`
+    case "bottom":
+      return css`bottom: ${OFFSET};`
+    default:
+      return css``
+  }
+}
 
 export const TutorialWrapper = styled.div<TutorialWrapperProps>`
   position: fixed;
-  z-index: ${zIndex.xl};
+  z-index: ${zIndex.xxl};
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 0px;
-  left: 0px;
   
   transition-duration: 1s;
+  transition-property: left, bottom, transform;
 
-  ${({ isTutorialOpened, theme }) =>
+  ${({ isTutorialOpened, mobileOffset, desktopOffset }) =>
     isTutorialOpened
       ? css`
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
-          background: white;
+          border-image-slice: 1;
+          background-color: rgba(255, 255, 255, 0.4);
+          backdrop-filter: blur(10px);
+          -webkit-mask-image: radial-gradient(circle at center, black 70%, transparent 100%);
+          mask-image: radial-gradient(circle at center, black 80%, transparent 100%);
           border-radius: 64px;
-          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
-          border: 8px double ${theme.colors.lightGreen};
           height: fit-content;
           padding: 0 48px;
           
@@ -41,48 +63,66 @@ export const TutorialWrapper = styled.div<TutorialWrapperProps>`
           
         `
       : css`
-          left: 0%;
-          bottom: 0%;
+          left: 0;
+          bottom: 0;
+
+          @media (max-width: ${size.laptop}){
+          ${getOffset(mobileOffset)}
+          }
+
+          @media ${devices.laptop} {
+            bottom: 0;
+            ${getOffset(desktopOffset)}
+          }
 
           transform: translate(-0%, -0%);
           background: transparent;
           box-shadow: none;
         `}
         
-        transition-property: left, bottom, transform;
  
 `
 
-export const BlobContainer = styled.div<TutorialWrapperProps>`
+export const BlobContainer = styled.div<BlobContainer>`
   position: relative;
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
-export const LogosekWrapper = styled.div<LogosekWrapperProps>`
+export const CharacterWrapper = styled.div<CharacterWrapperProps>`
   cursor: pointer;
-  height: 160px;
-  width: 160px;
+  height: 96px;
+  width: 96px;
 
-  @media ${devices.laptop} {
-    height: 280px;
-    width: 280px;
+  @media ${devices.tablet} {
+    height: 200px;
+    width: 200px;
   }
 
   ${({ isTutorialOpened }) =>
     isTutorialOpened
       ? css`
-          height: 280px;
-          width: 280px;
+          height: 200px;
+          width: 200px;
+          padding: 40px;
           transition-duration: 1s;
 
-          @media ${devices.laptop} {
+          @media ${devices.tablet} {
             height: 360px;
             width: 360px;
+            padding: 64px;
           }
         `
-      : null}
+      : css`
+          padding: 8px;
+
+          @media ${devices.tablet} {
+            padding: 12px;
+          }
+      `}
 `
 
 export const BubbleWrapper = styled.div`
@@ -105,4 +145,18 @@ export const ButtonRow = styled.div`
 
 export const TutorialContainer = styled.div`
   position: relative;
+`
+
+type CharacterImageProps = {
+  src: string
+}
+
+export const CharacterImage = styled.div<CharacterImageProps>`
+  width: 100%;
+  height: 100%;
+
+  background-image: ${({ src }) => `url(${src})`};
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 `

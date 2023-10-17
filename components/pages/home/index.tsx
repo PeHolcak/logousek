@@ -11,19 +11,26 @@ import News from './news'
 import AboutAs from './about-us'
 import { useTranslateFunctions } from 'hooks/useTranslateFunctions'
 
-
 const Home = () => {
   const { tCommon } = useTranslateFunctions()
   const { applicationNavItems, sideBarPageNavItems } = useHomeSideBarItems()
 
-  const scrollTarget = useRef<HTMLDivElement | null>(null);
-
+  const scrollTarget = useRef<HTMLDivElement | null>(null)
 
   return (
-    <RouteWrapper colorScheme="white" title={tCommon("appName")}>
+    <RouteWrapper
+      colorScheme="white"
+      title={tCommon('appName')}
+      tutorial={{
+        desktopOffset: 'left',
+      }}
+    >
       <S.HomeWrapper ref={scrollTarget}>
         <S.WelcomeRowWrapper>
-          <Sidebar pageNav={sideBarPageNavItems} applicationNav={applicationNavItems} />
+          <Sidebar
+            pageNav={sideBarPageNavItems}
+            applicationNav={applicationNavItems}
+          />
           <S.Container>
             <Intro scrollTarget={scrollTarget} />
             <GameInfo />

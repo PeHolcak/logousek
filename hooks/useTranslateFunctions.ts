@@ -9,5 +9,6 @@ export const useTranslateFunctions = () => {
     const { t: tGameMenu } = useTranslation('gameMenu')
     const { t: tActivity } = useTranslation('activity')
     const { t: tAdmin } = useTranslation('admin')
-    return { tHome, tCommon, tNotFound, tActivity, tGameMenu, tLogin, tAdmin }
+    const { t: tError } = useTranslation('error')
+    return { tHome, tCommon, tNotFound, tActivity, tGameMenu, tLogin, tAdmin, tError }
 };

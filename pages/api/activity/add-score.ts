@@ -9,6 +9,11 @@ import {
 import {
   addScore,
 } from 'backend/dao/score'
+import {
+  addCredit,
+  createCredit,
+  getCreditByUserId
+} from 'backend/dao/credit'
 import checkUnsupportedKeys from 'backend/dtoIn/check-unsupported-keys'
 
 
@@ -45,6 +50,34 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!user) {
       return res.status(400).json({
         errorCode: 'user_not_found',
+        warnings: warnings
+      })
+    }
+
+
+    let isUserCreditExists = false;
+
+    try {
+      console.log("test9393", await getCreditByUserId(userId))
+      isUserCreditExists = Boolean(await getCreditByUserId(userId))
+    } catch (error) {
+      console.error(error)
+      return res.status(500).json({
+        errorCode: "server_error",
+        warnings: warnings
+      })
+    }
+
+    try {
+      if (isUserCreditExists) {
+        await addCredit(userId, points)
+      } else {
+        await createCredit(userId, points)
+      }
+    } catch (error) {
+      console.error(error)
+      return res.status(500).json({
+        errorCode: "server_error",
         warnings: warnings
       })
     }

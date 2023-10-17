@@ -1,7 +1,7 @@
 import React from 'react'
-import { Popover } from 'antd'
 
 import * as S from './styled'
+import Reference from '@components/reference'
 
 export type ActivityCardType = {
   children?: React.ReactNode
@@ -43,13 +43,7 @@ const ActivityCard: React.FC<ActivityCardType> = ({
         <S.CheckIcon className={'material-icons'}>check</S.CheckIcon>
       ) : null}
       {reference ?
-        <S.ReferenceWrapper>
-          <Popover content={<S.ReferenceContent>{reference}</S.ReferenceContent>} trigger="hover">
-            <S.ReferenceIcon className={'material-icons'}>
-              open_in_browser
-            </S.ReferenceIcon>
-          </Popover>
-        </S.ReferenceWrapper>
+        <Reference reference={reference} />
         : null}
       {children}
     </S.ActivityCardWrapper>

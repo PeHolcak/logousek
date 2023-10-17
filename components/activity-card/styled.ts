@@ -9,7 +9,7 @@ export const ActivityCardWrapper = styled.div<ActivityCardType>`
   }};
   cursor: ${({ cursor }) => cursor};
   border: ${({ theme, selected }) =>
-    selected ? `0.4rem solid ${theme.colors.blue}` : '0rem'};
+    selected ? `0.4rem solid ${theme.colors.blue}` : '0.4rem solid transparent'};
   transition-duration: 0.3s;
   overflow: hidden;
 

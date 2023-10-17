@@ -32,7 +32,9 @@ function AdminPage() {
       colorScheme={themeContext.colors.white}
       title={tAdmin('title')}
       type="privateForAdmin"
-      hideTutorial={true}
+      tutorial={{
+        hide: true,
+      }}
     >
       <S.AdminPageWrapper>
         <S.ClickableIconWrapper>

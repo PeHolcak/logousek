@@ -20,7 +20,7 @@ export const FooterContainer = styled.nav<NavProps>`
   height: 4rem;
   width: ${({ customHeight }) => customHeight || "100%"};
   box-shadow: 0px 5px 40px 0px rgb(58, 58, 58);
-  max-width: 720px;
+  max-width: 640px;
   margin: 0px 10px;
   position: relative;
   background-color: #ffffff;

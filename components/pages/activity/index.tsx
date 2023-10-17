@@ -174,10 +174,8 @@ const Activity = () => {
     console.log("canBeChecked", canBeChecked, wasChanged)
 
     if ((canBeChecked || canBeChecked === undefined) && !wasChanged) {
-      console.log("canBeChecked1")
       setWasChanged(true)
     } else if (wasChanged) {
-      console.log("canBeChecked2")
       setWasChanged(false)
     }
   }
@@ -235,6 +233,9 @@ const Activity = () => {
       colorScheme={themeContext.colors.primary}
       title={`Logoušek - ${getActivityFromConf()?.title}`}
       type="private"
+      tutorial={{
+        mobileOffset: "bottom",
+      }}
     >
       <ActivityHeader
         tasksCount={actualDifficulty.exercisesCount}

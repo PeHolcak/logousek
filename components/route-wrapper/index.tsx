@@ -9,12 +9,20 @@ import PrivateRouteForAdmin from '@components/auth/private-route-for-admin'
 import Tutorial from '@components/tutorial'
 import * as S from './styled'
 
+export type OffsetType = 'left' | 'bottom' | 'right' | 'top' | "none"
+
+type TutorialConf = {
+  mobileOffset?: OffsetType
+  desktopOffset?: OffsetType
+  hide?: boolean
+}
+
 type RouteWrapperProps = {
   title: string
   children: React.ReactElement | React.ReactElement[]
   colorScheme: string
   type?: 'private' | 'onlyPublic' | 'all' | 'privateForAdmin'
-  hideTutorial?: boolean
+  tutorial?: TutorialConf
 }
 
 const BACKGROUND_VARIANTS = {
@@ -49,25 +57,29 @@ const RouteWrapper: React.FC<RouteWrapperProps> = ({
   children,
   colorScheme,
   type = 'all',
-  hideTutorial = false
+  tutorial,
 }) => {
   const router = useRouter()
 
-  const AuthWrapper = useMemo(
-    () => {
-      switch (type) {
-        case "private":
-          return PrivateRoute
-        case "onlyPublic":
-          return OnlyPublicRoute
-        case "privateForAdmin":
-          return PrivateRouteForAdmin
-        default:
-          return PublicRoute
-      }
-    },
-    [type]
-  )
+  const AuthWrapper = useMemo(() => {
+    switch (type) {
+      case 'private':
+        return PrivateRoute
+      case 'onlyPublic':
+        return OnlyPublicRoute
+      case 'privateForAdmin':
+        return PrivateRouteForAdmin
+      default:
+        return PublicRoute
+    }
+  }, [type])
+
+  const tutorialSection = !tutorial?.hide ? (
+    <Tutorial
+      mobileOffset={tutorial?.mobileOffset}
+      desktopOffset={tutorial?.desktopOffset}
+    />
+  ) : null
 
   return (
     <AuthWrapper>
@@ -104,7 +116,7 @@ const RouteWrapper: React.FC<RouteWrapperProps> = ({
           variants={CONTENT_VARIANTS}
         >
           {children}
-          {hideTutorial ? null : <Tutorial />}
+          {tutorialSection}
         </S.ContentWrapper>
       </S.BackgroundWapper>
     </AuthWrapper>

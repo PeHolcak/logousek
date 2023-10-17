@@ -1,32 +1,6 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
-
-type NavProps = { customHeight?: string }
 
 type FooterLinkType = { background?: string }
-
-export const AnimatedFooterContent = styled(motion.div)`
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  bottom: 10px;
-  z-index: 999;
-`;
-
-export const FooterContainer = styled.div<NavProps>`
-  display: flex;
-  height: 4rem;
-  width: ${({ customHeight }) => customHeight || "100%"};
-  box-shadow: 0px 5px 40px 0px rgb(58, 58, 58);
-  max-width: 720px;
-  margin: 0px 10px;
-  position: relative;
-  background-color: #ffffff;
-  border-radius: ${({ theme }) => theme.radius.secondary};
-`;
-
 
 export const FooterLink = styled.a<FooterLinkType>`
   min-width: 60px;
@@ -68,5 +42,3 @@ export const Icon = styled.i`
  font-size: 18px;
 `;
 
-export const FooterWrap = styled.footer`
-`

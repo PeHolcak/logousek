@@ -28,7 +28,6 @@ export const SidebarItemsWrapper = styled.div<SidebarItemsWrapperProps>`
   z-index: ${({ theme }) => {
     return theme.zIndex.xxl
   }};
-  overflow: auto;
   width: ${({ isMenuShow }) => (isMenuShow ? '100vw' : '0px')};
   background: ${({ theme }) => theme.colors.eighty};
   z-index: ${({ theme }) => theme.zIndex.xxl};

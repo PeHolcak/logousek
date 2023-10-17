@@ -35,6 +35,11 @@ const GameMenu: React.FC = () => {
       colorScheme={activeActivitColor}
       title={getTitle()}
       type="private"
+      tutorial={{
+        mobileOffset: 'bottom',
+        desktopOffset: 'none',
+        hide: false,
+      }}
     >
       <S.MenuWrapper>
         <Header />
