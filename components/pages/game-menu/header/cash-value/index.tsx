@@ -4,7 +4,7 @@ import { TextWrap } from '@components/typography/text/styled'
 
 import * as S from './styled'
 
-type CashValueProps = { score?: string }
+type CashValueProps = { score?: string | number }
 
 const CashValue: React.FC<CashValueProps> = ({ score = 0 }) => {
   return (

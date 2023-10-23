@@ -4,17 +4,25 @@ import publicImages from '@constants/public-images'
 
 import * as S from './styled'
 import Reference from '@components/reference'
-import { P3, P5 } from '@components/typography/paragraph'
+import { P5 } from '@components/typography/paragraph'
+import CashValue from '../../../cash-value'
 
 type TopPlayerItemProps = {
   title: string
   score: number
-  index: number
+  isCurrentPlayer: boolean
+  rank?: number
 }
 
-const TopPlayerItem: React.FC<TopPlayerItemProps> = ({ title, score, index }) => {
+const TopPlayerItem: React.FC<TopPlayerItemProps> = ({
+  title,
+  score,
+  isCurrentPlayer,
+  rank
+}) => {
   const image = useMemo(() => {
-    switch (index) {
+    const notNullrank = typeof rank === "number" ? rank + 1 : undefined
+    switch (notNullrank) {
       case 1:
         return publicImages.medals.gold
       case 2:
@@ -22,7 +30,7 @@ const TopPlayerItem: React.FC<TopPlayerItemProps> = ({ title, score, index }) =>
       default:
         return publicImages.medals.bronze
     }
-  }, [index])
+  }, [rank])
 
   return (
     <S.TopPlayerItemWrap>
@@ -39,10 +47,12 @@ const TopPlayerItem: React.FC<TopPlayerItemProps> = ({ title, score, index }) =>
           }
         />
       </S.ImageWrap>
-      <P3 margin="0" align="center">
+      <S.Title isCurrentPlayer={isCurrentPlayer} margin="0" align="center">
         {title}
-      </P3>
-      <P5 align="center">{score}</P5>
+      </S.Title>
+      <P5 align="center">
+        <CashValue score={score} />
+      </P5>
     </S.TopPlayerItemWrap>
   )
 }

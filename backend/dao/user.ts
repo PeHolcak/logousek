@@ -1,6 +1,10 @@
-import prisma from '../../prisma/prisma'
+import { PrismaClient, User } from '@prisma/client'
 
-export const countUsers = async (searchUserString) => {
+const prisma = new PrismaClient()
+
+export const countUsers = async (
+  searchUserString?: string
+): Promise<number> => {
   if (searchUserString) {
     return await prisma.user.count({
       where: {
@@ -30,7 +34,10 @@ export const countUsers = async (searchUserString) => {
   return await prisma.user.count({})
 }
 
-export const countByFirstnameAndSurname = async (firstString, secondString) => {
+export const countByFirstnameAndSurname = async (
+  firstString: string,
+  secondString: string
+): Promise<number> => {
   return await prisma.user.count({
     where: {
       OR: [
@@ -72,11 +79,11 @@ export const countByFirstnameAndSurname = async (firstString, secondString) => {
 }
 
 export const listUsersByFirstnameAndSurname = async (
-  firstString,
-  secondString,
-  limit,
-  cursor
-) => {
+  firstString: string,
+  secondString: string,
+  limit: number,
+  cursor: number
+): Promise<User[]> => {
   return await prisma.user.findMany({
     skip: cursor,
     take: limit,
@@ -119,7 +126,11 @@ export const listUsersByFirstnameAndSurname = async (
   })
 }
 
-export const listUsers = async (searchUserString, limit, cursor) => {
+export const listUsers = async (
+  searchUserString?: string,
+  limit?: number,
+  cursor?: number
+): Promise<User[]> => {
   if (searchUserString) {
     return await prisma.user.findMany({
       skip: cursor,
@@ -155,34 +166,32 @@ export const listUsers = async (searchUserString, limit, cursor) => {
   })
 }
 
-export const getUserByName = async (nickName) => {
-  const user = await prisma.user.findMany({
+export const getUserByName = async (nickName: string): Promise<User[]> => {
+  return await prisma.user.findMany({
     where: { nickName },
   })
-  return user
 }
 
-export const getUserById = async (userId) => {
-  const user = await prisma.user.findUnique({
+export const getUserById = async (userId: string): Promise<User | null> => {
+  return await prisma.user.findUnique({
     where: { id: userId },
   })
-  return user
 }
 
-// CREATE
-export const createUser = async (userData) => {
-  const user = await prisma.user.create({
+export const getUsersByIds = async (userId: string[]): Promise<User[]> => {
+  return await prisma.user.findMany({
+    where: { id: { in: userId } },
+  })
+}
+
+export const createUser = async (userData: Omit<User, 'id'>): Promise<User> => {
+  return await prisma.user.create({
     data: userData,
   })
-  return user
 }
 
-// DELETE
-export const deleteUser = async (id) => {
-  const user = await prisma.user.delete({
-    where: {
-      id,
-    },
+export const deleteUser = async (id: string): Promise<User> => {
+  return await prisma.user.delete({
+    where: { id },
   })
-  return user
 }

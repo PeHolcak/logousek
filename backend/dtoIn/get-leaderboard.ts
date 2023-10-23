@@ -1,7 +1,7 @@
 import { object, string } from 'yup';
 
-const getScoreCountdtoIn = object({
+const getLeaderboardDtoIn = object({
     userId: string().required(),
 }).strict();
 
-export default getScoreCountdtoIn
+export default getLeaderboardDtoIn

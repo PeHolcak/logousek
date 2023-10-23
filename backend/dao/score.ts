@@ -1,11 +1,22 @@
-// /prisma/user.js
-import prisma from '../../prisma/prisma'
+import { PrismaClient, Score } from '@prisma/client'
 import { getEndOfDay, getStartOfDay } from '@helpers/date-helper'
 import { isEmptyArray } from '@helpers/array-helper'
 
-// READ
+const prisma = new PrismaClient()
 
-export const getScoreByUserId = async (userId, activityTypes, from, to) => {
+type GetScoreByUserIdArgs = {
+  userId: string
+  activityTypes?: string[]
+  from?: string
+  to?: string
+}
+
+export const getScoreByUserId = async ({
+  userId,
+  activityTypes,
+  from,
+  to,
+}: GetScoreByUserIdArgs): Promise<Score[]> => {
   const activityType = isEmptyArray(activityTypes)
     ? { in: activityTypes }
     : undefined
@@ -22,7 +33,11 @@ export const getScoreByUserId = async (userId, activityTypes, from, to) => {
   })
 }
 
-export const getScoreCountByUserId = async (userId) => {
+type GetScoreCountByUserIdReturnType = { points: number | null }
+
+export const getScoreCountByUserId = async (
+  userId: string
+): Promise<GetScoreCountByUserIdReturnType> => {
   const result = await prisma.score.aggregate({
     where: { userId },
     _sum: {
@@ -33,12 +48,12 @@ export const getScoreCountByUserId = async (userId) => {
 }
 
 export const addScore = async (
-  userId,
-  score,
-  activityType,
-  difficulty,
-  data
-) => {
+  userId: string,
+  score: number,
+  activityType: string,
+  difficulty: string,
+  data: any
+): Promise<Score> => {
   return await prisma.score.create({
     data: { userId, points: score, activityType, difficulty, data },
   })

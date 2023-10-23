@@ -1,60 +1,78 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { message } from 'antd'
 
 import useLeaderboardData from '@hooks/use-leaderboard-data'
 
+import Loading from '@components/loading'
 import * as S from './styled'
 import TopPlayerItem from './TopPlayerItem'
+import Player from './Player'
 
 const CharacterSelection: React.FC = () => {
-
-
   const [messageApi] = message.useMessage()
-  const { state, usersWithHighestCredit, currentUser } = useLeaderboardData(
-    messageApi
+  const { state, firstThree, other } = useLeaderboardData(messageApi)
+
+  const usersContent = useMemo(
+    () =>
+      other?.map((player, index) => {
+        const isFirst = index === 0
+        const isLast = index + 1 === (other?.length ?? 0)
+
+        return (
+          <Player
+            key={`player_${player.nickName}`}
+            isFirst={isFirst}
+            isLast={isLast}
+            player={player}
+            isCurrent={player.isCurrentUser}
+          />
+        )
+      }),
+    [other]
   )
 
-  console.log("state33", state, usersWithHighestCredit, currentUser)
+  const topPlayersContent = useMemo(
+    () => {
+      if (firstThree) {
+        const sortedArray = [firstThree[1], firstThree[0], firstThree[2]]
+        console.log("sortedArray", sortedArray)
+        return sortedArray?.map((user) => (
+          <TopPlayerItem
+            key={`top_player_${user.nickName}`}
+            title={user.nickName}
+            score={user.amount ?? 0}
+            rank={user.rank}
+            isCurrentPlayer={user.isCurrentUser}
+          />
+        ))
+      } return undefined
+    }
+    ,
+    [firstThree]
+  )
 
-  const players = [
-    { name: 'Petr Pavel', score: 55000 },
-    { name: 'Anna Marie', score: 50000 },
-    { name: 'Karel Václav', score: 45000 },
-  ]
+  if (state === 'loading') {
+    return (
+      <S.CharacterSelectionWrapper>
+        <S.LoadingWrap>
+          <Loading />
+        </S.LoadingWrap>
+      </S.CharacterSelectionWrapper>
+    )
+  }
 
-  const currentPlayer = { name: 'Petr Pavel', score: 55000 }
+  if (state === 'error') {
+    return (
+      <S.CharacterSelectionWrapper>
+        Data se nepodařilo načíst
+      </S.CharacterSelectionWrapper>
+    )
+  }
 
   return (
     <S.CharacterSelectionWrapper>
-      <S.TopPlayerWrapper>
-        <TopPlayerItem title="Petr Pavel" score={55000} index={2} />
-        <TopPlayerItem title="Petr Pavel" score={55000} index={1} />
-        <TopPlayerItem title="Petr Pavel" score={55000} index={3} />
-      </S.TopPlayerWrapper>
-
-      <S.Others>
-        {players.map((player, index) => (
-          <S.Player key={index}>
-            <S.Rank>{index + 1}.</S.Rank>
-            <S.Name>{player.name}</S.Name>
-            <S.Score>{player.score}</S.Score>
-          </S.Player>
-        ))}
-      </S.Others>
-
-      <S.Space>
-        <S.Dot />
-        <S.Dot />
-        <S.Dot />
-      </S.Space>
-
-      <S.CurrentPlayer>
-        <S.Player>
-          <S.Rank>128.</S.Rank>
-          <S.Name>{currentPlayer.name}</S.Name>
-          <S.Score>{currentPlayer.score}</S.Score>
-        </S.Player>
-      </S.CurrentPlayer>
+      <S.TopPlayerWrapper>{topPlayersContent}</S.TopPlayerWrapper>
+      <S.Others>{usersContent}</S.Others>
     </S.CharacterSelectionWrapper>
   )
 }
