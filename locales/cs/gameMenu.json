@@ -1,3 +1,6 @@
 {
-  "title": "Logoušek - {{test}}"
+  "title": "Logoušek - {{test}}",
+  "purchasedSuccessfully": "Úspěšně koupeno",
+  "characterChangeSuccessfully": "Character se úspěšně změnil",
+  "auraChangeSuccessfully": "Aura se úspěšně změnila"
 }

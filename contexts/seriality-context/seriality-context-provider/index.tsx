@@ -6,13 +6,12 @@ import React, {
 } from 'react'
 import SerialityContext from '..'
 import { SvgWrapper } from './styled'
-import { shuffle, getRandomElementFromList } from '@helpers/array-helper'
+import { shuffle } from '@helpers/array-helper'
 import { threePictures } from 'constants/activity-confs/seriality-conf'
 
 export type SerialityContextProviderInterface = {
   checkResult: () => boolean
 }
-
 
 type SerialityContextProviderType = {
   children: any,

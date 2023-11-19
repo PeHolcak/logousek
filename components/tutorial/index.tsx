@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { ThemeContext } from 'styled-components'
 
 import Bubble from '@components/bubble'
@@ -11,6 +11,8 @@ import publicImages from '@constants/public-images'
 
 import { OffsetType } from '@components/route-wrapper'
 import * as S from './styled'
+import UserSettingsContext from '@contexts/user-settings-context'
+import { CHARACTERS_CONFIG } from '@constants/shop'
 
 const config: TutorialConfigType = [
     {
@@ -60,10 +62,21 @@ const Tutorial: React.FC<TutorialProps> = ({
     const { text, runTutorial, isTutorialOpened, reset, next, canBeConfirmed } =
         useTutorial(config)
     const themeContext = useContext(ThemeContext)
+    const userSettingsContext = useContext(UserSettingsContext)
 
     const startTutorial = () => {
         runTutorial()
     }
+
+    const DEFAULT_AURA = useMemo(() => themeContext.colors.lightGreen, [themeContext.colors.lightGreen])
+    const DEFAULT_CHARACTER = useMemo(() => publicImages.characters.beaver, [])
+
+    const characterImgSrc = useMemo(() => {
+        const foundCharacter = CHARACTERS_CONFIG.find(character => userSettingsContext?.character === character.name)
+        return foundCharacter?.imageSrc ?? DEFAULT_CHARACTER
+    }, [DEFAULT_CHARACTER, userSettingsContext?.character])
+
+    const aura = useMemo(() => userSettingsContext?.aura ?? DEFAULT_AURA, [DEFAULT_AURA, userSettingsContext?.aura])
 
     return (
         <S.TutorialWrapper
@@ -73,16 +86,16 @@ const Tutorial: React.FC<TutorialProps> = ({
         >
             <S.TutorialContainer>
                 <Blob
-                    color={themeContext.colors.lightGreen}
+                    color={aura}
                     isBlobShowed={isTutorialOpened}
                     name="TutorialBlob"
                 >
                     <S.BlobContainer isTutorialOpened={isTutorialOpened}>
                         <S.CharacterWrapper
-                            onClick={startTutorial}
+                            onMouseDown={startTutorial}
                             isTutorialOpened={isTutorialOpened}
                         >
-                            <S.CharacterImage src={publicImages.characters.beaver} />
+                            <S.CharacterImage src={characterImgSrc} />
                             {isTutorialOpened ? (
                                 <Reference reference={IMAGES_REFERENCE} />
                             ) : null}

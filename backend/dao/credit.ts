@@ -79,6 +79,20 @@ export const addCredit = async (
   })
 }
 
+export const removeCredit = async (
+  userId: string,
+  creditAmount: number
+): Promise<Credit> => {
+  return await prisma.credit.update({
+    where: { userId: userId },
+    data: {
+      amount: {
+        decrement: creditAmount,
+      },
+    },
+  })
+}
+
 export const createCredit = async (
   userId: string,
   creditAmount: number

@@ -34,8 +34,6 @@ const Syllables = (
 ) => {
     const contextProviderRef = useRef<DndContextProviderInterface>(null)
     const [element] = useState<Syllable>(getSyllablesConfElement(complexity))
-    console.log('element2', element)
-    // img: React.ReactElement, keyImage: string, reference ?: React.ReactNode
     const cards = useMemo(
         () =>
             element.pairs.reduce(
@@ -70,7 +68,6 @@ const Syllables = (
             generateNext: () => { },
         })
     )
-    console.log("cards", cards)
     return (
         <div>
             <DndContextProvider

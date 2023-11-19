@@ -1,5 +1,9 @@
 {
   "leaderboard": {
     "getDataError": "Nepodařilo se načíst data žebříčku"
+  },
+  "userSettings": {
+    "characterChangeError": "Character se nepovedlo změnit",
+    "auraChangeError": "Auru se nepovedlo změnit"
   }
 }

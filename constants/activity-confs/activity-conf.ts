@@ -47,10 +47,10 @@ export const games: GamesType = {
       description:
         'hra rozvíjí zrakovou diferenciaci, která je důležitým  předpokladem mimo jiné k úspěšnému zvládnutí čtení a psaní. Hra rozvíjí rozlišovací schopnost vnímání detailů a polohy.',
       difficulty: [
-        { id: 1, level: 1, points: 10, exercisesCount: 5 },
-        { id: 2, level: 2, points: 20, exercisesCount: 8 },
-        { id: 3, level: 3, points: 30, exercisesCount: 8 },
-        { id: 4, level: 4, points: 50, exercisesCount: 10 },
+        { id: 1, level: 1, points: 1, exercisesCount: 5 },
+        { id: 2, level: 2, points: 2, exercisesCount: 8 },
+        { id: 3, level: 3, points: 3, exercisesCount: 8 },
+        { id: 4, level: 4, points: 5, exercisesCount: 10 },
       ],
     },
     {
@@ -60,9 +60,9 @@ export const games: GamesType = {
         'Hra rozvíjí zrakovou analýzu a syntézu, dítě se tak učí vnímat jednotlivé části a tvořit z nich celek.',
       image: publicImages.activityIcons.a_s,
       difficulty: [
-        { id: 1, level: 1, points: 10, exercisesCount: 5 },
-        { id: 2, level: 2, points: 20, exercisesCount: 8 },
-        { id: 3, level: 3, points: 30, exercisesCount: 10 },
+        { id: 1, level: 1, points: 1, exercisesCount: 5 },
+        { id: 2, level: 2, points: 2, exercisesCount: 8 },
+        { id: 3, level: 3, points: 3, exercisesCount: 10 },
       ],
     },
     {
@@ -72,10 +72,10 @@ export const games: GamesType = {
         'Hra rozvíjí schopnost zapamatování si zrakově vnímaných objektů, tato schopnost ovlivňuje učení, umožní správné zapamatování a vybavování si symbolů, písmen a číslic.',
       image: publicImages.activityIcons.memory,
       difficulty: [
-        { id: 1, level: 1, points: 10, exercisesCount: 5 },
-        { id: 2, level: 2, points: 20, exercisesCount: 8 },
-        { id: 3, level: 3, points: 30, exercisesCount: 8 },
-        { id: 4, level: 4, points: 70, exercisesCount: 10 },
+        { id: 1, level: 1, points: 1, exercisesCount: 5 },
+        { id: 2, level: 2, points: 2, exercisesCount: 8 },
+        { id: 3, level: 3, points: 3, exercisesCount: 8 },
+        { id: 4, level: 4, points: 5, exercisesCount: 10 },
       ],
     },
   ],
@@ -86,9 +86,9 @@ export const games: GamesType = {
       description:
         'Hra rozvíjí sluchovou diferenciaci pomocí známých zvuků z okolí.',
       difficulty: [
-        { id: 1, level: 1, points: 10, exercisesCount: 5 },
-        { id: 2, level: 2, points: 20, exercisesCount: 8 },
-        { id: 3, level: 3, points: 30, exercisesCount: 10 },
+        { id: 1, level: 1, points: 1, exercisesCount: 5 },
+        { id: 2, level: 2, points: 2, exercisesCount: 8 },
+        { id: 3, level: 3, points: 3, exercisesCount: 10 },
       ],
       image: publicImages.activityIcons.differentiation,
     },
@@ -97,7 +97,7 @@ export const games: GamesType = {
       title: 'Slova',
       description:
         'Hra rozvíjí sluchovou diferenciaci u podobně znějících slov. Sluchová diferenciace je schopnost sluchem rozpoznat zvukově podobné hlásky, tvrdé a měkké slabiky a různé délky hlásek.',
-      difficulty: [{ id: 1, level: 1, points: 10, exercisesCount: 5 }],
+      difficulty: [{ id: 1, level: 1, points: 1, exercisesCount: 5 }],
       image: publicImages.activityIcons.words,
     },
     {
@@ -106,9 +106,9 @@ export const games: GamesType = {
       description:
         'Hra rozvíjí schopnost zapamatování si sluchově vnímaných objektů, tato schopnost ovlivňuje učení, umožní správné zapamatování a vybavování si slyšených slov. ',
       difficulty: [
-        { id: 1, level: 1, points: 10, exercisesCount: 5 },
-        { id: 2, level: 2, points: 20, exercisesCount: 8 },
-        { id: 3, level: 3, points: 30, exercisesCount: 10 },
+        { id: 1, level: 1, points: 1, exercisesCount: 5 },
+        { id: 2, level: 2, points: 2, exercisesCount: 8 },
+        { id: 3, level: 3, points: 3, exercisesCount: 10 },
       ],
       image: publicImages.activityIcons.memory,
     },

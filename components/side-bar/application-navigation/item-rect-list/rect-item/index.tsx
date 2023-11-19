@@ -5,7 +5,7 @@ export type RectItemProps = { name: string, icon: string, title: string, onClick
 
 const RectItem: React.FC<RectItemProps> = ({ title, icon, onClick }) => {
   return (
-    <S.RectItemWrapper onClick={onClick}>
+    <S.RectItemWrapper onMouseDown={onClick}>
       <S.Picture src={icon} />
       <S.RectItemDesc>{title}</S.RectItemDesc>
     </S.RectItemWrapper>

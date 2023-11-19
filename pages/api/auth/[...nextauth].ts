@@ -44,13 +44,16 @@ export const authOptions: NextAuthOptions = {
                         throw new Error('Wrong dtoIn')
                     }
                 } else {
-                    const { nickName } = credentials || {}
-                    const user = (await getUserByName(nickName))[0]
-                    return {
-                        id: user.id,
-                        name: `${user.firstName}`,
-                        role: user.type || 'nic',
+                    const { nickName } = credentials ?? {}
+                    if (nickName) {
+                        const user = (await getUserByName(nickName))[0]
+                        return {
+                            id: user.id,
+                            name: `${user.firstName}`,
+                            role: user.type || 'nic',
+                        }
                     }
+                    return {}
                 }
             },
         }),

@@ -5,7 +5,7 @@ type CloseIconProps = { onClick: () => void }
 
 const CloseIcon: React.FC<CloseIconProps> = ({ onClick }) => {
   return (
-    <S.IconWrapper onClick={onClick}>
+    <S.IconWrapper onMouseDown={onClick}>
       <S.Icon className={'material-icons'}>close</S.Icon>
     </S.IconWrapper>
   )

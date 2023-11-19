@@ -1,9 +1,13 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useContext } from 'react'
+import { ThemeContext } from 'styled-components'
 
 import * as S from './styled'
 import CashValue from '../../../cash-value'
 import Reference from '@components/reference'
 import { IMAGES_REFERENCE } from '@constants/character-conf'
+import Button, { ButtonSizesEnum } from '@components/button'
+import Loading from '@components/loading'
+import Overlap from './Overlap'
 
 type StoreItemProps = {
   imageSrc?: string
@@ -12,6 +16,9 @@ type StoreItemProps = {
   label: string
   cost: string | number
   isOwned: boolean
+  onItemBuyHandler: () => void
+  disabled: boolean
+  isInProgress: boolean
 }
 
 const StoreItem: React.FC<StoreItemProps> = ({
@@ -20,7 +27,11 @@ const StoreItem: React.FC<StoreItemProps> = ({
   cost,
   isOwned,
   customContent,
+  onItemBuyHandler,
+  disabled,
+  isInProgress,
 }) => {
+
   const costcustomContent = useMemo(() => {
     if (typeof cost === 'number') {
       return <CashValue score={cost.toString()} />
@@ -44,13 +55,20 @@ const StoreItem: React.FC<StoreItemProps> = ({
     return null
   }, [customContent, imageSrc])
 
+
   return (
     <S.StoreItemWrapper>
-      <S.StoreItemContainer isOwned={isOwned}>
-        <S.Label align="center">{label}</S.Label>
-        <S.ImageWrap>{getContent}</S.ImageWrap>
-      </S.StoreItemContainer>
+      <S.Label align="center">{label}</S.Label>
+      <S.ImageWrapper isOwned={isOwned}>
+        <S.ImageContainer>{getContent}</S.ImageContainer>
+      </S.ImageWrapper>
       <S.Cost align="center">{costcustomContent}</S.Cost>
+      <Overlap
+        isOwned={isOwned}
+        onItemBuyHandler={onItemBuyHandler}
+        disabled={disabled}
+        isInProgress={isInProgress}
+      />
     </S.StoreItemWrapper>
   )
 }

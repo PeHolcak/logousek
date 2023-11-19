@@ -18,7 +18,6 @@ const PrivateRouteForAdmin: React.FC<PrivateRouteProps> = ({ children }) => {
     }, [session.status]);
 
     const checkRole = useCallback(() => {
-        console.log("session?.data?.user", session?.data?.user)
         if ((session?.data?.user as any).role === "ADMIN") {
             return (
                 <>{children}</>

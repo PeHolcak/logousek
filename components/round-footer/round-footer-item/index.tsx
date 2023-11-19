@@ -60,7 +60,7 @@ const RoundFooterItem: React.FC<RoundFooterItemType> = ({
   return (
     <S.FooterLink
       key={`FooterConfButton-${name}`}
-      onClick={onLinkClickHandler}
+      onMouseDown={onLinkClickHandler}
       style={customStyles}
       background={background}
     >

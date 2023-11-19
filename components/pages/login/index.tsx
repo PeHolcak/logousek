@@ -51,7 +51,7 @@ const Login: React.FC = () => {
       <S.LoginWrapper>
         <S.Header>
           <P5 margin='0'>{tLogin("register.haveNotAnAccountYet")}</P5>
-          <S.Link margin='0' onClick={register}>{tLogin("register.register")}</S.Link>
+          <S.Link margin='0' onMouseDown={register}>{tLogin("register.register")}</S.Link>
         </S.Header>
         <S.LoginButtonsWrapper>
           <Button onClick={loginAsUser}>{tLogin("loginButtons.userLogin")}</Button>

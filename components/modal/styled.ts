@@ -52,12 +52,21 @@ export const ModalWrapper = styled.div<ModalWrapperType>`
 export const ModalContainer = styled.div<ModalContainerProps>`
   display: flex;
   flex-direction: column;
-  margin: 1rem;
-  padding: 0.5rem 1rem;
+  margin: 0px;
+  padding: 0;
   width: ${({ autoWidth }) => autoWidth ? "auto" : "100vw"};
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.4);
   border-radius: ${({ theme }) => theme.radius.primary};
+
+  @media ${devices.mobileM} {
+    margin: 8px;
+    padding: 0.5rem 1rem;
+  }
+
+  @media ${devices.mobileL} {
+    margin: 1rem;
+  }
 
   @media ${devices.tablet} {
     width: ${({ autoWidth }) => autoWidth ? "auto" : "70vw"};

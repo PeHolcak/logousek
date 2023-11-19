@@ -1,14 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useSession } from 'next-auth/react'
-import axios from 'axios'
 
+import { getUserCredit } from 'calls/credit-calls';
 
-export const usePlayerScore = (): [{ score?: string }] => {
+type UsePlayerScoreReturnType = { score?: number, refreshUserScore: () => void }
+
+export const usePlayerScore = (): UsePlayerScoreReturnType => {
 
     const sessionData = useSession()
-    const [score, setScore] = useState<string | undefined>();
+    const [score, setScore] = useState<number | undefined>();
 
-    useEffect(() => {
+    const refreshUserScore = useCallback(() => {
         const userData = sessionData.data?.user as {
             email: string
             name: string
@@ -16,12 +18,18 @@ export const usePlayerScore = (): [{ score?: string }] => {
         }
         if (userData?.id) {
             const getData = async () => {
-                const res = await axios.get('/api/activity/get-score-count', { params: { userId: userData?.id } });
+                const res = await getUserCredit(userData?.id);
                 setScore(res?.data?.points)
             }
             getData()
         }
     }, [sessionData.data?.user])
 
-    return [{ score }]
+
+    useEffect(() => {
+        refreshUserScore()
+    }, [refreshUserScore])
+
+
+    return { score, refreshUserScore }
 };

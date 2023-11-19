@@ -171,7 +171,6 @@ const Activity = () => {
   }
 
   const onHandleChanged = (canBeChecked?: boolean) => {
-    console.log("canBeChecked", canBeChecked, wasChanged)
 
     if ((canBeChecked || canBeChecked === undefined) && !wasChanged) {
       setWasChanged(true)

@@ -8,10 +8,11 @@ import { TStylesType } from '@components/typography/text/styled'
 import * as S from './styled'
 
 type LoadingProps = {
-    textType?: TStylesType["type"]
+    textType?: TStylesType['type']
+    hideText?: boolean
 }
 
-const Loading: React.FC<LoadingProps> = ({ textType = "ghost" }) => {
+const Loading: React.FC<LoadingProps> = ({ textType = 'ghost', hideText }) => {
     const { tCommon } = useTranslateFunctions()
     const [textDotsCount, setTextDotsCount] = useState(3)
 
@@ -38,13 +39,13 @@ const Loading: React.FC<LoadingProps> = ({ textType = "ghost" }) => {
     return (
         <S.LoadingWrapper>
             <S.LoadingAnimation>{loadingAnimationParts}</S.LoadingAnimation>
-            <P3
-                style={{ width: '120px', paddingLeft: '12px' }}
-                type={textType}
-            >{`${tCommon('loading')}${getEmptyArray(textDotsCount)
-                .map(() => '.')
-                .join('')}`}
-            </P3>
+            {!hideText ? (
+                <P3 style={{ width: '120px', paddingLeft: '12px' }} type={textType}>
+                    {`${tCommon('loading')}${getEmptyArray(textDotsCount)
+                        .map(() => '.')
+                        .join('')}`}
+                </P3>
+            ) : null}
         </S.LoadingWrapper>
     )
 }

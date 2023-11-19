@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Button, { ButtonProps } from '@components/button';
+import Button, { ButtonProps, ButtonSizesEnum } from '@components/button';
 
 const meta: Meta<ButtonProps> = {
   title: 'ApplicationModel/Components/Button',
@@ -37,10 +37,47 @@ export default meta;
 
 type Story = StoryObj<ButtonProps>;
 
-export const Primary: Story = {
+export const ExtraSmall: Story = {
   args: {
     children: 'Button',
     backgroundColor: "#aaaaff",
+    size: ButtonSizesEnum.xs,
     color: "#fff"
+  },
+};
+
+export const Small: Story = {
+  args: {
+    children: 'Button',
+    backgroundColor: "#aaaaff",
+    size: ButtonSizesEnum.s,
+    color: "#fff"
+  },
+};
+
+export const Medium: Story = {
+  args: {
+    children: 'Button',
+    backgroundColor: "#aaaaff",
+    size: ButtonSizesEnum.md,
+    color: "#fff"
+  },
+};
+
+export const Large: Story = {
+  args: {
+    children: 'Button',
+    backgroundColor: "#aaaaff",
+    size: ButtonSizesEnum.lg,
+    color: "#fff"
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    children: 'Button',
+    backgroundColor: "#fff",
+    disabled: true,
+    color: "#000"
   },
 };

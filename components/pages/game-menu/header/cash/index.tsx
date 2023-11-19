@@ -1,16 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
-import { usePlayerScore } from '@hooks/usePlayerData'
+import GameMenuContext from '@contexts/game-menu-context'
 
 import * as S from './styled'
 import CashValue from '../cash-value'
 
 
 const Cash: React.FC = () => {
-  const [{ score }] = usePlayerScore()
+  const gameMenuData = useContext(GameMenuContext)
   return (
     <S.CashWrapper key="game-menu-coins">
-      <CashValue score={score} />
+      <CashValue score={gameMenuData?.score} />
     </S.CashWrapper>
   )
 }

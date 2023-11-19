@@ -8,10 +8,15 @@ export const CharacterSelectionWrap = styled.div`
 export const ItemList = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: 4px;
   background-color: rgba(155,155,155, 0.4);
-  padding: 12px;
+  padding: 4px;
   border-radius: 16px;
+
+  @media ${devices.mobileM} {
+    padding: 12px;
+  gap: 16px;
+  }
 
   @media ${devices.tablet} {
     grid-template-columns: repeat(3, 1fr);
@@ -22,12 +27,29 @@ export const ItemList = styled.div`
   }
 `
 
-
-export const CharacterSelectionContainer = styled.div`
+export const CharacterSelectionContent = styled.div`
   max-height: 80vh;
   height: 100%;
   
   overflow-x: hidden;
   overflow-y: auto;
   
+`
+
+export const CharacterSelectionContainer = styled.div`
+  position: relative;
+
+  border-radius: ${({ theme }) => theme.radius.primary};
+`
+
+export const LoadingWrap = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128,128,128,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: ${({ theme }) => theme.zIndex.xxl};
 `

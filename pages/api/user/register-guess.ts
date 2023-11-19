@@ -1,11 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+import { TYPE } from '@prisma/client'
 
 import { createUser } from 'backend/dao/user'
 import checkUnsupportedKeys from 'backend/dtoIn/check-unsupported-keys'
 
 const DEFAULT_VALUES = {
   firstName: 'Guess',
-  type: 'HOST',
+  surName: null,
+  password: null,
+  type: TYPE.ADMIN,
 }
 
 async function registerGuess(req: NextApiRequest, res: NextApiResponse) {

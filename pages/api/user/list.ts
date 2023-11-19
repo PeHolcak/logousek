@@ -1,5 +1,6 @@
 // import prisma from "@/lib/prisma";
 import { NextApiRequest, NextApiResponse } from 'next'
+import { User } from '@prisma/client'
 
 import authorize from 'backend/middleware/authorize'
 import checkUnsupportedKeys from 'backend/dtoIn/check-unsupported-keys'
@@ -12,8 +13,12 @@ import {
   countByFirstnameAndSurname,
 } from 'backend/dao/user'
 
+type ListUsersRequest = NextApiRequest & {
+  query: { searchUserString?: string, limit?: number, cursor?: number }
+}
 
-async function listUsersMiddleware(req: NextApiRequest, res: NextApiResponse) {
+
+async function listUsersMiddleware(req: ListUsersRequest, res: NextApiResponse) {
   // 1. Check httpMethod
   // The method must be post because an array is being sent in dtoIn
   if (req.method === "GET") {
@@ -31,7 +36,7 @@ async function listUsersMiddleware(req: NextApiRequest, res: NextApiResponse) {
       //3.2. dtoIn contains keys beyond the scope of dtoInType
       const warnings = checkUnsupportedKeys(["searchUserString", "limit", "cursor"], req?.query)
 
-      let users = []
+      let users: User[] = []
       let totalUsersCount = 0
 
       const { searchUserString, limit = 5, cursor = 0 } = req.query

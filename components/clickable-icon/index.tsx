@@ -5,7 +5,7 @@ export type ClickableIconProps = { onClick: () => void, icon: string, fontSize?:
 
 const ClickableIcon: React.FC<ClickableIconProps> = ({ onClick, icon, fontSize, id, color }) => {
   return (
-    <S.Link onClick={typeof onClick === 'function' ? onClick : undefined} >
+    <S.Link onMouseDown={typeof onClick === 'function' ? onClick : undefined} >
       <S.StyledIcon fontSize={fontSize} className={'material-icons'} id={id} color={color}>{icon}</S.StyledIcon>
     </S.Link>
   )

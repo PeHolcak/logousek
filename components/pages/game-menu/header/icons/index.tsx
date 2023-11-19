@@ -1,8 +1,9 @@
-import React, { useContext, useCallback } from 'react'
+import React, { useContext, useCallback, useMemo } from 'react'
 import { signOut } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 
+import GameMenuContext from '@contexts/game-menu-context'
 import ClickableIcon from '@components/clickable-icon'
 import ClickableIconWrapper from '@components/clickable-icon-wrapper'
 import DarkModeSwitch from '@components/dark-mode-switch'
@@ -19,6 +20,18 @@ const Icons: React.FC = () => {
   const router = useRouter()
   const sessionData = useSession()
   const modalContext = useContext(ModalContext)
+  const gameMenuData = useContext(GameMenuContext)
+
+  const userScore = useMemo(
+    () => gameMenuData?.score ?? 0,
+    [gameMenuData?.score]
+  )
+
+  const refreshUserScore = useMemo(
+    () => (gameMenuData?.refreshUserScore ?? (() => { })),
+    [gameMenuData?.refreshUserScore]
+  )
+
 
   const onLogoutHandler = useCallback(() => {
     signOut()
@@ -34,10 +47,10 @@ const Icons: React.FC = () => {
   const editCharacter = useCallback(() => {
     modalContext?.showModal({
       header: "Obchod",
-      content: <Store />,
+      content: <Store userScore={userScore} refreshUserScore={refreshUserScore} />,
       autoWidth: true,
     })
-  }, [modalContext])
+  }, [modalContext, refreshUserScore, userScore])
 
   const showLeaderboard = useCallback(() => {
     modalContext?.showModal({
@@ -63,7 +76,6 @@ const Icons: React.FC = () => {
       <S.DarkModeSwitchWrapper>
         <DarkModeSwitch />
       </S.DarkModeSwitchWrapper>
-
       <ClickableIcon icon="logout" onClick={onLogoutHandler} />
       {(sessionData?.data?.user as any)?.role === "ADMIN" ? <ClickableIcon icon="poll" onClick={onAdminPagesRedirect} /> : <></>}
     </ClickableIconWrapper>

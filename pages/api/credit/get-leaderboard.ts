@@ -32,11 +32,7 @@ export type GetLeaderBoardDtoOut = {
     users?: UserWithCredit[]
 }
 
-type GetLeaderboadApiRequest = NextApiRequest & {
-    query: {
-        userId?: string
-    }
-}
+type GetLeaderboadApiRequest = NextApiRequest
 
 const getNickname = (user?: User) => {
     if (!user) {

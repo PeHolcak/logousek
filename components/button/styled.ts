@@ -41,6 +41,11 @@ export const ButtonRowWrapper = styled.button<ButtonRowWrapperProps>`
           padding: 1rem 2rem;
           font-size: 1.2rem;
         `
+      case 'lg':
+        return css`
+            padding: 1.6rem 4.1rem;
+            font-size: 1.6rem;
+          `
       default:
         return css`
           padding: 1.5rem 4rem;

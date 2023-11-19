@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+import { getSession } from 'next-auth/react'
 
 import getScoreCountdtoIn from 'backend/dtoIn/get-score-count'
 import checkUnsupportedKeys from 'backend/dtoIn/check-unsupported-keys'
@@ -12,6 +13,9 @@ import {
 } from 'backend/dao/user'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    const session = await getSession({ req })
+    const currentUserId = (session as any)?.user?.id
+
     // 1. Check httpMethod
     if (req.method === "GET") {
         //2. Check dtoIn
@@ -25,12 +29,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const warnings = checkUnsupportedKeys(["userId"], req.body)
 
 
-        const { userId } = req.query
 
         //3. Check if the userId from dtoIn exists
         let user
         try {
-            user = await getUserById(userId)
+            user = await getUserById(currentUserId)
         } catch (err) {
             //3.1. Failed to get data from the database and an error was thrown
             console.error(err)
@@ -50,7 +53,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         //4. Get score count from the database
         try {
-            const result = await getScoreCountByUserId(userId);
+            const result = await getScoreCountByUserId(currentUserId);
             //5. Returns properly filled dtoOut.
             return res.status(200).json({
                 points: result?.points,

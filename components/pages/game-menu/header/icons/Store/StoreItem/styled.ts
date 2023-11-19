@@ -41,7 +41,23 @@ export const Cost = styled(P5)`
 type StoreItemContainerProps = {
   isOwned: boolean
 }
-export const StoreItemContainer = styled.div<StoreItemContainerProps>`
+
+export const StoreItemWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  
+  position: relative;
+
+`
+
+export const ImageContainer = styled.div`
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+`
+export const ImageWrapper = styled.div<StoreItemContainerProps>`
   ${({ isOwned }) => isOwned ? null : css`
     filter:  grayscale(100%) brightness(0.5) blur(5px);
   `}
@@ -51,17 +67,12 @@ export const StoreItemContainer = styled.div<StoreItemContainerProps>`
   gap: 8px;
 `
 
-export const StoreItemWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-
-  cursor: pointer;
-`
-
-export const ImageWrap = styled.div`
-  position: relative;
+export const ImageOverlapElementWrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
 
   display: flex;
   justify-content: center;
+  align-items: center;
 `

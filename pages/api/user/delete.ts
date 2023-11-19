@@ -15,7 +15,6 @@ async function deleteUserMiddleware(req: NextApiRequest, res: NextApiResponse) {
   // The method must be post because an array is being sent in dtoIn
   if (req.method === "POST") {
     const isAuthorized = await authorize(req, res, "ADMIN")
-    console.log(10, req?.body, typeof req?.body === "object")
     //2. Check if the user has rights to call this endpoint
     if (isAuthorized) {
       //3. Check dtoIn

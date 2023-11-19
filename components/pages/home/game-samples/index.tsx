@@ -12,7 +12,6 @@ import * as S from "./styled"
 const GameSamples: React.FC = () => {
   const { tHome } = useTranslateFunctions()
   const videoEl = useRef<any>(null)
-  console.log("videoEl", videoEl)
   const handleLoadedMetadata = () => {
     const video = videoEl.current
     if (!video) return

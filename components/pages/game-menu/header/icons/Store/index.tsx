@@ -1,195 +1,199 @@
-import React, { useMemo, useContext, useState, useCallback } from 'react'
+import React, {
+  useMemo,
+  useContext,
+  useState,
+  useCallback,
+  useEffect,
+} from 'react'
 import { ThemeContext } from 'styled-components'
+import { message } from 'antd'
 
-import publicImages from '@constants/public-images'
-
-import * as S from './styled'
-import CharacterItem from './StoreItem'
-import ActivityCard from '@components/activity-card'
 import { H2 } from '@components/typography/header'
-import Blob from '@components/svg/blob/blob'
 import ButtonRow from '@components/button-row/button-row'
 import Button, { ButtonSizesEnum } from '@components/button'
+import useShop from '@hooks/use-shop'
+import { AURAS_CONFIG, CHARACTERS_CONFIG, ItemType } from '@constants/shop'
 
-const CHARACTERS_CONFIG = [
-  {
-    name: 'beaver',
-    label: 'Bobr',
-    cost: 0,
-    imageSrc: publicImages.characters.beaver,
-  },
-  {
-    name: 'rabbit',
-    label: 'Králík',
-    cost: 500,
-    imageSrc: publicImages.characters.rabbit,
-  },
-  {
-    name: 'raccoon',
-    label: 'Mýval',
-    cost: 700,
-    imageSrc: publicImages.characters.raccoon,
-  },
-  {
-    name: 'cat',
-    label: 'Kočka',
-    cost: 1100,
-    imageSrc: publicImages.characters.cat,
-  },
-  {
-    name: 'fox',
-    label: 'Liška',
-    cost: 2000,
-    imageSrc: publicImages.characters.fox,
-  },
-  {
-    name: 'hippo',
-    label: 'Hroch',
-    cost: 3000,
-    imageSrc: publicImages.characters.hippo,
-  },
-  {
-    name: 'seaLion',
-    label: 'Lachtan',
-    cost: 5000,
-    imageSrc: publicImages.characters.seaLion,
-  },
-  {
-    name: 'deer',
-    label: 'Jelen',
-    cost: 8000,
-    imageSrc: publicImages.characters.deer,
-  },
-  {
-    name: 'bear',
-    label: 'Medvěd',
-    cost: 15000,
-    imageSrc: publicImages.characters.bear,
-  },
-  {
-    name: 'elephant',
-    label: 'Slon',
-    cost: 25000,
-    imageSrc: publicImages.characters.elephant,
-  },
-  {
-    name: 'lion',
-    label: 'Lev',
-    cost: 40000,
-    imageSrc: publicImages.characters.lion,
-  },
-]
+import AuraActivityCard from './AuraActivityCard'
+import CharacterActivityCard from './CharacterActivityCard'
+import * as S from './styled'
+import useUserSettings from '@hooks/use-user-settings'
+import Loading from '@components/loading'
+import UserSettingsContext from '@contexts/user-settings-context'
+import { P3 } from '@components/typography/paragraph'
 
-const AURAS_CONFIG = [
-  {
-    name: 'red',
-    label: 'Červená',
-    cost: 0,
-    color: 'red',
-  },
-  {
-    name: 'green',
-    label: 'Zelená',
-    cost: 1000,
-    color: 'green',
-  },
-  {
-    name: 'blue',
-    label: 'Modrá',
-    cost: 1000,
-    color: 'blue',
-  },
-  {
-    name: 'transparent',
-    label: 'Průhledná',
-    cost: 1000,
-    color: 'transparent',
-  },
-]
+type CharacterSelectionProps = {
+  userScore: number
+  refreshUserScore: () => void
+}
 
-const CharacterSelection: React.FC = () => {
+const CharacterSelection: React.FC<CharacterSelectionProps> = ({
+  userScore,
+  refreshUserScore,
+}) => {
   const [selectedCharacter, setSelectedCharacter] = useState('deer')
   const [selectedAuras, setSelectedAuras] = useState('green')
+  const [messageApi] = message.useMessage()
 
+  const userSettings = useContext(UserSettingsContext)
+  const {
+    buyItem,
+    itemInProgress,
+    avaibleItems,
+    avaibleItemsLoadingState,
+    fetchShopData,
+  } = useShop(messageApi, refreshUserScore)
   const themeContextData = useContext(ThemeContext)
 
-  const onCharacterClickHandler = useCallback((characterName: string) => {
-    setSelectedCharacter(characterName)
-  }, [])
+  useEffect(() => {
+    fetchShopData()
+  }, [fetchShopData])
 
-  const onAuraClickHandler = useCallback((auraName: string) => {
-    setSelectedAuras(auraName)
-  }, [])
+  useEffect(() => {
+    if (userSettings?.updateSettingsState !== 'loading') {
+      console.log('userSettings', userSettings)
+      setSelectedCharacter(userSettings?.character ?? 'beaver')
+      setSelectedAuras(userSettings?.aura ?? 'red')
+    }
+  }, [userSettings])
+
+  const onCharacterClickHandler = useCallback(
+    (characterName: string, isOwnedByLoggedUser: boolean) => {
+      if (isOwnedByLoggedUser && !itemInProgress) {
+        setSelectedCharacter(characterName)
+      }
+    },
+    [itemInProgress]
+  )
+
+  const onAuraClickHandler = useCallback(
+    (auraName: string, isOwnedByLoggedUser: boolean) => {
+      if (isOwnedByLoggedUser && !itemInProgress) {
+        setSelectedAuras(auraName)
+      }
+    },
+    [itemInProgress]
+  )
+
+  const checkIfIsItemOwned = useCallback(
+    (itemName: string) => avaibleItems.includes(itemName),
+    [avaibleItems]
+  )
+
+  const checkIfIsItemDisable = useCallback(
+    (cost: number, isOwned: boolean) => {
+      return (
+        (Boolean(itemInProgress) ||
+          userScore < cost ||
+          userSettings?.updateSettingsState === 'loading') &&
+        !isOwned
+      )
+    },
+    [itemInProgress, userScore, userSettings?.updateSettingsState]
+  )
+
+  const onSubmitHandler = useCallback(() => {
+    userSettings?.setUserSettings(selectedCharacter, selectedAuras)
+  }, [selectedAuras, selectedCharacter, userSettings])
 
   const characters = useMemo(
     () =>
-      CHARACTERS_CONFIG.map((characterConfig) => (
-        <ActivityCard
-          fill
-          key={`character_${characterConfig.name}`}
-          onClick={() => { onCharacterClickHandler(characterConfig.name) }}
-          selected={selectedCharacter === characterConfig.name}
-        >
-          <CharacterItem
-            isOwned
-            name={characterConfig.name}
-            imageSrc={characterConfig.imageSrc}
-            label={characterConfig.label}
-            cost={characterConfig.cost}
+      CHARACTERS_CONFIG.map((characterConfig) => {
+        const isOwned = checkIfIsItemOwned(characterConfig.name)
+        const isDisabled = checkIfIsItemDisable(characterConfig.cost, isOwned)
+        return (
+          <CharacterActivityCard
+            key={`character_${characterConfig.name}`}
+            onCharacterClickHandler={onCharacterClickHandler}
+            selectedCharacter={selectedCharacter}
+            itemInProgress={itemInProgress as ItemType | undefined}
+            buyItem={buyItem}
+            isOwnedByLoggedUser={isOwned}
+            isDisabled={isDisabled}
+            {...characterConfig}
           />
-        </ActivityCard>
-      )),
-    [onCharacterClickHandler, selectedCharacter]
+        )
+      }),
+    [
+      buyItem,
+      checkIfIsItemDisable,
+      checkIfIsItemOwned,
+      itemInProgress,
+      onCharacterClickHandler,
+      selectedCharacter,
+    ]
   )
+
   const auras = useMemo(
     () =>
-      AURAS_CONFIG.map((auraConfig) => (
-        <ActivityCard
-          fill
-          key={`character_${auraConfig.name}`}
-          onClick={() => {
-            onAuraClickHandler(auraConfig.name)
-          }}
-          selected={selectedAuras === auraConfig.name}
-        >
-          <CharacterItem
-            isOwned
-            name={auraConfig.name}
-            customContent={
-              <Blob
-                name={auraConfig.name}
-                color={auraConfig.color}
-                isBlobShowed={true}
-              />
-            }
-            label={auraConfig.label}
-            cost={auraConfig.cost}
+      AURAS_CONFIG.map((auraConfig) => {
+        const isOwned = checkIfIsItemOwned(auraConfig.name)
+        const isDisabled = checkIfIsItemDisable(auraConfig.cost, isOwned)
+        return (
+          <AuraActivityCard
+            key={`character_${auraConfig.name}`}
+            onAuraClickHandler={onAuraClickHandler}
+            selectedAuras={selectedAuras}
+            itemInProgress={itemInProgress as ItemType | undefined}
+            buyItem={buyItem}
+            isOwnedByLoggedUser={isOwned}
+            isDisabled={isDisabled}
+            {...auraConfig}
           />
-        </ActivityCard>
-      )),
-    [onAuraClickHandler, selectedAuras]
+        )
+      }),
+    [
+      buyItem,
+      checkIfIsItemDisable,
+      checkIfIsItemOwned,
+      itemInProgress,
+      onAuraClickHandler,
+      selectedAuras,
+    ]
   )
 
-  return (
-    <S.CharacterSelectionWrap>
-      <S.CharacterSelectionContainer>
-        <H2 align="center">Character</H2>
-        <S.ItemList>{characters}</S.ItemList>
-
-        <H2 align="center">Aura</H2>
-        <S.ItemList>{auras}</S.ItemList>
-      </S.CharacterSelectionContainer>
-      <ButtonRow>
-        <Button
-          color={themeContextData.colors.white}
-          size={ButtonSizesEnum.s}
-          backgroundColor={themeContextData?.colors?.tertiary}
-        >
-          Potvrdit
-        </Button>
-      </ButtonRow>
-    </S.CharacterSelectionWrap>
+  const showLoading = useMemo(
+    () =>
+      userSettings?.updateSettingsState === 'loading' ||
+      Boolean(itemInProgress),
+    [itemInProgress, userSettings?.updateSettingsState]
   )
+
+  switch (avaibleItemsLoadingState) {
+    case 'loading':
+      return <Loading />
+    case 'error':
+      return <P3>Nepodařilo se načíst</P3>
+    default:
+      return (
+        <S.CharacterSelectionWrap>
+          <S.CharacterSelectionContainer>
+            {showLoading ? <S.LoadingWrap>
+              <Loading hideText />
+            </S.LoadingWrap> : null}
+            <S.CharacterSelectionContent>
+              <H2 align="center">Character</H2>
+              <S.ItemList>{characters}</S.ItemList>
+              <H2 align="center">Aura</H2>
+              <S.ItemList>{auras}</S.ItemList>
+            </S.CharacterSelectionContent>
+          </S.CharacterSelectionContainer>
+          <ButtonRow>
+            <Button
+              color={themeContextData.colors.white}
+              size={ButtonSizesEnum.s}
+              backgroundColor={themeContextData?.colors?.tertiary}
+              onClick={onSubmitHandler}
+              disabled={
+                showLoading
+              }
+            >
+              Potvrdit
+            </Button>
+          </ButtonRow>
+        </S.CharacterSelectionWrap>
+      )
+  }
 }
 
 export default CharacterSelection

@@ -34,7 +34,7 @@ const TwoSideCard: React.FC<GameCardProps> = ({
   return (
     <S.CardWrapper>
       <S.InnedCard isDiffSiteShown={isDiffSiteShown}>
-        <S.MainSideWrapper onClick={onMainSideClick}>
+        <S.MainSideWrapper onMouseDown={onMainSideClick}>
           <MainSideContent
             name={name}
             title={title}

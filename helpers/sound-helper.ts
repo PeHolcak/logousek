@@ -62,7 +62,6 @@ export const getSyllablesConfElement = (
   const conf = getSyllablesConf()
   const audiosArray = [...conf[difficulty]]
   const audioElement: Syllable = getRandomElementFromList(audiosArray, 1)[0] || {}
-  console.log("audioElement", audioElement)
   return audioElement
 }
 

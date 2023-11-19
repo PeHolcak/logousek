@@ -91,7 +91,7 @@ const Card: FC<CardProps> = ({ id, content, index, moveCard }) => {
         },
         collect: (monitor: any) => ({
             isDragging: monitor.isDragging(),
-        }),
+        })
     })
 
     const opacity = isDragging ? 0 : 1

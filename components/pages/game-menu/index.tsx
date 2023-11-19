@@ -9,7 +9,7 @@ import RouteWrapper from '@components/route-wrapper'
 import Header from './header'
 import SlideList from './slide-list'
 import * as S from './styled'
-
+import GameMenuProvider from '@contexts/game-menu-context/game-menu-context-provider'
 
 const activityTypes = activityConf.map((activity) => ({
   name: activity.name,
@@ -22,12 +22,16 @@ const activityTypes = activityConf.map((activity) => ({
 }))
 
 const GameMenu: React.FC = () => {
-
-  const { currentSlide, activeActivity, selectNewActivityHandle, activeActivitColor } = useGameMenu()
+  const {
+    currentSlide,
+    activeActivity,
+    selectNewActivityHandle,
+    activeActivitColor,
+  } = useGameMenu()
   const { tGameMenu } = useTranslateFunctions()
 
   const getTitle = useCallback(() => {
-    return tGameMenu("title", { test: activeActivity.title })
+    return tGameMenu('title', { test: activeActivity.title })
   }, [activeActivity.title, tGameMenu])
 
   return (
@@ -41,15 +45,17 @@ const GameMenu: React.FC = () => {
         hide: false,
       }}
     >
-      <S.MenuWrapper>
-        <Header />
-        <SlideList currentSlide={currentSlide} />
-        <RoundFooter
-          footerConf={activityTypes}
-          activeItemName={activeActivity.name}
-          selectNewItem={selectNewActivityHandle}
-        />
-      </S.MenuWrapper>
+      <GameMenuProvider>
+        <S.MenuWrapper>
+          <Header />
+          <SlideList currentSlide={currentSlide} />
+          <RoundFooter
+            footerConf={activityTypes}
+            activeItemName={activeActivity.name}
+            selectNewItem={selectNewActivityHandle}
+          />
+        </S.MenuWrapper>
+      </GameMenuProvider>
     </RouteWrapper>
   )
 }

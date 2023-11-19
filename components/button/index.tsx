@@ -6,6 +6,8 @@ import * as S from './styled'
 export enum ButtonSizesEnum {
   xs = 'xs',
   s = 's',
+  md = "md",
+  lg = "lg"
 }
 
 export type ButtonProps = {
@@ -43,7 +45,11 @@ const Button: React.FC<ButtonProps> = ({
       }
       disabled={disabled}
       size={size}
-      onClick={onClick}
+      onMouseDown={() => {
+        if (onClick) {
+          onClick()
+        }
+      }}
       type={type}
       id={id}
     >

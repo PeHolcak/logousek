@@ -13,7 +13,8 @@ export type ActivityCardType = {
   customAspectRatio?: string
   cursor?: 'default' | 'pointer'
   fill?: boolean
-  reference?: React.ReactNode
+  reference?: React.ReactNode,
+  disabled?: boolean
 }
 
 const ActivityCard: React.FC<ActivityCardType> = ({
@@ -27,17 +28,19 @@ const ActivityCard: React.FC<ActivityCardType> = ({
   cursor = 'pointer',
   fill,
   reference,
+  disabled
 }) => {
   return (
     <S.ActivityCardWrapper
-      onClick={onClick}
+      onClick={disabled ? undefined : onClick}
       selected={selected}
       rotate={rotate}
       color={color}
       customRadius={customRadius}
       customAspectRatio={customAspectRatio}
       fill={fill}
-      cursor={cursor}
+      cursor={disabled ? "default" : cursor}
+      disabled={disabled}
     >
       {selected ? (
         <S.CheckIcon className={'material-icons'}>check</S.CheckIcon>

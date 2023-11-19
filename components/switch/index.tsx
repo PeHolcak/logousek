@@ -18,7 +18,7 @@ const Switch: React.FC<SwitchProps> = ({
     onChange(!value);
   };
   return (
-    <S.SwitchWrapper onClick={_onChangeHangler}>
+    <S.SwitchWrapper onMouseDown={_onChangeHangler}>
       <S.SwitchPointer enabled={value}>
         {value ? enabledIcon : disabledIcon}
       </S.SwitchPointer>

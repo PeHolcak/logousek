@@ -35,7 +35,6 @@ const CharacterSelection: React.FC = () => {
     () => {
       if (firstThree) {
         const sortedArray = [firstThree[1], firstThree[0], firstThree[2]]
-        console.log("sortedArray", sortedArray)
         return sortedArray?.map((user) => (
           <TopPlayerItem
             key={`top_player_${user.nickName}`}

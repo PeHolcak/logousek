@@ -53,7 +53,14 @@ model UserLogin {
 model UserSettings {
   id                String @id @default(auto()) @map("_id") @db.ObjectId
   userId            String  @unique
-  darkMode          Boolean @default(false)
   character         String
   aura              String
+}
+
+
+model Purchase {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @unique
+  itemNames  String[]
+  date      DateTime @default(now())
 }

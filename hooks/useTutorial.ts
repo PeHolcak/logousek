@@ -50,14 +50,11 @@ export const useTutorial = (config: TutorialConfigType) => {
             config[index + 1] &&
             isTutorialOpened
         ) {
-            console.log('waiting...', activeItem)
-            // Nastavíme časovač
             const showNextTimer = setTimeout(() => {
                 next()
-            }, activeItem?.waitMilis) // Po 5 sekundách
+            }, activeItem?.waitMilis)
 
             setTimerIdForNextItem(showNextTimer)
-            // Úklid: vymazání časovače, pokud se komponenta odstraní dříve, než časovač skončí
             return () => clearTimeout(showNextTimer)
         }
     }, [activeItem, config, index, isTutorialOpened, next])

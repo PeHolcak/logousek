@@ -11,3 +11,13 @@ export const getLeaderboard = (
         'GET'
     )
 }
+
+export const getUserCredit = (
+    userId: string,
+) => {
+    return callApi<any>(
+        '/activity/get-score-count',
+        { params: { userId } },
+        'GET'
+    )
+}

@@ -13,7 +13,7 @@ export type ItemType = {
 const Item: React.FC<ItemType> = ({ icon, title, onClick, isMenuShow }) => {
   return (
     <S.ItemWrap>
-      <S.ItemLink onClick={onClick}>
+      <S.ItemLink onMouseDown={onClick}>
         <S.ItemIcon className={"material-icons"} isMenuShow={isMenuShow}>{icon}</S.ItemIcon>
         <P5 margin="0 0 0 16px" align="left">{title}</P5>
       </S.ItemLink>

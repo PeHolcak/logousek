@@ -58,7 +58,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     let isUserCreditExists = false;
 
     try {
-      console.log("test9393", await getCreditByUserId(userId))
       isUserCreditExists = Boolean(await getCreditByUserId(userId))
     } catch (error) {
       console.error(error)

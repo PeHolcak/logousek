@@ -25,6 +25,7 @@ import { appWithTranslation } from 'next-i18next'
 import { ModalDetailType } from '@components/modal'
 import { ShowBackdropParam } from '../components/modal/backdrop'
 import { ParallaxProvider } from 'react-scroll-parallax'
+import UserSettingsProvider from '@contexts/user-settings-context/user-settings-context-provider'
 
 function MyApp({
   Component,
@@ -96,12 +97,14 @@ function MyApp({
           <DndProvider backend={TouchBackend} options={backendOptions}>
             <ThemeProvider theme={themeObject}>
               <CoreContext.Provider value={{ theme, changeTheme }}>
-                <ModalContext.Provider value={{ showModal, closeModal }}>
-                  <Modal ref={modalRef} closeBackdrop={closeBackdrop} />
-                  <Backdrop ref={backdropRef}>
-                    <Component {...pageProps} />
-                  </Backdrop>
-                </ModalContext.Provider>
+                <UserSettingsProvider>
+                  <ModalContext.Provider value={{ showModal, closeModal }}>
+                    <Modal ref={modalRef} closeBackdrop={closeBackdrop} />
+                    <Backdrop ref={backdropRef}>
+                      <Component {...pageProps} />
+                    </Backdrop>
+                  </ModalContext.Provider>
+                </UserSettingsProvider>
               </CoreContext.Provider>
             </ThemeProvider>
           </DndProvider>

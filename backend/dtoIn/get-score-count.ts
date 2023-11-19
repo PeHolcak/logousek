@@ -1,7 +1,5 @@
-import { object, string } from 'yup';
+import { object } from 'yup'
 
-const getScoreCountdtoIn = object({
-    userId: string().required(),
-}).strict();
+const getScoreCountdtoIn = object({}).strict()
 
 export default getScoreCountdtoIn

@@ -25,7 +25,7 @@ const DescriptionSideContent: React.FC<DescriptionSideContentProps> = ({
   return (
     <ActivityCard fill={true}>
       <S.Navbar>
-        <InformIcon onClick={onInformIconClickHandle}>
+        <InformIcon onMouseDown={onInformIconClickHandle}>
           <i className={`material-icons`}>reply</i>
         </InformIcon>
       </S.Navbar>

@@ -1,4 +1,4 @@
-import { Canvas, Meta } from '@storybook/blocks'
+import { Canvas, Meta, Title } from '@storybook/blocks'
 import { Mermaid } from 'mdx-mermaid/Mermaid'
 
 import * as Button from './Button.stories'
@@ -7,7 +7,7 @@ import PropertiesTable from '../../../Components/properties-table'
 import ReferenceList from '../../../Components/reference-list'
 import ComponentInfoTable from '../../../Components/component-info-table'
 
-<Meta of={Button} />
+<Meta title="ApplicationModel/components/button" />
 
 # Button
 
@@ -87,7 +87,16 @@ import ComponentInfoTable from '../../../Components/component-info-table'
 ]}
 />
 
-<Canvas of={Button.Primary} withToolbar />
+<Title>ExtraSmall</Title>
+<Canvas of={Button.ExtraSmall} withToolbar />
+<Title>Small</Title>
+<Canvas of={Button.Small} withToolbar />
+<Title>Medium</Title>
+<Canvas of={Button.Medium} withToolbar />
+<Title>Large</Title>
+<Canvas of={Button.Large} withToolbar />
+<Title>Disabled</Title>
+<Canvas of={Button.Disabled} withToolbar />
 
 <S.MermaidWrapper>
 <Mermaid

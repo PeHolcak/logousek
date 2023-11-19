@@ -17,7 +17,6 @@ export const LoadingAnimation = styled.div`
     @keyframes pump2 {
     from {
       transform: scaleX(0.8);
-      /* opacity: 0.8; */
     }
 
     to {

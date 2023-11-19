@@ -11,8 +11,14 @@ import {
     getUserById,
 } from 'backend/dao/user'
 
+type ListScoreRequest = NextApiRequest & {
+    selectUser?: string,
+    from?: string,
+    to?: string,
+    activityTypes?: string[]
+}
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: ListScoreRequest, res: NextApiResponse) {
     // 1. Check httpMethod
     // The method must be post because an array is being sent in dtoIn
     if (req.method === "POST") {
@@ -52,7 +58,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         //4. List score from the database
         try {
-            const result = await getScoreByUserId(userId, activityTypes, from, to);
+            const result = await getScoreByUserId({ userId, activityTypes, from, to });
             //5. Returns properly filled dtoOut.
             return res.status(200).json({
                 data: result,

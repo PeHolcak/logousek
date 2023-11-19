@@ -30,6 +30,7 @@ const ItemList: React.FC<ItemListProps> = ({ items, onItemClick }) => {
       </S.StyledListItem >
     ))
     : [];
+
   return <S.StyledList>{formedItems}</S.StyledList>;
 };
 
