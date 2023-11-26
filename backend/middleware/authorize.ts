@@ -1,10 +1,9 @@
-import { unstable_getServerSession } from 'next-auth/next'
 import { NextApiRequest, NextApiResponse } from 'next'
+import { getSession } from 'next-auth/react'
 
-import { authOptions } from '../../pages/api/auth/[...nextauth]'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse, role: string) {
-  const session = await unstable_getServerSession(req, res, authOptions)
+  const session = await getSession({ req })
 
   if (session) {
     switch (role) {

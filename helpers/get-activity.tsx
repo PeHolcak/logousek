@@ -1,12 +1,13 @@
-import React from "react";
-import AsActivity from "@components/activities/visual/a_s";
-import VisualDifActivity from "@components/activities/visual/visual_differentiation";
-import VisualMemoryActivity from "@components/activities/visual/visual_memory";
-import AudioDifferentiation from "@components/activities/audio/audio-differentiation";
-import Memory from "components/activities/audio/memory";
-import ThreeCards from "@components/activities/seriality/three-cards";
-import LanguagePracticing from "@components/activities/oromotorics/language-practicing";
-import Syllables from "@components/activities/audio/syllables";
+import React, { lazy } from "react";
+
+const AsActivity = lazy(() => import("@components/activities/visual/a_s"))
+const VisualDifActivity = lazy(() => import("@components/activities/visual/visual_differentiation"))
+const VisualMemoryActivity = lazy(() => import("@components/activities/visual/visual_memory"))
+const AudioDifferentiation = lazy(() => import("@components/activities/audio/audio-differentiation"))
+const Memory = lazy(() => import("components/activities/audio/memory"))
+const ThreeCards = lazy(() => import("@components/activities/seriality/three-cards"))
+const LanguagePracticing = lazy(() => import("@components/activities/oromotorics/language-practicing"))
+const Syllables = lazy(() => import("@components/activities/audio/syllables"))
 
 export const getActivity = (activityName: string) => {
   switch (activityName) {

@@ -3,15 +3,19 @@ import React, {
   useEffect,
   forwardRef,
   useImperativeHandle,
+  useCallback
 } from 'react'
 
 import { getEmptyArray } from '@helpers/array-helper'
-import { SVGS_HASH, CardType } from '@hooks/use-get-cards'
+import { CardType } from '@hooks/use-get-cards'
 
 import DndContext from '..'
 
+export type CardInGame = CardType | undefined
+export type CardsInGame = CardInGame[]
+
 export type DndContextProviderInterface = {
-  getCards: () => CardType[]
+  getCards: () => CardsInGame
 }
 
 type DndContextProviderType = {
@@ -20,15 +24,19 @@ type DndContextProviderType = {
   onHandleChanged: (canBeChecked: boolean) => void
   aspectRatio?: string
   wasChanged: boolean
-  usedCards: CardType[]
+  usedCards: CardsInGame
 }
 
+
 export type DndContextValueType = {
-  avaibleCards: CardType[]
-  setAvaibleCards: React.Dispatch<React.SetStateAction<CardType[]>>
-  placedCards: CardType[]
-  setPlacedCards: React.Dispatch<React.SetStateAction<CardType[]>>
+  avaibleCards: CardsInGame
+  setAvaibleCards: React.Dispatch<React.SetStateAction<CardsInGame>>
+  placedCards: CardsInGame
+  setPlacedCards: React.Dispatch<React.SetStateAction<CardsInGame>>
   aspectRatio: string
+  setSelectedCard: (value?: string) => void
+  selectedCard: string | undefined
+
 }
 
 export default forwardRef(function DndContextProvider(
@@ -42,10 +50,11 @@ export default forwardRef(function DndContextProvider(
   }: DndContextProviderType,
   ref
 ) {
-  const [cards, setCards] = useState<CardType[]>(usedCards)
-  const [placedCards, setPlacedCards] = useState<CardType[]>(
+  const [cards, setCards] = useState<CardsInGame>(usedCards)
+  const [placedCards, setPlacedCards] = useState<CardsInGame>(
     getEmptyArray(count)
   )
+  const [selectedCard, setSelectedCard] = useState<string | undefined>()
 
   useEffect(() => {
     const isAllCardsPlaced = cards.length === 0
@@ -59,10 +68,13 @@ export default forwardRef(function DndContextProvider(
     ref,
     (): DndContextProviderInterface => ({
       getCards: () => placedCards,
-
     }),
     [placedCards]
   )
+
+  const onSetSelectedCardChangeHandler = useCallback((value?: string) => {
+    setSelectedCard((prevState?: string) => prevState === value ? undefined : value)
+  }, [])
 
   const dndContextValue: DndContextValueType = {
     avaibleCards: cards,
@@ -70,6 +82,8 @@ export default forwardRef(function DndContextProvider(
     placedCards,
     setPlacedCards,
     aspectRatio,
+    setSelectedCard: onSetSelectedCardChangeHandler,
+    selectedCard
   }
 
   return (

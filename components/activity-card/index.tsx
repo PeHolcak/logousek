@@ -14,6 +14,7 @@ export type ActivityCardType = {
   cursor?: 'default' | 'pointer'
   fill?: boolean
   reference?: React.ReactNode,
+  showBorder?: boolean
   disabled?: boolean
 }
 
@@ -28,6 +29,7 @@ const ActivityCard: React.FC<ActivityCardType> = ({
   cursor = 'pointer',
   fill,
   reference,
+  showBorder = true,
   disabled
 }) => {
   return (
@@ -41,6 +43,7 @@ const ActivityCard: React.FC<ActivityCardType> = ({
       fill={fill}
       cursor={disabled ? "default" : cursor}
       disabled={disabled}
+      showBorder={showBorder}
     >
       {selected ? (
         <S.CheckIcon className={'material-icons'}>check</S.CheckIcon>

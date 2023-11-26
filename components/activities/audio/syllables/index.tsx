@@ -84,7 +84,7 @@ const Syllables = (
                 <S.Container>
                     <S.TaskWrapper>
                         {cards.first.map((modelCard) => {
-                            return < ActivityCard
+                            return <ActivityCard
                                 key={`activity_card_${modelCard.keyImage}`
                                 }
                                 cursor="default"
