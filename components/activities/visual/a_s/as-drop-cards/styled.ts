@@ -9,4 +9,5 @@ export const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   max-width: fit-content;
+  
 `

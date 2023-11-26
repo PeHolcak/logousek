@@ -32,6 +32,7 @@ const InnerDropCard: React.FC<InnerDropCardProps> = ({ onDrop, children, customR
         customAspectRatio={dndContext?.aspectRatio}
         cursor="default"
         showBorder={false}
+        selected={false}
       >
         <CustomDragLayer />
         {children}

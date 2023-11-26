@@ -39,7 +39,8 @@ const CustomDragLayer: React.FC = () => {
     switch (itemType) {
       case 'image':
         return (
-          <DragCard reference={item.reference}>
+          <DragCard reference={item.reference}
+            selected={false}>
             {item.img}
           </DragCard>
         )

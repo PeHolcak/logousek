@@ -11,7 +11,7 @@ import * as S from './styled'
 
 type DropCardProps = {
   index: number
-  card: CardType
+  card?: CardType
 }
 
 const RADIUS = '0'
@@ -40,6 +40,7 @@ const DropCard: React.FC<DropCardProps> = ({ index, card }) => {
           key={`drag-card-${card.keyImage}`}
           reference={card.reference}
           isDragged
+          selected={false}
         >
           {card?.img}
         </DragCard>
