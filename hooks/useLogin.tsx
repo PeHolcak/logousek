@@ -8,8 +8,6 @@ import { useTranslateFunctions } from '@hooks/useTranslateFunctions'
 import Loading from '@components/loading'
 import { registerUserCall, registerGuessCall } from 'calls/login-page-calls'
 
-
-
 export const useLogin = (messageApi: MessageInstance) => {
     const modalContext = useContext(ModalContext)
     const { tLogin } = useTranslateFunctions()
@@ -17,11 +15,11 @@ export const useLogin = (messageApi: MessageInstance) => {
     const onLogin = ({
         nickName,
         password,
-        type
+        type,
     }: {
         nickName: string
         password?: string
-        type: "guess" | "registredUser"
+        type: 'guess' | 'registredUser'
     }) => {
         const callApi = async () => {
             try {
@@ -34,21 +32,21 @@ export const useLogin = (messageApi: MessageInstance) => {
                 if (result?.ok) {
                     messageApi.open({
                         type: 'success',
-                        content: tLogin("messages.success.successfullyLoggedIn"),
+                        content: tLogin('messages.success.successfullyLoggedIn'),
                     })
                 } else {
                     messageApi.open({
                         type: 'error',
                         content:
                             result?.error === 'wrong_password'
-                                ? tLogin("messages.error.unknown")
-                                : tLogin("messages.error.unknown"),
+                                ? tLogin('messages.error.unknown')
+                                : tLogin('messages.error.unknown'),
                     })
                 }
             } catch (error) {
                 messageApi.open({
                     type: 'error',
-                    content: tLogin("messages.error.unknown"),
+                    content: tLogin('messages.error.unknown'),
                 })
             }
         }
@@ -70,12 +68,17 @@ export const useLogin = (messageApi: MessageInstance) => {
     }) => {
         const register = async () => {
             try {
-                const result = await registerUserCall(firstName, surName, nickName, password)
+                const result = await registerUserCall(
+                    firstName,
+                    surName,
+                    nickName,
+                    password
+                )
 
                 if (result.status === 200) {
                     messageApi.open({
                         type: 'success',
-                        content: tLogin("messages.success.successfullyRegistred"),
+                        content: tLogin('messages.success.successfullyRegistred'),
                     })
 
                     modalContext?.showModal({
@@ -83,10 +86,13 @@ export const useLogin = (messageApi: MessageInstance) => {
                         closeDisabled: true,
                         onOkClick: undefined,
                         onStornoClick: undefined,
-                        autoWidth: true
+                        autoWidth: true,
                     })
 
-                    setTimeout(() => onLogin({ nickName, password, type: "registredUser" }), 2000)
+                    setTimeout(
+                        () => onLogin({ nickName, password, type: 'registredUser' }),
+                        2000
+                    )
                 }
             } catch (error) {
                 const axiosError = error as AxiosError<{ errorCode: 'string' }>
@@ -94,12 +100,12 @@ export const useLogin = (messageApi: MessageInstance) => {
                 if (errorCode === 'user_exists') {
                     messageApi.open({
                         type: 'error',
-                        content: tLogin("messages.error.userAlreadyExists"),
+                        content: tLogin('messages.error.userAlreadyExists'),
                     })
                 } else {
                     messageApi.open({
                         type: 'error',
-                        content: tLogin("messages.error.unknown"),
+                        content: tLogin('messages.error.unknown'),
                     })
                 }
             }
@@ -109,15 +115,15 @@ export const useLogin = (messageApi: MessageInstance) => {
 
     const onLoginGuess = () => {
         registerGuessCall().then((result) => {
-            if (result.status === 200) {
-                onLogin({ type: "guess", nickName: result.data.nickName })
+            if (result.status === 200 && 'nickName' in result.data) {
+                onLogin({ type: 'guess', nickName: result.data.nickName })
             } else {
                 messageApi.open({
                     type: 'error',
-                    content: tLogin("messages.error.unknown"),
+                    content: tLogin('messages.error.unknown'),
                 })
             }
-        });
+        })
     }
     return { onLogin, onRegister, onLoginGuess }
-};
+}

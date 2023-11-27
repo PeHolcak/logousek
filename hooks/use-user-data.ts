@@ -1,12 +1,12 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import { MessageInstance } from 'antd/es/message/interface'
+import { User } from '@prisma/client'
 
 import { userList, userDelete } from 'calls/admin-page-calls'
 
-import User from '@constants/types/user-type'
 import { useTranslateFunctions } from '@hooks/useTranslateFunctions'
 
-const useUserData = (messageApi: MessageInstance, selectedUser?: string) => {
+const useUserData = (messageApi: MessageInstance) => {
     const [users, setUsers] = useState<User[]>([])
     const limit = useMemo(() => 5, [])
     const [cursor, setCursor] = useState(0)
@@ -18,20 +18,20 @@ const useUserData = (messageApi: MessageInstance, selectedUser?: string) => {
     const getData = useCallback(async () => {
         try {
             const res = await userList(limit, cursor, searchText)
-            if (res.status === 200) {
+            if (res.status === 200 && 'users' in res.data) {
                 setUsers(res?.data?.users)
                 setTotalUsersCount(res?.data?.totalUsersCount)
                 setState('ready')
             } else {
                 messageApi.open({
                     type: 'error',
-                    content: tAdmin("errors.userListError"),
+                    content: tAdmin('errors.userListError'),
                 })
             }
         } catch (err) {
             messageApi.open({
                 type: 'error',
-                content: tAdmin("errors.userListError"),
+                content: tAdmin('errors.userListError'),
             })
         }
     }, [cursor, limit, messageApi, searchText, tAdmin])
@@ -61,23 +61,22 @@ const useUserData = (messageApi: MessageInstance, selectedUser?: string) => {
                 if (data.status === 200) {
                     messageApi.open({
                         type: 'success',
-                        content: tAdmin("successMessages.userDeleteSuccess"),
+                        content: tAdmin('successMessages.userDeleteSuccess'),
                     })
                     getData()
                 } else {
                     messageApi.open({
                         type: 'error',
-                        content: tAdmin("errors.userDeleteError"),
+                        content: tAdmin('errors.userDeleteError'),
                     })
                 }
             })
             .catch(() => {
                 messageApi.open({
                     type: 'error',
-                    content: tAdmin("errors.userDeleteError"),
+                    content: tAdmin('errors.userDeleteError'),
                 })
             })
-
     }
 
     return {

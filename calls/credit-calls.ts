@@ -1,5 +1,6 @@
 import { GetLeaderBoardDtoOut } from 'pages/api/credit/get-leaderboard'
 import { callApi } from './calls'
+import { getUserCreditDtoOut } from 'pages/api/credit/get-user-credit'
 
 
 export const getLeaderboard = (
@@ -15,7 +16,7 @@ export const getLeaderboard = (
 export const getUserCredit = (
     userId: string,
 ) => {
-    return callApi<any>(
+    return callApi<getUserCreditDtoOut>(
         '/activity/get-score-count',
         { params: { userId } },
         'GET'

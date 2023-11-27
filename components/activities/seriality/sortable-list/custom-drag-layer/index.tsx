@@ -4,7 +4,6 @@ import React, {
 } from 'react'
 import SerialityContext from '@contexts/seriality-context'
 import { useDragLayer } from 'react-dnd'
-import Card from '../card'
 import { XYCoord } from 'react-dnd/dist/types'
 import ActivityCard from '@components/activity-card'
 

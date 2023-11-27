@@ -20,7 +20,6 @@ export type GetUserSettingsDtoOut = {
     warnings?: Warnings
 }
 
-
 export default async function handler(
     req: GetUserSettingsRequest,
     res: NextApiResponse<GetUserSettingsDtoOut>

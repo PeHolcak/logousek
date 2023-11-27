@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { List, Skeleton } from 'antd'
 
 import { P5 } from '@components/typography/paragraph'
-import User from '@constants/types/user-type'
+import { User } from '@prisma/client'
 import { useTranslateFunctions } from '@hooks/useTranslateFunctions'
 
 import * as S from './styled'

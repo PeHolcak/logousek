@@ -31,7 +31,7 @@ const UserSearch: React.FC<UserSearchType> = ({
         deleteUser,
         onReset,
         searchText,
-    } = useUserData(messageApi, selectedUser)
+    } = useUserData(messageApi)
 
     const onSearchHandler = (values: FormValues) => {
         search(values.activityTypes)

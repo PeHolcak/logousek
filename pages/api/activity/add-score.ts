@@ -15,7 +15,13 @@ import {
   getCreditByUserId
 } from 'backend/dao/credit'
 import checkUnsupportedKeys from 'backend/dtoIn/check-unsupported-keys'
+import { ErrorDtoOut, Warnings } from 'types/api-types'
 
+export type getScoreCountDtoOut =
+  | {
+    warnings?: Warnings
+  }
+  | ErrorDtoOut
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   // 1. Check httpMethod

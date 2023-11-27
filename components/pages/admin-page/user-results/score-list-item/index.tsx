@@ -1,24 +1,24 @@
 import React, { useState, useMemo } from 'react'
 import { Collapse, Table } from 'antd'
+import { Score } from '@prisma/client'
 
 import { games, GameType } from 'constants/activity-confs/activity-conf'
 import { getFormatedDateTime } from '@helpers/date-helper'
 import { useTranslateFunctions } from '@hooks/useTranslateFunctions'
 
-import { ScoreListType } from '@hooks/useScore'
 import Paggination from '../../paggination'
 import ScoreDataVisualization from './score-data-visualization'
 
 const { Panel } = Collapse
 
 type ScoreListItemType = {
-    scoreList?: ScoreListType[]
+    scoreList?: Score[]
 }
 type ScoreListItemTableType = {
     score: number
     activityTypeTitle: string
     activityTypeName: string
-    difficulty: string
+    difficulty: string | null
 }
 
 const MAX_ITEMS_IN_LIST = 10
@@ -39,35 +39,40 @@ const ScoreListItem: React.FC<ScoreListItemType> = ({ scoreList }) => {
         return allGames.find((activity) => activity.name === activityType)?.title
     }
 
-    const columns = useMemo(() => [
-        {
-            title: tAdmin("scoreList.item.tableHeader.score") || "",
-            dataIndex: 'score',
-            key: 'score',
-        },
-        {
-            title: tAdmin("scoreList.item.tableHeader.activityTypeTitle") || "",
-            dataIndex: 'activityTypeTitle',
-            key: 'activityType',
-        },
-        {
-            title: tAdmin("scoreList.item.tableHeader.activityTypeName") || "",
-            dataIndex: 'activityTypeName',
-            key: 'activityType',
-        },
-        {
-            title: tAdmin("scoreList.item.tableHeader.difficulty") || "",
-            dataIndex: 'difficulty',
-            key: 'difficulty',
-        },
-    ], [tAdmin])
+    const columns = useMemo(
+        () => [
+            {
+                title: tAdmin('scoreList.item.tableHeader.score') || '',
+                dataIndex: 'score',
+                key: 'score',
+            },
+            {
+                title: tAdmin('scoreList.item.tableHeader.activityTypeTitle') || '',
+                dataIndex: 'activityTypeTitle',
+                key: 'activityType',
+            },
+            {
+                title: tAdmin('scoreList.item.tableHeader.activityTypeName') || '',
+                dataIndex: 'activityTypeName',
+                key: 'activityType',
+            },
+            {
+                title: tAdmin('scoreList.item.tableHeader.difficulty') || '',
+                dataIndex: 'difficulty',
+                key: 'difficulty',
+            },
+        ],
+        [tAdmin]
+    )
 
-    const getTableDataSource = (scoreList: ScoreListType) => {
+    const getTableDataSource = (scoreList: Score) => {
         return [
             {
                 score: scoreList.points,
                 activityTypeTitle:
-                    getActivityTitle(scoreList.activityType) || tAdmin("scoreList.item.withoutName") || "",
+                    getActivityTitle(scoreList.activityType) ||
+                    tAdmin('scoreList.item.withoutName') ||
+                    '',
                 activityTypeName: scoreList.activityType,
                 difficulty: scoreList.difficulty,
             },

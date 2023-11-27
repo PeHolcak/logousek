@@ -3,6 +3,7 @@ import { TYPE } from '@prisma/client'
 
 import { createUser } from 'backend/dao/user'
 import checkUnsupportedKeys from 'backend/dtoIn/check-unsupported-keys'
+import { ErrorDtoOut, Warnings } from 'types/api-types'
 
 const DEFAULT_VALUES = {
   firstName: 'Guess',
@@ -11,10 +12,19 @@ const DEFAULT_VALUES = {
   type: TYPE.ADMIN,
 }
 
-async function registerGuess(req: NextApiRequest, res: NextApiResponse) {
-  // 1. Check httpMethod
-  if (req.method === "POST") {
+export type registerGuessDtoOut =
+  | {
+    nickName: string
+    warnings?: Warnings
+  }
+  | ErrorDtoOut
 
+async function registerGuess(
+  req: NextApiRequest,
+  res: NextApiResponse<registerGuessDtoOut>
+) {
+  // 1. Check httpMethod
+  if (req.method === 'POST') {
     //2.1. dtoIn contains keys beyond the scope of dtoInType
     const warnings = checkUnsupportedKeys([], req?.body)
 
@@ -24,19 +34,19 @@ async function registerGuess(req: NextApiRequest, res: NextApiResponse) {
       //4. Returns properly filled dtoOut.
       return res.status(200).json({
         nickName: result.nickName,
-        warnings
+        warnings,
       })
     } catch (err) {
       //3.1.2. ERROR - Failed to create new user
       return res.status(500).json({
         errorCode: 'server_error',
-        warnings
+        warnings,
       })
     }
   } else {
     //1.1. ERROR - If httpMethod is not POST return not_found error
     return res.status(404).json({
-      errorCode: 'endpoint_not_found'
+      errorCode: 'endpoint_not_found',
     })
   }
 }

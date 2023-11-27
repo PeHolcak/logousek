@@ -1,7 +1,7 @@
 import React from 'react'
 import { List } from 'antd'
 
-import User from '@constants/types/user-type'
+import { User } from '@prisma/client'
 
 import Paggination from '../../paggination'
 import SearchListItem from './search-list-item'

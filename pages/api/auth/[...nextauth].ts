@@ -1,11 +1,12 @@
+/* eslint-disable */
+
 import bcrypt from 'bcryptjs'
+import NextAuth from "next-auth";
+import CredentialsProvider from 'next-auth/providers/credentials'
 
 import { getUserByName } from 'backend/dao/user'
 
-import NextAuth, { NextAuthOptions } from 'next-auth'
-import CredentialsProvider from 'next-auth/providers/credentials'
-
-export const authOptions: NextAuthOptions = {
+export const authOptions: any = {
     session: {
         strategy: 'jwt',
     },
@@ -26,12 +27,12 @@ export const authOptions: NextAuthOptions = {
                 },
             },
 
-            async authorize(credentials) {
+            authorize: async (credentials): Promise<any> => {
                 if (credentials?.type === 'registredUser') {
                     const { nickName, password } = credentials || {}
                     if (nickName && password) {
                         const user = (await getUserByName(nickName))[0]
-                        if (!user || !bcrypt.compareSync(password, user.password)) {
+                        if (!user || !user.password || !bcrypt.compareSync(password, user.password)) {
                             throw new Error('wrong_password')
                         }
 
@@ -64,13 +65,13 @@ export const authOptions: NextAuthOptions = {
         error: '/auth/error',
     },
     callbacks: {
-        jwt({ token, user }) {
+        jwt({ token, user }: any) {
             if (user) {
                 token.role = user.role
             }
             return token
         },
-        async session({ session, token }) {
+        async session({ session, token }: any) {
             const updatedUser = {
                 ...session.user,
                 role: token?.role || "",

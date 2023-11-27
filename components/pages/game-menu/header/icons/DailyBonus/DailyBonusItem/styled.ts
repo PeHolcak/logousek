@@ -1,4 +1,3 @@
-import { devices } from '@constants/screens-conf'
 import styled from 'styled-components'
 
 type DailyBonusItemWrapProps = {

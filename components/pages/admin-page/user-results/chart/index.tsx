@@ -1,14 +1,13 @@
 import React, { useContext } from 'react'
 import { ThemeContext } from 'styled-components';
+import { Score } from '@prisma/client'
 import {
   LineChart, XAxis, Tooltip, CartesianGrid, Line,
   ResponsiveContainer
 } from 'recharts'
 
-import { ScoreListType } from '@hooks/useScore';
 
-
-type ChartProps = { scoreList?: ScoreListType[] }
+type ChartProps = { scoreList?: Score[] }
 
 const Chart: React.FC<ChartProps> = ({ scoreList }) => {
   const themeData = useContext(ThemeContext);

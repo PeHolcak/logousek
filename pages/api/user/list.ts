@@ -12,29 +12,45 @@ import {
   countUsers,
   countByFirstnameAndSurname,
 } from 'backend/dao/user'
+import { ErrorDtoOut, Warnings } from 'types/api-types'
 
 type ListUsersRequest = NextApiRequest & {
-  query: { searchUserString?: string, limit?: number, cursor?: number }
+  query: { searchUserString?: string; limit?: number; cursor?: number }
 }
 
 
-async function listUsersMiddleware(req: ListUsersRequest, res: NextApiResponse) {
+export type listUsersDtoOut = {
+  users: User[]
+  totalUsersCount: number
+  warnings?: Warnings
+} | ErrorDtoOut
+
+async function listUsersMiddleware(
+  req: ListUsersRequest,
+  res: NextApiResponse<listUsersDtoOut>
+) {
   // 1. Check httpMethod
   // The method must be post because an array is being sent in dtoIn
-  if (req.method === "GET") {
-    const isAuthorized = await authorize(req, res, "ADMIN")
+  if (req.method === 'GET') {
+    const isAuthorized = await authorize(req, res, 'ADMIN')
 
     //2. Check if the user has rights to call this endpoint
     if (isAuthorized) {
       //3. Check dtoIn
-      if (typeof req?.query !== "object" || !await listUserDtoIn.isValid(req?.query)) {
+      if (
+        typeof req?.query !== 'object' ||
+        !(await listUserDtoIn.isValid(req?.query))
+      ) {
         //3.1. dtoIn is not valid
         return res.status(400).json({
           errorCode: 'wrong_dto_in',
         })
       }
       //3.2. dtoIn contains keys beyond the scope of dtoInType
-      const warnings = checkUnsupportedKeys(["searchUserString", "limit", "cursor"], req?.query)
+      const warnings = checkUnsupportedKeys(
+        ['searchUserString', 'limit', 'cursor'],
+        req?.query
+      )
 
       let users: User[] = []
       let totalUsersCount = 0
@@ -63,10 +79,9 @@ async function listUsersMiddleware(req: ListUsersRequest, res: NextApiResponse) 
           console.error(err)
           return res.status(500).json({
             errorCode: 'server_error',
-            warnings: warnings
+            warnings: warnings,
           })
         }
-
 
         //4.3. Checks if searchUserString contains only one space
         if (splitedStringHasCorrectLength) {
@@ -80,16 +95,15 @@ async function listUsersMiddleware(req: ListUsersRequest, res: NextApiResponse) 
             //4.3.2. ERROR - Failed to get data from the database and an error was thrown. return server_error error
             return res.status(500).json({
               errorCode: 'server_error',
-              warnings: warnings
+              warnings: warnings,
             })
           }
         } else {
           //4.3.1.2. If it contains more than one space return count of all user as 0
           totalUsersCount = 0
         }
-
       } else {
-        //4.1. If it do not contains a space 
+        //4.1. If it do not contains a space
         try {
           //4.1.2. Gets a list of users from the database
           users = await listUsers(
@@ -101,7 +115,7 @@ async function listUsersMiddleware(req: ListUsersRequest, res: NextApiResponse) 
           //4.1.2. ERROR - Failed to get data from the database and an error was thrown. return server_error error
           return res.status(500).json({
             errorCode: 'server_error',
-            warnings: warnings
+            warnings: warnings,
           })
         }
 
@@ -112,14 +126,15 @@ async function listUsersMiddleware(req: ListUsersRequest, res: NextApiResponse) 
           //4.1.2. ERROR - Failed to get data from the database and an error was thrown. return server_error error
           return res.status(500).json({
             errorCode: 'server_error',
-            warnings: warnings
+            warnings: warnings,
           })
         }
       }
       //5. Returns properly filled dtoOut.
       return res.status(200).json({
-        users, totalUsersCount,
-        warnings: warnings
+        users,
+        totalUsersCount,
+        warnings: warnings,
       })
     } else {
       //2.1. ERROR - user has not right to call this endpoint. return not_authorize error
@@ -130,7 +145,7 @@ async function listUsersMiddleware(req: ListUsersRequest, res: NextApiResponse) 
   } else {
     //1.1. ERROR - If httpMethod is not POST return not_found error
     return res.status(404).json({
-      errorCode: 'endpoint_not_found'
+      errorCode: 'endpoint_not_found',
     })
   }
 }

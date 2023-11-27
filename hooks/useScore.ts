@@ -1,17 +1,7 @@
 import { useCallback, useState, useEffect } from 'react'
+import { Score } from '@prisma/client'
 
 import { activityGetScore } from 'calls/admin-page-calls'
-
-
-export type ScoreListType = {
-    activityType: string
-    createdAt: string
-    difficulty: string
-    id: string
-    points: number
-    userId: string
-    data: boolean[]
-}
 
 export const NOW = new Date()
 
@@ -19,7 +9,7 @@ export const NOW_ISO = NOW.toISOString()
 export const TODAY_MIDNIGHT_ISO = new Date(new Date(NOW.getFullYear(), NOW.getMonth(), NOW.getDate())).toISOString()
 
 export const useScore = (selectUser?: string) => {
-    const [scoreList, setScoreList] = useState<ScoreListType[] | undefined>()
+    const [scoreList, setScoreList] = useState<Score[] | undefined>()
     const onFilterChange = useCallback(
         ({
             from,
@@ -38,7 +28,10 @@ export const useScore = (selectUser?: string) => {
                         to,
                         activityTypes
                     )
-                    setScoreList(res?.data?.data)
+                    if ("data" in res?.data) {
+                        setScoreList(res?.data?.data)
+                    }
+                    setScoreList([])
                 } catch (error) {
                     console.error('error', error)
                 }

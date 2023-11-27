@@ -17,22 +17,27 @@ const AvaibleCards: React.FC = () => {
 
   const selectedCard = useMemo(() => asContext?.selectedCard, [asContext?.selectedCard])
 
+  const cardList = useMemo(() => asContext?.avaibleCards?.map((card) => {
+    if (card) {
+      const isSelected = card.keyImage === selectedCard
+      return (
+        <DragCard
+          item={card}
+          key={`drag-card-${card.keyImage}`}
+          reference={card.reference}
+          onClick={onDragCardClickHandler}
+          selected={isSelected}
+        >
+          {card.img}
+        </DragCard>
+      )
+    }
+    return null
+  }), [asContext?.avaibleCards, onDragCardClickHandler, selectedCard])
+
   return (
     <CardList>
-      {asContext?.avaibleCards?.map((card) => {
-        const isSelected = card.keyImage === selectedCard
-        return (
-          <DragCard
-            item={card}
-            key={`drag-card-${card.keyImage}`}
-            reference={card.reference}
-            onClick={onDragCardClickHandler}
-            selected={isSelected}
-          >
-            {card.img}
-          </DragCard>
-        )
-      })}
+      {cardList}
     </CardList>
   )
 }

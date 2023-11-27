@@ -1,4 +1,7 @@
+import { listUsersDtoOut } from 'pages/api/user/list'
 import { callApi } from './calls'
+import { listScoreCreditDtoOut } from 'pages/api/activity/list-score'
+import { deleteUsersDtoOut } from 'pages/api/user/delete'
 
 export const activityGetScore = (
     selectUser?: string,
@@ -6,7 +9,7 @@ export const activityGetScore = (
     to?: string,
     activityTypes?: string[]
 ) => {
-    return callApi(
+    return callApi<listScoreCreditDtoOut>(
         'activity/list-score',
         {
             userId: selectUser,
@@ -23,7 +26,7 @@ export const userList = (
     cursor: number,
     searchUserString?: string,
 ) => {
-    return callApi(
+    return callApi<listUsersDtoOut>(
         'user/list',
         {
             params: {
@@ -39,7 +42,7 @@ export const userList = (
 export const userDelete = (
     selectedUser: string,
 ) => {
-    return callApi(
+    return callApi<deleteUsersDtoOut>(
         'user/delete',
         { userId: selectedUser },
         'POST'
