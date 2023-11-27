@@ -1,12 +1,9 @@
-import React, { useMemo, useContext } from 'react'
-import { ThemeContext } from 'styled-components'
+import React, { useMemo } from 'react'
 
 import * as S from './styled'
 import CashValue from '../../../cash-value'
 import Reference from '@components/reference'
 import { IMAGES_REFERENCE } from '@constants/character-conf'
-import Button, { ButtonSizesEnum } from '@components/button'
-import Loading from '@components/loading'
 import Overlap from './Overlap'
 
 type StoreItemProps = {

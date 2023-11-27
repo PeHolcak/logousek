@@ -39,6 +39,6 @@ export const FooterLink = styled.a<FooterLinkType>`
 
 
 export const Icon = styled.i`
- font-size: 18px;
+ font-size: ${({ theme }) => theme.typography.fontSize.xl};
 `;
 

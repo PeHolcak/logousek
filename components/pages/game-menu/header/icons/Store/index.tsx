@@ -17,7 +17,6 @@ import { AURAS_CONFIG, CHARACTERS_CONFIG, ItemType } from '@constants/shop'
 import AuraActivityCard from './AuraActivityCard'
 import CharacterActivityCard from './CharacterActivityCard'
 import * as S from './styled'
-import useUserSettings from '@hooks/use-user-settings'
 import Loading from '@components/loading'
 import UserSettingsContext from '@contexts/user-settings-context'
 import { P3 } from '@components/typography/paragraph'
@@ -51,7 +50,6 @@ const CharacterSelection: React.FC<CharacterSelectionProps> = ({
 
   useEffect(() => {
     if (userSettings?.updateSettingsState !== 'loading') {
-      console.log('userSettings', userSettings)
       setSelectedCharacter(userSettings?.character ?? 'beaver')
       setSelectedAuras(userSettings?.aura ?? 'red')
     }

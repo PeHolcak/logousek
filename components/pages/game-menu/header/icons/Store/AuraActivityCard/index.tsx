@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 
 import ActivityCard from '@components/activity-card'
 import Blob from '@components/svg/blob/blob'

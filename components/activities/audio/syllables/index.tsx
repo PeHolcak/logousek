@@ -20,7 +20,6 @@ import ActivityCard from '@components/activity-card'
 import { checkSyllablesAnswer, getSyllablesConfElement } from '@helpers/sound-helper'
 import {
     Syllable,
-    SyllablesConfType,
 } from '@constants/activity-confs/syllables-conf'
 
 import * as S from './styled'
@@ -62,7 +61,13 @@ const Syllables = (
         (): ActivityInterface => ({
             getResult: () => {
                 const placedCards = contextProviderRef?.current?.getCards()
-                const isCorrect = checkSyllablesAnswer(complexity, element.name, placedCards?.map(placedCard => placedCard.keyImage) || [])
+                const cardNames = placedCards?.reduce((result: string[], placedCard) => {
+                    if (placedCard) {
+                        result.push(placedCard.keyImage)
+                    }
+                    return result
+                }, []) || []
+                const isCorrect = checkSyllablesAnswer(complexity, element.name, cardNames)
                 return isCorrect
             },
             generateNext: () => { },

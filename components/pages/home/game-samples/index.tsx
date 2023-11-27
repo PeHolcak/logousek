@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 
 import Pump from '@components/animations/pump'
 import { useTranslateFunctions } from '@hooks/useTranslateFunctions'

@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 
-import Button, { ButtonSizesEnum } from '@components/button'
+import { ButtonSizesEnum } from '@components/button'
 import IconButton from '@components/icon-button'
 import ClickableIcon from '@components/clickable-icon'
 import Logousek from '@components/svg/templates/logousek'

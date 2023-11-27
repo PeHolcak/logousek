@@ -1,7 +1,6 @@
-import React, { useContext } from 'react'
-import { ThemeContext } from 'styled-components'
+import React from 'react'
 
-import Button, { ButtonSizesEnum, ButtonProps } from '@components/button'
+import Button, { ButtonProps } from '@components/button'
 
 import * as S from './styled'
 

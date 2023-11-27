@@ -1,7 +1,5 @@
 import React, { useMemo } from 'react'
 
-import publicImages from '@constants/public-images'
-
 import * as S from './styled'
 import { P4, P5 } from '@components/typography/paragraph'
 
