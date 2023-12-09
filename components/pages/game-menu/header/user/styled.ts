@@ -27,8 +27,5 @@ export const ProfileIcon = styled.i`
 `
 
 export const UserName = styled(TextWrap)`
-  display: none;
-  @media ${devices.mobileL} {
-    display: block;
-  }
+ 
 `

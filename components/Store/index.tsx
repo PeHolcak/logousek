@@ -21,12 +21,12 @@ import Loading from '@components/loading'
 import UserSettingsContext from '@contexts/user-settings-context'
 import { P3 } from '@components/typography/paragraph'
 
-type CharacterSelectionProps = {
+type StoreProps = {
   userScore: number
   refreshUserScore: () => void
 }
 
-const CharacterSelection: React.FC<CharacterSelectionProps> = ({
+const Store: React.FC<StoreProps> = ({
   userScore,
   refreshUserScore,
 }) => {
@@ -164,18 +164,18 @@ const CharacterSelection: React.FC<CharacterSelectionProps> = ({
       return <P3>Nepodařilo se načíst</P3>
     default:
       return (
-        <S.CharacterSelectionWrap>
-          <S.CharacterSelectionContainer>
+        <S.StoreWrap>
+          <S.StoreContainer>
             {showLoading ? <S.LoadingWrap>
               <Loading hideText />
             </S.LoadingWrap> : null}
-            <S.CharacterSelectionContent>
+            <S.StoreContent>
               <H2 align="center">Character</H2>
               <S.ItemList>{characters}</S.ItemList>
               <H2 align="center">Aura</H2>
               <S.ItemList>{auras}</S.ItemList>
-            </S.CharacterSelectionContent>
-          </S.CharacterSelectionContainer>
+            </S.StoreContent>
+          </S.StoreContainer>
           <ButtonRow>
             <Button
               color={themeContextData.colors.white}
@@ -189,9 +189,9 @@ const CharacterSelection: React.FC<CharacterSelectionProps> = ({
               Potvrdit
             </Button>
           </ButtonRow>
-        </S.CharacterSelectionWrap>
+        </S.StoreWrap>
       )
   }
 }
 
-export default CharacterSelection
+export default Store

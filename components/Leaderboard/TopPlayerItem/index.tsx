@@ -5,7 +5,7 @@ import publicImages from '@constants/public-images'
 import * as S from './styled'
 import Reference from '@components/reference'
 import { P5 } from '@components/typography/paragraph'
-import CashValue from '../../../cash-value'
+import CashValue from '@components/pages/game-menu/header/cash-value'
 
 type TopPlayerItemProps = {
   title: string

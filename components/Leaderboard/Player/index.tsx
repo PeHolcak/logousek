@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react'
 
+import CashValue from '@components/pages/game-menu/header/cash-value'
+
 import * as S from './styled'
 import Space from '../Space'
-import CashValue from '../../../cash-value'
 
 type PlayerProps = {
   isFirst: boolean

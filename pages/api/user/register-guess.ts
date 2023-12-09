@@ -9,7 +9,7 @@ const DEFAULT_VALUES = {
   firstName: 'Guess',
   surName: null,
   password: null,
-  type: TYPE.ADMIN,
+  type: TYPE.HOST,
 }
 
 export type registerGuessDtoOut =

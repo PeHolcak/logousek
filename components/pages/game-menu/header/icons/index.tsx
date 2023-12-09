@@ -9,12 +9,10 @@ import ClickableIconWrapper from '@components/clickable-icon-wrapper'
 import DarkModeSwitch from '@components/dark-mode-switch'
 import routes from '@constants/routes'
 import ModalContext from '@contexts/modal-context'
+import Store from '@components/Store'
 
 import * as S from './styled'
-import Store from './Store'
-import Leaderboard from "./Leaderboard"
-import DailyBonus from './DailyBonus'
-
+import Leaderboard from '@components/Leaderboard'
 
 const Icons: React.FC = () => {
   const router = useRouter()
@@ -28,10 +26,9 @@ const Icons: React.FC = () => {
   )
 
   const refreshUserScore = useMemo(
-    () => (gameMenuData?.refreshUserScore ?? (() => { })),
+    () => gameMenuData?.refreshUserScore ?? (() => { }),
     [gameMenuData?.refreshUserScore]
   )
-
 
   const onLogoutHandler = useCallback(() => {
     signOut()
@@ -41,43 +38,39 @@ const Icons: React.FC = () => {
     router.push({
       pathname: routes.adminPage,
     })
-  }, [router]
-  )
+  }, [router])
 
   const editCharacter = useCallback(() => {
     modalContext?.showModal({
-      header: "Obchod",
-      content: <Store userScore={userScore} refreshUserScore={refreshUserScore} />,
+      header: 'Obchod',
+      content: (
+        <Store userScore={userScore} refreshUserScore={refreshUserScore} />
+      ),
       autoWidth: true,
     })
   }, [modalContext, refreshUserScore, userScore])
 
   const showLeaderboard = useCallback(() => {
     modalContext?.showModal({
-      header: "Žebříček",
+      header: 'Žebříček',
       content: <Leaderboard />,
-      autoWidth: true,
-    })
-  }, [modalContext])
-
-  const showDailyBonus = useCallback(() => {
-    modalContext?.showModal({
-      header: "Denní bonus",
-      content: <DailyBonus />,
       autoWidth: true,
     })
   }, [modalContext])
 
   return (
     <ClickableIconWrapper key="game-menu-icons">
-      <ClickableIcon icon="today" onClick={showDailyBonus} />
       <ClickableIcon icon="insert_chart" onClick={showLeaderboard} />
       <ClickableIcon icon="people" onClick={editCharacter} />
       <S.DarkModeSwitchWrapper>
         <DarkModeSwitch />
       </S.DarkModeSwitchWrapper>
       <ClickableIcon icon="logout" onClick={onLogoutHandler} />
-      {(sessionData?.data?.user as any)?.role === "ADMIN" ? <ClickableIcon icon="poll" onClick={onAdminPagesRedirect} /> : <></>}
+      {(sessionData?.data?.user as any)?.role === 'ADMIN' ? (
+        <ClickableIcon icon="poll" onClick={onAdminPagesRedirect} />
+      ) : (
+        <></>
+      )}
     </ClickableIconWrapper>
   )
 }

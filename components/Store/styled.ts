@@ -1,7 +1,7 @@
 import { devices } from '@constants/screens-conf'
 import styled from 'styled-components'
 
-export const CharacterSelectionWrap = styled.div`
+export const StoreWrap = styled.div`
   margin-top: 16px;
 `
 
@@ -27,7 +27,7 @@ export const ItemList = styled.div`
   }
 `
 
-export const CharacterSelectionContent = styled.div`
+export const StoreContent = styled.div`
   max-height: 80vh;
   height: 100%;
   
@@ -36,7 +36,7 @@ export const CharacterSelectionContent = styled.div`
   
 `
 
-export const CharacterSelectionContainer = styled.div`
+export const StoreContainer = styled.div`
   position: relative;
 
   border-radius: ${({ theme }) => theme.radius.primary};

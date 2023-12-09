@@ -8,7 +8,7 @@ import * as S from './styled'
 import TopPlayerItem from './TopPlayerItem'
 import Player from './Player'
 
-const CharacterSelection: React.FC = () => {
+const Leaderboard: React.FC = () => {
   const [messageApi] = message.useMessage()
   const { state, firstThree, other } = useLeaderboardData(messageApi)
 
@@ -52,28 +52,28 @@ const CharacterSelection: React.FC = () => {
 
   if (state === 'loading') {
     return (
-      <S.CharacterSelectionWrapper>
+      <S.LeaderboardWrapper>
         <S.LoadingWrap>
           <Loading />
         </S.LoadingWrap>
-      </S.CharacterSelectionWrapper>
+      </S.LeaderboardWrapper>
     )
   }
 
   if (state === 'error') {
     return (
-      <S.CharacterSelectionWrapper>
+      <S.LeaderboardWrapper>
         Data se nepodařilo načíst
-      </S.CharacterSelectionWrapper>
+      </S.LeaderboardWrapper>
     )
   }
 
   return (
-    <S.CharacterSelectionWrapper>
+    <S.LeaderboardWrapper>
       <S.TopPlayerWrapper>{topPlayersContent}</S.TopPlayerWrapper>
       <S.Others>{usersContent}</S.Others>
-    </S.CharacterSelectionWrapper>
+    </S.LeaderboardWrapper>
   )
 }
 
-export default CharacterSelection
+export default Leaderboard

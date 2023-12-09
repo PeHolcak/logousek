@@ -44,7 +44,7 @@ export default async function handler(
         } catch (err) {
             //3.1. Failed to get data from the database and an error was thrown
             console.error(err)
-            return res.status(400).json({
+            return res.status(500).json({
                 errorCode: 'server_error',
                 warnings: warnings,
             })

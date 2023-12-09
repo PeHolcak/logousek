@@ -5,8 +5,8 @@ import { ColorsEnum } from "styles/colors";
 import DarkModeSwitch from "../dark-mode-switch";
 import { RectItemProps } from "./application-navigation/item-rect-list/rect-item";
 import ApplicationNavigation from "./application-navigation";
-import PageNavigation from "./page-navigation";
-import { ItemType } from "./page-navigation/item-list/item";
+import SimpleMenu from "@components/simple-menu";
+import { ItemType } from "@components/simple-menu/item-list/item";
 import * as S from "./styled";
 
 type ApplicationNavType = RectItemProps[];
@@ -55,7 +55,7 @@ const Sidebar: React.FC<SidebarProps> = ({ pageNav, applicationNav }) => {
           <S.MobileDarkModeSwitchWrapper>
             <DarkModeSwitch />
           </S.MobileDarkModeSwitchWrapper>
-          <PageNavigation isMenuShow={isMenuShow} setIsMenuShow={setIsMenuShow} pageNav={pageNav} />
+          <SimpleMenu isMenuShow={isMenuShow} setIsMenuShow={setIsMenuShow} data={pageNav} />
           <ApplicationNavigation isMenuShow={isMenuShow} applicationNav={applicationNav} />
         </S.SidebarItemsWrapper>
       </S.SidebarWrapper >

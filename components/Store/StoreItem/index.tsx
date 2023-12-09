@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 
 import * as S from './styled'
-import CashValue from '../../../cash-value'
+import CashValue from '@components/pages/game-menu/header/cash-value'
 import Reference from '@components/reference'
 import { IMAGES_REFERENCE } from '@constants/character-conf'
 import Overlap from './Overlap'

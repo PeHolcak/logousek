@@ -11,7 +11,7 @@ export const TopPlayerWrapper = styled.div`
   margin: 16px;
 `
 
-export const CharacterSelectionWrapper = styled.div`
+export const LeaderboardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
