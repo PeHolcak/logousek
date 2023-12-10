@@ -203,16 +203,6 @@ const activityConf: ActivityType[] = [
     games: games.language_practicing,
     image: publicImages.activityIcons.oromotorics,
   },
-
-  {
-    name: 'space_orientation',
-    title: 'Prostorová orientace',
-    shortTitle: 'Prostor',
-    color: ColorsEnum.fifty,
-    icon: 'accessibility',
-    disabled: true,
-    games: [],
-  },
 ]
 
 export default activityConf

@@ -29,18 +29,21 @@ export default forwardRef(function Memory(
                 complexity,
                 audioElement.name,
                 selectedElements[0] || '',
-                "audio_memory"
+                'audio_memory'
             ),
     }))
 
     const onChange = (value: string) => {
         setSelectedElement((v) => {
-            onHandleChanged()
+            let newValue = []
             if (v.includes(value)) {
-                return v.filter((vItem) => vItem !== value)
+                newValue = v.filter((vItem) => vItem !== value)
             } else {
-                return [...v, value]
+                newValue = [...v, value]
             }
+
+            onHandleChanged(Boolean(newValue && newValue.length))
+            return newValue
         })
     }
 

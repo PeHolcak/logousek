@@ -24,15 +24,8 @@ const GameSamples: React.FC = () => {
         <Pump>
           <S.GameSamplesImageWrapper>
             <S.GameSamplesImage src={publicImages.gameSample["01"]} >
-              <S.StyledVideo
-                ref={videoEl}
-                autoPlay
-                loop
-                onLoadedMetadata={handleLoadedMetadata}
-                playsInline
-              >
-                <source src={`/videos/game-samples.mp4`} />
-              </S.StyledVideo>
+
+              <S.StyledImage src={`/videos/game-samples.gif`} alt="Popis GIFu" />
             </S.GameSamplesImage>
           </S.GameSamplesImageWrapper>
         </Pump>

@@ -27,3 +27,7 @@ export const DoneButtonContent = styled.div`
   align-items: center;
   gap: 8px;
 `
+
+export const TimerWrapper = styled.div`
+  margin: 0px 0.5rem;
+`

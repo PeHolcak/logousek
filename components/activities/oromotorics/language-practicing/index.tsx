@@ -24,7 +24,7 @@ const LanguagePracticing = (
     )
 
     useEffect(() => {
-        onHandleChanged()
+        onHandleChanged(true)
     }, [onHandleChanged])
 
     const handleLoadedMetadata = () => {

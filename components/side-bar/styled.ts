@@ -23,8 +23,8 @@ export const SidebarItemsWrapper = styled.div<SidebarItemsWrapperProps>`
   transition-duration: 0.5s;
   min-height: 100vh;
   height: 100vh;
-  overflow: hidden;
-  padding: 32px 0 64px;
+  overflow: auto;
+  padding: 32px 0 132px;
   z-index: ${({ theme }) => {
     return theme.zIndex.xxl
   }};

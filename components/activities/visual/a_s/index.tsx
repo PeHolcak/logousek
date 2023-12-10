@@ -12,7 +12,7 @@ import { SVGS_HASH } from '@hooks/use-get-cards'
 import AvaibleCards from '../../../avaible-cards'
 
 const AS = (
-  { complexity, onHandleChanged, wasChanged }: ActivityProps,
+  { complexity, onHandleChanged, canBeEvaluated }: ActivityProps,
   ref: React.Ref<ActivityInterface> | undefined
 ) => {
   const [cardCount] = useState(
@@ -50,7 +50,7 @@ const AS = (
         ref={contextProviderRef}
         count={cardCount}
         onHandleChanged={onHandleChanged}
-        wasChanged={wasChanged}
+        canBeEvaluated={canBeEvaluated}
         aspectRatio={aspectRatio}
         usedCards={cards}
       >

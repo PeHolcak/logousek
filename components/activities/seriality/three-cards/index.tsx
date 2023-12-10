@@ -42,7 +42,7 @@ const ThreeCards = (
     )
 
     useEffect(() => {
-        onHandleChanged()
+        onHandleChanged(true)
     }, [onHandleChanged])
 
     return (

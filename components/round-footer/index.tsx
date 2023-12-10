@@ -31,21 +31,24 @@ const RoundFooter: React.FC<RoundFooterType> = ({
   children,
   customHeight,
 }) => {
-
   const footerConfButtons = useMemo(
     () =>
-      footerConf.map((footerItem, index) => (
-        <RoundFooterItem
-          key={`round_footer_item_${footerItem.name}`}
-          isActive={footerItem.name === activeItemName}
-          selectNewItem={selectNewItem}
-          index={index}
-          {...footerItem}
-        />
-      )),
+      footerConf.map((footerItem, index) => {
+
+        const onClick = footerItem.disabled ? undefined : footerItem.onClick
+        return (
+          <RoundFooterItem
+            key={`round_footer_item_${footerItem.name}`}
+            {...footerItem}
+            isActive={footerItem.name === activeItemName}
+            selectNewItem={selectNewItem}
+            index={index}
+            onClick={onClick}
+          />
+        )
+      }),
     [activeItemName, footerConf, selectNewItem]
   )
-
 
   return (
     <S.FooterWrap>

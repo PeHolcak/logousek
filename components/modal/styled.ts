@@ -10,7 +10,7 @@ interface ModalContainerProps {
 }
 
 export const ModalWrapper = styled.div<ModalWrapperType>`
-  position: absolute;
+  position: fixed;
   display: flex;
   z-index: 1002;
   justify-content: center;
@@ -18,6 +18,8 @@ export const ModalWrapper = styled.div<ModalWrapperType>`
   align-items: center;
   width: 100vw;
   height: 100vh;
+
+
   transform: scale(0);
   opacity: 0;
   animation: ${({ show }) =>
@@ -52,12 +54,16 @@ export const ModalWrapper = styled.div<ModalWrapperType>`
 export const ModalContainer = styled.div<ModalContainerProps>`
   display: flex;
   flex-direction: column;
-  margin: 0px;
+  margin: 12px 0;
   padding: 0;
   width: ${({ autoWidth }) => autoWidth ? "auto" : "100vw"};
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.4);
   border-radius: ${({ theme }) => theme.radius.primary};
+
+  max-height: 100vh;
+
+  overflow: auto;
 
   @media ${devices.mobileM} {
     margin: 8px;

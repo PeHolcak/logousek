@@ -28,7 +28,7 @@ import { CardType } from '@hooks/use-get-cards'
 const ASPECT_RATIO = '1 / 1'
 
 const Syllables = (
-    { onHandleChanged, wasChanged, complexity }: ActivityProps,
+    { onHandleChanged, canBeEvaluated, complexity }: ActivityProps,
     ref: React.Ref<ActivityInterface> | undefined
 ) => {
     const contextProviderRef = useRef<DndContextProviderInterface>(null)
@@ -79,7 +79,7 @@ const Syllables = (
                 ref={contextProviderRef}
                 count={3}
                 onHandleChanged={onHandleChanged}
-                wasChanged={wasChanged}
+                canBeEvaluated={canBeEvaluated}
                 aspectRatio={ASPECT_RATIO}
                 usedCards={cards.second}
             >

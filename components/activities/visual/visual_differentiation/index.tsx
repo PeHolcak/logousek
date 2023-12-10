@@ -38,7 +38,7 @@ export default forwardRef(function VisualDifActivity(
   }))
 
   const onCardClickHandle = (cardName?: string) => {
-    onHandleChanged();
+    onHandleChanged(Boolean(cardName));
     setSelectedName(cardName);
   }
 

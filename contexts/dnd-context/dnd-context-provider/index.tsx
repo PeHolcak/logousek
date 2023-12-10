@@ -23,7 +23,7 @@ type DndContextProviderType = {
   count: number
   onHandleChanged: (canBeChecked: boolean) => void
   aspectRatio?: string
-  wasChanged: boolean
+  canBeEvaluated: boolean
   usedCards: CardsInGame
 }
 
@@ -44,7 +44,6 @@ export default forwardRef(function DndContextProvider(
     children,
     count,
     onHandleChanged,
-    wasChanged,
     aspectRatio = '1 / 1',
     usedCards,
   }: DndContextProviderType,
@@ -59,10 +58,10 @@ export default forwardRef(function DndContextProvider(
   useEffect(() => {
     const isAllCardsPlaced = cards.length === 0
 
-    if (isAllCardsPlaced && !wasChanged) {
+    if (isAllCardsPlaced) {
       onHandleChanged(true)
     }
-  }, [cards, onHandleChanged, wasChanged])
+  }, [cards, onHandleChanged])
 
   useImperativeHandle(
     ref,

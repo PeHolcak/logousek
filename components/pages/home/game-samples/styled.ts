@@ -21,7 +21,9 @@ export const GameSamplesImage = styled.div<GameSamplesImageProps>`
   background-size: cover;
 `
 
-export const StyledVideo = styled.video`
+
+
+export const StyledImage = styled.img`
   padding: 10px;
   border-radius: ${({ theme }) => theme.radius.tertialy};
   width: 100%;

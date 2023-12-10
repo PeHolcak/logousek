@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+import { devices } from '@constants/screens-conf'
+
 type NavProps = { customHeight?: string }
 
 type FooterLinkType = { background?: string }
@@ -21,10 +23,13 @@ export const FooterContainer = styled.nav<NavProps>`
   width: ${({ customHeight }) => customHeight || "100%"};
   box-shadow: 0px 5px 40px 0px rgb(58, 58, 58);
   max-width: 640px;
-  margin: 0px 10px;
   position: relative;
   background-color: #ffffff;
   border-radius: ${({ theme }) => theme.radius.secondary};
+
+  @media ${devices.mobileL} {
+    margin: 0px 10px;
+  }
 `;
 
 
