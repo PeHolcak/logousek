@@ -59,8 +59,10 @@ export default async function handler(
         //3. Check if the userId from dtoIn exists
         let isCurrentUserExist = false
         try {
+            console.log("currentUserId", currentUserId, session, (session as any)?.user)
             if (currentUserId) {
                 const currentUserData = await getUserById(currentUserId)
+                console.log("currentUserData", currentUserData)
                 isCurrentUserExist = Boolean(currentUserData)
             }
         } catch (err) {

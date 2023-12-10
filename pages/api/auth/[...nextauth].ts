@@ -32,6 +32,7 @@ export const authOptions: any = {
                     const { nickName, password } = credentials || {}
                     if (nickName && password) {
                         const user = (await getUserByName(nickName))[0]
+                        console.log("user22", user, process.env.URL)
                         if (!user || !user.password || !bcrypt.compareSync(password, user.password)) {
                             throw new Error('wrong_password')
                         }
@@ -48,6 +49,7 @@ export const authOptions: any = {
                     const { nickName } = credentials ?? {}
                     if (nickName) {
                         const user = (await getUserByName(nickName))[0]
+                        console.log("user22", user, process.env.URL)
                         return {
                             id: user.id,
                             name: `${user.firstName}`,
