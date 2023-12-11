@@ -36,7 +36,7 @@ const Overlap: React.FC<OverlapProps> = ({
         <Button
           onClick={onItemBuyHandler}
           color={themeContextData.colors.black}
-          size={ButtonSizesEnum.md}
+          size={ButtonSizesEnum.s}
           backgroundColor={themeContextData?.colors?.lightGreen}
           disabled={disabled}
         >

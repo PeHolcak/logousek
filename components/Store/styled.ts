@@ -3,6 +3,8 @@ import styled from 'styled-components'
 
 export const StoreWrap = styled.div`
   margin-top: 16px;
+
+  max-height: calc(100vh - 67px);
 `
 
 export const ItemList = styled.div`

@@ -112,6 +112,7 @@ export const ModalTitle = styled.h3`
 
 export const ModalContent = styled.div`
   flex: 1;
+  max-height: calc(100vh - 48px);
 `
 
 export const CloseIconWrapper = styled.span`
