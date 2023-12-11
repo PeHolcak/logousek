@@ -1,0 +1,78 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+import { JSONTree } from 'react-json-tree'
+
+import * as S from '../../styles.ts'
+import SchemeInfoTable from '../../../Components/scheme-info-table/index'
+import LimitsTable from '../../../Components/limits-table/index'
+import DaoMethodTable from '../../../Components/dao-method-table/index'
+
+    <Meta title="ApplicationModel/DatabaseSchemas/Score" />
+
+# Score
+
+    <SchemeInfoTable name={'Score'} description={`Records individual user scores.`} />
+
+# Schema diagram
+
+     <S.MermaidWrapper>
+          <Mermaid
+              chart={`
+                      classDiagram
+                      direction RL
+                      User "1" <-- "N" Score
+
+                      class Score:::green
+                      class User
+
+                `}
+                />
+            </S.MermaidWrapper>
+
+## Input validation
+
+<JSONTree
+  shouldExpandNodeInitially={() => true}
+  data={{
+    id: `6577722c03da1098acf6c568`,
+    createdAt: `2023-06-06T16:08:51.915+00:00`,
+    userId: `65777232768c6c4571c174ee`,
+    points: '5',
+    activityType: 'visual_differentiation',
+    difficulty: '1',
+    data: [true, false, false, true, false],
+  }}
+/>
+
+    <LimitsTable
+          values={{
+            maxNoi: 'unlimited',
+          }}
+        />
+
+     <DaoMethodTable
+          tableRows={[
+             { name: 'getScoreByUserId', type: `({
+                  userId,
+                  activityTypes,
+                  from,
+                  to,
+                  } => {
+                  userId: string
+                  activityTypes?: string[]
+                  from?: string
+                  to?: string
+                  }): Promise<Score[]>`,
+
+description: "Returns a list of scores for a specific user" },
+
+            { name: 'addScore', type: `(
+              userId: string,
+              score: number,
+              activityType: string,
+              difficulty: string,
+              data: any
+              ) => Promise<Score>`, description: "Adds a score for a user." },
+
+]}
+/>

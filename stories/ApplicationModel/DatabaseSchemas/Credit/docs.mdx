@@ -1,0 +1,60 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+import { JSONTree } from 'react-json-tree'
+
+import * as S from '../../styles.ts'
+import SchemeInfoTable from '../../../Components/scheme-info-table/index'
+import LimitsTable from '../../../Components/limits-table/index'
+import DaoMethodTable from '../../../Components/dao-method-table/index'
+
+    <Meta title="ApplicationModel/DatabaseSchemas/Credit" />
+
+# Credit
+
+    <SchemeInfoTable name={'Credit'} description={`The scheme links the user id (foreign key) and the credit value. With this scheme, it is possible to determine how much credit a user has.`} />
+
+# Schema diagram
+
+    <S.MermaidWrapper>
+          <Mermaid
+              chart={`
+                      classDiagram
+                      direction RL
+                      User "1" <-- "N" Credit
+
+                      class Credit:::green
+                      class User
+
+                `}
+                />
+            </S.MermaidWrapper>
+
+## Input validation
+
+    <JSONTree
+          shouldExpandNodeInitially={() => true}
+          data={{
+            id: `6577722c03da1098acf6c568`,
+            createdAt: `2023-06-06T16:08:51.915+00:00`,
+            userId: `65777232768c6c4571c174ee`,
+            amount: 1250
+          }}
+        />
+
+    <LimitsTable
+          values={{
+            maxNoi: 'unlimited',
+          }}
+        />
+
+    <DaoMethodTable
+          tableRows={[
+            { name: 'listCredit', type: "(upTo: number) => Promise<Credit[]>", description: "Returns the list of records with the highest credit value. The upTo parameter specifies how many records to list." },
+            { name: 'getRankByUserId', type: "(userCreditAmount: number, userId: string) => Promise<{ rank: number } | null>", description: "Gets the user's ranking in the leaderboard." },
+
+            { name: 'getCreditByUserId', type: "(userId: string) => Promise<Credit | null>", description: "Returns a credit object based on the user id." },
+            { name: 'addCredit', type: "( userId: string, creditAmount: number) => Promise<Credit>", description: "Adds credit to the user." },
+            { name: 'removeCredit', type: "( userId: string, creditAmount: number) => Promise<Credit>", description: "Remove credit to the user." },
+            { name: 'createCredit', type: "( userId: string, creditAmount: number) => Promise<Credit>", description: "Create credit object for the user. First you need to create and then you can call addCredit." },
+            ]}
+        />

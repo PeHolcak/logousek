@@ -1,0 +1,66 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+import { JSONTree } from 'react-json-tree'
+
+import * as S from '../../styles.ts'
+import SchemeInfoTable from '../../../Components/scheme-info-table/index'
+import LimitsTable from '../../../Components/limits-table/index'
+import DaoMethodTable from '../../../Components/dao-method-table/index'
+
+    <Meta title="ApplicationModel/DatabaseSchemas/Purchase" />
+
+# Purchase
+
+    <SchemeInfoTable name={'Purchase'} description={`Allows to record which items the user has purchased.`} />
+
+# Schema diagram
+
+    <S.MermaidWrapper>
+          <Mermaid
+              chart={`
+                      classDiagram
+                      direction RL
+                      User "1" <-- "N" Purchase
+
+                      class Purchase:::green
+                      class User
+
+                `}
+                />
+            </S.MermaidWrapper>
+
+## Input validation
+
+    <JSONTree
+          shouldExpandNodeInitially={() => true}
+          data={{
+            id: `6577722c03da1098acf6c568`,
+            createdAt: `2023-06-06T16:08:51.915+00:00`,
+            userId: `65777232768c6c4571c174ee`,
+            itemNames: ["red", "beaver"]
+          }}
+        />
+
+    <LimitsTable
+          values={{
+            maxNoi: 'unlimited',
+          }}
+        />
+
+    <DaoMethodTable
+          tableRows={[
+            { name: 'getPurchaseByUserId', type: `(
+    userId: string
+
+): Promise<{ purchase?: string[] } | null> `, description: "Returns the purchase object." },
+            { name: 'updatePurchase', type: `(
+userId: string,
+itemNames: string[]
+
+): Promise<void>`, description: "Update the purchase object." },
+            { name: 'createPurchase', type: `(userId: string,
+itemNames: string[]
+
+): Promise<void>`, description: "Create the purchase object." },
+]}
+/>

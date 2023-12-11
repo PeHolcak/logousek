@@ -33,19 +33,6 @@ export const getScoreByUserId = async ({
   })
 }
 
-type GetScoreCountByUserIdReturnType = { points: number | null }
-
-export const getScoreCountByUserId = async (
-  userId: string
-): Promise<GetScoreCountByUserIdReturnType> => {
-  const result = await prisma.score.aggregate({
-    where: { userId },
-    _sum: {
-      points: true,
-    },
-  })
-  return result['_sum']
-}
 
 export const addScore = async (
   userId: string,

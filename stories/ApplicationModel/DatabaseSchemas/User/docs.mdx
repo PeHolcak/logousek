@@ -1,0 +1,64 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+import { JSONTree } from 'react-json-tree'
+
+import * as S from '../../styles.ts'
+import SchemeInfoTable from '../../../Components/scheme-info-table/index'
+import LimitsTable from '../../../Components/limits-table/index'
+import DaoMethodTable from '../../../Components/dao-method-table/index'
+
+    <Meta title="ApplicationModel/DatabaseSchemas/User" />
+
+# User
+
+    <SchemeInfoTable name={'User'} description={`This is a schema of user.`} />
+
+# Schema diagram
+
+    <S.MermaidWrapper>
+          <Mermaid
+              chart={`
+     classDiagram
+     direction RL
+
+     class User:::green
+
+`}
+/>
+
+          </S.MermaidWrapper>
+
+## Input validation
+
+    <JSONTree
+          shouldExpandNodeInitially={() => true}
+          data={{
+            id: `61e00d7493018a0682abc5b5`,
+            createdAt: `2023-06-06T16:08:51.915+00:00`,
+            firstName: `Radek`,
+            surName: `Novák`,
+            nickName: `Radek56445`,
+            password: `$2a$10$IoMbzUX.xEnvlivzBwg.zuU253n1FqU7Qsvex6uL5PTc/93Aa3H6O`,
+            type: `ADMIN`,
+          }}
+        />
+
+    <LimitsTable
+          values={{
+            maxNoi: 'unlimited',
+          }}
+        />
+
+    <DaoMethodTable
+          tableRows={[
+            { name: 'countUsers', type: "(searchUserString: string) => Promise<number>", description: "returns the number of users who match the search parameters" },
+            { name: 'countByFirstnameAndSurname', type: "(firstName: string, surName: string) => Promise<number>", description: "returns the number of users who match the search parameters" },
+            { name: 'listUsersByFirstnameAndSurname', type: "(firstName: string,  surName: string,  limit: number,  cursor: number) => Promise<User[]>", description: "returns a list to the user" },
+            { name: 'listUsers', type: "(searchUserString:string, limit: number, cursor: number) => Promise<User[]>", description: "returns a list to the user" },
+            { name: 'getUserByName', type: "(nickName: string) => Promise<User[]>", description: "Return the user based on the provided name" },
+            { name: 'getUserById', type: "(userId: string) => Promise<User | null>", description: "Return the user based on the provided id" },
+            { name: 'getUsersByIds', type: "(userId: string[]) => Promise<User[]>", description: "Return the user based on the provided id" },
+            { name: 'createUser', type: "(userData: user) => Promise<User>", description: "Creates a user" },
+            { name: 'deleteUser', type: "(id: user) => Promise<User>", description: "Deletes a user" },
+          ]}
+        />

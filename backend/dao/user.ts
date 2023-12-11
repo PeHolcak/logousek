@@ -35,8 +35,8 @@ export const countUsers = async (
 }
 
 export const countByFirstnameAndSurname = async (
-  firstString: string,
-  secondString: string
+  firstName: string,
+  surName: string
 ): Promise<number> => {
   return await prisma.user.count({
     where: {
@@ -45,13 +45,13 @@ export const countByFirstnameAndSurname = async (
           AND: [
             {
               firstName: {
-                contains: firstString,
+                contains: firstName,
                 mode: 'insensitive',
               },
             },
             {
               surName: {
-                contains: secondString,
+                contains: surName,
                 mode: 'insensitive',
               },
             },
@@ -61,13 +61,13 @@ export const countByFirstnameAndSurname = async (
           AND: [
             {
               firstName: {
-                contains: secondString,
+                contains: firstName,
                 mode: 'insensitive',
               },
             },
             {
               surName: {
-                contains: firstString,
+                contains: surName,
                 mode: 'insensitive',
               },
             },
@@ -79,8 +79,8 @@ export const countByFirstnameAndSurname = async (
 }
 
 export const listUsersByFirstnameAndSurname = async (
-  firstString: string,
-  secondString: string,
+  firstName: string,
+  surName: string,
   limit: number,
   cursor: number
 ): Promise<User[]> => {
@@ -93,13 +93,13 @@ export const listUsersByFirstnameAndSurname = async (
           AND: [
             {
               firstName: {
-                contains: firstString,
+                contains: firstName,
                 mode: 'insensitive',
               },
             },
             {
               surName: {
-                contains: secondString,
+                contains: surName,
                 mode: 'insensitive',
               },
             },
@@ -109,13 +109,13 @@ export const listUsersByFirstnameAndSurname = async (
           AND: [
             {
               firstName: {
-                contains: secondString,
+                contains: surName,
                 mode: 'insensitive',
               },
             },
             {
               surName: {
-                contains: firstString,
+                contains: firstName,
                 mode: 'insensitive',
               },
             },

@@ -1,15 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { getSession } from 'next-auth/react'
 
 import getScoreCountdtoIn from 'backend/dtoIn/get-score-count'
 import checkUnsupportedKeys from 'backend/dtoIn/check-unsupported-keys'
-
-import { getScoreCountByUserId } from 'backend/dao/score'
 
 import { getUserById } from 'backend/dao/user'
 import { ErrorDtoOut, Warnings } from 'types/api-types'
 import { authOptions } from '../auth/[...nextauth]'
 import { getServerSession } from 'next-auth'
+import { getCreditByUserId } from 'backend/dao/credit'
 
 export type getUserCreditDtoOut =
     | {
@@ -63,10 +61,10 @@ export default async function handler(
 
         //4. Get score count from the database
         try {
-            const result = await getScoreCountByUserId(currentUserId)
+            const result = await getCreditByUserId(currentUserId)
             //5. Returns properly filled dtoOut.
             return res.status(200).json({
-                points: result?.points,
+                points: result?.amount,
                 warnings: warnings,
             })
         } catch (error) {

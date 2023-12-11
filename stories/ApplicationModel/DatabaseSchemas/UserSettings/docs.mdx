@@ -1,0 +1,57 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+import { JSONTree } from 'react-json-tree'
+
+import * as S from '../../styles.ts'
+import SchemeInfoTable from '../../../Components/scheme-info-table/index'
+import LimitsTable from '../../../Components/limits-table/index'
+import DaoMethodTable from '../../../Components/dao-method-table/index'
+
+    <Meta title="ApplicationModel/DatabaseSchemas/UserSettings" />
+
+# UserSettings
+
+    <SchemeInfoTable name={'UserSettings'} description={`The app includes customizable features such as the ability to set a custom character or custom auras. This diagram contains information about the setting of these customizable elements for a specific user.`} />
+
+# Schema diagram
+
+    <S.MermaidWrapper>
+          <Mermaid
+              chart={`
+                      classDiagram
+                      direction RL
+                      User "1" <-- "N" UserSettings
+
+                      class UserSettings:::green
+                      class User
+
+                `}
+                />
+            </S.MermaidWrapper>
+
+## Input validation
+
+    <JSONTree
+          shouldExpandNodeInitially={() => true}
+          data={{
+            id: `6577722c03da1098acf6c568`,
+            createdAt: `2023-06-06T16:08:51.915+00:00`,
+            userId: `65777232768c6c4571c174ee`,
+            character: "beaver",
+            aura: "red"
+          }}
+        />
+
+    <LimitsTable
+          values={{
+            maxNoi: 'unlimited',
+          }}
+        />
+
+    <DaoMethodTable
+          tableRows={[
+            { name: 'getUserSettings', type: "(userId: string) => Promise<UserSettings | null>", description: "Returns settings for a user." },
+            { name: 'setSettingsToUserSettings', type: "(userId: string, aura?: string, character?: string) => Promise<UserSettings | null>", description: "Sets the settings for the user." },
+            { name: 'createUserSettings', type: "(userId: string, aura?: string, character?: string) => Promise<UserSettings | null>", description: "Creates settings for the user. First the object must be created and then setSettingsToUserSettings can be called." },
+            ]}
+        />

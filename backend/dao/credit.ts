@@ -20,15 +20,6 @@ export const listCredit = async (upTo: number): Promise<Credit[]> => {
   })
 }
 
-export const getCreditByUserIdWithRank = async (
-  userId: string
-): Promise<Credit | null> => {
-  return await prisma.credit.findUnique({
-    where: {
-      userId,
-    },
-  })
-}
 
 export const getRankByUserId = async (
   userCreditAmount: number,
