@@ -1,11 +1,17 @@
 // pages/api/purchase.js
 import { NextApiRequest, NextApiResponse } from 'next'
-import { getSession } from 'next-auth/react'
+import { getServerSession } from 'next-auth'
 
 import checkUnsupportedKeys from 'backend/dtoIn/check-unsupported-keys'
-import { createUserSettings, getUserSettings, setSettingsToUserSettings } from 'backend/dao/user-settings'
+import {
+    createUserSettings,
+    getUserSettings,
+    setSettingsToUserSettings,
+} from 'backend/dao/user-settings'
 import { getPurchaseByUserId } from 'backend/dao/purchase'
 import setSettingsDtoIn from 'backend/dtoIn/set-settings'
+import { authOptions } from '../auth/[...nextauth]'
+import { DEFAULT_AURA, DEFAULT_CHARACTER } from '@constants/shop'
 
 type Warnings = {
     code?: string
@@ -26,11 +32,13 @@ export default async function handler(
     req: SetSettingsRequest,
     res: NextApiResponse<SetSettingsDtoOut>
 ) {
-    const session = await getSession({ req })
+    const session = await getServerSession(req, res, authOptions)
     const currentUserId = (session as any)?.user?.id
 
     const characterName = req?.body?.characterName
     const auraName = req?.body?.auraName
+
+    console.log('req?.body', req?.body)
     // 1. Check httpMethod
     if (req.method === 'POST') {
         //2. Check dtoIn
@@ -45,12 +53,18 @@ export default async function handler(
         }
         //2.2. dtoIn contains keys beyond the scope of dtoInType
         const warnings = checkUnsupportedKeys(['SettingsName'], req.body)
-
+        console.log('currentUserId32', currentUserId)
         let isItemsPurchase = false
         try {
             const userPurchasedItems = await getPurchaseByUserId(currentUserId)
-            const isAuraPurchased = auraName ? userPurchasedItems?.purchase?.includes(auraName) : true
-            const isCharacterPurchased = characterName ? userPurchasedItems?.purchase?.includes(characterName) : true
+            const isAuraPurchased =
+                auraName && auraName !== DEFAULT_AURA
+                    ? userPurchasedItems?.purchase?.includes(auraName)
+                    : true
+            const isCharacterPurchased =
+                characterName && characterName !== DEFAULT_CHARACTER
+                    ? userPurchasedItems?.purchase?.includes(characterName)
+                    : true
 
             isItemsPurchase = !!isAuraPurchased && !!isCharacterPurchased
         } catch (err) {
@@ -92,8 +106,7 @@ export default async function handler(
                     warnings: warnings,
                 })
             }
-        }
-        else {
+        } else {
             try {
                 await createUserSettings(currentUserId, auraName, characterName)
             } catch (err) {
@@ -105,7 +118,6 @@ export default async function handler(
                 })
             }
         }
-
 
         return res.status(200).send({})
     }

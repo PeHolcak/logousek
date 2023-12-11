@@ -7,6 +7,8 @@ import checkUnsupportedKeys from 'backend/dtoIn/check-unsupported-keys'
 import { getUserById } from 'backend/dao/user'
 import { getCreditByUserId } from 'backend/dao/credit'
 import { ErrorDtoOut, Warnings } from 'types/api-types'
+import { authOptions } from '../auth/[...nextauth]'
+import { getServerSession } from 'next-auth'
 
 export type getScoreCountDtoOut =
     | {
@@ -19,7 +21,7 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<getScoreCountDtoOut>
 ) {
-    const session = await getSession({ req })
+    const session = await getServerSession(req, res, authOptions)
     const currentUserId = (session as any)?.user?.id
 
     // 1. Check httpMethod

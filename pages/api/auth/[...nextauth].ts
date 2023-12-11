@@ -1,12 +1,12 @@
 /* eslint-disable */
 
 import bcrypt from 'bcryptjs'
-import NextAuth from "next-auth";
-import CredentialsProvider from 'next-auth/providers/credentials'
 
 import { getUserByName } from 'backend/dao/user'
+import NextAuth, { NextAuthOptions } from 'next-auth'
+import CredentialsProvider from 'next-auth/providers/credentials'
 
-export const authOptions: any = {
+export const authOptions: NextAuthOptions = {
     session: {
         strategy: 'jwt',
     },

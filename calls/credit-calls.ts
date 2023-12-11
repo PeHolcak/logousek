@@ -17,7 +17,7 @@ export const getUserCredit = (
     userId: string,
 ) => {
     return callApi<getUserCreditDtoOut>(
-        '/activity/get-score-count',
+        'activity/get-score-count',
         { params: { userId } },
         'GET'
     )

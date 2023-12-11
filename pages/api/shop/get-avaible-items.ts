@@ -1,9 +1,11 @@
 // pages/api/purchase.js
 import checkUnsupportedKeys from 'backend/dtoIn/check-unsupported-keys'
 import { NextApiRequest, NextApiResponse } from 'next'
-import { getSession } from 'next-auth/react'
+import { getServerSession } from 'next-auth'
 
 import { getPurchaseByUserId } from 'backend/dao/purchase'
+
+import { authOptions } from '../auth/[...nextauth]'
 
 
 type Warnings = {
@@ -24,7 +26,7 @@ export default async function handler(
     req: GetAvaibleItemsRequest,
     res: NextApiResponse<GetAvaibleItemsDtoOut>
 ) {
-    const session = await getSession({ req })
+    const session = await getServerSession(req, res, authOptions)
     const currentUserId = (session as any)?.user?.id
 
     // 1. Check httpMethod

@@ -1,10 +1,11 @@
 // pages/api/purchase.js
 import checkUnsupportedKeys from 'backend/dtoIn/check-unsupported-keys'
 import { NextApiRequest, NextApiResponse } from 'next'
-import { getSession } from 'next-auth/react'
+import { getServerSession } from 'next-auth'
 
 import { getUserSettings } from 'backend/dao/user-settings'
 import { UserSettings } from '@prisma/client'
+import { authOptions } from '../auth/[...nextauth]'
 
 
 type Warnings = {
@@ -24,7 +25,7 @@ export default async function handler(
     req: GetUserSettingsRequest,
     res: NextApiResponse<GetUserSettingsDtoOut>
 ) {
-    const session = await getSession({ req })
+    const session = await getServerSession(req, res, authOptions)
     const currentUserId = (session as any)?.user?.id
 
     // 1. Check httpMethod

@@ -1,6 +1,5 @@
 // pages/api/purchase.js
 import { NextApiRequest, NextApiResponse } from 'next'
-import { getSession } from 'next-auth/react'
 
 import { getUserById } from 'backend/dao/user'
 import buyItemDtoIn from 'backend/dtoIn/buy-item'
@@ -12,6 +11,8 @@ import {
     getPurchaseByUserId,
     updatePurchase,
 } from 'backend/dao/purchase'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '../auth/[...nextauth]'
 
 type Warnings = {
     code?: string
@@ -36,9 +37,8 @@ export default async function handler(
     req: BuyItemRequest,
     res: NextApiResponse<GetBuyItemDtoOut>
 ) {
-    const session = await getSession({ req })
+    const session = await getServerSession(req, res, authOptions)
     const currentUserId = (session as any)?.user?.id
-
     const itemName = req?.body?.itemName
 
     // 1. Check httpMethod
@@ -104,16 +104,19 @@ export default async function handler(
             })
         }
 
-        try {
-            await removeCredit(currentUserId, itemConst)
-        } catch (err) {
-            //3.1. Failed to get data from the database and an error was thrown
-            console.error(err)
-            return res.status(400).json({
-                errorCode: 'server_error',
-                warnings: warnings,
-            })
+        if (itemConst !== 0) {
+            try {
+                await removeCredit(currentUserId, itemConst)
+            } catch (err) {
+                //3.1. Failed to get data from the database and an error was thrown
+                console.error(err)
+                return res.status(500).json({
+                    errorCode: 'server_error',
+                    warnings: warnings,
+                })
+            }
         }
+
 
         let userPurchase = null
         try {

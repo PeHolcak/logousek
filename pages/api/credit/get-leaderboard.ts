@@ -8,6 +8,8 @@ import { getUserById, getUsersByIds } from 'backend/dao/user'
 import { listCredit, getCreditByUserId, CreditWithRank, getRankByUserId } from 'backend/dao/credit'
 import getLeaderboardDtoIn from 'backend/dtoIn/get-leaderboard'
 import { Credit } from '@prisma/client'
+import { authOptions } from '../auth/[...nextauth]'
+import { getServerSession } from 'next-auth'
 
 const APP_TO = 8
 
@@ -83,7 +85,7 @@ export default async function handler(
     req: GetLeaderboadApiRequest,
     res: NextApiResponse<GetLeaderBoardDtoOut>
 ) {
-    const session = await getSession({ req })
+    const session = await getServerSession(req, res, authOptions)
     const currentUserId = (session as any)?.user?.id
 
     // 1. Check httpMethod
