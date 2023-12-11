@@ -4,6 +4,7 @@ import { SessionProvider } from 'next-auth/react'
 import { AnimatePresence } from 'framer-motion'
 import { DndProvider } from 'react-dnd'
 import { TouchBackend } from 'react-dnd-touch-backend'
+import 'normalize.css/normalize.css';
 
 import '../styles/globals.css'
 import Modal, { ModalInterfaceType } from '../components/modal'

@@ -42,6 +42,7 @@
     "next-translate": "^2.0.4",
     "nextjs-cors": "^2.1.2",
     "nodemailer": "^6.8.0",
+    "normalize.css": "^8.0.1",
     "npm": "^9.7.1",
     "rdndmb-html5-to-touch": "^7.1.0",
     "react": "^18.2.0",

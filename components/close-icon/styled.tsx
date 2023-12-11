@@ -15,4 +15,5 @@ export const IconWrapper = styled.a`
 
 export const Icon = styled.i`
   font-size: 32px;
+  color: ${({ theme }) => theme.colors.black};
 `

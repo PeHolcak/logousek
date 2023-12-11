@@ -40,6 +40,7 @@ export const Cost = styled(P5)`
 
 type StoreItemContainerProps = {
   isOwned: boolean
+  cost: number
 }
 
 export const StoreItemWrapper = styled.div`
@@ -58,7 +59,7 @@ export const ImageContainer = styled.div`
   justify-content: center;
 `
 export const ImageWrapper = styled.div<StoreItemContainerProps>`
-  ${({ isOwned }) => isOwned ? null : css`
+  ${({ isOwned, cost }) => isOwned || !cost ? null : css`
     filter:  grayscale(100%) brightness(0.5) blur(5px);
   `}
 

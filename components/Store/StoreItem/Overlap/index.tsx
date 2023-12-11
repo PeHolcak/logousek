@@ -10,6 +10,7 @@ type OverlapProps = {
   onItemBuyHandler: () => void
   disabled: boolean
   isInProgress: boolean
+  cost: number
 }
 
 const Overlap: React.FC<OverlapProps> = ({
@@ -17,11 +18,12 @@ const Overlap: React.FC<OverlapProps> = ({
   onItemBuyHandler,
   disabled,
   isInProgress,
+  cost
 }) => {
   const themeContextData = useContext(ThemeContext)
 
 
-  if (!isOwned) {
+  if (!isOwned && cost) {
     if (isInProgress) {
       return (
         <S.ImageOverlapElementWrapper>
