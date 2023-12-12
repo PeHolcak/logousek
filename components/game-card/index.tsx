@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { useRouter } from 'next/router'
 
-import ItemList from '@components/item-list';
+import ItemList from '@components/game-card/item-list';
 import ModalContext from '@contexts/modal-context';
 import { GameType } from '@constants/activity-confs/activity-conf';
 import routes from "@constants/routes"

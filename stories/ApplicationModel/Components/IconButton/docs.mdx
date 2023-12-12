@@ -1,0 +1,67 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../styles.ts'
+import PropertiesTable from '../../../Components/properties-table'
+import ReferenceList from '../../../Components/reference-list'
+import ComponentInfoTable from '../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/IconButton/docs" />
+
+# IconButton
+
+<ComponentInfoTable
+  name={'IconButton'}
+  description={`The wrapper that wraps the header.`}
+  source="components/icon-button"
+/>
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'icon',
+      type: `string`,
+      defaultValue: '',
+      description: `The icon that appears inside the button`,
+      required: true,
+    },
+    {
+      name: 'children',
+      type: `string | React.ReactNode`,
+      defaultValue: '',
+      description: `This is a children component.`,
+      required: false,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+     IconButton "1" <-- "1" Button
+     Button "1" <-- "1" ButtonContent
+     ButtonContent "1" <-- "1" i
+     ButtonContent "1" <-- "1" div
+     div "1" <-- "1" propsChildren
+
+     class IconButton:::green
+     class Button:::blue
+     class ButtonContent
+     class i
+     class div
+     class propsChildren["props.children"]
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'Button',
+      description: 'The button used for triggering an action.',
+    },
+  ]}
+/>

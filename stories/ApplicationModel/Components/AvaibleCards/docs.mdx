@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../styles.ts'
+import PropertiesTable from '../../../Components/properties-table'
+import ReferenceList from '../../../Components/reference-list'
+import ComponentInfoTable from '../../../Components/component-info-table'
+
+    <Meta title="ApplicationModel/Components/AvaibleCards/docs" />
+
+# AvaibleCards
+
+    <ComponentInfoTable
+          name={'AvaibleCards'}
+          description={`This is a drag and drop component. The component represents a card that the user can drag around the screen.`}
+          source="components/activity-card"
+        />
+
+<PropertiesTable tableRows={[]} />
+
+    <S.MermaidWrapper>
+          <Mermaid
+              chart={`
+     classDiagram
+     direction RL
+     AvaibleCards "1" <-- "1" CardList
+     CardList "1" <-- "N" DragCard
+
+
+     class AvaibleCards:::green
+     class CardList:::blue
+     class DragCard:::blue
+
+`}
+/>
+
+          </S.MermaidWrapper>
+
+    <ReferenceList
+          tableRows={[
+            {
+              name: 'CardList',
+              description: 'List of Cards.',
+            },
+            {
+              name: 'DragCard',
+              description: 'Render dragable card.',
+            },
+          ]}
+        />

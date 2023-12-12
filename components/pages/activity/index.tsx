@@ -23,7 +23,6 @@ export type ActivityProps = {
   complexity: string
   onHandleChanged: (canBeChecked?: boolean) => void
   canBeEvaluated: boolean
-  tasksElapsed: number
   checkResult: () => void
   currentTask: number
 }

@@ -1,0 +1,77 @@
+{/* Checkbox.mdx */}
+
+import { Canvas, Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../../styles.ts'
+import PropertiesTable from '../../../../../Components/properties-table'
+import ReferenceList from '../../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/Activities/Visual/VisualDifferentiation/docs" />
+
+# VisualDifferentiation
+
+<ComponentInfoTable
+  name={'VisualDifferentiation'}
+  description={`This is a visual differentiation activity.`}
+  source="components/VisualDifferentiation"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'currentTask',
+      type: `number`,
+      defaultValue: '',
+      description: `Gets information on how many tasks in a row it is.`,
+      required: true,
+    },
+    {
+      name: 'onHandleChanged',
+      type: `(canBeChecked?: boolean) => void`,
+      defaultValue: '',
+      description: `Callback that is called if the game state changes`,
+      required: true,
+    },
+    {
+      name: 'complexity',
+      type: `string`,
+      defaultValue: '',
+      description: `Indicates the complexity.`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+      VisualDifferentiation "1" <-- "1" div
+      div "1" <-- "1" P5
+      div "1" <-- "1" CardList
+
+      class VisualDifferentiation:::green
+      class div
+      class P5:::blue
+      class CardList:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'P5',
+      description: 'Paragraph of level 5.',
+    },
+    {
+      name: 'CardList',
+      description: 'List of Cards for VisualCard.',
+    },
+  ]}
+/>

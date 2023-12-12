@@ -1,6 +1,6 @@
 import React from 'react'
 
-import HeaderWrapper from '@components/header-wrapper/header-wrapper'
+import HeaderWrapper from '@components/header-wrapper'
 
 import Icons from './icons'
 import User from './user'

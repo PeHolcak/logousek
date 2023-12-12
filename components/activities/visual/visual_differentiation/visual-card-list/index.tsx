@@ -8,7 +8,6 @@ type CardListType = {
   cards: CardType[],
   selectedName?: string,
   setSelectedName: (name?: string) => void
-  reference?: React.ReactNode
 }
 
 const VisualCardList: React.FC<CardListType> = ({

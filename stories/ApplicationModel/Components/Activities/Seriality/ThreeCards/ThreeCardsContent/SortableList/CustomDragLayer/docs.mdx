@@ -1,0 +1,59 @@
+{/* Checkbox.mdx */}
+
+import { Canvas, Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../../../../../styles.ts'
+import PropertiesTable from '../../../../../../../../Components/properties-table'
+import ReferenceList from '../../../../../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../../../../../Components/component-info-table'
+import ComponentRenderTable from '../../../../../../../../Components/component-render'
+
+<Meta title="ApplicationModel/Components/Activities/Seriality/ThreeCards/ThreeCardsContent/SortableList/CustomDragLayer/docs" />
+
+# CustomDragLayer
+
+<ComponentInfoTable
+  name={'CustomDragLayer'}
+  description={`This is the layer that is visible if the user drags the card.`}
+  source="components/CustomDragLayer"
+/>
+
+<PropertiesTable tableRows={[]} />
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+      CustomDragLayer "1" <-- "1" div
+      div "1" <-- "1" div2
+      div2 "1" <-- "1" ActivityCard
+
+      class CustomDragLayer:::green
+      class div["R - div"]
+      class div2["div"]
+      class ActivityCard:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ComponentRenderTable
+  tableRows={[
+    {
+      name: 'div',
+      rules: `Rendered only if user is draging card`,
+    },
+  ]}
+/>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'ActivityCard',
+      description: 'The component that represents the game card.',
+    },
+  ]}
+/>

@@ -1,0 +1,63 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../styles.ts'
+import PropertiesTable from '../../../Components/properties-table'
+import ReferenceList from '../../../Components/reference-list'
+import ComponentInfoTable from '../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/GameCard/docs" />
+
+# GameCard
+
+<ComponentInfoTable
+  name={'GameCard'}
+  description={`This is a double-sided card. based on the configuration provided, gameInfo will display a double-sided card.`}
+  source="components/game-card"
+/>
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'gameInfo',
+      type: `{
+        name: string
+        title: string
+        image: string
+        description?: string
+        difficulty?: {
+          id: number
+          level: number
+          points: number
+          exercisesCount: number
+        }[]
+      }`,
+      defaultValue: '',
+      description: `This is the game configuration.`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+     GameCard "1" <-- "1" TwoSideCard
+
+     class GameCard:::green
+     class TwoSideCard:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'TwoSideCard',
+      rules: `A card that can rotate and show the user the other side.`,
+    },
+  ]}
+/>

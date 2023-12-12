@@ -1,0 +1,82 @@
+{/* Checkbox.mdx */}
+
+import { Canvas, Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../../../../../../styles.ts'
+import PropertiesTable from '../../../../../../../../../Components/properties-table'
+import ReferenceList from '../../../../../../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../../../../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/Activities/Seriality/ThreeCards/ThreeCardsContent/SortableList/CardList/Card/docs" />
+
+# Card
+
+<ComponentInfoTable
+  name={'Card'}
+  description={`The component that represents the game card.`}
+  source="components/Card"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'id',
+      type: `any`,
+      defaultValue: '',
+      description: `Identificator of the cards.`,
+      required: true,
+    },
+    {
+      name: 'content',
+      type: `React.ReactNode`,
+      defaultValue: '',
+      description: `Content of the card.`,
+      required: true,
+    },
+
+      {
+      name: 'index',
+      type: `number`,
+      defaultValue: '',
+      description: `Index of the card.`,
+      required: true,
+    },
+      {
+      name: 'moveCard',
+      type: `(dragIndex: number, hoverIndex: number) => void`,
+      defaultValue: '',
+      description: `Callback that indicates movement of the card.`,
+      required: false,
+    },
+
+]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+      Card "1" <-- "1" CardWrapper
+      CardWrapper "1" <-- "1" ActivityCard
+      ActivityCard "1" <-- "N" propsContent
+
+      class Card:::green
+      class CardWrapper
+      class ActivityCard:::blue
+      class propsContent["props.content"]
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'ActivityCard',
+      description: 'The component that represents the game card.',
+    },
+  ]}
+/>

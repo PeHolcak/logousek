@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import HeaderWrapper from '@components/header-wrapper/header-wrapper'
+import HeaderWrapper from '@components/header-wrapper'
 
 import * as S from './styled'
 import MobileMenuItems from './MobileMenuItems'

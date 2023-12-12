@@ -1,0 +1,68 @@
+{/* Checkbox.mdx */}
+
+import { Canvas, Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../../styles.ts'
+import PropertiesTable from '../../../../../Components/properties-table'
+import ReferenceList from '../../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/Activities/Seriality/ThreeCards/docs" />
+
+# ThreeCards
+
+<ComponentInfoTable
+  name={'ThreeCards'}
+  description={`This is a seriality activity.`}
+  source="components/ThreeCards"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'currentTask',
+      type: `number`,
+      defaultValue: '',
+      description: `Gets information on how many tasks in a row it is.`,
+      required: true,
+    },
+    {
+      name: 'onHandleChanged',
+      type: `(canBeChecked?: boolean) => void`,
+      defaultValue: '',
+      description: `Callback that is called if the game state changes`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+      ThreeCards "1" <-- "1" SerialityContextProvider
+      SerialityContextProvider "1" <-- "1" ThreeCardContent
+
+      class ThreeCards:::green
+      class SerialityContextProvider:::blue
+      class ThreeCardContent:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'SerialityContextProvider',
+      description: 'Context for activities falling under seriality.',
+    },
+    {
+      name: 'ThreeCardContent',
+      description: 'Content of threee cards activity.',
+    },
+  ]}
+/>

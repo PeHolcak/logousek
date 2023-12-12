@@ -1,0 +1,65 @@
+{/* Checkbox.mdx */}
+
+import { Canvas, Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../../../../../styles.ts'
+import PropertiesTable from '../../../../../../../../Components/properties-table'
+import ReferenceList from '../../../../../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../../../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/Activities/Seriality/ThreeCards/ThreeCardsContent/SortableList/CardList/docs" />
+
+# CardList
+
+<ComponentInfoTable
+  name={'CardList'}
+  description={`This is a layer for drag.`}
+  source="components/CardList"
+/>
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'cards',
+      type: `CardType[]`,
+      defaultValue: '',
+      description: `Array of cards that will be shown in CardList.`,
+      required: true,
+    },
+    {
+      name: 'onHandleChanged',
+      type: `(cards: CardType[]) => void`,
+      defaultValue: '',
+      description: `Callback that is called if the game state changes`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+      CardList "1" <-- "1" Wrapper
+      Wrapper "1" <-- "1" Container
+      Container "1" <-- "N" Card
+
+      class CardList:::green
+      class Wrapper
+      class Container
+      class Card:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'Card',
+      description: 'The component that represents the game card.',
+    },
+  ]}
+/>

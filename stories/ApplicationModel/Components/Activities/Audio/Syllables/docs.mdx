@@ -1,0 +1,81 @@
+{/* Checkbox.mdx */}
+
+import { Canvas, Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../../styles.ts'
+import PropertiesTable from '../../../../../Components/properties-table'
+import ReferenceList from '../../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/Activities/Audio/Syllables/docs" />
+
+# Syllables
+
+<ComponentInfoTable
+  name={'Syllables'}
+  description={`This is a Syllables activity.`}
+  source="components/Syllables"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'complexity',
+      type: `string`,
+      defaultValue: '',
+      description: `Indicates the complexity.`,
+      required: true,
+    },
+    {
+      name: 'onHandleChanged',
+      type: `(canBeChecked?: boolean) => void`,
+      defaultValue: '',
+      description: `Callback that is called if the game state changes`,
+      required: true,
+    },
+    {
+      name: 'canBeEvaluated',
+      type: `boolean`,
+      defaultValue: '',
+      description: `Information about whether the user can click the confirm button to have the activity evaluated`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+      Syllables "1" <-- "1" DndContextProvider
+      DndContextProvider "1" <-- "1" P5
+      DndContextProvider "1" <-- "1" Container
+      Container "1" <-- "1" TaskWrapper
+      TaskWrapper "1" <-- "N" ActivityCard
+
+      class Syllables:::green
+      class DndContextProvider:::blue
+      class P5:::blue
+      class Container
+      class TaskWrapper
+      class ActivityCard
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'DndContextProvider',
+      description: 'This is a drag and drop context.',
+    },
+    {
+      name: 'P5',
+      description: 'Paragraph of level 5.',
+    },
+  ]}
+/>

@@ -3,7 +3,7 @@ import React, { useCallback, useContext, useMemo } from 'react'
 import { CardType } from '@hooks/use-get-cards'
 import useDrop from '@hooks/use-drop'
 
-import InnerDropCard from '@components/drop-card/inener-drop-card'
+import InnerDropCard from '@components/drop-card/inner-drop-card'
 import DragCard from '@components/drag-card'
 import DndContext from '@contexts/dnd-context'
 

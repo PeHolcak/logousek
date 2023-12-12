@@ -46,7 +46,6 @@ const ActivityContent: React.FC<ActivityContentProps> = ({
     <Activity
       ref={activityRef}
       key={`activity_${currentTask}`}
-      tasksElapsed={currentTask}
       onHandleChanged={onHandleChanged}
       canBeEvaluated={canBeEvaluated}
       checkResult={checkResult}

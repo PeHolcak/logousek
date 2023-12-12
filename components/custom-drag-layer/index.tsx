@@ -48,9 +48,11 @@ const CustomDragLayer: React.FC = () => {
         return null
     }
   }
+
   if (!isDragging) {
     return null
   }
+
   return (
     <div style={layerStyles}>
       <div

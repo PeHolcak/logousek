@@ -1,9 +1,9 @@
 import { Mermaid } from 'mdx-mermaid/Mermaid'
 
-import appConf from '../../../../constants/app-conf'
 import ComponentInfoTable from '../../../Components/component-info-table'
 import ReferenceList from '../../../Components/reference-list'
 import PropertiesTable from '../../../Components/properties-table'
+import ComponentRenderTable from '../../../Components/component-render'
 
 # Loading
 
@@ -22,6 +22,13 @@ import PropertiesTable from '../../../Components/properties-table'
       description: `This is a props that can set the font color.`,
       required: false,
     },
+    {
+      name: 'hideText',
+      type: `boolean`,
+      defaultValue: '',
+      description: `Hide the text and show loading animation only.`,
+      required: false,
+    },
   ]}
 />
 
@@ -38,12 +45,21 @@ import PropertiesTable from '../../../Components/properties-table'
       class Loading:::green
       class LoadingWrapper
       class LoadingAnimation
-      class P3:::blue
+      class P3["R - P3]:::blue
 
 `}
 />
 
 </S.MermaidWrapper>
+
+<ComponentRenderTable
+  tableRows={[
+    {
+      name: 'P3',
+      rules: `Rendered only if props.hideText is false or undefined`,
+    },
+  ]}
+/>
 
 <ReferenceList
   tableRows={[

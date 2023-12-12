@@ -1,0 +1,118 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../styles.ts'
+import PropertiesTable from '../../../Components/properties-table'
+import ReferenceList from '../../../Components/reference-list'
+import ComponentInfoTable from '../../../Components/component-info-table'
+
+    <Meta title="ApplicationModel/Components/ActivitySlider/docs" />
+
+# ActivitySlider
+
+    <ComponentInfoTable
+          name={'ActivitySlider'}
+          description={`Allows you to divide the activity into 2 parts - the question part and the part where the user selects the answer. There is a timer in the component, which hides the part with the question and shows the part with the answer`}
+          source="components/activity-card"
+        />
+
+<PropertiesTable
+tableRows={[
+          {
+            name: 'questionPart',
+            type: `React.ReactElement`,
+            defaultValue: '',
+            description: `This is the first part, where is the question.`,
+            required: false,
+          },
+          {
+            name: 'cardData',
+            type: `{
+              name: string
+              svg: React.ReactNode
+              rotateDegrees?: number
+              hideConfing?: { [key: string]: boolean }
+              reference?: React.ReactNode
+            }[]`,
+            defaultValue: '',
+            description: `The data of each card that appears in the answer section.`,
+            required: true,
+            },
+
+            {
+              name: 'setSelectedElement',
+              type: `(value: string) => void`,
+              defaultValue: '',
+              description: `A callback that is called after the user selects a card in the answer section.`,
+              required: true,
+            },
+            {
+              name: 'selectedElements',
+              type: `string[]`,
+              defaultValue: '',
+              description: `This is a list of cards that the user has selected as the answer.`,
+              required: false,
+            },
+
+            {
+              name: 'onTimerIsDoneHandler',
+              type: `() => void`,
+              defaultValue: '',
+              description: `It is called after the question section is hidden from the user and the answer section is displayed.`,
+              required: false,
+            },
+          ]}
+        />
+
+    <S.MermaidWrapper>
+          <Mermaid
+              chart={`
+     classDiagram
+     direction RL
+     ActivitySlider "1" <-- "1" TemplateWrapper
+     TemplateWrapper "1" <-- "1" ShowedPart
+     TemplateWrapper "1" <-- "1" AnswerPart
+     ShowedPart "1" <-- "1" P2
+     P2 "1" <-- "1" Timer
+     ShowedPart "1" <-- "1" TrafficLights
+     ShowedPart "1" <-- "1" SkipButton
+     ShowedPart "1" <-- "1" propsQuestionPart
+     AnswerPart "1" <-- "N" ActivityCard
+
+
+     class ActivitySlider:::green
+     class TemplateWrapper
+     class ShowedPart
+     class P2:::blue
+     class Timer:::blue
+     class TrafficLights:::blue
+     class SkipButton
+     class AnswerPart
+     class ActivityCard:::blue
+     class propsQuestionPart["props.questionPart"]
+
+`}
+/>
+
+          </S.MermaidWrapper>
+
+    <ReferenceList
+          tableRows={[
+            {
+              name: 'P2',
+              description: 'Paragraph of level 2.',
+            },
+            {
+              name: 'Timer',
+              description: 'Renders the remaining time until the answerpart is shown.',
+            },
+            {
+              name: 'TrafficLights',
+              description: 'Visualizes the remaining time that is shown as text in the Timer component.',
+            },
+            {
+              name: 'ActivityCard',
+              description: 'The component that represents the game card.',
+            },
+          ]}
+        />

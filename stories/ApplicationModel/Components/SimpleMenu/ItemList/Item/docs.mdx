@@ -1,0 +1,87 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../../styles.ts'
+import PropertiesTable from '../../../../../Components/properties-table'
+import ReferenceList from '../../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/SimpleMenu/ItemList/Item/docs" />
+
+# RectItem
+
+<ComponentInfoTable
+  name={'RectItem'}
+  description={`This is a list RectItem.`}
+  source="components/simple-menu/item-list"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'name',
+      type: `string`,
+      defaultValue: '',
+      description: `Technical name`,
+      required: true,
+    },
+    {
+      name: 'icon',
+      type: `string`,
+      defaultValue: '',
+      description: `Icon displayed next to a list item.`,
+      required: true,
+    },
+    {
+      name: 'title',
+      type: `string`,
+      defaultValue: '',
+      description: `Text that appears as a label.`,
+      required: true,
+    },
+    {
+      name: 'onClick',
+      type: `() => void`,
+      defaultValue: '',
+      description: `Callback that is called when an item is clicked.`,
+      required: true,
+    },
+    {
+      name: 'isMenuShow',
+      type: `boolean`,
+      defaultValue: '',
+      description: `Indicates whether the menu is visible.`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+     RectItem "1" <-- "1" ItemWrap
+     ItemWrap "1" <-- "1" ItemLink
+     ItemLink "1" <-- "1" ItemIcon
+     ItemLink "1" <-- "1" P5
+
+     class RectItem:::green
+     class ItemWrap
+     class ItemLink
+     class ItemIcon
+     class P5:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'P5',
+      description: 'Paragraph of level 5.',
+    },
+  ]}
+/>

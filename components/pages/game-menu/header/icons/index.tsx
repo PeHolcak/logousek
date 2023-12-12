@@ -9,10 +9,10 @@ import ClickableIconWrapper from '@components/clickable-icon-wrapper'
 import DarkModeSwitch from '@components/dark-mode-switch'
 import routes from '@constants/routes'
 import ModalContext from '@contexts/modal-context'
-import Store from '@components/Store'
+import UserStore from '@components/user-store'
+import UsersLeaderboard from '@components/users-leaderboard'
 
 import * as S from './styled'
-import Leaderboard from '@components/Leaderboard'
 
 const Icons: React.FC = () => {
   const router = useRouter()
@@ -44,7 +44,7 @@ const Icons: React.FC = () => {
     modalContext?.showModal({
       header: 'Obchod',
       content: (
-        <Store userScore={userScore} refreshUserScore={refreshUserScore} />
+        <UserStore userScore={userScore} refreshUserScore={refreshUserScore} />
       ),
       autoWidth: true,
     })
@@ -53,7 +53,7 @@ const Icons: React.FC = () => {
   const showLeaderboard = useCallback(() => {
     modalContext?.showModal({
       header: 'Žebříček',
-      content: <Leaderboard />,
+      content: <UsersLeaderboard />,
       autoWidth: true,
     })
   }, [modalContext])

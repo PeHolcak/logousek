@@ -1,0 +1,45 @@
+{/* Checkbox.mdx */}
+
+import { Canvas, Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../../../styles.ts'
+import PropertiesTable from '../../../../../../Components/properties-table'
+import ReferenceList from '../../../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/Activities/Seriality/ThreeCards/ThreeCardsContent/docs" />
+
+# ThreeCardsContent
+
+<ComponentInfoTable
+  name={'ThreeCardsContent'}
+  description={`This is a content of three cads activity.`}
+  source="components/ThreeCardsContent"
+/>
+
+<PropertiesTable tableRows={[]} />
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+      ThreeCardsContent "1" <-- "1" SortableList
+
+      class ThreeCardsContent:::green
+      class SortableList:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'SortableList',
+      description: 'This is a list that can be sorted by drag and drop.',
+    },
+  ]}
+/>

@@ -1,0 +1,91 @@
+{/* Checkbox.mdx */}
+
+import { Canvas, Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../../styles.ts'
+import PropertiesTable from '../../../../../Components/properties-table'
+import ReferenceList from '../../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/Activities/Visual/AS/docs" />
+
+# AS
+
+<ComponentInfoTable
+  name={'AS'}
+  description={`This is a AS activity.`}
+  source="components/AS"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'canBeEvaluated',
+      type: `boolean`,
+      defaultValue: '',
+      description: `Information about whether the user can click the confirm button to have the activity evaluated`,
+      required: true,
+    },
+    {
+      name: 'onHandleChanged',
+      type: `(canBeChecked?: boolean) => void`,
+      defaultValue: '',
+      description: `Callback that is called if the game state changes`,
+      required: true,
+    },
+    {
+      name: 'complexity',
+      type: `string`,
+      defaultValue: '',
+      description: `Indicates the complexity.`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+      AS "1" <-- "1" DndContextProvider
+      DndContextProvider "1" <-- "1" P5
+      DndContextProvider "1" <-- "1" CustomDragLayer
+      DndContextProvider "1" <-- "1" DropCards
+      DndContextProvider "1" <-- "1" AvaibleCards
+
+      class AS:::green
+      class DndContextProvider
+      class P5:::blue
+      class CustomDragLayer:::blue
+      class DropCards:::blue
+      class AvaibleCards:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'P5',
+      description: 'Paragraph of level 5.',
+    },
+    {
+      name: 'CustomDragLayer',
+      description: 'This is a layer for drag.',
+    },
+
+      {
+      name: 'DropCards',
+      description: 'This is a list of cards where drag cards can be moved.',
+    },
+    {
+      name: 'AvaibleCards',
+      description: 'Available cards that can be moved.',
+    },
+
+]}
+/>

@@ -47,7 +47,14 @@ import ComponentRenderTable from '../../../Components/component-render'
       type: `boolean`,
       defaultValue: '',
       description: `Show bubble on full width`,
-      required: true,
+      required: false,
+    },
+    {
+      name: 'hideBeak',
+      type: `boolean`,
+      defaultValue: '',
+      description: `Hide beak in bubble`,
+      required: false,
     },
   ]}
 />
@@ -72,7 +79,7 @@ import ComponentRenderTable from '../../../Components/component-render'
       class FadeRight["R - FadeRight"]:::blue
       class TimeLineItemWrapper
       class Container
-      class Beak
+      class Beak["R - Beak"]
       class Content
       class Date["R - Date"]
       class Desc
@@ -95,6 +102,10 @@ import ComponentRenderTable from '../../../Components/component-render'
     {
       name: 'Date',
       rules: `Rendered only if props.data has value`,
+    },
+    {
+      name: 'Beak',
+      rules: `Rendered only if props.hideBeak is false or undefined`,
     },
   ]}
 />

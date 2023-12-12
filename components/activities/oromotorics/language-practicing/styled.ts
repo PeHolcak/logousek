@@ -6,3 +6,9 @@ export const StyledVideo = styled.video`
     height: auto;
     max-height: 60vh; 
 `
+
+export const LanguagePracticingWrap = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+`

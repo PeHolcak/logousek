@@ -74,37 +74,35 @@ const Syllables = (
         })
     )
     return (
-        <div>
-            <DndContextProvider
-                ref={contextProviderRef}
-                count={3}
-                onHandleChanged={onHandleChanged}
-                canBeEvaluated={canBeEvaluated}
-                aspectRatio={ASPECT_RATIO}
-                usedCards={cards.second}
-            >
-                <P5 align="center" type="ghost">
-                    Slož obrázek
-                </P5>
-                <S.Container>
-                    <S.TaskWrapper>
-                        {cards.first.map((modelCard) => {
-                            return <ActivityCard
-                                key={`activity_card_${modelCard.keyImage}`
-                                }
-                                cursor="default"
-                                reference={modelCard.reference}
-                            >
-                                {modelCard.img}
-                            </ActivityCard>
-                        })}
-                    </S.TaskWrapper>
-                    <SyllablesDropCards />
-                </S.Container>
-                <AvaibleCards />
-                <CustomDragLayer />
-            </DndContextProvider>
-        </div >
+        <DndContextProvider
+            ref={contextProviderRef}
+            count={3}
+            onHandleChanged={onHandleChanged}
+            canBeEvaluated={canBeEvaluated}
+            aspectRatio={ASPECT_RATIO}
+            usedCards={cards.second}
+        >
+            <P5 align="center" type="ghost">
+                Slož obrázek
+            </P5>
+            <S.Container>
+                <S.TaskWrapper>
+                    {cards.first.map((modelCard) => {
+                        return <ActivityCard
+                            key={`activity_card_${modelCard.keyImage}`
+                            }
+                            cursor="default"
+                            reference={modelCard.reference}
+                        >
+                            {modelCard.img}
+                        </ActivityCard>
+                    })}
+                </S.TaskWrapper>
+                <SyllablesDropCards />
+            </S.Container>
+            <AvaibleCards />
+            <CustomDragLayer />
+        </DndContextProvider>
     )
 }
 

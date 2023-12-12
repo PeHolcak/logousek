@@ -1,0 +1,69 @@
+{/* Checkbox.mdx */}
+
+import { Canvas, Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../../styles.ts'
+import PropertiesTable from '../../../../../Components/properties-table'
+import ReferenceList from '../../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/Activities/Audio/Memory/docs" />
+
+# Memory
+
+<ComponentInfoTable
+  name={'Memory'}
+  description={`This is a memory activity.`}
+  source="components/Memory"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'complexity',
+      type: `string`,
+      defaultValue: '',
+      description: `Indicates the complexity.`,
+      required: true,
+    },
+    {
+      name: 'onHandleChanged',
+      type: `(canBeChecked?: boolean) => void`,
+      defaultValue: '',
+      description: `Callback that is called if the game state changes`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+      Memory "1" <-- "1" ActivitySlider
+      ActivitySlider "1" <-- "1" SoundButton
+
+      class Memory:::green
+      class ActivitySlider:::blue
+      class SoundButton:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'ActivitySlider',
+      description:
+        'Allows you to divide the activity into 2 parts - the question part and the part where the user selects the answer.',
+    },
+    {
+      name: 'SoundButton',
+      description: 'Button that can play a sound.',
+    },
+  ]}
+/>

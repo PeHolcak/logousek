@@ -26,6 +26,13 @@ import ComponentRenderTable from '../../../../Components/component-render'
       description: `Indicates whether the item is active.`,
       required: true,
     },
+       {
+      name: 'disabled',
+      type: `boolean`,
+      defaultValue: '',
+      description: `Prop determines if the component is disable. This means that it responds to clicks.`,
+      required: false,
+    },
     {
       name: 'index',
       type: `number`,
@@ -39,7 +46,7 @@ import ComponentRenderTable from '../../../../Components/component-render'
       type: `(name: string, index: number) => void`,
       defaultValue: '',
       description: `This is a callback that is called after the user clicks on the item.`,
-      required: false,
+      required: true,
     },
     {
       name: 'name',
@@ -113,7 +120,7 @@ import ComponentRenderTable from '../../../../Components/component-render'
 
      class RoundFooterItem:::green
      class FooterLink
-     class Icon
+     class Icon["R - Icon"]
      class TextWrap:::blue
 
 `}
@@ -121,6 +128,14 @@ import ComponentRenderTable from '../../../../Components/component-render'
 
 </S.MermaidWrapper>
 
+<ComponentRenderTable
+  tableRows={[
+    {
+      name: 'Icon',
+      rules: `Rendered only if props.icon is not null or empty string`,
+    },
+  ]}
+/>
 <ReferenceList
   tableRows={[
     {

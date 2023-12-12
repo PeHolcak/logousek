@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HeaderWrapper = styled.header`
+export const HeaderContainer = styled.header`
   display: flex;
   gap: 16px;
   position: fixed;

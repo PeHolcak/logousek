@@ -1,0 +1,76 @@
+{/* Checkbox.mdx */}
+
+import { Canvas, Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../../styles.ts'
+import PropertiesTable from '../../../../../Components/properties-table'
+import ReferenceList from '../../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/Activities/Oromotorics/LanguagePracticing/docs" />
+
+# LanguagePracticing
+
+<ComponentInfoTable
+  name={'LanguagePracticing'}
+  description={`This is a language practicing activity.`}
+  source="components/LanguagePracticing"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'currentTask',
+      type: `number`,
+      defaultValue: '',
+      description: `Gets information on how many tasks in a row it is.`,
+      required: true,
+    },
+    {
+      name: 'onHandleChanged',
+      type: `(canBeChecked?: boolean) => void`,
+      defaultValue: '',
+      description: `Callback that is called if the game state changes`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+      LanguagePracticing "1" <-- "1" LanguagePracticingWrap
+      LanguagePracticingWrap "1" <-- "1" P5
+      LanguagePracticingWrap "1" <-- "1" StyledVideo
+      StyledVideo "1" <-- "1" source
+
+      class LanguagePracticing:::green
+      class LanguagePracticingWrap
+      class P5:::blue
+      class StyledVideo
+      class source
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'P5',
+      description: 'Paragraph of level 5.',
+    },
+    {
+      name: 'CardList',
+      description: 'List of Cards.',
+    },
+    {
+      name: 'SoundButton',
+      description: 'Button that can play a sound.',
+    },
+  ]}
+/>

@@ -51,10 +51,14 @@ import ComponentInfoTable from '../../../Components/component-info-table'
      direction RL
      Label "1" <-- "1" LabelWrapper
      LabelWrapper "1" <-- "1" LabelText
+     LabelText "1" <-- "1" propsChildren
+     LabelText "1" <-- "1" propsContent
 
       class Label:::green
       class LabelWrapper
       class LabelText
+      class propsChildren["props.children"]
+      class propsContent["props.content"]
 
 `}
 />

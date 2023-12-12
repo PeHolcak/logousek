@@ -1,0 +1,49 @@
+{/* Checkbox.mdx */}
+
+import { Canvas, Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../../../styles.ts'
+import PropertiesTable from '../../../../../../Components/properties-table'
+import ReferenceList from '../../../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/Activities/Audio/SyllablesDropCards/docs" />
+
+# SyllablesDropCards
+
+<ComponentInfoTable
+  name={'SyllablesDropCards'}
+  description={`This is a Syllables drop cards.`}
+  source="components/SyllablesDropCards"
+/>
+
+<PropertiesTable tableRows={[]} />
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+      SyllablesDropCards "1" <-- "1" CardList
+      CardList "1" <-- "1" CardContainer
+      CardContainer "1" <-- "N" DropCard
+
+      class SyllablesDropCards:::green
+      class CardList
+      class CardContainer
+      class DropCard:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'DropCard',
+      description: 'A card that serves as a drop point for DND.',
+    },
+  ]}
+/>

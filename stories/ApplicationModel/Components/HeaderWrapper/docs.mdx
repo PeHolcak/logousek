@@ -1,0 +1,43 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../styles.ts'
+import PropertiesTable from '../../../Components/properties-table'
+import ReferenceList from '../../../Components/reference-list'
+import ComponentInfoTable from '../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/HeaderWrapper/docs" />
+
+# HeaderWrapper
+
+<ComponentInfoTable
+  name={'HeaderWrapper'}
+  description={`The wrapper that wraps the header.`}
+  source="components/header-wrapper"
+/>
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'children',
+      type: `React.ReactElement[] | React.ReactElement | string;`,
+      defaultValue: '',
+      description: `This is a children component.`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+     HeaderWrapper "1" <-- "1" HeaderContainer
+
+     class HeaderWrapper:::green
+     class HeaderContainer
+
+`}
+/>
+
+</S.MermaidWrapper>

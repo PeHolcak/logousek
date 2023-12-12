@@ -65,7 +65,7 @@ const getCardsWithSettings = (complexity: string) => {
 
 const getAnswerTypes = (
     complexity: string,
-    tasksElapsed: number
+    currentTask: number
 ): AnswerType => {
     if (START_COUNT_CARDS > 1) {
         const {
@@ -76,7 +76,7 @@ const getAnswerTypes = (
         } = getCardsWithSettings(complexity)
 
         const wrongCards: CardType[] = Array.from(
-            new Array(START_COUNT_CARDS + Math.floor(tasksElapsed / 4)),
+            new Array(START_COUNT_CARDS + Math.floor(currentTask / 4)),
             (_, index) => {
                 return {
                     name: `wrong_${index}`,
@@ -110,15 +110,15 @@ const getAnswerTypes = (
     }
 }
 
-const useGetCards = (complexity: string, tasksElapsed: number) => {
+const useGetCards = (complexity: string, currentTask: number) => {
     const [cards, setCards] = useState<CardType[]>()
     const [correctAnswers, setCorrectAnswers] = useState<string[]>()
 
     useEffect(() => {
-        const { cards, correctAnswers } = getAnswerTypes(complexity, tasksElapsed)
+        const { cards, correctAnswers } = getAnswerTypes(complexity, currentTask)
         setCards(cards)
         setCorrectAnswers(correctAnswers)
-    }, [complexity, tasksElapsed])
+    }, [complexity, currentTask])
 
     return { cards, correctAnswers }
 }

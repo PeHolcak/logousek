@@ -1,0 +1,62 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../styles.ts'
+import PropertiesTable from '../../../Components/properties-table'
+import ReferenceList from '../../../Components/reference-list'
+import ComponentInfoTable from '../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/Reference/docs" />
+
+# Reference
+
+<ComponentInfoTable
+  name={'Reference'}
+  description={`The purpose of the component is to display the reference.`}
+  source="components/reference"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'reference',
+      type: `React.ReactNode`,
+      defaultValue: '',
+      description: `Reference`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+     Reference "1" <-- "1" ReferenceWrapper
+     ReferenceWrapper "1" <-- "1" Popover
+     Popover "1" <-- "1" ReferenceContent
+     ReferenceContent "1" <-- "1" propsReference
+     Popover "1" <-- "n" ReferenceIcon
+
+     class Reference:::green
+     class ReferenceWrapper
+     class Popover:::blue
+     class ReferenceContent
+     class propsReference["props.reference"]
+     class ReferenceIcon
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'Popover',
+      description:
+        'component with antd. After hovering the mouse, the content is displayed.',
+    },
+  ]}
+/>

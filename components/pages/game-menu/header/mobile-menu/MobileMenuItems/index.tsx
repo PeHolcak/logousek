@@ -10,9 +10,9 @@ import DarkModeSwitch from '@components/dark-mode-switch'
 import ModalContext from '@contexts/modal-context'
 import routes from '@constants/routes'
 import { useRouter } from 'next/router'
-import Store from '@components/Store'
+import UserStore from '@components/user-store'
+import UsersLeaderboard from '@components/users-leaderboard'
 import GameMenuContext from '@contexts/game-menu-context'
-import Leaderboard from '@components/Leaderboard'
 
 type MobileMenuItemsProps = {
   isOpen: boolean
@@ -73,7 +73,7 @@ const MobileMenuItems: React.FC<MobileMenuItemsProps> = ({
     modalContext?.showModal({
       header: 'Obchod',
       content: (
-        <Store userScore={userScore} refreshUserScore={refreshUserScore} />
+        <UserStore userScore={userScore} refreshUserScore={refreshUserScore} />
       ),
       autoWidth: true,
     })
@@ -82,7 +82,7 @@ const MobileMenuItems: React.FC<MobileMenuItemsProps> = ({
   const showLeaderboard = useCallback(() => {
     modalContext?.showModal({
       header: 'Žebříček',
-      content: <Leaderboard />,
+      content: <UsersLeaderboard />,
       autoWidth: true,
     })
   }, [modalContext])

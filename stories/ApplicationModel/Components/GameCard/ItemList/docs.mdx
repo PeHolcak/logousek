@@ -1,0 +1,61 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../styles.ts'
+import PropertiesTable from '../../../../Components/properties-table'
+import ReferenceList from '../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/GameCard/ItemList/docs" />
+
+# ItemList
+
+<ComponentInfoTable
+  name={'ItemList'}
+  description={`The component displays a list of difficulties.`}
+  source="components/game-card/item-list"
+/>
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'items',
+      type: `{
+              id: number;
+              level: number;
+              points: number;
+            }[]`,
+      defaultValue: '',
+      description: `This is the level items configuration.`,
+      required: true,
+    },
+    {
+      name: 'onItemClick',
+      type: `(itemId: number) => void`,
+      defaultValue: '',
+      description: `Callbak that is called after clicking on an item.`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+     ItemList "1" <-- "1" StyledList
+     StyledList "1" <-- "N" StyledListItem
+     StyledListItem "1" <-- "1" span
+     StyledListItem "1" <-- "1" StarsWrap
+     StyledListItem "1" <-- "1" span2
+
+     class ItemList:::green
+     class StyledList
+     class StyledListItem
+     class span
+     class span2["span"]
+
+`}
+/>
+
+</S.MermaidWrapper>

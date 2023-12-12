@@ -1,0 +1,59 @@
+{/* Checkbox.mdx */}
+
+import { Canvas, Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../../../../styles.ts'
+import PropertiesTable from '../../../../../../../Components/properties-table'
+import ReferenceList from '../../../../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/Activities/Seriality/ThreeCards/ThreeCardsContent/SortableList/docs" />
+
+# SortableList
+
+<ComponentInfoTable
+  name={'SortableList'}
+  description={`This is a list that can be sorted by drag and drop.`}
+  source="components/SortableList"
+/>
+
+<PropertiesTable tableRows={[]} />
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+      SortableList "1" <-- "1" div
+      div "1" <-- "1" P5
+      div "1" <-- "1" CardList
+      div "1" <-- "1" CustomDragLayer
+
+      class SortableList:::green
+      class div
+      class P5:::blue
+      class CardList:::blue
+      class CustomDragLayer:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'P5',
+      description: 'Paragraph of level 5.',
+    },
+    {
+      name: 'CardList',
+      description: 'List of Cards.',
+    },
+    {
+      name: 'CustomDragLayer',
+      description: 'This is a layer for drag.',
+    },
+  ]}
+/>

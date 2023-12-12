@@ -35,7 +35,7 @@ const LanguagePracticing = (
     const video = videosArray[currentTask - 1]
 
     return (
-        <div>
+        <S.LanguagePracticingWrap>
             <P5 align="center" type="ghost">Opakuj po mě</P5>
             <S.StyledVideo
                 ref={videoEl}
@@ -45,7 +45,7 @@ const LanguagePracticing = (
             >
                 <source src={`/videos/oromotorics/${video}.mp4`} />
             </S.StyledVideo>
-        </div>
+        </S.LanguagePracticingWrap>
     )
 }
 

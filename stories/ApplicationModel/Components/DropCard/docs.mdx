@@ -1,0 +1,85 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../styles.ts'
+import PropertiesTable from '../../../Components/properties-table'
+import ReferenceList from '../../../Components/reference-list'
+import ComponentInfoTable from '../../../Components/component-info-table'
+import ComponentRenderTable from '../../../Components/component-render'
+
+<Meta title="ApplicationModel/Components/DropCard/docs" />
+
+# DropCard
+
+<ComponentInfoTable
+  name={'DropCard'}
+  description={`This is a drag and drop component. The component represents a card to which the user can drag another card.`}
+  source="components/drop-card"
+/>
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'index',
+      type: `number`,
+      defaultValue: '',
+      description: `This is the index of the item.`,
+      required: true,
+    },
+    {
+      name: 'card',
+      type: ` { img: React.ReactNode, keyImage: string, reference?: React.ReactNode }`,
+      defaultValue: '',
+      description: `Data of card that is placed on this card.`,
+      required: false,
+},
+
+]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+     DropCard "1" <-- "1" InnerDropCard
+     InnerDropCard "1" <-- "1" DragCard
+     InnerDropCard "1" <-- "1" DragableArea
+     DragableArea "1" <-- "1" DragableAreaIcon
+
+     class DropCard:::green
+     class InnerDropCard:::blue
+     class DragCard["R - DragCard"]:::blue
+     class DragableArea["R - DragableArea"]
+     class DragableAreaIcon
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ComponentRenderTable
+  tableRows={[
+    {
+      name: 'DragCard',
+      rules: `Rendered only if a drag card has not been dropped on this card.`,
+    },
+    {
+      name: 'DragableArea',
+      rules: `Rendered only if a drag card has been dropped on this card`,
+    },
+  ]}
+/>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'DragCard',
+      description:
+        'The component that represents the game card that is dragable.',
+    },
+    {
+      name: 'InnerDropCard',
+      description: 'This is the inside of the drop card.',
+    },
+  ]}
+/>

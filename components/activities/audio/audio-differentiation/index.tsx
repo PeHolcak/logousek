@@ -4,11 +4,16 @@ import { getAudioConfElement, checkAnswer, ActivityName } from '@helpers/sound-h
 import { ActivityProps } from '@components/pages/activity'
 import CardList from '@components/card-list'
 import { P5 } from '@components/typography/paragraph'
-import SoundButton from '../../../sound-button'
+import SoundButton from '@components/sound-button'
 import * as S from './styled'
 
+type AudioDifferentiationProps = {
+  complexity: ActivityProps["complexity"]
+  onHandleChanged: ActivityProps["onHandleChanged"]
+}
+
 export default forwardRef(function AudioDifferentiation(
-  { complexity, onHandleChanged }: ActivityProps,
+  { complexity, onHandleChanged }: AudioDifferentiationProps,
   ref
 ) {
   const router = useRouter()

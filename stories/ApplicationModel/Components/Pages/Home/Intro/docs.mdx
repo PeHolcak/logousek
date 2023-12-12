@@ -1,22 +1,13 @@
-{/* Checkbox.mdx */}
-
-import { Canvas, Meta } from '@storybook/blocks'
+import { Meta } from '@storybook/blocks'
 import { Mermaid } from 'mdx-mermaid/Mermaid'
 
 import * as S from '../../../../styles.ts'
 import PropertiesTable from '../../../../../Components/properties-table'
 import ReferenceList from '../../../../../Components/reference-list'
-import ComponentInfoTable from '../../../../../Components/component-info-table'
 
-<Meta title="ApplicationModel/Components/Pages/Home/Intro/docs" />
+<Meta title="ApplicationModel/Components/Intro/docs" />
 
 # Intro
-
-<ComponentInfoTable
-  name={'Intro'}
-  description={`A component to wrap a section on the main page.`}
-  source="components/pages/home/intro"
-/>
 
 <PropertiesTable
   tableRows={[
@@ -24,7 +15,8 @@ import ComponentInfoTable from '../../../../../Components/component-info-table'
       name: 'scrollTarget',
       type: `React.MutableRefObject<HTMLDivElement | null>`,
       defaultValue: '',
-      description: `A reference to the element being scrolled.`,
+      description: `The reference in React, scrollTarget, is used for creating parallax animations. 
+            It allows to access the DOM element that serves as the target for the scroll effect.`,
       required: true,
     },
   ]}
@@ -44,45 +36,48 @@ import ComponentInfoTable from '../../../../../Components/component-info-table'
       IntroWrapper "1" <-- "1" IntroPlayButton
 
       IntroContainer "1" <-- "1" Navbar
-      IntroContainer "1" <-- "1" DescriptionWrapper
-      Navbar "1" <-- "1" NavbarIconButton
-      DescriptionWrapper "1" <-- "1" Description
+      Navbar "1" <-- "1" PlayButton1
+      PlayButton1  --|>  redirectToGameMenu : onClick
+
+
+      IntroContainer "1" <-- "1" Description
       Description "1" <-- "1" PageTitle
       Description "1" <-- "1" P3
       Description "1" <-- "1" ButtonRow
-      ButtonRow "1" <-- "1" IconButtonRowButton
+      ButtonRow "1" <-- "1" PlayButton2
+      PlayButton2  --|>  redirectToGameMenu : onClick
 
       LogousekWrapper "1" <-- "1" Logousek
-
-      FirstForegroundTreeWrapper "1" <-- "1" FirstImage
-
-      SecondForegroundTreeWrapper "1" <-- "1" SecondImage
-
+      SecondForegroundTreeWrapper "1" <-- "1" ImageTree01
+      FirstForegroundTreeWrapper "1" <-- "1" ImageTree02
       IntroPlayButton "1" <-- "1" ClickableIcon
+      ClickableIcon  --|>  redirectToGameMenu : onClick
+
 
       class Intro:::green
       class IntroWrapper
       class IntroContainer
+      class Hill
+      class LogousekWrapper
+      class FirstForegroundTreeWrapper
+      class SecondForegroundTreeWrapper
+      class IntroPlayButton
 
       class Navbar
-      class NavbarIconButton["IconButton"]:::blue
-      class DescriptionWrapper
+      class redirectToGameMenu:::oval
+
       class Description
       class PageTitle:::blue
       class P3:::blue
       class ButtonRow
-      class IconButtonRowButton["IconButton"]:::blue
+      class PlayButton1["Button"]:::blue
+      class PlayButton2["Button"]:::blue
 
-      class Hill
-      class LogousekWrapper
       class Logousek
 
-      class FirstForegroundTreeWrapper
-      class FirstImage["Image"]
-      class SecondForegroundTreeWrapper
-      class SecondImage["Image"]
+      class ImageTree01["Image"]:::blue
+      class ImageTree02["Image"]:::blue
 
-      class IntroPlayButton
       class ClickableIcon:::blue
 
 `}
@@ -92,15 +87,16 @@ import ComponentInfoTable from '../../../../../Components/component-info-table'
 
 <ReferenceList
   tableRows={[
-    { name: 'PageTitle', description: 'Section title component' },
-    { name: 'IconButton', description: 'Button component with icon.' },
+    { name: 'Image', description: 'Next.js Image component' },
+    {
+      name: 'Button',
+      description: 'The button used for triggering an action.',
+    },
+    { name: 'P3', description: 'Component for paragraph.' },
+    { name: 'PageTitle', description: 'Component for page title.' },
     {
       name: 'ClickableIcon',
       description: 'An icon that triggers an action when clicked.',
-    },
-    {
-      name: 'P3',
-      description: 'Paragraph component',
     },
   ]}
 />

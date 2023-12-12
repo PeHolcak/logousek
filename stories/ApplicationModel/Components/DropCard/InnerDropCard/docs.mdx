@@ -1,0 +1,78 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../styles.ts'
+import PropertiesTable from '../../../../Components/properties-table'
+import ReferenceList from '../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/DropCard/InnerDropCard/docs" />
+
+# InnerDropCard
+
+<ComponentInfoTable
+  name={'InnerDropCard'}
+  description={`This is a inner of drop card component.`}
+  source="components/inner-drop-card"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'onDrop',
+      type: `(item: { img: React.ReactNode, keyImage: string, reference?: React.ReactNode }) => void`,
+      defaultValue: '',
+      description: `Callback, which is called when the user places the drag card on this cart.`,
+      required: true,
+    },
+    {
+      name: 'children',
+      type: `React.ReactNode`,
+      defaultValue: '',
+      description: `This is the content.`,
+      required: true,
+}, {
+      name: 'customRadius',
+      type: `string`,
+      defaultValue: '',
+      description: `Sets custom radius.`,
+      required: false,
+},
+
+]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+     InnerDropCard "1" <-- "1" InnerDropCardWrapper
+     InnerDropCardWrapper "1" <-- "1" ActivityCard
+     ActivityCard "1" <-- "1" DragableArea
+     DragableArea "1" <-- "1" CustomDragLayer
+     DragableArea "1" <-- "1" propsChildren
+
+     class InnerDropCard:::green
+     class InnerDropCardWrapper
+     class ActivityCard:::blue
+     class CustomDragLayer:::blue
+     class propsChildren["props.children"]
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'ActivityCard',
+      description: 'The component that represents the game card.',
+    },
+    {
+      name: 'CustomDragLayer',
+      description: 'This is a layer for drag.',
+    },
+  ]}
+/>

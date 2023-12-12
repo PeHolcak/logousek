@@ -3,7 +3,7 @@ import React, {
 } from 'react'
 import SerialityContext from '@contexts/seriality-context'
 import { CardType } from '@contexts/seriality-context/seriality-context-provider'
-import SortableList from '../../sortable-list'
+import SortableList from './sortable-list'
 
 
 export interface Item {

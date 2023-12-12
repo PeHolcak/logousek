@@ -1,0 +1,49 @@
+{/* Checkbox.mdx */}
+
+import { Canvas, Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../../../styles.ts'
+import PropertiesTable from '../../../../../../Components/properties-table'
+import ReferenceList from '../../../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/Activities/Visual/AS/AsDropCards/docs" />
+
+# AsDropCards
+
+<ComponentInfoTable
+  name={'AsDropCards'}
+  description={`This is a list of drop cards.`}
+  source="components/AsDropCards"
+/>
+
+<PropertiesTable tableRows={[]} />
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+      AsDropCards "1" <-- "1" CardList
+      CardList "1" <-- "1" CardContainer
+      CardContainer "1" <-- "N" DropCard
+
+      class AsDropCards:::green
+      class CardList
+      class CardContainer
+      class DropCard:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'CardList',
+      description: 'List of Cards.',
+    },
+  ]}
+/>

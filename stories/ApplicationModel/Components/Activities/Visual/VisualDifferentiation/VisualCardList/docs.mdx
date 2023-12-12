@@ -1,0 +1,69 @@
+{/* Checkbox.mdx */}
+
+import { Canvas, Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../../../styles.ts'
+import PropertiesTable from '../../../../../../Components/properties-table'
+import ReferenceList from '../../../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/Activities/Visual/VisualDifferentiation/VisualCardList/docs" />
+
+# VisualCardList
+
+<ComponentInfoTable
+  name={'VisualCardList'}
+  description={`This is a list of Cards.`}
+  source="components/VisualCardList"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'cards',
+      type: `CardType[]`,
+      defaultValue: '',
+      description: `List of cards.`,
+      required: true,
+    },
+    {
+      name: 'selectedName',
+      type: `string`,
+      defaultValue: '',
+      description: `The name of card which was selectd by user.`,
+      required: false,
+    },
+    {
+      name: 'setSelectedName',
+      type: `(name?: string) => void`,
+      defaultValue: '',
+      description: `Callback that is triggered when user select a card.`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+      VisualCardList "1" <-- "1" CardList
+
+      class VisualCardList:::green
+      class CardList:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'CardList',
+      description: 'List of Cards.',
+    },
+  ]}
+/>

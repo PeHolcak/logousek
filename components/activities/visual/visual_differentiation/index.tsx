@@ -24,12 +24,12 @@ export type AnswerType = {
 }
 
 export default forwardRef(function VisualDifActivity(
-  { complexity, tasksElapsed, onHandleChanged }: ActivityProps,
+  { complexity, currentTask, onHandleChanged }: ActivityProps,
   ref
 ) {
   const { tActivity } = useTranslateFunctions()
   const [selectedName, setSelectedName] = useState<string | undefined>()
-  const { cards, correctAnswers } = useGetCards(complexity, tasksElapsed)
+  const { cards, correctAnswers } = useGetCards(complexity, currentTask)
 
   useImperativeHandle(ref, () => ({
     getResult: () => {
@@ -43,7 +43,7 @@ export default forwardRef(function VisualDifActivity(
   }
 
   return (
-    <main>
+    <div>
       <P5 align="center" type="ghost">
         {tActivity("visual.visualDifferentation.description")}
       </P5>
@@ -52,6 +52,6 @@ export default forwardRef(function VisualDifActivity(
         selectedName={selectedName}
         setSelectedName={onCardClickHandle}
       />
-    </main>
+    </div>
   )
 })

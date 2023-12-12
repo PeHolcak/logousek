@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { P3 } from '@components/typography/paragraph'
 import { useTranslateFunctions } from '@hooks/useTranslateFunctions'
 
-import HeaderWrapper from '../header-wrapper/header-wrapper'
+import HeaderWrapper from 'components/header-wrapper'
 import CloseIcon from '../close-icon'
 import ModalContext from '../../contexts/modal-context'
 import Score from './score/inedex'

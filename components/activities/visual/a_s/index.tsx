@@ -45,21 +45,19 @@ const AS = (
   )
 
   return (
-    <div>
-      <DndContextProvider
-        ref={contextProviderRef}
-        count={cardCount}
-        onHandleChanged={onHandleChanged}
-        canBeEvaluated={canBeEvaluated}
-        aspectRatio={aspectRatio}
-        usedCards={cards}
-      >
-        <P5 align="center" type="ghost">Slož obrázek</P5>
-        <CustomDragLayer />
-        <DropCards />
-        <AvaibleCards />
-      </DndContextProvider>
-    </div >
+    <DndContextProvider
+      ref={contextProviderRef}
+      count={cardCount}
+      onHandleChanged={onHandleChanged}
+      canBeEvaluated={canBeEvaluated}
+      aspectRatio={aspectRatio}
+      usedCards={cards}
+    >
+      <P5 align="center" type="ghost">Slož obrázek</P5>
+      <CustomDragLayer />
+      <DropCards />
+      <AvaibleCards />
+    </DndContextProvider>
   )
 }
 

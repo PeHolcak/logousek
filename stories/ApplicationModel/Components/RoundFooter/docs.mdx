@@ -5,7 +5,6 @@ import * as S from '../../styles.ts'
 import PropertiesTable from '../../../Components/properties-table'
 import ReferenceList from '../../../Components/reference-list'
 import ComponentInfoTable from '../../../Components/component-info-table'
-import ComponentRenderTable from '../../../Components/component-render'
 
 <Meta title="ApplicationModel/Components/RoundFooter/docs" />
 
@@ -21,7 +20,17 @@ import ComponentRenderTable from '../../../Components/component-render'
   tableRows={[
     {
       name: 'footerConf',
-      type: `FooterConf[]`,
+      type: `{
+            name: string
+            clickable: boolean
+            title?: React.ReactElement | string
+            disabled?: boolean
+            color?: ColorsEnum
+            background?: string
+            onClick?: () => void
+            icon?: string
+            shortTitle?: string
+          }[]`,
       defaultValue: '',
       description: `This is a footer configuration.`,
       required: true,
@@ -39,6 +48,13 @@ import ComponentRenderTable from '../../../Components/component-render'
       type: `(name: string, index: number) => void`,
       defaultValue: '',
       description: `This is a callback that is called after the user clicks on the item.`,
+      required: false,
+    },
+        {
+      name: 'children',
+      type: `React.ReactElement`,
+      defaultValue: '',
+      description: `Children of this component.`,
       required: false,
     },
     {
@@ -60,13 +76,15 @@ import ComponentRenderTable from '../../../Components/component-render'
      RoundFooter "1" <-- "1" FooterWrap
      FooterWrap "1" <-- "1" AnimatedFooterContent
      AnimatedFooterContent "1" <-- "1" FooterContainer
-     FooterContainer "1" <-- "n" RoundFooterItem
+     FooterContainer "1" <-- "1 propsChildren
+     FooterContainer "1" <-- "N" RoundFooterItem
 
      class RoundFooter:::green
      class FooterWrap
      class AnimatedFooterContent
      class FooterContainer
-     class RoundFooterItem:::blue
+     class RoundFooterItem["R - RoundFooterItem"]:::blue
+     class propsChildren["props.children"]
 
 `}
 />

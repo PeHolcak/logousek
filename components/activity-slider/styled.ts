@@ -19,7 +19,7 @@ export const ShowedPart = styled.div`
   align-items: center;
 `
 
-export const QuestionPart = styled.div`
+export const AnswerPart = styled.div`
   width: 100vw;
   justify-content: center;
   align-content: center;

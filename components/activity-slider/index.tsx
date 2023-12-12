@@ -44,7 +44,7 @@ const ActivitySlider: React.FC<ActivitySliderProps> = ({
         onTimerDone()
         setIsQuesionpart(true)
     }
-    const questionPartQuestions = cardData.map((Element) => {
+    const answerPart = cardData.map((Element) => {
         const elementName = Element?.name
         return (
             <ActivityCard
@@ -72,7 +72,7 @@ const ActivitySlider: React.FC<ActivitySliderProps> = ({
                     {tActivity('buttons.skip')}
                 </S.SkipButton>
             </S.ShowedPart>
-            <S.QuestionPart>{questionPartQuestions}</S.QuestionPart>
+            <S.AnswerPart>{answerPart}</S.AnswerPart>
         </S.TemplateWrapper>
     )
 }

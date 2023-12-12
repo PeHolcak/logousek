@@ -1,0 +1,60 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../styles.ts'
+import PropertiesTable from '../../../../Components/properties-table'
+import ReferenceList from '../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../Components/component-info-table'
+
+<Meta title="ApplicationModel/Components/SimpleMenu/ItemList/docs" />
+
+# ItemList
+
+<ComponentInfoTable
+  name={'ItemList'}
+  description={`This is a application navigation list of items.`}
+  source="components/simple-menu/item-list"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'itemList',
+      type: `{
+              name: string;
+              icon: string;
+              title: string;
+              onClick: () => void;
+            }`,
+      defaultValue: '',
+      description: `This is the menu configuration of the aplication menu.`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+     ItemList "1" <-- "1" List
+     List "1" <-- "n" Item
+
+     class ItemList:::green
+     class List
+     class Item:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'Item',
+      description: 'This is a list item',
+    },
+  ]}
+/>
