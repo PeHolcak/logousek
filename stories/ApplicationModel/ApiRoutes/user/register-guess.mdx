@@ -20,6 +20,8 @@ import ApiErrors from '../../../Components/api-errors'
   roles={[]}
 />
 
+## Input
+
 <JSONTree shouldExpandNodeInitially={() => true} data={{}} />
 
 ## Input validation
@@ -28,11 +30,25 @@ import ApiErrors from '../../../Components/api-errors'
 
     ## Output
 
-<JSONTree shouldExpandNodeInitially={() => true} data={{}} />
+<JSONTree
+  shouldExpandNodeInitially={() => true}
+  data={{
+    nickName: 'PetrKadlec',
+
+    warnings: { code: 'unsupported_keys', unSupportedKeys: ['test'] },
+
+}}
+/>
 
     ## Output Validation
 
-<JSONTree shouldExpandNodeInitially={() => true} data={{}} />
+<JSONTree
+  shouldExpandNodeInitially={() => true}
+  data={{
+    nickName: 'string',
+    warnings: 'Warnings',
+  }}
+/>
 
     ## Scenario
     ### 1. Check httpMethod
@@ -42,8 +58,7 @@ import ApiErrors from '../../../Components/api-errors'
     #### 2.1. WARNING - dtoIn contains keys beyond the scope of dtoInType. get warning unsupportedKeys to dtoOut.
 
     ### 3. Create a new user
-    ### 3.1. Check if a user with the same name already exists
-    ### 3.1.2. ERROR - Failed to create new user. return server_error error
+    ### 3.1. ERROR - Failed to create new user. return server_error error
 
     ### 4. Returns properly filled dtoOut.
 
@@ -53,6 +68,11 @@ import ApiErrors from '../../../Components/api-errors'
       type: 'error',
       code: 'endpoint_not_found',
       message: 'There was a wrong method in the request.',
+    },
+    {
+      type: 'warning',
+      code: 'unsupported_keys',
+      message: 'DtoIn contains unsupported keys.',
     },
     {
       type: 'error',

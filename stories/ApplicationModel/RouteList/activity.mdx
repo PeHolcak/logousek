@@ -1,5 +1,36 @@
-import appConf from '../../../constants/app-conf'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
 
-# Contents
+import * as S from '../styles.ts'
+import RouterTable from '../../Components/router-table'
+import ReferenceList from '../../Components/reference-list'
 
-Tady pak dam odkazy a jednotlivé komponenty?
+# Activity
+
+<RouterTable
+  name="Activity"
+  description="On this page, users can play the individual games they choose in the game-menu"
+  source="components/pages/activity"
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+      Activity "1" <-- "1" ActivityComponent
+
+      class Activity:::green
+      class ActivityComponent["Activity"]:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'Activity',
+      description: 'This is a component of the Activity page.',
+    },
+  ]}
+/>

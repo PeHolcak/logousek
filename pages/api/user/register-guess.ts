@@ -37,7 +37,7 @@ async function registerGuess(
         warnings,
       })
     } catch (err) {
-      //3.1.2. ERROR - Failed to create new user
+      //3.1. ERROR - Failed to create new user
       return res.status(500).json({
         errorCode: 'server_error',
         warnings,

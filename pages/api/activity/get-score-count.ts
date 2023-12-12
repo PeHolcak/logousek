@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { getSession } from 'next-auth/react'
 
 import getScoreCountdtoIn from 'backend/dtoIn/get-score-count'
 import checkUnsupportedKeys from 'backend/dtoIn/check-unsupported-keys'
@@ -10,12 +9,10 @@ import { ErrorDtoOut, Warnings } from 'types/api-types'
 import { authOptions } from '../auth/[...nextauth]'
 import { getServerSession } from 'next-auth'
 
-export type getScoreCountDtoOut =
-    | {
-        points?: number
-        warnings?: Warnings
-    }
-    | ErrorDtoOut
+export type getScoreCountDtoOut = {
+    points?: number
+    warnings?: Warnings
+} & ErrorDtoOut
 
 export default async function handler(
     req: NextApiRequest,
@@ -39,7 +36,7 @@ export default async function handler(
         //2.2. dtoIn contains keys beyond the scope of dtoInType
         const warnings = checkUnsupportedKeys(['userId'], req.body)
 
-        //3. Check if the userId from dtoIn exists
+        //3. Check if the userId from session exists
         let user
         try {
             user = await getUserById(currentUserId)

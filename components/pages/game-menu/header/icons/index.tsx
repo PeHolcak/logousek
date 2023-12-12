@@ -61,13 +61,13 @@ const Icons: React.FC = () => {
   return (
     <ClickableIconWrapper key="game-menu-icons">
       <ClickableIcon icon="insert_chart" onClick={showLeaderboard} />
-      <ClickableIcon icon="people" onClick={editCharacter} />
+      <ClickableIcon icon="shopping_cart" onClick={editCharacter} />
       <S.DarkModeSwitchWrapper>
         <DarkModeSwitch />
       </S.DarkModeSwitchWrapper>
       <ClickableIcon icon="logout" onClick={onLogoutHandler} />
       {(sessionData?.data?.user as any)?.role === 'ADMIN' ? (
-        <ClickableIcon icon="poll" onClick={onAdminPagesRedirect} />
+        <ClickableIcon icon="people" onClick={onAdminPagesRedirect} />
       ) : (
         <></>
       )}

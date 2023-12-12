@@ -86,18 +86,21 @@ export const useActivity = () => {
         }
     }, [])
 
-    const sendResult = async () => {
+    const sendResult = async (isLastSuccess: boolean) => {
         try {
             const userData = sessionData.data?.user as {
                 email: string
                 name: string
                 id: string
             }
+
+            const lastPoints = isLastSuccess ? 1 : 0
+
             await axios.post('/api/activity/add-score', {
                 userId: userData?.id,
                 activityType: activityName,
-                points: (GetPointsForTask() || actualDifficulty.points) * correctTasks,
-                results,
+                points: (GetPointsForTask() ?? actualDifficulty.points) * (correctTasks + lastPoints),
+                results: [...results, isLastSuccess ? true : false],
                 difficulty: activityDifficulty,
             })
         } catch (error) {
@@ -160,10 +163,14 @@ export const useActivity = () => {
 
     const checkResult = () => {
         const isSuccess = activityRef?.current?.getResult()
-        isSuccess ? success() : fail()
+        if (isSuccess) {
+            success()
+        } else {
+            fail()
+        }
+
         if (currentTask === actualDifficulty.exercisesCount) {
-            isSuccess && setCorrectTasks((prevCorrectTasks) => ++prevCorrectTasks)
-            sendResult()
+            sendResult(!!isSuccess)
             setGameState('finish')
         } else {
             setCanBeEvaluated(false)

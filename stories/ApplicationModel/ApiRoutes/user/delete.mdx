@@ -2,9 +2,6 @@ import { Meta } from '@storybook/blocks'
 import { Mermaid } from 'mdx-mermaid/Mermaid'
 import { JSONTree } from 'react-json-tree'
 
-import * as S from '../../styles.ts'
-import PropertiesTable from '../../../Components/properties-table'
-import ReferenceList from '../../../Components/reference-list'
 import ApiRoutesInfoTable from '../../../Components/api-routes-info-table'
 import ApiErrors from '../../../Components/api-errors'
 
@@ -19,6 +16,8 @@ import ApiErrors from '../../../Components/api-errors'
   httpMethod="POST"
   roles={['ADMIN']}
 />
+
+## Input
 
 <JSONTree
   shouldExpandNodeInitially={() => true}
@@ -38,11 +37,19 @@ import ApiErrors from '../../../Components/api-errors'
 
     ## Output
 
-<JSONTree shouldExpandNodeInitially={() => true} data={{}} />
+<JSONTree
+  shouldExpandNodeInitially={() => true}
+  data={{
+    warnings: { code: 'unsupported_keys', unSupportedKeys: ['test'] },
+  }}
+/>
 
     ## Output Validation
 
-<JSONTree shouldExpandNodeInitially={() => true} data={{}} />
+<JSONTree
+  shouldExpandNodeInitially={() => true}
+  data={{ warnings: 'Warnings' }}
+/>
 
     ## Scenario
     ### 1. Check httpMethod
@@ -61,8 +68,8 @@ import ApiErrors from '../../../Components/api-errors'
     #### 4.2. ERROR - UserId from dtoIn does not exists. return user_not_found error
     #### 4.3. ERROR - User is Admin. return admin_cannot_be_deleted error
 
-    ### 5. List score from the database
-    #### 5.1. ERROR - Failed to get data from the database and an error was thrown. return server_error error
+    ### 5. Delete user from the database
+    #### 5.1. ERROR - Failed to delete User from the database and an error was thrown. return server_error error
 
     ### 6. Returns properly filled dtoOut.
 
@@ -97,7 +104,7 @@ import ApiErrors from '../../../Components/api-errors'
       type: 'error',
       code: 'user_not_found',
       message:
-        'The userId that came in the request does not match any userId that we have in the database.',
+        'The userId does not match any userId that we have in the database.',
     },
     {
       type: 'error',

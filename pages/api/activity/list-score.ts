@@ -17,11 +17,11 @@ type ListScoreRequest = NextApiRequest & {
 }
 
 export type listScoreCreditDtoOut =
-    | {
-        data: Score[]
+    {
+        data?: Score[]
         warnings?: Warnings
     }
-    | ErrorDtoOut
+    & ErrorDtoOut
 
 export default async function handler(
     req: ListScoreRequest,
@@ -72,6 +72,7 @@ export default async function handler(
         //4. List score from the database
         try {
             const result = await getScoreByUserId({ userId, activityTypes, from, to })
+
             //5. Returns properly filled dtoOut.
             return res.status(200).json({
                 data: result,

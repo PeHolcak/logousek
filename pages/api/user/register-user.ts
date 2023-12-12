@@ -43,7 +43,7 @@ async function registerUser(
     try {
       usersWithSameNick = await getUserByName(user.nickName)
     } catch (err) {
-      //3.1.1. ERROR - Failed to get data from the database and an error was thrown.
+      //3.1. ERROR - Failed to get data from the database and an error was thrown.
       console.error(err)
       return res.status(400).json({
         errorCode: 'server_error',
@@ -51,7 +51,7 @@ async function registerUser(
       })
     }
 
-    //3.1.2. A user with the same name already exists.
+    //3.2. A user with the same name already exists.
     if (usersWithSameNick && usersWithSameNick.length) {
       return res.status(400).json({ errorCode: 'user_exists', warnings })
     }
@@ -59,6 +59,7 @@ async function registerUser(
     //4. Create user
     try {
       await createUser(user)
+      //5. Returns properly filled dtoOut.
       return res.status(200).json({ nickName: user.nickName, warnings })
     } catch (err) {
       //4.1. ERROR - Failed to get data from the database and an error was thrown

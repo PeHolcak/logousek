@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { User } from '@prisma/client'
-import { getSession } from 'next-auth/react'
 
 import checkUnsupportedKeys from 'backend/dtoIn/check-unsupported-keys'
 
@@ -118,12 +117,21 @@ export default async function handler(
             })
         }
 
+        //3.2. UserId from dtoIn does not exists. return user_not_found error
+        if (!currentUserData) {
+            return res.status(400).json({
+                errorCode: 'user_not_found',
+                warnings: warnings,
+            })
+        }
+
+        // 4. Gets credit for the logged-in user
         let currentUserCredit
         if (currentUserId) {
             try {
                 currentUserCredit = await getCreditByUserId(currentUserId)
             } catch (err) {
-                //3.1. Failed to get data from the database and an error was thrown
+                //4.1. Failed to get data from the database and an error was thrown
                 console.error(err)
                 return res.status(400).json({
                     errorCode: 'server_error',
@@ -132,13 +140,13 @@ export default async function handler(
             }
         }
 
-
+        // 5. Get the placement of the registered user in the tournament
         let currentUserRank
         if (currentUserId) {
             try {
                 currentUserRank = await getRankByUserId(currentUserCredit?.amount ?? 0, currentUserId)
             } catch (err) {
-                //3.1. Failed to get data from the database and an error was thrown
+                //5.1. Failed to get data from the database and an error was thrown
                 console.error(err)
                 return res.status(400).json({
                     errorCode: 'server_error',
@@ -147,11 +155,12 @@ export default async function handler(
             }
         }
 
-
+        // 6. Gets the credit records with the highest value
         let theBiggestCredits: Credit[] = []
         try {
             theBiggestCredits = await listCredit(APP_TO)
         } catch (err) {
+            //6.1. Failed to get data from the database and an error was thrown. return server_error error
             console.error(err)
             return res.status(500).json({
                 errorCode: 'server_error',
@@ -159,7 +168,7 @@ export default async function handler(
             })
         }
 
-
+        // 7. Gets the ids of users with the highest credit value
         const theBiggestCreditsWithRanks: CreditWithRank[] = theBiggestCredits.map((credit, index) => ({
             ...credit,
             rank: index
@@ -170,19 +179,19 @@ export default async function handler(
             const userIds = getUserIdsByCredit(theBiggestCreditsWithRanks)
             theBestUsers = await getUsersByIds(userIds)
         } catch (error) {
+            // 7.1. Failed to get data from the database and an error was thrown. return server_error error
             return res.status(500).json({
                 errorCode: 'server_error',
                 warnings: warnings,
             })
         }
+
+        // 8. Creates a structure that contains the user's data and their credit value
         const users: UserWithCredit[] = theBiggestCreditsWithRanks.map((credit) => {
             return getUsersDtoOut(theBestUsers, credit)
         })
 
-        if (!session) {
-            return res.status(401)
-        }
-
+        // 9. Gets the data of users with the highest credit value
         try {
             const userIds = getUserIdsByCredit(theBiggestCreditsWithRanks)
             theBestUsers = await getUsersByIds(userIds)
@@ -193,13 +202,17 @@ export default async function handler(
             })
         }
 
+        // 10. Create a structure for the current user's data, his or her credit amount and ranking
+        const currentUser = getCurrentUser(
+            currentUserCredit ?? undefined,
+            currentUserData ?? undefined,
+            currentUserRank?.rank ?? undefined
+        )
+
+        // 11. Returns properly filled dtoOut.
         return res.status(200).json({
             users,
-            currentUser: getCurrentUser(
-                currentUserCredit ?? undefined,
-                currentUserData ?? undefined,
-                currentUserRank?.rank ?? undefined
-            ),
+            currentUser,
         })
     } else {
         //1.1. ERROR - If httpMethod is not POST return not_found error

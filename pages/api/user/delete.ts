@@ -79,7 +79,7 @@ async function deleteUserMiddleware(
           warnings: warnings,
         })
       } catch (err) {
-        //5.1. Failed to get data from the database and an error was thrown
+        //5.1. Failed to delete User from the database and an error was thrown
         return res.status(500).json({
           warnings: warnings,
         })

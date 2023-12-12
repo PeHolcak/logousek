@@ -56,13 +56,11 @@ export default async function handler(
         //2.2. dtoIn contains keys beyond the scope of dtoInType
         const warnings = checkUnsupportedKeys(['itemName'], req.body)
 
-        //3. Check if the userId from dtoIn exists
+        //3. Check if the userId from session exists
         let isCurrentUserExist = false
         try {
-            console.log("currentUserId", currentUserId, session, (session as any)?.user)
             if (currentUserId) {
                 const currentUserData = await getUserById(currentUserId)
-                console.log("currentUserData", currentUserData)
                 isCurrentUserExist = Boolean(currentUserData)
             }
         } catch (err) {
@@ -74,6 +72,7 @@ export default async function handler(
             })
         }
 
+        // 3.2. UserId from dtoIn does not exists. return user_not_found error
         if (!isCurrentUserExist) {
             console.error('User does not exists')
             return res.status(400).json({
@@ -82,14 +81,17 @@ export default async function handler(
             })
         }
 
+        // 4. Finds out from the configuration how much the item costs
         const itemConf = getItemConf(itemName)
-        const itemConst = itemConf?.cost ?? 0
+        const itemCost = itemConf?.cost ?? 0
 
+
+        // 5. Gets the current credit value of the user
         let userCredit = 0
         try {
             userCredit = (await getCreditByUserId(currentUserId))?.amount ?? 0
         } catch (err) {
-            //3.1. Failed to get data from the database and an error was thrown
+            //5.1. Failed to get data from the database and an error was thrown
             console.error(err)
             return res.status(500).json({
                 errorCode: 'server_error',
@@ -97,18 +99,21 @@ export default async function handler(
             })
         }
 
-        if (userCredit < itemConst) {
+
+        // 6. If the user has less credit than the item is worth, error not_enough_money is returned
+        if (userCredit < itemCost) {
             return res.status(400).json({
                 errorCode: 'not_enough_money',
                 warnings: warnings,
             })
         }
 
-        if (itemConst !== 0) {
+        // 7. If the item is not worth 0 then the user is stripped of as much credit as the item is worth
+        if (itemCost !== 0) {
             try {
-                await removeCredit(currentUserId, itemConst)
+                await removeCredit(currentUserId, itemCost)
             } catch (err) {
-                //3.1. Failed to get data from the database and an error was thrown
+                //7.1. Failed to get data from the database and an error was thrown
                 console.error(err)
                 return res.status(500).json({
                     errorCode: 'server_error',
@@ -117,12 +122,12 @@ export default async function handler(
             }
         }
 
-
+        // 8. Checks if a user purchase record exists
         let userPurchase = null
         try {
             userPurchase = (await getPurchaseByUserId(currentUserId))?.purchase
         } catch (err) {
-            //3.1. Failed to get data from the database and an error was thrown
+            //8.1. Failed to get data from the database and an error was thrown
             console.error(err)
             return res.status(500).json({
                 errorCode: 'server_error',
@@ -131,11 +136,12 @@ export default async function handler(
         }
 
         if (userPurchase) {
+            // 8.2.1. If it exists, the item is added to an existing record
             try {
                 const newPurchaseItems = [...new Set([...userPurchase, itemName])]
                 await updatePurchase(currentUserId, newPurchaseItems)
             } catch (err) {
-                //3.1. Failed to get data from the database and an error was thrown
+                //8.2.2. Failed to get data from the database and an error was thrown
                 console.error(err)
                 return res.status(400).json({
                     errorCode: 'server_error',
@@ -143,10 +149,11 @@ export default async function handler(
                 })
             }
         } else {
+            // 8.3.1. If it does not exist, a new one is created
             try {
                 await createPurchase(currentUserId, itemName)
             } catch (err) {
-                //3.1. Failed to get data from the database and an error was thrown
+                //8.3.2. Failed to get data from the database and an error was thrown
                 console.error(err)
                 return res.status(400).json({
                     errorCode: 'server_error',
@@ -155,6 +162,7 @@ export default async function handler(
             }
         }
 
+        // 9. Returns properly filled dtoOut.
         return res.status(200).send({})
     }
 }

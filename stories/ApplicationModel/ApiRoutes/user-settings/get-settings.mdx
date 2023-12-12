@@ -1,21 +1,17 @@
 import { Meta } from '@storybook/blocks'
-import { Mermaid } from 'mdx-mermaid/Mermaid'
 import { JSONTree } from 'react-json-tree'
 
-import * as S from '../../styles.ts'
-import PropertiesTable from '../../../Components/properties-table'
-import ReferenceList from '../../../Components/reference-list'
 import ApiRoutesInfoTable from '../../../Components/api-routes-info-table'
 import ApiErrors from '../../../Components/api-errors'
 
-<Meta title="ApplicationModel/ApiRoutes/activity/get-score-count" />
+<Meta title="ApplicationModel/ApiRoutes/user-settings/get-settings" />
 
-# activity/get-score-count
+# user-settings/get-settings
 
 <ApiRoutesInfoTable
-  name={'activity/get-score-count'}
-  description={`This endpoint returns the user's total score for all activities.`}
-  source="pages/api/activity/get-score-count"
+  name={'user-settings/get-settings'}
+  description={`Gets user settings.`}
+  source="pages/api/user-settings/get-settings"
   httpMethod="GET"
   roles={['ADMIN', 'HOST', 'REGISTRED']}
 />
@@ -33,22 +29,37 @@ import ApiErrors from '../../../Components/api-errors'
 <JSONTree
   shouldExpandNodeInitially={() => true}
   data={{
-    points: 960,
+    userSettings:{
+        id: "65784369e689ff6057cf6cbe",
+        userId: "6578436f7e49cc005de02620",
+        character: "beaver",
+        aura: "red",
+    },
     warnings: { code: 'unsupported_keys', unSupportedKeys: ['test'] },
-  }}
+
+}}
 />
 
     ## Output Validation
 
 <JSONTree
   shouldExpandNodeInitially={() => true}
-  data={{ points: 'number()', warnings: 'Warnings' }}
+  data={{
+      warnings: 'Warnings',
+    userSettings: {
+      id: 'string',
+      userId: 'string',
+      character: 'string',
+      aura: 'string',
+    }
+    },
+   
+  }
 />
 
     ## Scenario
     ### 1. Check httpMethod
-    #### 1.1. ERROR - If httpMethod is not GET. return endpoint_not_found error
-
+    #### 1.1. ERROR - If httpMethod is not POST. return endpoint_not_found error
 
     ### 2. Check dtoIn
     #### 2.1. ERROR - dtoIn is not valid. return wrong_dto_in error
@@ -59,8 +70,8 @@ import ApiErrors from '../../../Components/api-errors'
     #### 3.1. ERROR - Failed to get data from the database and an error was thrown. return server_error error
     #### 3.2. ERROR - UserId from dtoIn does not exists. return user_not_found error
 
-    ### 4. Get score count from the database
-    #### 4.1. ERROR - Failed to get data from the database and an error was thrown. return server_error error
+    ### 4. Gets the settings of the current user
+    #### 4.1. Failed to get data from the database and an error was thrown
 
     ### 5. Returns properly filled dtoOut.
 
@@ -83,15 +94,15 @@ import ApiErrors from '../../../Components/api-errors'
     },
     {
       type: 'error',
-      code: 'user_not_found',
-      message:
-        'The userId does not match any userId that we have in the database.',
-    },
-    {
-      type: 'error',
       code: 'server_error',
       message:
         "Something went wrong on the server side. Probably can't connect to DB.",
+    },
+    {
+      type: 'error',
+      code: 'user_not_found',
+      message:
+        'The userId does not match any userId that we have in the database.',
     },
   ]}
 />

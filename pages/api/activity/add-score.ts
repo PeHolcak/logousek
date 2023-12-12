@@ -61,11 +61,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
 
+    //4. Checks if the user already has any credit
     let isUserCreditExists = false;
 
     try {
       isUserCreditExists = Boolean(await getCreditByUserId(userId))
     } catch (error) {
+      //4.1. Failed to get data from the database and an error was thrown. return server_error error
       console.error(error)
       return res.status(500).json({
         errorCode: "server_error",
@@ -73,13 +75,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       })
     }
 
+
     try {
+      //4.2. If the user already has the credit, then they add it to their existing credits
       if (isUserCreditExists) {
         await addCredit(userId, points)
       } else {
+        //4.3. If the user does not have credit, then they create a new
         await createCredit(userId, points)
       }
     } catch (error) {
+      //4.4. Failed to save data to the database and an error was thrown. return server_error error
       console.error(error)
       return res.status(500).json({
         errorCode: "server_error",
@@ -87,15 +93,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       })
     }
 
-    //4. Add score to the database
+    //5. Add score to the database
     try {
       await addScore(userId, points, activityType, difficulty, results)
-      //5. Returns properly filled dtoOut.
+      //6. Returns properly filled dtoOut.
       return res.status(200).json({
         warnings: warnings
       })
     } catch (error) {
-      //4.1. Failed to get data from the database and an error was thrown
+      //5.1. Failed to get data from the database and an error was thrown
       console.error(error)
       return res.status(500).json({
         errorCode: "server_error",

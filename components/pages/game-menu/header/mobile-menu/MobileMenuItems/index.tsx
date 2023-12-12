@@ -48,10 +48,6 @@ const MobileMenuItems: React.FC<MobileMenuItemsProps> = ({
   const sessionData = useSession()
   const modalContext = useContext(ModalContext)
   const gameMenuData = useContext(GameMenuContext)
-  console.log(
-    '(sessionData?.data?.user as any)?.role',
-    (sessionData?.data?.user as any)?.role
-  )
 
   const userScore = useMemo(
     () => gameMenuData?.score ?? 0,
@@ -97,7 +93,7 @@ const MobileMenuItems: React.FC<MobileMenuItemsProps> = ({
         ? [
           {
             name: 'adminPages',
-            icon: 'poll',
+            icon: 'people',
             title: 'Stránky pro administrátory',
             onClick: onAdminPagesRedirect,
           },
@@ -116,7 +112,7 @@ const MobileMenuItems: React.FC<MobileMenuItemsProps> = ({
       },
       {
         name: 'store',
-        icon: 'people',
+        icon: 'shopping_cart',
         title: 'Obchod',
         onClick: editCharacter,
       },

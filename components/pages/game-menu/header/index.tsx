@@ -7,7 +7,6 @@ import User from './user'
 import Cash from './cash'
 import * as S from './styled'
 import MobileMenu from './mobile-menu'
-import DarkModeSwitch from '@components/dark-mode-switch'
 
 const GameMenuHeader: React.FC = () => {
   return (<>

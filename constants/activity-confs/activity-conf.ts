@@ -118,7 +118,7 @@ export const games: GamesType = {
       description:
         'Hra rozvíjí schopnost vnímání 1. slabiky ve slově, rozvíjí také schopnost rozkladu slova na slabiky.',
       image: publicImages.activityIcons.syllables,
-      difficulty: [{ id: 1, level: 1, points: 10, exercisesCount: 5 }],
+      difficulty: [{ id: 1, level: 1, points: 2, exercisesCount: 5 }],
     },
   ],
 
@@ -129,7 +129,7 @@ export const games: GamesType = {
       description:
         'Hra rozvíjí schopnost chápaní časové posloupnosti, uvědomování si příčiny a následku a současně se také může podílet na rozvoji schopnosti samostatného vyprávění příběhu.',
       image: publicImages.activityIcons.seriality,
-      difficulty: [{ id: 1, level: 1, points: 10, exercisesCount: 5 }],
+      difficulty: [{ id: 1, level: 1, points: 3, exercisesCount: 5 }],
     },
   ],
 
@@ -140,7 +140,7 @@ export const games: GamesType = {
       description:
         'Hra rozvíjí motoriku mluvidel, nezbytnou pro správnou realizaci jednotlivých hlásek.',
       image: publicImages.activityIcons.oromotorics,
-      difficulty: [{ id: 1, level: 1, points: 5, exercisesCount: 10 }],
+      difficulty: [{ id: 1, level: 1, points: 1, exercisesCount: 10 }],
     },
   ],
 }

@@ -9,12 +9,11 @@ import { authOptions } from '../auth/[...nextauth]'
 import { getServerSession } from 'next-auth'
 import { getCreditByUserId } from 'backend/dao/credit'
 
-export type getUserCreditDtoOut =
-    | {
-        points: number | null
-        warnings?: Warnings
-    }
-    | ErrorDtoOut
+export type getUserCreditDtoOut = {
+    points?: number | null
+    warnings?: Warnings
+}
+    & ErrorDtoOut
 
 export default async function handler(
     req: NextApiRequest,
@@ -38,7 +37,7 @@ export default async function handler(
         //2.2. dtoIn contains keys beyond the scope of dtoInType
         const warnings = checkUnsupportedKeys(['userId'], req.body)
 
-        //3. Check if the userId from dtoIn exists
+        //3. Check if the userId from session exists
         let user
         try {
             user = await getUserById(currentUserId)

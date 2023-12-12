@@ -83,36 +83,36 @@ async function listUsersMiddleware(
           })
         }
 
-        //4.3. Checks if searchUserString contains only one space
+        //4.2. Checks if searchUserString contains only one space
         if (splitedStringHasCorrectLength) {
           try {
-            //4.3.1. Gets the count of all users matching searchUserString from the database
+            //4.2.1. Gets the count of all users matching searchUserString from the database
             totalUsersCount = await countByFirstnameAndSurname(
               splitedString[0],
               splitedString[1]
             )
           } catch (err) {
-            //4.3.2. ERROR - Failed to get data from the database and an error was thrown. return server_error error
+            //4.2.2. ERROR - Failed to get data from the database and an error was thrown. return server_error error
             return res.status(500).json({
               errorCode: 'server_error',
               warnings: warnings,
             })
           }
         } else {
-          //4.3.1.2. If it contains more than one space return count of all user as 0
+          //4.2.3. If it contains more than one space return count of all user as 0
           totalUsersCount = 0
         }
       } else {
-        //4.1. If it do not contains a space
+        //4.3. If it do not contains a space
         try {
-          //4.1.2. Gets a list of users from the database
+          //4.3.1. Gets a list of users from the database
           users = await listUsers(
             searchUserString,
             Number(limit) || 0,
             Number(cursor) || 0
           )
         } catch (err) {
-          //4.1.2. ERROR - Failed to get data from the database and an error was thrown. return server_error error
+          //4.3.1.1. ERROR - Failed to get data from the database and an error was thrown. return server_error error
           return res.status(500).json({
             errorCode: 'server_error',
             warnings: warnings,
@@ -120,10 +120,10 @@ async function listUsersMiddleware(
         }
 
         try {
-          //4.1.3. Gets the number of users that match the given search
+          //4.3.2. Gets the number of users that match the given search
           totalUsersCount = await countUsers(searchUserString)
         } catch (err) {
-          //4.1.2. ERROR - Failed to get data from the database and an error was thrown. return server_error error
+          //4.3.2.1 ERROR - Failed to get data from the database and an error was thrown. return server_error error
           return res.status(500).json({
             errorCode: 'server_error',
             warnings: warnings,

@@ -48,11 +48,17 @@ import ApiErrors from '../../../Components/api-errors'
 
 ## Output
 
-<JSONTree shouldExpandNodeInitially={() => true} data={{}} />
+<JSONTree
+  shouldExpandNodeInitially={() => true}
+  data={{ warnings: { code: 'unsupported_keys', unSupportedKeys: ['test'] } }}
+/>
 
 ## Validation
 
-<JSONTree shouldExpandNodeInitially={() => true} data={{}} />
+<JSONTree
+  shouldExpandNodeInitially={() => true}
+  data={{ warnings: 'Warnings' }}
+/>
 
     ## Scenario
     ### 1. Check httpMethod
@@ -68,10 +74,16 @@ import ApiErrors from '../../../Components/api-errors'
     #### 3.1. ERROR - Failed to get data from the database and an error was thrown. return server_error error
     #### 3.2. ERROR - UserId from dtoIn does not exists. return user_not_found error
 
-    ### 4. Add score to the database
-    #### 4.1. ERROR - Failed to get data from the database and an error was thrown. return server_error error
+    ### 4. Checks if the user already has any credit
+    #### 4.1. Failed to get data from the database and an error was thrown. return server_error error
+    #### 4.2. If the user already has the credit, then they add it to their existing credits
+    #### 4.3. If the user does not have credit, then they create a new
+    #### 4.4. Failed to save data to the database and an error was thrown. return server_error error
 
-    ### 5. Returns properly filled dtoOut.
+    ### 5. Add score to the database
+    #### 5.1. ERROR - Failed to get data from the database and an error was thrown. return server_error error
+
+    ### 6. Returns properly filled dtoOut.
 
 <ApiErrors
   apiErrorsList={[
@@ -94,7 +106,7 @@ import ApiErrors from '../../../Components/api-errors'
       type: 'error',
       code: 'user_not_found',
       message:
-        'The userId that came in the request does not match any userId that we have in the database.',
+        'The userId does not match any userId that we have in the database.',
     },
     {
       type: 'error',

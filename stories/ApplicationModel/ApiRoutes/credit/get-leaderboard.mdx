@@ -1,0 +1,153 @@
+import { Meta } from '@storybook/blocks'
+import { JSONTree } from 'react-json-tree'
+
+import ApiRoutesInfoTable from '../../../Components/api-routes-info-table'
+import ApiErrors from '../../../Components/api-errors'
+
+<Meta title="ApplicationModel/ApiRoutes/credit/get-leaderboard" />
+
+# credit/get-leaderboard
+
+<ApiRoutesInfoTable
+  name={'credit/get-leaderboard'}
+  description={`Returns the array of users with the highest credit and also returns the location of the current user.`}
+  source="pages/api/credit/get-leaderboard"
+  httpMethod="GET"
+  roles={['ADMIN', 'HOST', 'REGISTRED']}
+/>
+
+## Input
+
+<JSONTree shouldExpandNodeInitially={() => true} data={{}} />
+
+## Input validation
+
+<JSONTree shouldExpandNodeInitially={() => true} data={{}} />
+
+    ## Output
+
+<JSONTree
+  shouldExpandNodeInitially={() => true}
+  data={{
+    warnings: { code: 'unsupported_keys', unSupportedKeys: ['test'] },
+    currentUser:{
+    nickName: "PetrNemec",
+    amount: 125,
+    index: 12,
+    userId: "65782f33f73189083136b955",
+    creditId: "65782f3fc71071a53bb3c9fc",
+    rank: 12
+},
+
+    users: [{
+    nickName: "RadekKaspar",
+    amount: 750,
+    index: 1,
+    userId: "65783134bf5920e698555680",
+    creditId: "657831390f1e9bb37b8822cf",
+    rank: 1
+
+},
+{
+nickName: "slunicko123",
+amount: 720,
+index: 2,
+userId: "6578313f32bf28696dfa2dab",
+creditId: "65783143e0fc7a84ece3e9dc",
+rank: 2
+}]
+
+}}
+/>
+
+    ## Output Validation
+
+<JSONTree
+  shouldExpandNodeInitially={() => true}
+  data={{
+    warnings: 'Warnings',
+    currentUser: {
+      nickName: 'string',
+      amount: 'number | undefined',
+      index: 'number | undefined',
+      userId: 'string | undefined',
+      creditId: 'string | undefined',
+      rank: 'string | undefined',
+    },
+    users: [
+      {
+        nickName: 'string',
+        amount: 'number | undefined',
+        index: 'number | undefined',
+        userId: 'string | undefined',
+        creditId: 'string | undefined',
+        rank: 'string | undefined',
+      },
+    ],
+  }}
+/>
+
+    ## Scenario
+    ### 1. Check httpMethod
+    #### 1.1. ERROR - If httpMethod is not POST. return endpoint_not_found error
+
+    ### 2. Check dtoIn
+    #### 2.1. ERROR - dtoIn is not valid. return wrong_dto_in error
+    #### 2.2. WARNING - dtoIn contains keys beyond the scope of dtoInType. get warning unsupportedKeys to dtoOut.
+
+
+    ### 3. Check if the userId from session exists
+    #### 3.1. ERROR - Failed to get data from the database and an error was thrown. return server_error error
+    #### 3.2. ERROR - UserId from dtoIn does not exists. return user_not_found error
+
+    ### 4. Gets credit for the logged-in user
+    #### 4.1. ERROR - Failed to get data from the database and an error was thrown. return server_error error
+
+    ### 5. Get the placement of the registered user in the tournament
+    #### 5.1. ERROR - Failed to get data from the database and an error was thrown. return server_error error
+
+    ### 6. Gets the credit records with the highest value
+    #### 6.1. ERROR - Failed to get data from the database and an error was thrown. return server_error error
+
+    ### 7. Gets the ids of users with the highest credit value
+    #### 7.1. ERROR - Failed to get data from the database and an error was thrown. return server_error error
+
+    ### 8. Creates a structure that contains the user's data and their credit value
+
+    ### 9. Gets the data of users with the highest credit value
+
+    ### 10. Create a structure for the current user's data, his or her credit amount and ranking
+
+    ### 11. Returns properly filled dtoOut.
+
+<ApiErrors
+  apiErrorsList={[
+    {
+      type: 'error',
+      code: 'endpoint_not_found',
+      message: 'There was a wrong method in the request.',
+    },
+    {
+      type: 'error',
+      code: 'wrong_dto_in',
+      message: 'A bad dtoIn came in the request.',
+    },
+    {
+      type: 'warning',
+      code: 'unsupported_keys',
+      message: 'DtoIn contains unsupported keys.',
+    },
+    {
+      type: 'error',
+      code: 'server_error',
+      message:
+        "Something went wrong on the server side. Probably can't connect to DB.",
+    },
+    {
+      type: 'error',
+      code: 'user_not_found',
+      message:
+        'The userId does not match any userId that we have in the database.',
+    },
+  ]}
+/>

@@ -4,60 +4,35 @@ import { JSONTree } from 'react-json-tree'
 import ApiRoutesInfoTable from '../../../Components/api-routes-info-table'
 import ApiErrors from '../../../Components/api-errors'
 
-<Meta title="ApplicationModel/ApiRoutes/activity/list-score" />
+<Meta title="ApplicationModel/ApiRoutes/credit/get-user-credit" />
 
-# activity/list-score
+# credit/get-user-credit
 
 <ApiRoutesInfoTable
-  name={'activity/list-score'}
-  description={`This endpoint is used to list all user scores.`}
-  source="pages/api/activity/list-score"
-  httpMethod="POST"
+  name={'credit/get-user-credit'}
+  description={`Endpoint returns the number of credits that the logged-in user owns.`}
+  source="pages/api/credit/get-user-credit"
+  httpMethod="GET"
   roles={['ADMIN', 'HOST', 'REGISTRED']}
 />
 
 ## Input
 
-<JSONTree
-  shouldExpandNodeInitially={() => true}
-  data={{
-    userId: '647f5a137d42d125c1563973',
-    activityTypes: 'visual_memory',
-    from: '2023-06-06T22:00:00.000Z',
-    to: '2023-06-16T21:59:59.999Z',
-  }}
-/>
+<JSONTree shouldExpandNodeInitially={() => true} data={{}} />
 
 ## Input validation
 
-<JSONTree
-  shouldExpandNodeInitially={() => true}
-  data={{
-    userId: 'string().required()',
-    activityTypes: 'array().of(string())',
-    from: 'string()',
-    to: 'string()',
-  }}
-/>
+<JSONTree shouldExpandNodeInitially={() => true} data={{}} />
 
     ## Output
 
 <JSONTree
   shouldExpandNodeInitially={() => true}
   data={{
-    data: [
-      {
-        id: '647f5b017d42d125c1563974',
-        createdAt: '2023-06-06T16:12:49.044Z',
-        userId: '647f5a137d42d125c1563973',
-        points: 60,
-        activityType: 'visual_differentiation',
-        difficulty: '2',
-        data: [false],
-      },
-    ],
     warnings: { code: 'unsupported_keys', unSupportedKeys: ['test'] },
-  }}
+    points: 120,
+
+}}
 />
 
     ## Output Validation
@@ -65,18 +40,8 @@ import ApiErrors from '../../../Components/api-errors'
 <JSONTree
   shouldExpandNodeInitially={() => true}
   data={{
-    data: [
-      {
-        id: 'string()',
-        createdAt: 'string()',
-        userId: 'string()',
-        points: 'number()',
-        activityType: 'string()',
-        difficulty: 'string()',
-        data: 'array().of(boolean().required())',
-      },
-    ],
     warnings: 'Warnings',
+    points: 'number | undefined',
   }}
 />
 
@@ -84,17 +49,16 @@ import ApiErrors from '../../../Components/api-errors'
     ### 1. Check httpMethod
     #### 1.1. ERROR - If httpMethod is not POST. return endpoint_not_found error
 
-
     ### 2. Check dtoIn
     #### 2.1. ERROR - dtoIn is not valid. return wrong_dto_in error
     #### 2.2. WARNING - dtoIn contains keys beyond the scope of dtoInType. get warning unsupportedKeys to dtoOut.
 
 
-    ### 3. Check if the userId from dtoIn exists
+    ### 3. Check if the userId from session exists
     #### 3.1. ERROR - Failed to get data from the database and an error was thrown. return server_error error
     #### 3.2. ERROR - UserId from dtoIn does not exists. return user_not_found error
 
-    ### 4. List score from the database
+    ### 4. Gets credit for the logged-in user
     #### 4.1. ERROR - Failed to get data from the database and an error was thrown. return server_error error
 
     ### 5. Returns properly filled dtoOut.
@@ -118,15 +82,15 @@ import ApiErrors from '../../../Components/api-errors'
     },
     {
       type: 'error',
-      code: 'user_not_found',
-      message:
-        'The userId does not match any userId that we have in the database.',
-    },
-    {
-      type: 'error',
       code: 'server_error',
       message:
         "Something went wrong on the server side. Probably can't connect to DB.",
+    },
+    {
+      type: 'error',
+      code: 'user_not_found',
+      message:
+        'The userId does not match any userId that we have in the database.',
     },
   ]}
 />

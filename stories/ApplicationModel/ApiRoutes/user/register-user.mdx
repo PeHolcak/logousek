@@ -20,6 +20,8 @@ import ApiErrors from '../../../Components/api-errors'
   roles={[]}
 />
 
+## Input
+
 <JSONTree
   shouldExpandNodeInitially={() => true}
   data={{
@@ -44,32 +46,39 @@ import ApiErrors from '../../../Components/api-errors'
 
     ## Output
 
-<JSONTree shouldExpandNodeInitially={() => true} data={{}} />
+<JSONTree shouldExpandNodeInitially={() => true} data={{
+    nickName: 'PetrKadlec',
+
+    warnings: { code: 'unsupported_keys', unSupportedKeys: ['test'] },
+
+}} />
 
     ## Output Validation
 
-<JSONTree shouldExpandNodeInitially={() => true} data={{}} />
+<JSONTree
+  shouldExpandNodeInitially={() => true}
+  data={{
+    nickName: 'string',
+    warnings: 'Warnings',
+  }}
+/>
 
     ## Scenario
     ### 1. Check httpMethod
     #### 1.1. ERROR - If httpMethod is not POST. return endpoint_not_found error
 
     ### 2. Check dtoIn
-    #### 2.1. ERROR - dtoIn is not valid. return wrong_dto_in error
+    #### 2.1. ERROR - dtoIn is not valid.
     #### 2.2. WARNING - dtoIn contains keys beyond the scope of dtoInType. get warning unsupportedKeys to dtoOut.
 
     ### 3. Check if a user with the same name already exists
-    ### 3.1. Check if a user with the same name already exists
-    #### 3.1.1. ERROR - Failed to get data from the database and an error was thrown. return server_error error
-    #### 3.1.2. ERROR - A user with the same name already exists. return user_already_exists error
+    ### 3.1. ERROR - Failed to get data from the database and an error was thrown.
+    ### 3.2. ERROR - A user with the same name already exists.
 
-    ### 4. Create user
-    #### 4.1. ERROR - Failed to get data from the database and an error was thrown. return server_error error
+    ### 4. Create a new user
+    ### 4.1. ERROR - Failed to get data from the database and an error was thrown
 
-    ### 5. List score from the database
-    #### 5.1. ERROR - Failed to get data from the database and an error was thrown. return server_error error
-
-    ### 6. Returns properly filled dtoOut.
+    ### 5. Returns properly filled dtoOut.
 
 <ApiErrors
   apiErrorsList={[
@@ -80,24 +89,24 @@ import ApiErrors from '../../../Components/api-errors'
     },
     {
       type: 'error',
-      code: 'wrong_dto_in',
-      message: 'A bad dtoIn came in the request.',
-    },
-    {
-      type: 'error',
-      code: 'user_already_exists',
+      code: 'user_exists',
       message: 'A user with the same name already exists.',
-    },
-    {
-      type: 'warning',
-      code: 'unsupported_keys',
-      message: 'DtoIn contains unsupported keys.',
     },
     {
       type: 'error',
       code: 'server_error',
       message:
         "Something went wrong on the server side. Probably can't connect to DB.",
+    },
+    {
+      type: 'error',
+      code: 'wrong_dto_in',
+      message: 'dtoIn is not valid.',
+    },
+    {
+      type: 'warning',
+      code: 'unsupported_keys',
+      message: 'DtoIn contains unsupported keys.',
     },
   ]}
 />

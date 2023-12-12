@@ -28,10 +28,13 @@ export const useScore = (selectUser?: string) => {
                         to,
                         activityTypes
                     )
-                    if ("data" in res?.data) {
+
+                    if (res?.data?.data) {
                         setScoreList(res?.data?.data)
+                    } else {
+                        setScoreList([])
                     }
-                    setScoreList([])
+
                 } catch (error) {
                     console.error('error', error)
                 }
