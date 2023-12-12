@@ -10,7 +10,7 @@ import ApiErrors from '../../../Components/api-errors'
 
 <ApiRoutesInfoTable
   name={'shop/get-avaible-items'}
-  description={`Purchases an item if the user has sufficient credit.`}
+  description={'Purchases an item if the user has sufficient credit.'}
   source="pages/api/shop/get-avaible-items"
   httpMethod="GET"
   roles={['ADMIN', 'HOST', 'REGISTRED']}
@@ -40,7 +40,7 @@ import ApiErrors from '../../../Components/api-errors'
 <JSONTree
   shouldExpandNodeInitially={() => true}
   data={{
-    avaibleItems: "string[]"
+    avaibleItems: 'string[]',
     warnings: 'Warnings',
   }}
 />
