@@ -1,0 +1,84 @@
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+import { Meta } from '@storybook/blocks'
+
+import * as S from '../../../../../../styles.ts'
+import appConf from '../../../../../../../../constants/app-conf'
+import ComponentInfoTable from '../../../../../../../Components/component-info-table'
+import ReferenceList from '../../../../../../../Components/reference-list'
+import PropertiesTable from '../../../../../../../Components/properties-table'
+
+<Meta title="ApplicationModel/Components/Pages/GameMenu/Header/MobileMenu/MobileMenuItems/docs" />
+
+# MobileMenuItems
+
+<ComponentInfoTable
+  name="MobileMenuItems"
+  description="Items of mobile menu."
+  source="components/pages/game-menu/header/mobile-menu"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'isOpen',
+      type: `boolean`,
+      defaultValue: '',
+      description: `Indicates wheter is menu open.`,
+      required: true,
+    },
+    {
+      name: 'setIsMenuShow',
+      type: `(value: boolean) => void`,
+      defaultValue: '',
+      description: `Callback that is triggered when menu state is change.`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+      MobileMenuItems "1" <-- "1" AnimatePresence
+      AnimatePresence "1" <-- "1" motionDiv
+      motionDiv "1" <-- "1" MobileMenuItemsWrapper
+      MobileMenuItemsWrapper "1" <-- "1" CashWrapper
+      CashWrapper "1" <-- "1" Cash
+      MobileMenuItemsWrapper "1" <-- "1" SimpleMenu
+      MobileMenuItemsWrapper "1" <-- "1" DarkModeSwitchWrapper
+      DarkModeSwitchWrapper "1" <-- "1" DarkModeSwitch
+
+      class MobileMenuItems:::green
+      class AnimatePresence
+      class motionDiv["motion.div"]
+      class MobileMenuItemsWrapper
+      class CashWrapper
+      class Cash:::blue
+      class SimpleMenu:::blue
+      class DarkModeSwitchWrapper
+      class DarkModeSwitch:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'Cash',
+      description:
+        'The component is responsible for displaying information about how much cash the user has.',
+    },
+    {
+      name: 'SimpleMenu',
+      description: 'The menu of items.',
+    },
+    {
+      name: 'DarkModeSwitch',
+      description:
+        'Switch component, which changes the theme of the application when the state changes.',
+    },
+  ]}
+/>

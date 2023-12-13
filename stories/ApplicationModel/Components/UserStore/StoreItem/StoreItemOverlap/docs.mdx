@@ -1,0 +1,95 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../../styles.ts'
+import PropertiesTable from '../../../../../Components/properties-table'
+import ReferenceList from '../../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../../Components/component-info-table'
+
+    <Meta title="ApplicationModel/Components/UserStore/StoreItem/StoreItemOverlap/docs" />
+
+# StoreItemOverlap
+
+    <ComponentInfoTable
+          name={'StoreItemOverlap'}
+          description={`A layer that can cover an item. Includes either a buy button or loading bar.`}
+          source="components/user-store/store-item/store-item-overlap"
+        />
+
+    <PropertiesTable
+          tableRows={[
+            {
+              name: 'cost',
+              type: `number`,
+              defaultValue: '',
+              description: `Indicates how much the item costs.`,
+              required: true,
+            },
+            {
+              name: 'isOwned',
+              type: `boolean`,
+              defaultValue: '',
+              description: `Indicates if the item is owned by the currently logged in user.`,
+              required: true,
+            },
+            {
+              name: 'onItemBuyHandler',
+              type: `() => void`,
+              defaultValue: '',
+              description: `A callback that is called after the user clicks the buy button.`,
+              required: true,
+            },
+            {
+              name: 'disabled',
+              type: `boolean`,
+              defaultValue: '',
+              description: `indicates whether the item can be bought or set.`,
+              required: true,
+            },
+            {
+              name: 'isInProgress',
+              type: `boolean`,
+              defaultValue: '',
+              description: `Indicates whether an operation is currently in progress.`,
+              required: true,
+            },
+          ]}
+        />
+
+    <S.MermaidWrapper>
+          <Mermaid
+                chart={`
+                          classDiagram
+                          direction RL
+                          StoreItemOverlap "1" <-- "1" StoreItemOverlapWrapper : status in not owned, is chargeable and props.isInProgress is false
+                          StoreItemOverlap "1" <-- "1" StoreItemOverlapWrapper2 : status in not owned, is chargeable and props.isInProgress is true
+                          StoreItemOverlapWrapper "1" <-- "1" Loading
+                          StoreItemOverlapWrapper2 "1" <-- "1" Button
+
+                          class StoreItemOverlap:::green
+                          class StoreItemOverlapWrapper
+                          class StoreItemOverlapWrapper2["StoreItemOverlapWrapper"]
+                          class Button:::Blue
+                          class StoreItemOverlapWrapper
+                          class Loading:::Blue
+
+                        `}
+                        />
+
+                        </S.MermaidWrapper>
+
+
+
+    <ReferenceList
+        tableRows={[
+          {
+            name: 'Loading',
+            description: 'This is a loading component.',
+          },
+          {
+            name: 'Button',
+            description:
+              'A Button component. When pressed, it invokes the onClick callback.',
+          },
+        ]}
+      />

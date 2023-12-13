@@ -3,11 +3,11 @@ import React from 'react'
 import ActivityCard from '@components/activity-card'
 import { CharacterEnum, CharacterType, ItemType } from '@constants/shop'
 
-import CharacterItem from '../StoreItem'
+import StoreItem from '../store-item'
 
 type CharacterActivityCardProps = {
   onCharacterClickHandler: (
-    auraName: string,
+    name: string,
     isOwnedByLoggedUser: boolean
   ) => void
   selectedCharacter: string
@@ -37,7 +37,7 @@ const CharacterActivityCard: React.FC<CharacterActivityCardProps> = ({
       selected={selectedCharacter === characterConfig.name}
       disabled={isDisabled}
     >
-      <CharacterItem
+      <StoreItem
         isOwned={isOwnedByLoggedUser}
         name={characterConfig.name}
         imageSrc={characterConfig.imageSrc}

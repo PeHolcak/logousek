@@ -1,0 +1,105 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../styles.ts'
+import PropertiesTable from '../../../../Components/properties-table'
+import ReferenceList from '../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../Components/component-info-table'
+import ComponentRenderTable from '../../../../Components/component-render'
+
+<Meta title="ApplicationModel/Components/UsersLeaderboard/Player/docs" />
+
+# Player
+
+<ComponentInfoTable
+  name={'Player'}
+  description={`Shows the top 3 users in the leaderboard.`}
+  source="components/users-leaderboard/player"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'isFirst',
+      type: `boolean`,
+      defaultValue: '',
+      description: `This is information about whether this is the first user to be ranked.`,
+      required: true,
+    },
+    {
+      name: 'isLast',
+      type: `boolean`,
+      defaultValue: '',
+      description: `This is information about whether this is the last user to be ranked.`,
+      required: true,
+    },
+    {
+      name: 'isCurrent',
+      type: `boolean`,
+      defaultValue: '',
+      description: `Information about whether it is a specific user who is logged in.`,
+      required: true,
+    },
+    {
+      name: 'player',
+      type: `{
+              isCurrentUser: boolean
+              nickName: string
+              amount?: number | undefined
+              index?: number | undefined
+              userId?: string | undefined
+              creditId?: string | undefined
+              showTopSpace: boolean
+              rank?: number
+            }`,
+      defaultValue: '',
+      description: `This is the configuration for the current user.`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+     Player "1" <-- "1" div 
+     div "1" <-- "1" Space
+     div "1" <-- "1" PlayerContainer
+     PlayerContainer "1" <-- "1" Rank 
+     PlayerContainer "1" <-- "1" Name
+     PlayerContainer "1" <-- "1" Score
+     Score "1" <-- "1" CashValue
+
+     class Player:::green
+     class div
+     class Space["R - Space"]
+     class PlayerContainer
+     class Rank
+     class Name
+     class Score
+     class CashValue:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ComponentRenderTable
+  tableRows={[
+    {
+      name: 'Space',
+      description: 'Render only if player.showTopSpace is true.',
+    },
+  ]}
+/>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'CashValue',
+      description: 'A value that is formatted as money.',
+    },
+  ]}
+/>

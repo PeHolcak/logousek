@@ -1,0 +1,53 @@
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+import { Meta } from '@storybook/blocks'
+
+import * as S from '../../../../../styles.ts'
+import appConf from '../../../../../../../constants/app-conf'
+import ComponentInfoTable from '../../../../../../Components/component-info-table'
+import ReferenceList from '../../../../../../Components/reference-list'
+import PropertiesTable from '../../../../../../Components/properties-table'
+
+<Meta title="ApplicationModel/Components/Pages/GameMenu/Header/MobileMenu/docs" />
+
+# MobileMenu
+
+<ComponentInfoTable
+  name="MobileMenu"
+  description="This is a component of the mobile menu."
+  source="components/pages/game-menu/header/mobile-menu"
+/>
+
+<PropertiesTable tableRows={[]} />
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+      MobileMenu "1" <-- "1" MobileMenuWrapper
+      MobileMenuWrap "1" <-- "1" MenuButton
+      MobileMenuWrap "1" <-- "1" MobileMenuItems
+      MenuButton "1" <-- "1" Stripe
+      MenuButton "1" <-- "1" Stripe2
+      MenuButton "1" <-- "1" Stripe3
+
+      class MobileMenu:::green
+      class MobileMenuWrap
+      class MenuButton
+      class Stripe
+      class Stripe2["Stripe"]
+      class Stripe3["Stripe"]
+      class MobileMenuItems:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'MobileMenuItems',
+      description: 'Items of mobile menu.',
+    },
+  ]}
+/>

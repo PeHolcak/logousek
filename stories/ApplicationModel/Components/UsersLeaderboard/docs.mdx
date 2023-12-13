@@ -1,0 +1,87 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../styles.ts'
+import PropertiesTable from '../../../Components/properties-table'
+import ReferenceList from '../../../Components/reference-list'
+import ComponentInfoTable from '../../../Components/component-info-table'
+import ComponentRenderTable from '../../../Components/component-render'
+
+<Meta title="ApplicationModel/Components/UsersLeaderboard/docs" />
+
+# UsersLeaderboard
+
+<ComponentInfoTable
+  name={'UsersLeaderboard'}
+  description={`This is a ranking of users.`}
+  source="components/users-leaderboard"
+/>
+
+<PropertiesTable tableRows={[]} />
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+     UsersLeaderboard "1" <-- "1" LeaderboardWrapper3 : status in neither "loading" nor "error"
+     UsersLeaderboard "1" <-- "1" LeaderboardWrapper2 : status is error  
+     UsersLeaderboard "1" <-- "1" LeaderboardWrapper : status is loading
+     UsersLeaderboard "1" <-- "1" LoadingWrap 
+     LoadingWrap "1" <-- "1" Loading
+     LeaderboardWrapper3 "1" <-- "1" TopPlayerWrapper
+     LeaderboardWrapper3 "1" <-- "1" Others
+     TopPlayerWrapper "1" <-- "N" TopPlayer
+     Others "1" <-- "N" Player
+
+     class UsersLeaderboard:::green
+     class LeaderboardWrapper
+     class LeaderboardWrapper2["LeaderboardWrapper"]
+     class LeaderboardWrapper3["LeaderboardWrapper"]
+     class LoadingWrap
+     class Loading:::blue
+     class TopPlayerWrapper
+     class TopPlayer:::blue
+     class Others
+     class Player:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ComponentRenderTable
+  tableRows={[
+
+    {
+      name: 'LeaderboardWrapper',
+      rules: `status in neither "loading" nor "error"`,
+    },
+    {
+      name: 'LeaderboardWrapper',
+      rules: `status is error`,
+    },
+    {
+      name: 'LeaderboardWrapper',
+      rules: `status is loading`,
+    },
+
+]}
+/>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'Loading',
+      description: 'A component that indicates loading.',
+    },
+    {
+      name: 'TopPlayer',
+      description: 'Shows the top 3 users in the leaderboard.',
+    },
+    {
+      name: 'Player',
+      description: 'Shows the top users without the top 3 in the rankings.',
+    },
+  ]}
+/>

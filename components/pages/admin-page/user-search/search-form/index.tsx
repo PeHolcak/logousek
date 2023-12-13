@@ -19,21 +19,24 @@ const SearchForm: React.FC<SearchFormType> = ({
     onSearchHandler,
     onResetHandler,
     canBeReset,
-    form
+    form,
 }) => {
-
-    return <Form<FormValues> form={form} onFinish={onSearchHandler}>
-        <Form.Item name="activityTypes">
-            <Search
-                placeholder="Vyhledejte hráče"
-                size="large"
-                onSearch={form.submit}
-                addonBefore={
-                    canBeReset ? <ClickableIcon icon="clear" onClick={onResetHandler} /> : undefined
-                }
-            />
-        </Form.Item>
-    </Form>
+    return (
+        <Form<FormValues> form={form} onFinish={onSearchHandler}>
+            <Form.Item name="activityTypes">
+                <Search
+                    placeholder="Vyhledejte hráče"
+                    size="large"
+                    onSearch={form.submit}
+                    addonBefore={
+                        canBeReset ? (
+                            <ClickableIcon icon="clear" onClick={onResetHandler} />
+                        ) : undefined
+                    }
+                />
+            </Form.Item>
+        </Form>
+    )
 }
 
 export default SearchForm

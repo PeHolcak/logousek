@@ -4,7 +4,7 @@ import * as S from './styled'
 import CashValue from '@components/pages/game-menu/header/cash-value'
 import Reference from '@components/reference'
 import { IMAGES_REFERENCE } from '@constants/character-conf'
-import Overlap from './Overlap'
+import StoreItemOverlap from './store-item-overlap'
 
 type StoreItemProps = {
   imageSrc?: string
@@ -58,7 +58,7 @@ const StoreItem: React.FC<StoreItemProps> = ({
         <S.ImageContainer>{getContent}</S.ImageContainer>
       </S.ImageWrapper>
       <S.Cost align="center">{costcustomContent}</S.Cost>
-      <Overlap
+      <StoreItemOverlap
         isOwned={isOwned}
         onItemBuyHandler={onItemBuyHandler}
         disabled={disabled}

@@ -1,0 +1,140 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../styles.ts'
+import PropertiesTable from '../../../Components/properties-table'
+import ReferenceList from '../../../Components/reference-list'
+import ComponentInfoTable from '../../../Components/component-info-table'
+import ComponentRenderTable from '../../../Components/component-render'
+
+<Meta title="ApplicationModel/Components/UserStore/docs" />
+
+# UserStore
+
+<ComponentInfoTable
+  name={'UserStore'}
+  description={`This is a store where the user can buy items and then apply them.`}
+  source="components/user-store"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'userScore',
+      type: `number`,
+      defaultValue: '',
+      description: `Score of the logged in user.`,
+      required: true,
+    },
+    {
+      name: 'refreshUserScore',
+      type: `() => void`,
+      defaultValue: '',
+      description: `This is a callback that refreshes the user's score.`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+     UserStore "1" <-- "1" UserStoreWrap : status in neither "loading" nor "error"
+     UserStore "1" <-- "1" Loading : status is "loading"
+     UserStore "1" <-- "1" P3 : status is "error"
+     UserStoreWrap "1" <-- "1" StoreContainer
+     UserStoreWrap "1" <-- "1" ButtonRow
+     ButtonRow "1" <-- "1" Button
+     StoreContainer "1" <-- "1" LoadingWrap
+     StoreContainer "1" <-- "1" StoreContent
+     LoadingWrap "1" <-- "1" Loading2
+     StoreContent "1" <-- "1" H2
+     StoreContent "1" <-- "1" ItemList
+     StoreContent "1" <-- "1" H22
+     StoreContent "1" <-- "1" ItemList2
+     ItemList "1" <-- "N" CharacterActivityCard
+     ItemList2 "1" <-- "N" AuraActivityCard
+
+     class UserStore:::green
+     class Loading:::blue
+     class P3:::blue
+     class UserStoreWrap
+     class StoreContainer
+     class LoadingWrap["R - LoadingWrap"]
+     class Loading2["Loading"]:::blue
+     class StoreContent
+     class H2:::blue
+     class ItemList
+
+     class H22["H2"]:::blue
+     class ItemList2["ItemList2"]
+     class ButtonRow:::blue
+     class Button:::blue
+
+     class CharacterActivityCard:::blue
+     class AuraActivityCard:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ComponentRenderTable
+  tableRows={[
+    {
+      name: 'LoadingWrap',
+      rules: `Rendered only if user settings is updating.`,
+    },
+    {
+      name: 'Loading',
+      rules: `Status is "loading"`,
+    },
+    {
+      name: 'P3',
+      rules: `Status is "error"`,
+    },
+    {
+      name: 'UserStoreWrap',
+      rules: `Status in neither "loading" nor "error"`,
+    },
+  ]}
+/>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'Button',
+      description: 'The button used for triggering an action.',
+    },
+    {
+      name: 'ButtonRow',
+      description: 'This is a row for buttons.',
+    },
+    {
+      name: 'CharacterActivityCard',
+      description: 'This is a card for character.',
+    },
+    {
+      name: 'AuraActivityCard',
+      description: 'This is a card for aura.',
+    },
+    {
+      name: 'H2',
+      description: 'Header of level 2.',
+    },
+    {
+      name: 'AuraActivityCard',
+      description: 'This is a card for aura.',
+    },
+    {
+      name: 'Loading',
+      description: 'This is a loading component.',
+    },
+    {
+      name: 'P3',
+      description: 'Paragraph of level 2.',
+    },
+  ]}
+/>

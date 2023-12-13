@@ -1,0 +1,41 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../../styles.ts'
+import PropertiesTable from '../../../../../Components/properties-table/index'
+import ReferenceList from '../../../../../Components/reference-list/index'
+import ComponentInfoTable from '../../../../../Components/component-info-table/index'
+
+<Meta title="ApplicationModel/Components/UsersLeaderboard/Player/Space/docs" />
+
+# Space
+
+<ComponentInfoTable
+  name={'Space'}
+  description={`Shows the top 3 users in the leaderboard.`}
+  source="components/users-leaderboard"
+/>
+<PropertiesTable tableRows={[]} />
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+     Space "1" <-- "1" SpaceWrap 
+     SpaceWrap "1" <-- "1" Dot
+     SpaceWrap "1" <-- "1" Dot2
+     SpaceWrap "1" <-- "1" Dot3
+
+     class Space:::green
+     class SpaceWrap
+     class Dot
+     class Dot2["Dot"]
+     class Dot3["Dot"]
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList tableRows={[]} />

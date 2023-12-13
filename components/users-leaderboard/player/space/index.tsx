@@ -5,11 +5,11 @@ import * as S from './styled'
 
 const Space: React.FC = () => {
   return (
-    <S.Space>
+    <S.SpaceWrap>
       <S.Dot />
       <S.Dot />
       <S.Dot />
-    </S.Space>
+    </S.SpaceWrap>
   )
 }
 

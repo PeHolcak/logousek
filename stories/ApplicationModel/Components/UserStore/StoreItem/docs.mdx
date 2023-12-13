@@ -1,0 +1,123 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../styles.ts'
+import PropertiesTable from '../../../../Components/properties-table'
+import ReferenceList from '../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../Components/component-info-table'
+
+    <Meta title="ApplicationModel/Components/UserStore/StoreItem/docs" />
+
+# StoreItem
+
+    <ComponentInfoTable
+          name={'StoreItem'}
+          description={`This is a trade item.`}
+          source="components/user-store/store-item"
+        />
+
+    <PropertiesTable
+          tableRows={[
+            {
+              name: 'imageSrc',
+              type: `string`,
+              defaultValue: '',
+              description: `Source of image.`,
+              required: false,
+            },
+            {
+              name: 'customContent',
+              type: `React.ReactNode`,
+              defaultValue: '',
+              description: `Content to be used instead of the standard.`,
+              required: false,
+            },
+
+            {
+              name: 'name',
+              type: `string`,
+              defaultValue: '',
+              description: `A technical name.`,
+              required: true,
+            },
+            {
+              name: 'label',
+              type: `string`,
+              defaultValue: '',
+              description: `Text that is displayed to the user.`,
+              required: true,
+            },
+
+            {
+              name: 'cost',
+              type: `number`,
+              defaultValue: '',
+              description: `Indicates how much the item costs.`,
+              required: true,
+            },
+            {
+              name: 'isOwned',
+              type: `boolean`,
+              defaultValue: '',
+              description: `Indicates if the item is owned by the currently logged in user.`,
+              required: true,
+            },
+            {
+              name: 'onItemBuyHandler',
+              type: `() => void`,
+              defaultValue: '',
+              description: `A callback that is called after the user clicks the buy button.`,
+              required: true,
+            },
+            {
+              name: 'disabled',
+              type: `boolean`,
+              defaultValue: '',
+              description: `indicates whether the item can be bought or set.`,
+              required: true,
+            },
+            {
+              name: 'isInProgress',
+              type: `boolean`,
+              defaultValue: '',
+              description: `Indicates whether an operation is currently in progress.`,
+              required: true,
+            },
+
+          ]}
+        />
+
+    <S.MermaidWrapper>
+          <Mermaid
+                chart={`
+                          classDiagram
+                          direction RL
+                          StoreItem "1" <-- "1" StoreItemWrapper
+                          StoreItemWrapper "1" <-- "1" Label
+                          StoreItemWrapper "1" <-- "1" ImageWrapper
+                          StoreItemWrapper "1" <-- "1" Cost
+                          StoreItemWrapper "1" <-- "1" StoreItemOverlap
+                          ImageWrapper "1" <-- "1" ImageContainer
+
+                          class StoreItem:::green
+                          class StoreItemWrapper
+                          class Label
+                          class ImageWrapper
+                          class ImageContainer
+                          class Cost
+                          class StoreItemOverlap:::blue
+
+                        `}
+                        />
+
+                        </S.MermaidWrapper>
+
+    <ReferenceList
+          tableRows={[
+            {
+              name: 'StoreItemOverlap',
+              description:
+                'A layer that can cover an item. Includes either a buy button or loading bar',
+            },
+          ]}
+        />

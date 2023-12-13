@@ -6,7 +6,7 @@ type PlayerType = {
   isCurrent: boolean
 }
 
-export const Player = styled.div<PlayerType>`
+export const PlayerContainer = styled.div<PlayerType>`
   display: flex;
   justify-content: space-between;
   padding: 10px 0;

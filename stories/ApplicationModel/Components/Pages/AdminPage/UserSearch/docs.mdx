@@ -1,0 +1,87 @@
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+import { Meta } from '@storybook/blocks'
+
+import * as S from '../../../../styles.ts'
+import ComponentInfoTable from '../../../../../Components/component-info-table'
+import ReferenceList from '../../../../../Components/reference-list'
+import ComponentRenderTable from '../../../../../Components/component-render'
+import PropertiesTable from '../../../../../Components/properties-table'
+
+<Meta title="ApplicationModel/Components/Pages/AdminPage/UserSearch/docs" />
+
+# UserSearch
+
+<ComponentInfoTable
+  name="UserSearch"
+  description="Component that allows you to search for users."
+  source="components/pages/admin-pages/user-search"
+/>
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'onUserSelect',
+      type: `(userId: string) => void`,
+      defaultValue: '',
+      description: `Callback, which is called after the user is discharged.`,
+      required: false,
+    },
+    {
+      name: 'selectedUser',
+      type: `string`,
+      defaultValue: '',
+      description: `This is information about which user has been selected.`,
+      required: false,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+      UserSearch "1" <-- "1" Spin : if state is loading
+      UserSearch "1" <-- "1" Row : if state is not loading
+      Row "1" <-- "1" Col1
+      Row "1" <-- "1" Col2
+      Col1 "1" <-- "1" SearchForm
+      Col2 "1" <-- "1" SearchList
+
+      class UserSearch:::green
+      class Spin
+      class Col1["Col"]
+      class Col2["Col"]
+      class Row
+
+      class SearchForm:::blue
+      class SearchList:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ComponentRenderTable
+  tableRows={[
+    {
+      name: 'Spin',
+      rules: `Rendered only if state is loading.`,
+    },
+    {
+      name: 'Row',
+      rules: `Rendered only if state is not loading.`,
+    },
+  ]}
+/>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'SearchForm',
+      description: `Fom, which contains input. the user can use it to search for users.`,
+    },
+    {
+      name: 'SearchList',
+      description: `Result of searched users.`,
+    },
+  ]}
+/>

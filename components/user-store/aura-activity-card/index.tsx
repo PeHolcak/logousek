@@ -4,10 +4,10 @@ import ActivityCard from '@components/activity-card'
 import Blob from '@components/svg/blob/blob'
 import { AuraType, ItemType, AurasEnum } from '@constants/shop'
 
-import CharacterItem from '../StoreItem'
+import CharacterItem from '../store-item'
 
 type AuraActivityCardProps = {
-  onAuraClickHandler: (auraName: string, isOwnedByLoggedUser: boolean) => void
+  onAuraClickHandler: (name: string, isOwnedByLoggedUser: boolean) => void
   selectedAuras: string
   itemInProgress: ItemType | undefined
   buyItem: (itemName: AurasEnum) => Promise<void>

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Space = styled.span`
+export const SpaceWrap = styled.span`
   display: flex;
   justify-content: center;
   gap: 4px;

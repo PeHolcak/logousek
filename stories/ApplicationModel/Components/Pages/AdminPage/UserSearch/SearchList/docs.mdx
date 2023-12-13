@@ -1,0 +1,109 @@
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+import { Meta } from '@storybook/blocks'
+
+import * as S from '../../../../../styles.ts'
+import ComponentInfoTable from '../../../../../../Components/component-info-table'
+import ReferenceList from '../../../../../../Components/reference-list'
+import ComponentRenderTable from '../../../../../../Components/component-render'
+import PropertiesTable from '../../../../../../Components/properties-table'
+
+<Meta title="ApplicationModel/Components/Pages/AdminPage/UserSearch/SearchList/docs" />
+
+# SearchList
+
+<ComponentInfoTable
+  name="SearchList"
+  description="Result of searched users."
+  source="components/pages/admin-pages/user-search/search-list"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'onPaginationChange',
+      type: `(index: number) => void`,
+      defaultValue: '',
+      description: `Callback, which is called after the user is trigger the pagination button.`,
+      required: true,
+    },
+    {
+      name: 'deleteUser',
+      type: `(userId: string) => void`,
+      defaultValue: '',
+      description: `Callback that delete the user.`,
+      required: true,
+    },
+    {
+      name: 'totalUsersCount',
+      type: `number`,
+      defaultValue: '',
+      description: `This is a total user count.`,
+      required: true,
+    },
+    {
+      name: 'limit',
+      type: `number`,
+      defaultValue: '',
+      description: `Limit of records on one page of pagination.`,
+      required: true,
+    },
+
+     {
+      name: 'cursor',
+      type: `number`,
+      defaultValue: '',
+      description: `The actual element from which the paging starts.`,
+      required: true,
+    },
+     {
+      name: 'users',
+      type: `User[]`,
+      defaultValue: '',
+      description: `This is a list of users.`,
+      required: true,
+    },
+
+      {
+      name: 'onUserSelect',
+      type: `(userId: string) => void`,
+      defaultValue: '',
+      description: `A callback that is triggered after a user is selected.`,
+      required: true,
+    },
+      {
+      name: 'selectedUser',
+      type: `string`,
+      defaultValue: '',
+      description: `This is a selected user.`,
+      required: true,
+    },
+
+]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+      SearchList "1" <-- "1" List
+      List "1" <-- "1" Paggination
+      List "1" <-- "1" SearchListItem
+
+      class SearchList:::green
+      class List
+      class Paggination
+      class SearchListItem:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'SearchListItem',
+      description: `This is an item.`,
+    },
+  ]}
+/>

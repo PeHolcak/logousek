@@ -1,0 +1,82 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../styles.ts'
+import PropertiesTable from '../../../Components/properties-table'
+import ReferenceList from '../../../Components/reference-list'
+import ComponentInfoTable from '../../../Components/component-info-table'
+import ComponentRenderTable from '../../../Components/component-render'
+
+<Meta title="ApplicationModel/Components/Tutorial/docs" />
+
+# Tutorial
+
+<ComponentInfoTable
+  name={'Tutorial'}
+  description={`This is a tutorial of the application.`}
+  source="components/tutorial"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'mobileOffset',
+      type: `string`,
+      defaultValue: 'none',
+      description: `Determines whether the indentation will be displayed on the mobile.`,
+      required: false,
+    },
+    {
+      name: 'desktopOffset',
+      type: `string`,
+      defaultValue: 'none',
+      description: `Determines whether the indentation will be displayed on the desktop.`,
+      required: false,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+     Tutorial "1" <-- "1" TrafficContainer
+     TrafficContainer "1" <-- "N" LightWrapper
+     LightWrapper "1" <-- "1" Light
+     Light "1" <-- "1" Lighting
+
+     class Tutorial:::green
+     class TutorialWrapper
+     class TutorialContainer
+     class CharacterPart:::blue
+     class BubblePart["R - BubblePart"]:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ComponentRenderTable
+  tableRows={[
+    {
+      name: 'BubblePart',
+      rules: `Rendered only if the current slide in tutorial has text.`,
+    },
+  ]}
+/>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'CharacterPart',
+      description: 'This is the part where a character with an aura appears.',
+    },
+    ,
+    {
+      name: 'BubblePart',
+      description:
+        'This is the part where the text is displayed with the button.',
+    },
+  ]}
+/>

@@ -1,0 +1,71 @@
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+import { Meta } from '@storybook/blocks'
+
+import * as S from '../../../../../styles.ts'
+import ComponentInfoTable from '../../../../../../Components/component-info-table'
+import ReferenceList from '../../../../../../Components/reference-list'
+import ComponentRenderTable from '../../../../../../Components/component-render'
+import PropertiesTable from '../../../../../../Components/properties-table'
+
+<Meta title="ApplicationModel/Components/Pages/AdminPage/UserSearch/SearchForm/docs" />
+
+# SearchForm
+
+<ComponentInfoTable
+  name="SearchForm"
+  description="Fom, which contains input. the user can use it to search for users."
+  source="components/pages/admin-pages/user-search/search-form"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'onSearchHandler',
+      type: `(values: FormValues) => void`,
+      defaultValue: '',
+      description: `Callback, which is called after the user is search in form.`,
+      required: true,
+    },
+    {
+      name: 'onResetHandler',
+      type: `() => void`,
+      defaultValue: '',
+      description: `Callback that resets the form.`,
+      required: true,
+    },
+    {
+      name: 'canBeReset',
+      type: `boolean`,
+      defaultValue: '',
+      description: `Information on how the form can be reset.`,
+      required: true,
+    },
+    {
+      name: 'form',
+      type: `FormInstance<FormValues>`,
+      defaultValue: '',
+      description: `This is a reference of form.`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+      SearchForm "1" <-- "1" Form
+      Form "1" <-- "1" FormItem
+      FormItem "1" <-- "1" Search
+
+      class SearchForm:::green
+      class Form
+      class FormItem["Form.Item"]
+      class Search
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList tableRows={[]} />

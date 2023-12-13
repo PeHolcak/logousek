@@ -28,15 +28,11 @@ import PropertiesTable from '../../../../../../Components/properties-table'
   chart={`
      classDiagram
       Cash "1" <-- "1" CashWrapper
-      CashWrapper "1" <-- "1" CashContainer
-      CashContainer "1" <-- "1" Icon
-      CashContainer "1" <-- "1" TextWrap
+      CashWrapper "1" <-- "1" CashValue
 
       class Cash:::green
       class CashWrapper
-      class CashContainer
-      class Icon
-      class TextWrap:::blue
+      class CashValue:::blue
 
 `}
 />
@@ -46,8 +42,8 @@ import PropertiesTable from '../../../../../../Components/properties-table'
 <ReferenceList
   tableRows={[
     {
-      name: 'TextWrap',
-      description: 'The component is responsible for displaying the text.',
+      name: 'CashValue',
+      description: 'This is the component that formats the value to cash.',
     },
   ]}
 />

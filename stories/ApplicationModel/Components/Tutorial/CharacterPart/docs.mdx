@@ -1,0 +1,84 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../styles.ts'
+import PropertiesTable from '../../../../Components/properties-table'
+import ReferenceList from '../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../Components/component-info-table'
+import ComponentRenderTable from '../../../../Components/component-render'
+
+<Meta title="ApplicationModel/Components/Tutorial/CharacterPart/docs" />
+
+# CharacterPart
+
+<ComponentInfoTable
+  name={'CharacterPart'}
+  description={`This is the part where a character with an aura appears.`}
+  source="components/tutorial/character-part"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'isTutorialOpened',
+      type: `boolean`,
+      defaultValue: '',
+      description: `Determines whether the indentation will be displayed on the mobile.`,
+      required: true,
+    },
+    {
+      name: 'startTutorial',
+      type: `() => void`,
+      defaultValue: '',
+      description: `Determines whether the indentation will be displayed on the desktop.`,
+      required: true,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+     CharacterPart "1" <-- "1" Blob
+     Blob "1" <-- "N" BlobContainer
+     BlobContainer "1" <-- "1" CharacterWrapper
+     CharacterWrapper "1" <-- "1" Reference
+     CharacterWrapper "1" <-- "1" CharacterImage
+
+     class CharacterPart:::green
+     class Blob:::blue
+     class BlobContainer
+     class CharacterWrapper
+     class CharacterImage
+     class Reference["R - Reference"]:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ComponentRenderTable
+  tableRows={[
+    {
+      name: 'Reference',
+      rules: `Rendered only if the tutorial is open.`,
+    },
+  ]}
+/>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'Blob',
+      description: 'This is an animated blob.',
+    },
+    ,
+    {
+      name: 'Reference',
+      description:
+        'This is the reference component that displays the reference via a popup window.',
+    },
+  ]}
+/>

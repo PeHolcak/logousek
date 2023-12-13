@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 
-import HeaderWrapper from '@components/header-wrapper'
-
 import * as S from './styled'
-import MobileMenuItems from './MobileMenuItems'
+import MobileMenuItems from './mobile-menu-items'
 
 const MobileMenu: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

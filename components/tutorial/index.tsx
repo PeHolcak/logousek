@@ -13,6 +13,8 @@ import { OffsetType } from '@components/route-wrapper'
 import * as S from './styled'
 import UserSettingsContext from '@contexts/user-settings-context'
 import { CHARACTERS_CONFIG } from '@constants/shop'
+import CharacterPart from './character-part'
+import BubblePart from './bubble-part'
 
 const config: TutorialConfigType = [
     {
@@ -61,22 +63,10 @@ const Tutorial: React.FC<TutorialProps> = ({
 }) => {
     const { text, runTutorial, isTutorialOpened, reset, next, canBeConfirmed } =
         useTutorial(config)
-    const themeContext = useContext(ThemeContext)
-    const userSettingsContext = useContext(UserSettingsContext)
 
     const startTutorial = () => {
         runTutorial()
     }
-
-    const DEFAULT_AURA = useMemo(() => themeContext.colors.lightGreen, [themeContext.colors.lightGreen])
-    const DEFAULT_CHARACTER = useMemo(() => publicImages.characters.beaver, [])
-
-    const characterImgSrc = useMemo(() => {
-        const foundCharacter = CHARACTERS_CONFIG.find(character => userSettingsContext?.character === character.name)
-        return foundCharacter?.imageSrc ?? DEFAULT_CHARACTER
-    }, [DEFAULT_CHARACTER, userSettingsContext?.character])
-
-    const aura = useMemo(() => userSettingsContext?.aura ?? DEFAULT_AURA, [DEFAULT_AURA, userSettingsContext?.aura])
 
     return (
         <S.TutorialWrapper
@@ -85,47 +75,17 @@ const Tutorial: React.FC<TutorialProps> = ({
             desktopOffset={desktopOffset}
         >
             <S.TutorialContainer>
-                <Blob
-                    color={aura}
-                    isBlobShowed={isTutorialOpened}
-                    name="TutorialBlob"
-                >
-                    <S.BlobContainer isTutorialOpened={isTutorialOpened}>
-                        <S.CharacterWrapper
-                            onMouseDown={startTutorial}
-                            isTutorialOpened={isTutorialOpened}
-                        >
-                            <S.CharacterImage src={characterImgSrc} />
-                            {isTutorialOpened ? (
-                                <Reference reference={IMAGES_REFERENCE} />
-                            ) : null}
-                        </S.CharacterWrapper>
-                    </S.BlobContainer>
-                </Blob>
+                <CharacterPart
+                    startTutorial={startTutorial}
+                    isTutorialOpened={isTutorialOpened}
+                />
                 {text ? (
-                    <S.BubbleWrapper>
-                        <Bubble hideBeak leftSide desc={text} fillWidth={true} />
-                        <S.ButtonRow>
-                            {canBeConfirmed ? (
-                                <Button
-                                    backgroundColor={themeContext.colors.darkGreen}
-                                    color={themeContext.colors.white}
-                                    size={ButtonSizesEnum.xs}
-                                    onClick={next}
-                                >
-                                    Další
-                                </Button>
-                            ) : null}
-                            <Button
-                                backgroundColor={themeContext.colors.red}
-                                color={themeContext.colors.white}
-                                size={ButtonSizesEnum.xs}
-                                onClick={reset}
-                            >
-                                Zavřít
-                            </Button>
-                        </S.ButtonRow>
-                    </S.BubbleWrapper>
+                    <BubblePart
+                        text={text}
+                        canBeConfirmed={canBeConfirmed}
+                        next={next}
+                        reset={reset}
+                    />
                 ) : null}
             </S.TutorialContainer>
         </S.TutorialWrapper>

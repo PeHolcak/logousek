@@ -5,7 +5,7 @@ import * as S from './styled'
 import Button, { ButtonSizesEnum } from '@components/button'
 import Loading from '@components/loading'
 
-type OverlapProps = {
+type StoreItemOverlapProps = {
   isOwned: boolean
   onItemBuyHandler: () => void
   disabled: boolean
@@ -13,7 +13,7 @@ type OverlapProps = {
   cost: number
 }
 
-const Overlap: React.FC<OverlapProps> = ({
+const StoreItemOverlap: React.FC<StoreItemOverlapProps> = ({
   isOwned,
   onItemBuyHandler,
   disabled,
@@ -26,13 +26,13 @@ const Overlap: React.FC<OverlapProps> = ({
   if (!isOwned && cost) {
     if (isInProgress) {
       return (
-        <S.ImageOverlapElementWrapper>
+        <S.StoreItemOverlapWrapper>
           <Loading />
-        </S.ImageOverlapElementWrapper>
+        </S.StoreItemOverlapWrapper>
       )
     }
     return (
-      <S.ImageOverlapElementWrapper>
+      <S.StoreItemOverlapWrapper>
         <Button
           onClick={onItemBuyHandler}
           color={themeContextData.colors.black}
@@ -42,10 +42,10 @@ const Overlap: React.FC<OverlapProps> = ({
         >
           Koupit
         </Button>
-      </S.ImageOverlapElementWrapper>
+      </S.StoreItemOverlapWrapper>
     )
   }
   return null
 }
 
-export default Overlap
+export default StoreItemOverlap

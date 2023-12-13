@@ -1,0 +1,92 @@
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+import { Meta } from '@storybook/blocks'
+
+import * as S from '../../../../../../styles.ts'
+import ComponentInfoTable from '../../../../../../../Components/component-info-table'
+import ReferenceList from '../../../../../../../Components/reference-list'
+import ComponentRenderTable from '../../../../../../../Components/component-render'
+import PropertiesTable from '../../../../../../../Components/properties-table'
+
+<Meta title="ApplicationModel/Components/Pages/AdminPage/UserSearch/SearchList/SearchListItem/docs" />
+
+# SearchListItem
+
+<ComponentInfoTable
+  name="SearchListItem"
+  description="List of result for searched users."
+  source="components/pages/admin-pages/user-search/search-list/search-list-item"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'deleteUser',
+      type: `(userId: string) => void`,
+      defaultValue: '',
+      description: `Callback that delete the user.`,
+      required: true,
+    },
+    {
+      name: 'item',
+      type: `User`,
+      defaultValue: '',
+      description: `Configuration of user.`,
+      required: true,
+    },
+    {
+      name: 'onUserSelect',
+      type: `(userId: string) => void`,
+      defaultValue: '',
+      description: `A callback that is triggered after a user is selected.`,
+      required: true,
+    },
+    {
+      name: 'selectedUser',
+      type: `string`,
+      defaultValue: '',
+      description: `This is a selected user.`,
+      required: true,
+    },
+
+]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+      SearchListItem "1" <-- "1" ListItem
+      ListItem "1" <-- "1" Skeleton
+      Skeleton "1" <-- "1" ListItemMeta
+      
+      ListItemMeta "1" <-- "1" ItemDescriptionWrapper
+      ListItemMeta "1" <-- "1" ItemDescriptionWrapper
+      ItemDescriptionWrapper "1" <-- "1" P5
+      ItemDescriptionWrapper "1" <-- "1" P52
+      ItemDescriptionWrapper "1" <-- "1" P53
+      ItemDescriptionWrapper "1" <-- "1" P54
+
+      class SearchListItem:::green
+      class ListItem["List.Item"]
+      class Skeleton
+      class ListItemMeta["List.Item.Meta"]
+      class ItemTitleWrapper
+      class ItemDescriptionWrapper
+      class P5:::blue
+      class P52["P5"]:::blue
+      class P53["P5"]:::blue
+      class P54["P5"]:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'P5',
+      description: 'Paragraph of level 5.',
+    },
+  ]}
+/>

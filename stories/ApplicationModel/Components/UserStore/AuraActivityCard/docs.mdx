@@ -1,0 +1,126 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../styles.ts'
+import PropertiesTable from '../../../../Components/properties-table'
+import ReferenceList from '../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../Components/component-info-table'
+import ComponentRenderTable from '../../../../Components/component-render'
+
+<Meta title="ApplicationModel/Components/UserStore/AuraActivityCard/docs" />
+
+# AuraActivityCard
+
+<ComponentInfoTable
+  name={'AuraActivityCard'}
+  description={`This is a card for Aura.`}
+  source="components/user-store/Aura-activity-card"
+/>
+
+<PropertiesTable
+  tableRows={[
+              {
+              name: 'name',
+              type: `string`,
+              defaultValue: '',
+              description: `A technical name.`,
+              required: true,
+            },
+            {
+              name: 'label',
+              type: `string`,
+              defaultValue: '',
+              description: `Text that is displayed to the user.`,
+              required: true,
+            },
+
+            {
+              name: 'cost',
+              type: `number`,
+              defaultValue: '',
+              description: `Indicates how much the item costs.`,
+              required: true,
+            },
+            {
+              name: 'color',
+              type: `string`,
+              defaultValue: '',
+              description: `Color of aura.`,
+              required: false,
+            },
+            {
+              name: 'isOwnedByLoggedUser',
+              type: `boolean`,
+              defaultValue: '',
+              description: `Indicates if the item is owned by the currently logged in user.`,
+              required: true,
+            },
+            {
+              name: 'onAuraClickHandler',
+              type: `( name: string,
+    isOwnedByLoggedUser: boolean) => void`,
+              defaultValue: '',
+              description: `A callback that is called after the user clicks to the Aura.`,
+              required: true,
+            },
+            {
+              name: '  isDisabled',
+              type: `boolean`,
+              defaultValue: '',
+              description: `indicates whether the item can be selected or bought.`,
+              required: true,
+            },
+            {
+              name: 'itemInProgress',
+              type: `boolean`,
+              defaultValue: '',
+              description: `Indicates whether an operation is currently in progress.`,
+              required: true,
+            },
+            {
+              name: 'buyItem',
+              type: `(itemName: AuraEnum) => Promise<void>`,
+              defaultValue: '',
+              description: `It will be called when the buy button is clicked.`,
+              required: true,
+            },
+                {
+              name: 'selectedAura',
+              type: `string`,
+              defaultValue: '',
+              description: `Indicates the Aura that has been chosen.`,
+              required: true,
+            },
+
+]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+     AuraActivityCard "1" <-- "1" ActivityCard
+     ActivityCard "1" <-- "1" StoreItem
+
+     class AuraActivityCard:::green
+     class ActivityCard:::blue
+     class StoreItem:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'ActivityCard',
+      description: 'The component that represents the game card.',
+    },
+    {
+      name: 'StoreItem',
+      description: `This is a trade item.`,
+    },
+  ]}
+/>

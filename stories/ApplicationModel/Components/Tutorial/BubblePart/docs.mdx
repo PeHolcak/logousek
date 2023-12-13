@@ -1,0 +1,100 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../styles.ts'
+import PropertiesTable from '../../../../Components/properties-table'
+import ReferenceList from '../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../Components/component-info-table'
+import ComponentRenderTable from '../../../../Components/component-render'
+
+<Meta title="ApplicationModel/Components/Tutorial/BubblePart/docs" />
+
+# BubblePart
+
+<ComponentInfoTable
+  name={'BubblePart'}
+  description={`This is the part where the text is displayed with the button.`}
+  source="components/tutorial/bubble-part"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'text',
+      type: `string`,
+      defaultValue: '',
+      description: `The text that is displayed.`,
+      required: true,
+    },
+    {
+      name: 'canBeConfirmed',
+      type: `boolean`,
+      defaultValue: '',
+      description: `Information about whether to display the confirmation button.`,
+      required: false,
+    },
+
+       {
+      name: 'next',
+      type: `() => void`,
+      defaultValue: '',
+      description: `callback, which calls the next slide.`,
+      required: true,
+    },
+    {
+      name: 'reset',
+      type: `() => void`,
+      defaultValue: '',
+      description: `callback that closes the tutorial and resets it to its original state.`,
+      required: true,
+    },
+
+]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+     BubblePart "1" <-- "1" BubbleWrapper
+     BubbleWrapper "1" <-- "N" Bubble
+     BubbleWrapper "1" <-- "1" ButtonRow
+     ButtonRow "1" <-- "1" Button
+     ButtonRow "1" <-- "1" Button2
+
+     class BubblePart:::green
+     class BubbleWrapper
+     class Bubble:::blue
+     class ButtonRow
+     class Button["R - Button"]:::blue
+     class Button2["Button"]:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ComponentRenderTable
+  tableRows={[
+    {
+      name: 'Button',
+      rules: `Rendered only if the props.canBeConfirmed is true.`,
+    },
+  ]}
+/>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'Bubble',
+      description: 'This is a bubble that wrap the text.',
+    },
+    ,
+    {
+      name: 'Button',
+      description:
+        'A Button component. When pressed, it invokes the onClick callback.',
+    },
+  ]}
+/>

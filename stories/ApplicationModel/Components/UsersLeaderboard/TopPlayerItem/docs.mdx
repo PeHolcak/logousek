@@ -1,0 +1,96 @@
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from 'mdx-mermaid/Mermaid'
+
+import * as S from '../../../styles.ts'
+import PropertiesTable from '../../../../Components/properties-table'
+import ReferenceList from '../../../../Components/reference-list'
+import ComponentInfoTable from '../../../../Components/component-info-table'
+import ComponentRenderTable from '../../../../Components/component-render'
+
+<Meta title="ApplicationModel/Components/UsersLeaderboard/TopPlayerItem/docs" />
+
+# TopPlayerItem
+
+<ComponentInfoTable
+  name={'TopPlayerItem'}
+  description={`Shows the top 3 users in the leaderboard.`}
+  source="components/users-leaderboard/top-player-item"
+/>
+
+<PropertiesTable
+  tableRows={[
+    {
+      name: 'title',
+      type: `string`,
+      defaultValue: '',
+      description: `This is a user Nickname.`,
+      required: true,
+    },
+    {
+      name: 'score',
+      type: `number`,
+      defaultValue: '',
+      description: `This is the user's achieved credit.`,
+      required: true,
+    },
+    {
+      name: 'isCurrentPlayer',
+      type: `boolean`,
+      defaultValue: '',
+      description: `Information about whether it is a specific user who is logged in.`,
+      required: true,
+    },
+    {
+      name: 'rank',
+      type: `number`,
+      defaultValue: '',
+      description: `This is a user ranking.`,
+      required: false,
+    },
+  ]}
+/>
+
+<S.MermaidWrapper>
+<Mermaid
+  chart={`
+     classDiagram
+     direction RL
+     TopPlayerItem "1" <-- "1" TopPlayerItemWrap 
+     TopPlayerItemWrap "1" <-- "1" ImageWrap
+     TopPlayerItemWrap "1" <-- "1" Title
+     TopPlayerItemWrap "1" <-- "1" P5 
+     P5 "1" <-- "1" CashValue
+     ImageWrap "1" <-- "1" Image
+     ImageWrap "1" <-- "1" Reference
+
+     class TopPlayerItem:::green
+     class TopPlayerItemWrap
+     class ImageWrap
+     class Image
+     class Reference:::blue
+     class Title
+     class P5:::blue
+     class CashValue:::blue
+
+`}
+/>
+
+</S.MermaidWrapper>
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'CashValue',
+      description: 'A value that is formatted as money.',
+    },
+    {
+      name: 'P5',
+      description: 'Paragraph of level 5.',
+    },
+    {
+      name: 'Reference',
+      description:
+        'This is the reference component that displays the reference via a popup window.',
+    },
+  ]}
+/>

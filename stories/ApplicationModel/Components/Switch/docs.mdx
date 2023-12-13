@@ -55,10 +55,12 @@ import ComponentRenderTable from '../../../Components/component-render'
   chart={`
      classDiagram
      direction RL
+     Switch "1" <-- "1" SwitchWrapper
      SwitchWrapper "1" <-- "1" SwitchPointer
      SwitchWrapper "1" <-- "1" SwitchBackground
 
-     class SwitchWrapper:::green
+     class Switch:::green
+     class SwitchWrapper
      class SwitchPointer
      class SwitchBackground
 

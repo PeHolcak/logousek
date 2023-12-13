@@ -23,15 +23,30 @@ import PropertiesTable from '../../../../../Components/properties-table'
 <Mermaid
   chart={`
      classDiagram
-      Header "1" <-- "1" HeaderWrapper
-      HeaderWrapper "1" <-- "1" User
-      HeaderWrapper "1" <-- "1" Cash
-      HeaderWrapper "1" <-- "1" Icons
+      Header "1" <-- "1" MobileOnly
+      Header "1" <-- "1" DesktopOnly
+
+      MobileOnly "1" <-- "1" HeaderWrapper
+      DesktopOnly "1" <-- "1" HeaderWrapper2
+      HeaderWrapper2 "1" <-- "1" User
+      HeaderWrapper2 "1" <-- "1" Cash
+      HeaderWrapper2 "1" <-- "1" Icons
+
+      HeaderWrapper "1" <-- "1" User2
+      HeaderWrapper "1" <-- "1" Cash2
+      HeaderWrapper "1" <-- "1" MobileMenu
 
       class Header:::green
+      class MobileOnly
+      class DesktopOnly
+      class HeaderWrapper
+      class HeaderWrapper2["HeaderWrapper"]:::blue
       class HeaderWrapper:::blue
       class User:::blue
       class Cash:::blue
+      class User2["User"]:::blue
+      class Cash2["Cash"]:::blue
+      class MobileMenu:::blue
       class Icons:::blue
 
 `}
@@ -58,6 +73,10 @@ import PropertiesTable from '../../../../../Components/properties-table'
     {
       name: 'Icons',
       description: 'The component displays a list of icons.',
+    },
+    {
+      name: 'MobileMenu',
+      description: 'This is a component of the mobile menu.',
     },
   ]}
 />

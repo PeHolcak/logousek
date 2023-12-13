@@ -3,7 +3,7 @@ import React, { useMemo } from 'react'
 import CashValue from '@components/pages/game-menu/header/cash-value'
 
 import * as S from './styled'
-import Space from '../Space'
+import Space from './space'
 
 type PlayerProps = {
   isFirst: boolean
@@ -43,9 +43,9 @@ const Player: React.FC<PlayerProps> = ({
   return (
     <div>
       {player.showTopSpace ? <Space /> : null}
-      <S.Player isFirst={isFirst} isLast={isLast} isCurrent={isCurrent}>
+      <S.PlayerContainer isFirst={isFirst} isLast={isLast} isCurrent={isCurrent}>
         {content}
-      </S.Player>
+      </S.PlayerContainer>
     </div>
   )
 }

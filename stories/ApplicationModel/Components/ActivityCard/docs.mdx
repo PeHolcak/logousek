@@ -5,6 +5,7 @@ import * as S from '../../styles.ts'
 import PropertiesTable from '../../../Components/properties-table'
 import ReferenceList from '../../../Components/reference-list'
 import ComponentInfoTable from '../../../Components/component-info-table'
+import ComponentRenderTable from '../../../Components/component-render'
 
     <Meta title="ApplicationModel/Components/ActivityCard/docs" />
 
@@ -128,7 +129,7 @@ import ComponentInfoTable from '../../../Components/component-info-table'
 
           </S.MermaidWrapper>
 
-    <ReferenceList
+    <ComponentRenderTable
           tableRows={[
             {
               name: 'CheckIcon',
@@ -140,3 +141,18 @@ import ComponentInfoTable from '../../../Components/component-info-table'
             },
           ]}
         />
+
+<ReferenceList
+  tableRows={[
+    {
+      name: 'CheckIcon',
+      description: 'This is a clickable icon.',
+    },
+    ,
+    {
+      name: 'Reference',
+      description:
+        'This is the reference component that displays the reference via a popup window.',
+    },
+  ]}
+/>
