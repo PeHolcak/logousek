@@ -27,17 +27,22 @@ export const Image = styled.img`
 `
 
 type TitleType = {
-    isCurrentPlayer: boolean
+  isCurrentPlayer: boolean
 }
 
 export const Title = styled(P3) <TitleType>`
+  max-width: 144px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   ${({ isCurrentPlayer }) =>
-        isCurrentPlayer
-            ? css`
+    isCurrentPlayer
+      ? css`
           color: white;
           background: green;
           border-radius: 8px;
           padding: 4px;
         `
-            : null}
+      : null}
 `
