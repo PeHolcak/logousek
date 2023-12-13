@@ -10,7 +10,7 @@ type AuraActivityCardProps = {
   onAuraClickHandler: (name: string, isOwnedByLoggedUser: boolean) => void
   selectedAuras: string
   itemInProgress: ItemType | undefined
-  buyItem: (itemName: AurasEnum) => Promise<void>
+  buyItem: (itemName: AurasEnum, cost: number) => Promise<void>
   isDisabled: boolean
   isOwnedByLoggedUser: boolean
 } & AuraType
@@ -47,7 +47,7 @@ const AuraActivityCard: React.FC<AuraActivityCardProps> = ({
         label={auraConfig.label}
         cost={auraConfig.cost}
         onItemBuyHandler={() => {
-          buyItem(auraConfig.name)
+          buyItem(auraConfig.name, auraConfig.cost)
         }}
         isInProgress={
           (auraConfig.name as ItemType['name'] | undefined) === itemInProgress

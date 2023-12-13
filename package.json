@@ -6,13 +6,13 @@
   "license": "UNLICENSED",
   "scripts": {
     "lintFix": "eslint --fix --ext .ts,.tsx .",
-    "dev": "next dev",
+    "app": "next dev",
     "build": "next build",
     "postinstall": "prisma generate",
     "export": "next build && next export",
     "start": "next start",
     "lint": "next lint",
-    "storybook": "storybook dev -p 6006",
+    "doc": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "dependencies": {

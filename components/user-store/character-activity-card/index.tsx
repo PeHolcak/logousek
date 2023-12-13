@@ -12,7 +12,7 @@ type CharacterActivityCardProps = {
   ) => void
   selectedCharacter: string
   itemInProgress: ItemType | undefined
-  buyItem: (itemName: CharacterEnum) => Promise<void>
+  buyItem: (itemName: CharacterEnum, cost: number) => Promise<void>
   isOwnedByLoggedUser: boolean
   isDisabled: boolean
 } & CharacterType
@@ -45,7 +45,7 @@ const CharacterActivityCard: React.FC<CharacterActivityCardProps> = ({
         cost={characterConfig.cost}
         disabled={isDisabled}
         onItemBuyHandler={() => {
-          buyItem(characterConfig.name)
+          buyItem(characterConfig.name, characterConfig.cost)
         }}
         isInProgress={
           (characterConfig.name as ItemType['name'] | undefined) ===

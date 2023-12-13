@@ -79,7 +79,7 @@ import ComponentRenderTable from '../../../../Components/component-render'
             },
             {
               name: 'buyItem',
-              type: `(itemName: AuraEnum) => Promise<void>`,
+              type: `(itemName: AuraEnum, cost: number) => Promise<void>`,
               defaultValue: '',
               description: `It will be called when the buy button is clicked.`,
               required: true,

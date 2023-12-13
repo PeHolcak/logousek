@@ -41,7 +41,8 @@ const UserStore: React.FC<UserStoreProps> = ({
     avaibleItems,
     avaibleItemsLoadingState,
     fetchShopData,
-  } = useShop(messageApi, refreshUserScore)
+    currentUserScore
+  } = useShop(messageApi, refreshUserScore, userScore)
   const themeContextData = useContext(ThemeContext)
 
   useEffect(() => {
@@ -82,12 +83,12 @@ const UserStore: React.FC<UserStoreProps> = ({
     (cost: number, isOwned: boolean) => {
       return (
         (Boolean(itemInProgress) ||
-          userScore < cost ||
+          currentUserScore < cost ||
           userSettings?.updateSettingsState === 'loading') &&
         !isOwned
       )
     },
-    [itemInProgress, userScore, userSettings?.updateSettingsState]
+    [itemInProgress, currentUserScore, userSettings?.updateSettingsState]
   )
 
   const onSubmitHandler = useCallback(() => {

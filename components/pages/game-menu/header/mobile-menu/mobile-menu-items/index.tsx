@@ -54,10 +54,11 @@ const MobileMenuItems: React.FC<MobileMenuItemsProps> = ({
     [gameMenuData?.score]
   )
 
-  const refreshUserScore = useMemo(
-    () => gameMenuData?.refreshUserScore ?? (() => { }),
-    [gameMenuData?.refreshUserScore]
-  )
+  const refreshUserScore = useCallback(() => {
+    if (gameMenuData?.refreshUserScore) {
+      gameMenuData?.refreshUserScore()
+    }
+  }, [gameMenuData])
 
   const onLogoutHandler = useCallback(() => {
     signOut()

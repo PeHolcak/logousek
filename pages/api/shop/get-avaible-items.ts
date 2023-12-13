@@ -35,8 +35,7 @@ export default async function handler(
     if (req.method === 'GET') {
         //2. Check dtoIn
         if (
-            typeof req?.query !== 'object' ||
-            !(await getAvaibleItemsDtoIn.isValid(req?.body))
+            !(await getAvaibleItemsDtoIn.isValid(req?.query ?? {}))
         ) {
             //2.1. dtoIn is not valid
             return res.status(400).json({

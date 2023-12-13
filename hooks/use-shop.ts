@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect, useMemo } from 'react'
+import { useCallback, useState, useEffect } from 'react'
 import { MessageInstance } from 'antd/es/message/interface'
 import { AurasEnum, CharacterEnum } from '@constants/shop'
 import { buyItemCall, getAvaibleItemsCall } from 'calls/shop-calls'
@@ -6,12 +6,17 @@ import { useTranslateFunctions } from './useTranslateFunctions'
 
 type ItemType = AurasEnum | CharacterEnum
 
-const useShop = (messageApi: MessageInstance, refreshUserScore: () => void) => {
+const useShop = (messageApi: MessageInstance, refreshUserScore: () => void, userScore: number) => {
     const { tError, tGameMenu } = useTranslateFunctions()
     const [itemInProgress, setItemInProgress] = useState<ItemType>()
     const [avaibleItems, setAvaibleItems] = useState<string[]>([])
+    const [currentUserScore, setCurrentUserScore] = useState<number>(0)
     const [avaibleItemsLoadingState, setAvaibleItemsLoadingState] =
         useState<string>('loading')
+
+    useEffect(() => {
+        setCurrentUserScore(userScore)
+    }, [userScore])
 
     const loadAvaibleItems = useCallback(async () => {
         setAvaibleItemsLoadingState("loading")
@@ -30,7 +35,7 @@ const useShop = (messageApi: MessageInstance, refreshUserScore: () => void) => {
     )
 
     const buyItem = useCallback(
-        async (itemName: ItemType) => {
+        async (itemName: ItemType, cost: number) => {
             try {
                 setItemInProgress(itemName)
                 const res = await buyItemCall(itemName)
@@ -56,6 +61,7 @@ const useShop = (messageApi: MessageInstance, refreshUserScore: () => void) => {
             } finally {
                 refreshUserScore()
                 loadAvaibleItems()
+                setCurrentUserScore(v => v - cost)
             }
         },
         [loadAvaibleItems, messageApi, refreshUserScore, tError, tGameMenu]
@@ -66,7 +72,8 @@ const useShop = (messageApi: MessageInstance, refreshUserScore: () => void) => {
         itemInProgress,
         avaibleItems,
         avaibleItemsLoadingState,
-        fetchShopData: loadAvaibleItems
+        fetchShopData: loadAvaibleItems,
+        currentUserScore
     }
 }
 
