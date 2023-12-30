@@ -18,14 +18,15 @@ import ReferenceList from '../../../../Components/reference-list'
   chart={`
      classDiagram
      direction RL
-      Home "1" <-- "1" HomeWrapper
+      Home "1" <-- "1" RouteWrapper 
+      RouteWrapper "1" <-- "1" HomeWrapper
       HomeWrapper "1" <-- "1" WelcomeRowWrapper
       WelcomeRowWrapper "1" <-- "1" Sidebar
       WelcomeRowWrapper "1" <-- "1" Container
       Container "1" <-- "1" Intro
       Container "1" <-- "1" GameInfo
       Container "1" <-- "1" GameSamples
-      Container "1" <-- "1" ActivityList
+      Container "1" <-- "1" News
       Container "1" <-- "1" AboutAs
       Container "1" <-- "1" Footer
 
@@ -38,7 +39,7 @@ import ReferenceList from '../../../../Components/reference-list'
       class Intro:::blue
       class GameInfo:::blue
       class GameSamples:::blue
-      class ActivityList:::blue
+      class News:::blue
       class AboutAs:::blue
       class Footer:::blue
 
@@ -59,8 +60,8 @@ import ReferenceList from '../../../../Components/reference-list'
     { name: 'GameInfo', description: 'Game info section of home page.' },
     { name: 'GameSamples', description: 'Game samples section of home page.' },
     {
-      name: 'ActivityList',
-      description: 'Activity list section of home page.',
+      name: 'News',
+      description: 'Section about new.',
     },
     { name: 'AboutAs', description: 'About us section of home page.' },
     { name: 'WelcomeRowWrapper', description: 'Intro section of home page.' },

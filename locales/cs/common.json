@@ -6,7 +6,8 @@
     "send": "Odeslat",
     "delete": "Smazat",
     "filter": "Filtrovat",
-    "reset": "Resetovat"
+    "reset": "Resetovat",
+    "confirm": "Potvrdit"
   },
   "sideBar": {
     "currentSiteNavigation": {

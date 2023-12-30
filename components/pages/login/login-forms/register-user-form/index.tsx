@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 
 import { useTranslateFunctions } from '@hooks/useTranslateFunctions'
-import { FIELDS } from '../login-form'
+import { FIELDS } from '../form'
 
-import LoginForm from '../login-form';
+import Form from '../form';
 
 type RegisterUserFormProps = {
     onFormFilledHandler: (data: FormValues) => void
@@ -29,7 +29,7 @@ const RegisterUserForm: React.FC<RegisterUserFormProps> = ({ onFormFilledHandler
     }
 
     return (
-        <LoginForm
+        <Form
             onFormFilledHandler={handleSubmit}
             fields={FIELDS}
             name="RegisterForm"

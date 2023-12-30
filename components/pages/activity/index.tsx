@@ -12,6 +12,7 @@ import GainedPoints from './gained-points'
 import * as S from './styled'
 import { useActivity } from './useActivity'
 import ActivityContent from './activity-content'
+import { useTranslateFunctions } from '@hooks/useTranslateFunctions'
 
 export type ActivityInterface = {
   getResult: () => boolean
@@ -29,6 +30,7 @@ export type ActivityProps = {
 
 const Activity = () => {
   const themeContext = useContext(ThemeContext)
+  const { tCommon } = useTranslateFunctions()
   const {
     checkResult,
     onHandleChanged,
@@ -69,7 +71,7 @@ const Activity = () => {
       title: (
         <S.SendButton>
           <i className="material-icons">done</i>
-          <span>Potvrdit</span>
+          <span>{tCommon("buttons.confirm")}</span>
         </S.SendButton>
       ),
       clickable: canBeEvaluated,

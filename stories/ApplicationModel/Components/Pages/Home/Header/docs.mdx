@@ -37,13 +37,12 @@ import ComponentInfoTable from '../../../../../Components/component-info-table'
      direction RL
       Header "1" <-- "1" HeaderWrapper
       HeaderWrapper "1" <-- "1" HeaderContainer
-      HeaderContainer "1" <-- "1" H2
+      HeaderContainer "1" <-- "1" HeaderText
       HeaderContainer "1" <-- "1" UnderlineBlock
      
       class Header:::green
       class HeaderWrapper
       class HeaderContainer
-      class H2:::blue
       class UnderlineBlock
      
 `}
@@ -51,6 +50,4 @@ import ComponentInfoTable from '../../../../../Components/component-info-table'
 
 </S.MermaidWrapper>
 
-<ReferenceList
-  tableRows={[{ name: 'H2', description: 'This is a level 2 heading.' }]}
-/>
+<ReferenceList tableRows={[]} />

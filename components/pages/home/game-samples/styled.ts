@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const GameSamples = styled.section``
+export const GameSamplesWrapper = styled.section``
 
 type GameSamplesImageProps = {
   src: string

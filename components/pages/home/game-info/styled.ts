@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Section } from "../styled"
 import { devices } from '@constants/screens-conf'
 
-export const GameInfo = styled(Section)`
+export const GameInfoWrapper = styled(Section)`
   display: flex;
   flex-direction: column;
   height: auto;
@@ -11,7 +11,7 @@ export const GameInfo = styled(Section)`
   border-radius: 0;
   padding: 0px;
 `
-export const GameInfoWrapper = styled.div`
+export const GameInfoContainer = styled.div`
   border-top-left-radius: ${({ theme }) => theme.radius.tertialy};
   background-color: ${({ theme }) => theme.colors.eighty};
   width: 100%;

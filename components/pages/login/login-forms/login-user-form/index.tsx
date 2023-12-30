@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { useTranslateFunctions } from '@hooks/useTranslateFunctions'
-import { FIELDS } from '../login-form'
+import { FIELDS } from '../form'
 
-import LoginForm from '../login-form'
+import Form from '../form'
 
 type OnFormFilledHandlerType = {
   nickName: string
@@ -33,7 +33,7 @@ const LoginUserForm: React.FC<LoginUserFormProps> = ({ onFormFilledHandler }) =>
   }
 
   return (
-    <LoginForm
+    <Form
       onFormFilledHandler={handleSubmit}
       fields={{
         nickName: FIELDS.nickName,

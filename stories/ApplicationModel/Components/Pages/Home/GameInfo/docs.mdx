@@ -8,14 +8,14 @@ import PropertiesTable from '../../../../../Components/properties-table'
 import ReferenceList from '../../../../../Components/reference-list'
 import ComponentInfoTable from '../../../../../Components/component-info-table'
 
-<Meta title="ApplicationModel/Components/Pages/Home/GameSamples/docs" />
+<Meta title="ApplicationModel/Components/Pages/Home/GameInfo/docs" />
 
-# GameSamples
+# GameInfo
 
 <ComponentInfoTable
-  name={'GameSamples'}
-  description={`This section will show the user samples of the games in the application.`}
-  source="components/pages/home/game-samples"
+  name={'GameInfo'}
+  description={`This is the game info component of the main page.`}
+  source="components/pages/home/game-info"
 />
 
 <PropertiesTable
@@ -29,22 +29,23 @@ import ComponentInfoTable from '../../../../../Components/component-info-table'
   chart={`
      classDiagram
      direction RL
-      GameSamples "1" <-- "1" GameSamplesWrapper
-      GameSamplesWrapper  "1" <-- "1" SectionLayout
+      GameInfo "1" <-- "1" GameInfoWrapper
+      GameInfoWrapper "1" <-- "1" GameInfoContainer
+      GameInfoContainer "1" <-- "1" SectionLayout
       SectionLayout "1" <-- "1" Header
-      SectionLayout "1" <-- "1" Pump
-      Pump "1" <-- "1" GameSamplesImageWrapper
-      GameSamplesImageWrapper "1" <-- "1" GameSamplesImage
-      GameSamplesImage "1" <-- "1" StyledImage
-     
-      class GameSamples:::green
-      class GameSamplesWrapper
+      SectionLayout "1" <-- "1" GameInfoArticles
+      GameInfoArticles "1" <-- "N" FadeIn
+      FadeIn "1" <-- "N" TwoSideCard
+
+      class GameInfo:::green
+      class GameInfoWrapper
+      class GameInfoContainer
       class SectionLayout:::blue
       class Header:::blue
-      class Pump:::blue
-      class GameSamplesImageWrapper
-      class GameSamplesImage
-      class StyledImage
+      class GameInfoArticles
+      class FadeIn:::blue
+      class TwoSideCard:::blue
+
 `}
 />
 
@@ -60,9 +61,16 @@ import ComponentInfoTable from '../../../../../Components/component-info-table'
       name: 'Header',
       description: 'Header component of the main page.',
     },
+
     {
-      name: 'Pump',
-      description: 'A pump animation.',
+      name: 'FadeIn',
+      description: 'Component with animation effect',
     },
-  ]}
+
+    {
+      name: 'TwoSideCard',
+      rules: `A card that can rotate and show the user the other side.`,
+     },
+
+]}
 />

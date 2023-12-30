@@ -7,14 +7,14 @@ import ComponentInfoTable from '../../../../../Components/component-info-table'
 import ReferenceList from '../../../../../Components/reference-list'
 import PropertiesTable from '../../../../../Components/properties-table'
 
-<Meta title="ApplicationModel/Components/Pages/Login/LoginForm/docs" />
+<Meta title="ApplicationModel/Components/Pages/Login/Form/docs" />
 
-# LoginForm
+# Form
 
 <ComponentInfoTable
-  name="LoginForm"
+  name="Form"
   description="This is a form component intended for the login page."
-  source="components/pages/login/login-form"
+  source="components/pages/login/form"
 />
 
 <PropertiesTable
@@ -55,16 +55,16 @@ import PropertiesTable from '../../../../../Components/properties-table'
   chart={`
      classDiagram
      direction RL
-      LoginForm "1" <-- "1" LoginFormWrapper
-      LoginFormWrapper "1" <-- "1" StyledForm
+      Form "1" <-- "1" FormWrapper
+      FormWrapper "1" <-- "1" StyledForm
       StyledForm "1" <-- "1" ButtonRow
-      StyledForm "1" <-- "n" FormItem1
+      StyledForm "1" <-- "N" FormItem1
       
       ButtonRow "1" <-- "1" FormItem2
       FormItem2 "1" <-- "1" Button
 
-      class LoginForm:::green
-      class LoginFormWrapper
+      class Form:::green
+      class FormWrapper
       class StyledForm
       class ButtonRow:::blue
       class Button:::blue

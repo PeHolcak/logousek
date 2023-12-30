@@ -1,18 +1,9 @@
-import React, { useContext, useMemo } from 'react'
-import { ThemeContext } from 'styled-components'
+import React from 'react'
 
-import Bubble from '@components/bubble'
 import { useTutorial, TutorialConfigType } from '@hooks/useTutorial'
-import Button, { ButtonSizesEnum } from '@components/button'
-import Blob from '@components/svg/blob/blob'
-import Reference from '@components/reference'
-import { IMAGES_REFERENCE } from '@constants/character-conf'
-import publicImages from '@constants/public-images'
 
 import { OffsetType } from '@components/route-wrapper'
 import * as S from './styled'
-import UserSettingsContext from '@contexts/user-settings-context'
-import { CHARACTERS_CONFIG } from '@constants/shop'
 import CharacterPart from './character-part'
 import BubblePart from './bubble-part'
 

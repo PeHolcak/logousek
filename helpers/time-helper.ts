@@ -16,5 +16,8 @@ export const formatTime = (time: number) => {
     secondString = "sekundy";
   }
 
-  return `${minutes ? `${minutes} ${minutesString}` : ""} ${seconds} ${secondString}`;
+  const minutesResult = minutes ? `${minutes} ${minutesString}` : null
+  const secondsResult = `${seconds} ${secondString}`
+
+  return [minutesResult, secondsResult];
 };

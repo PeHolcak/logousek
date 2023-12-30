@@ -37,10 +37,12 @@ import ComponentInfoTable from '../../../../../Components/component-info-table'
      direction RL
       SectionLayout "1" <-- "1" SectionLayoutWrapper
       SectionLayoutWrapper "1" <-- "1" SectionLayoutContainer
+      SectionLayoutContainer "1" <-- "1" propsChildren
 
       class SectionLayout:::green
       class SectionLayoutWrapper
       class SectionLayoutContainer
+      class propsChildren["props.children"]
 
 `}
 />

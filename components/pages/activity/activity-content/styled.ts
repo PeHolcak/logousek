@@ -6,6 +6,8 @@ export const ActivityContentContainer = styled.main`
   flex: 1;
   justify-content: center;
   align-items: center;
+  gap: 8px;
+  flex-direction: column;
 `
 
 export const ActivityContentWrapper = styled.div`

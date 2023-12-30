@@ -32,16 +32,16 @@ const GameInfo: React.FC = () => {
   const { tHome } = useTranslateFunctions()
   const cards = getCards();
   return (
-    <S.GameInfo id="gameInfo">
-      <S.GameInfoWrapper>
+    <S.GameInfoWrapper id="gameInfo">
+      <S.GameInfoContainer>
         <SectionLayout>
           <Header>{tHome("gameInfo.header")}</Header>
           <S.GameInfoArticles>
             {cards}
           </S.GameInfoArticles>
         </SectionLayout>
-      </S.GameInfoWrapper>
-    </S.GameInfo>
+      </S.GameInfoContainer>
+    </S.GameInfoWrapper>
   )
 }
 

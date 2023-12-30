@@ -11,26 +11,20 @@ import * as S from "./styled"
 
 const GameSamples: React.FC = () => {
   const { tHome } = useTranslateFunctions()
-  const videoEl = useRef<any>(null)
-  const handleLoadedMetadata = () => {
-    const video = videoEl.current
-    if (!video) return
-  }
 
   return (
-    <S.GameSamples>
+    <S.GameSamplesWrapper>
       <SectionLayout>
         <Header>{tHome("gameSamples.header")}</Header>
         <Pump>
           <S.GameSamplesImageWrapper>
             <S.GameSamplesImage src={publicImages.gameSample["01"]} >
-
               <S.StyledImage src={`/videos/game-samples.gif`} alt="Popis GIFu" />
             </S.GameSamplesImage>
           </S.GameSamplesImageWrapper>
         </Pump>
       </SectionLayout>
-    </S.GameSamples >
+    </S.GameSamplesWrapper >
   )
 }
 

@@ -41,10 +41,10 @@ import ComponentRenderTable from '../../../Components/component-render'
   chart={`
      classDiagram
      direction RL
-     Tutorial "1" <-- "1" TrafficContainer
-     TrafficContainer "1" <-- "N" LightWrapper
-     LightWrapper "1" <-- "1" Light
-     Light "1" <-- "1" Lighting
+     Tutorial "1" <-- "1" TutorialWrapper
+     TutorialWrapper "1" <-- "1" TutorialContainer
+     TutorialContainer "1" <-- "1" CharacterPart
+     TutorialContainer "1" <-- "1" BubblePart
 
      class Tutorial:::green
      class TutorialWrapper

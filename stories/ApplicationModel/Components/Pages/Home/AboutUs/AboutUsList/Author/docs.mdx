@@ -52,13 +52,19 @@ import ComponentInfoTable from '../../../../../../../Components/component-info-t
       description: `The author's role`,
       required: true,
     },
-
     {
       name: 'minimized',
       type: `boolean`,
       defaultValue: '',
       description: `If true, it will shrink the author card.`,
       required: true,
+      },
+      {
+        name: 'aboutAuthor',
+        type: `string`,
+        defaultValue: '',
+        description: `A short text that describes the author.`,
+        required: true,
       },
 
 ]}
@@ -79,7 +85,7 @@ import ComponentInfoTable from '../../../../../../../Components/component-info-t
       AuthorContainer "1" <-- "1" LabelsWrapper
       AuthorContainer "1" <-- "1" P6
 
-      LabelsWrapper "1" <-- "n" Label
+      LabelsWrapper "1" <-- "N" Label
 
       class Author:::green
       class AuthorWrapper

@@ -1,4 +1,5 @@
 import { styled } from '@storybook/theming';
+import { zIndex } from 'styles';
 import { lightColors } from 'styles/colors';
 
 export const MermaidWrapper = styled.div`
@@ -38,6 +39,20 @@ rect {
 
 .edgeLabels > .edgeTerminals > foreignObject {
     overflow: visible;
+}
+
+.edgeTerminals > .inner > foreignObject {
+    overflow: visible;
+
+}
+
+.edgeTerminals > .inner > foreignObject span,.edgeTerminals > foreignObject span {
+    overflow: visible;
+    font-weight: 900;
+    color: ${lightColors.lightGrey};
+
+    position: relative;
+    z-index: ${zIndex.xxl};
 }
 
 `

@@ -32,9 +32,9 @@ import PropertiesTable from '../../../../../../../Components/properties-table'
   chart={`
      classDiagram
       ScoreDataVisualization "1" <-- "1" ScoreDataVisualizationWrapper
-      ScoreDataVisualizationWrapper "1" <-- "n" ScoreDataVisualizationContainer
+      ScoreDataVisualizationWrapper "1" <-- "N" ScoreDataVisualizationContainer
       ScoreDataVisualizationWrapper "1" <-- "1" P5
-      ScoreDataVisualizationContainer "1" <-- "n" ScoreDataItem
+      ScoreDataVisualizationContainer "1" <-- "N" ScoreDataItem
       ScoreDataItem "1" <-- "1" ScoreDataItemSpan1
       ScoreDataItem "1" <-- "1" ScoreDataItemSpan2
       ScoreDataItemSpan2 "1" <-- "1" i
