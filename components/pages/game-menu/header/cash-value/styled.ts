@@ -4,6 +4,13 @@ export const CashContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &>span{
+    max-width: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `
 
 export const CashWrapper = styled.div`

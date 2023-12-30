@@ -45,4 +45,9 @@ export const Rank = styled.span``
 
 export const Score = styled.span`
   font-weight: bold;
+
+    max-width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `

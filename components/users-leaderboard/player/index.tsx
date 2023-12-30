@@ -27,18 +27,13 @@ const Player: React.FC<PlayerProps> = ({
   player,
   isCurrent,
 }) => {
-  const content = useMemo(
-    () => (
-      <>
-        <S.Rank>{player.rank ? player.rank + 1 : ''}.</S.Rank>
-        <S.Name>{player.nickName}</S.Name>
-        <S.Score>
-          <CashValue score={player.amount} />
-        </S.Score>
-      </>
-    ),
-    [player.amount, player.nickName, player.rank]
-  )
+  const content = <>
+    <S.Rank>{player.rank ? player.rank + 1 : ''}.</S.Rank>
+    <S.Name>{player.nickName}</S.Name>
+    <S.Score>
+      <CashValue score={player.amount} />
+    </S.Score>
+  </>
 
   return (
     <div>

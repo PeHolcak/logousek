@@ -2,8 +2,6 @@ import { devices } from '@constants/screens-conf'
 import styled from 'styled-components'
 
 export const UserStoreWrap = styled.div`
-  margin-top: 16px;
-
   max-height: calc(100vh - 67px);
 `
 
@@ -24,17 +22,24 @@ export const ItemList = styled.div`
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media ${devices.laptopL} {
+  @media ${devices.laptop} {
     grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media ${devices.laptopL} {
+    grid-template-columns: repeat(6, 1fr);
   }
 `
 
 export const StoreContent = styled.div`
-  max-height: 80vh;
-  height: 100%;
-  
+  height: calc(70vh - 48px);
+
   overflow-x: hidden;
   overflow-y: auto;
+
+  @media ${devices.tablet} {
+    height: 80vh;
+  }
   
 `
 

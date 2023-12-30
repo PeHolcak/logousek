@@ -20,8 +20,9 @@ export const Stripe = styled.div`
 export const MenuButton = styled.button<{ isMenuOpen: boolean }>`
   height: 48px;
   width: 48px;
-  padding: 6px;
+  padding: 5px 6px;
   margin: 6px 0;
+  background-color: ${({ theme }) => theme.colors.white};
 
   position: relative;
 
@@ -47,7 +48,6 @@ export const MenuButton = styled.button<{ isMenuOpen: boolean }>`
           }
 
           & > div:nth-child(2) {
-            /* display: none; */
             opacity: 0;
           }
 
