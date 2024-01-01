@@ -44,15 +44,16 @@ const ActivitySlider: React.FC<ActivitySliderProps> = ({
         onTimerDone()
         setIsQuesionpart(true)
     }
-    const answerPart = cardData.map((Element) => {
-        const elementName = Element?.name
+    const answerPart = cardData.map((element) => {
+        const elementName = element?.name
         return (
             <ActivityCard
                 key={`element-card-${elementName}`}
                 onClick={() => setSelectedElement(elementName)}
                 selected={selectedElements?.includes(elementName)}
+                reference={element.reference}
             >
-                {Element.svg}
+                {element.svg}
             </ActivityCard>
         )
     })

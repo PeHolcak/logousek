@@ -16,6 +16,11 @@ export const ImageWrap = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
+
+  width: 18vw;
+  @media ${devices.tablet} {
+    width: auto;
+  }
 `
 
 export const Image = styled.img`
@@ -32,7 +37,9 @@ type TitleType = {
 }
 
 export const Title = styled(P3) <TitleType>`
-  max-width: 100px;
+  max-width: 88px;
+  font-size: ${({ theme }) => theme.typography.fontSize.sm};
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -46,4 +53,9 @@ export const Title = styled(P3) <TitleType>`
           padding: 4px;
         `
       : null}
+
+  @media ${devices.tablet} {
+   max-width: 100px;
+    font-size: ${({ theme }) => theme.typography.fontSize.md};
+  }
 `

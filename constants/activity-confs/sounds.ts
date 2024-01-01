@@ -1,6 +1,3 @@
-import testSound from 'public/sounds/test-sound.mp3'
-import testSound2 from 'public/sounds/test-sound2.mp3'
-
 import cat from 'public/sounds/animals/cat.mp3'
 import chicken from 'public/sounds/animals/chicken.mp3'
 import cow from 'public/sounds/animals/cow.mp3'
@@ -40,7 +37,6 @@ import roseHip from 'public/sounds/wodr-diff/roseHip.mp3'
 import pouring from 'public/sounds/wodr-diff/pouring.mp3'
 import hourglass from 'public/sounds/wodr-diff/hourglass.mp3'
 import archery from 'public/sounds/wodr-diff/archery.mp3'
-import cowWord from 'public/sounds/wodr-diff/cow-word.mp3'
 import bowl from 'public/sounds/wodr-diff/bowl.mp3'
 import mouse from 'public/sounds/wodr-diff/mouse.mp3'
 import vase from 'public/sounds/wodr-diff/vase.mp3'
@@ -57,8 +53,6 @@ export {
     cow,
     chicken,
     cat,
-    testSound,
-    testSound2,
     wind,
     storm,
     river,
@@ -86,7 +80,6 @@ export {
     pouring,
     hourglass,
     archery,
-    cowWord,
     scales,
     vase,
     mouse,

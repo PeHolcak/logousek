@@ -35,7 +35,7 @@ export default forwardRef(function AudioDifferentiation(
       <S.SoundWrapper>
         <P5 align="center" type="ghost">Přehrajde si zvuk</P5>
         <S.SoundButtonWrapper>
-          <SoundButton fontSize="4rem" sound={audioElement.sound} />
+          <SoundButton fontSize="4rem" sound={audioElement.sound} reference={audioElement.soundReference} />
         </S.SoundButtonWrapper>
       </S.SoundWrapper>
       <P5 align="center" type="ghost">Vyberte správnou odpověď</P5>

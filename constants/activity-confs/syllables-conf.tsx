@@ -46,7 +46,7 @@ const getSyllblesConf = (): SyllablesConfType => ({
                         svg: NormalImages.grandmother,
                         reference: (
                             <>
-                                <a href="https://www.freepik.com/free-vector/cute-grandmother-reading-book-sofa-cartoon-vector-icon-illustration-people-education-isolated_32669688.htm#query=grandma&position=29&from_view=search&track=robertav1">
+                                <a rel="noreferrer" href="https://www.freepik.com/free-vector/cute-grandmother-reading-book-sofa-cartoon-vector-icon-illustration-people-education-isolated_32669688.htm#query=grandma&position=29&from_view=search&track=robertav1">
                                     Image by catalyststuff
                                 </a>{' '}
                                 on Freepik
@@ -56,7 +56,16 @@ const getSyllblesConf = (): SyllablesConfType => ({
                 },
                 {
                     first: { name: 'bear', svg: NormalImages.bear },
-                    second: { name: 'honey', svg: NormalImages.honey },
+                    second: {
+                        name: 'honey', svg: NormalImages.honey, reference: (
+                            <>
+                                <a rel="noreferrer" href="https://www.freepik.com/icon/honey_3274277#fromView=resource_detail&position=2">
+                                    Image by Freepik
+                                </a>{' '}
+                                on Freepik
+                            </>
+                        ),
+                    },
                 },
                 {
                     first: { name: 'ladyBug', svg: NormalImages.ladyBug },
@@ -66,7 +75,7 @@ const getSyllblesConf = (): SyllablesConfType => ({
                         reference: (
                             <>
                                 Image by{' '}
-                                <a href="https://www.freepik.com/free-vector/sheeps-goats-illustration_791924.htm#page=5&query=ram%20animal%20drawing%20sheep&position=0&from_view=search&track=robertav1">
+                                <a rel="noreferrer" href="https://www.freepik.com/free-vector/sheeps-goats-illustration_791924.htm#page=5&query=ram%20animal%20drawing%20sheep&position=0&from_view=search&track=robertav1">
                                     Freepik
                                 </a>
                             </>
@@ -84,7 +93,7 @@ const getSyllblesConf = (): SyllablesConfType => ({
                         svg: NormalImages.cow,
                         reference: (
                             <>
-                                <a href="https://www.freepik.com/free-vector/farm-animals-cartoon-icons-set-hen-gobbler-cow-horse-ram-cat-bunny-isolated-vector-illustration_4188523.htm#query=farm%20animals&position=1&from_view=search&track=sph">
+                                <a rel="noreferrer" href="https://www.freepik.com/free-vector/farm-animals-cartoon-icons-set-hen-gobbler-cow-horse-ram-cat-bunny-isolated-vector-illustration_4188523.htm#query=farm%20animals&position=1&from_view=search&track=sph">
                                     Image by macrovector
                                 </a>{' '}
                                 on Freepik
@@ -96,7 +105,7 @@ const getSyllblesConf = (): SyllablesConfType => ({
                         svg: NormalImages.rabbit,
                         reference: (
                             <>
-                                <a href="https://www.freepik.com/free-vector/cartoon-rabbits-set_9649167.htm#query=bunny&position=19&from_view=search&track=robertav1">
+                                <a rel="noreferrer" href="https://www.freepik.com/free-vector/cartoon-rabbits-set_9649167.htm#query=bunny&position=19&from_view=search&track=robertav1">
                                     Image by pch.vector
                                 </a>{' '}
                                 on Freepik
@@ -111,7 +120,7 @@ const getSyllblesConf = (): SyllablesConfType => ({
                         svg: NormalImages.roller,
                         reference: (
                             <>
-                                <a href="https://www.freepik.com/free-vector/wooden-marble-stone-rolling-pins-vector_5900544.htm#page=6&query=baking%20tools&position=3&from_view=search&track=robertav1">
+                                <a rel="noreferrer" href="https://www.freepik.com/free-vector/wooden-marble-stone-rolling-pins-vector_5900544.htm#page=6&query=baking%20tools&position=3&from_view=search&track=robertav1">
                                     Image by vectorpocket
                                 </a>{' '}
                                 on Freepik
@@ -121,7 +130,16 @@ const getSyllblesConf = (): SyllablesConfType => ({
                 },
                 {
                     first: { name: 'banknote', svg: NormalImages.banknote },
-                    second: { name: 'pencil', svg: NormalImages.pencil },
+                    second: {
+                        name: 'pencil', svg: NormalImages.pencil, reference: (
+                            <>
+                                <a rel="noreferrer" href="https://www.freepik.com/free-vector/illustration-pen-icon_2606110.htm">
+                                    Image by rawpixel.com
+                                </a>{' '}
+                                on Freepik
+                            </>
+                        ),
+                    },
                 },
             ],
         },

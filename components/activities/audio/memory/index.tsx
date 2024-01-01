@@ -59,6 +59,7 @@ export default forwardRef(function Memory(
                     fontSize="4rem"
                     sound={audioElement.sound}
                     customSound={audio}
+                    reference={audioElement.soundReference}
                 />
             }
             cardData={audioElement.pictures}

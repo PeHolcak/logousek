@@ -23,7 +23,7 @@ import {
 import { AudioDiffConfType } from '@helpers/sound-helper'
 import { NamedImage, normalSrcs } from '@helpers/image-helper'
 import { getIncorectItems } from '@helpers/array-helper'
-import { animalImagesConf, animalImages } from '@constants/image-confs/animal-conf'
+import { animalImagesConf } from '@constants/image-confs/animal-conf'
 
 
 
@@ -72,92 +72,62 @@ const getAudioMemoryConf = (): AudioDiffConfType => ({
     '1': [
         {
             name: 'sheep',
-            incorrect: getIncorectItems('sheep', animalImagesConf),
-            correct: {
-                name: 'sheep',
-                svg: animalImages.sheep,
-            },
+            incorrect: getIncorectItems('sheep', Object.values(animalImagesConf)),
+            correct: animalImagesConf.sheep,
             sound: sheep,
         },
         {
             name: 'snake',
-            incorrect: getIncorectItems('snake', animalImagesConf),
-            correct: {
-                name: 'snake',
-                svg: animalImages.snake,
-            },
+            incorrect: getIncorectItems('snake', Object.values(animalImagesConf)),
+            correct: animalImagesConf.snake,
             sound: snake,
         },
         {
             name: 'horse',
-            incorrect: getIncorectItems('horse', animalImagesConf),
-            correct: {
-                name: 'horse',
-                svg: animalImages.horse,
-            },
+            incorrect: getIncorectItems('horse', Object.values(animalImagesConf)),
+            correct: animalImagesConf.horse,
             sound: horse,
         },
         {
             name: 'goat',
-            incorrect: getIncorectItems('goat', animalImagesConf),
-            correct: {
-                name: 'goat',
-                svg: animalImages.goat,
-            },
+            incorrect: getIncorectItems('goat', Object.values(animalImagesConf)),
+            correct: animalImagesConf.goat,
             sound: goat,
         },
         {
             name: 'fly',
-            incorrect: getIncorectItems('fly', animalImagesConf),
-            correct: {
-                name: 'fly',
-                svg: animalImages.fly,
-            },
+            incorrect: getIncorectItems('fly', Object.values(animalImagesConf)),
+            correct: animalImagesConf.fly,
             sound: fly,
         },
         {
             name: 'elephant',
-            incorrect: getIncorectItems('elephant', animalImagesConf),
-            correct: {
-                name: 'elephant',
-                svg: animalImages.elephant,
-            },
+            incorrect: getIncorectItems('elephant', Object.values(animalImagesConf)),
+            correct: animalImagesConf.elephant,
             sound: elephant,
         },
         {
             name: 'dog',
-            incorrect: getIncorectItems('dog', animalImagesConf),
-            correct: {
-                name: 'dog',
-                svg: animalImages.dog,
-            },
+            incorrect: getIncorectItems('dog', Object.values(animalImagesConf)),
+            correct: animalImagesConf.dog,
             sound: dog,
         },
         {
             name: 'cow',
-            incorrect: getIncorectItems('cow', animalImagesConf),
-            correct: {
-                name: 'cow',
-                svg: animalImages.cow,
-            },
+            incorrect: getIncorectItems('cow', Object.values(animalImagesConf)),
+            correct: animalImagesConf.cow,
             sound: cow,
         },
         {
             name: 'chicken',
-            incorrect: getIncorectItems('chicken', animalImagesConf),
-            correct: {
-                name: 'chicken',
-                svg: animalImages.chicken,
-            },
+            incorrect: getIncorectItems('chicken', Object.values(animalImagesConf)),
+            correct: animalImagesConf.chicken,
             sound: chicken,
         },
         {
             name: 'cat',
-            incorrect: getIncorectItems('cat', animalImagesConf),
-            correct: {
-                name: 'cat',
-                svg: animalImages.cat,
-            },
+            incorrect: getIncorectItems('cat', Object.values(animalImagesConf)),
+            correct: animalImagesConf.cat,
             sound: cat,
         },
     ],

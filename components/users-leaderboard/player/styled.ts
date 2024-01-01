@@ -9,9 +9,8 @@ type PlayerType = {
 export const PlayerContainer = styled.div<PlayerType>`
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
-  margin-bottom: 1px;
   padding: 16px;
+  margin-bottom:1px;
 
   &:last-child {
     border-bottom: none;

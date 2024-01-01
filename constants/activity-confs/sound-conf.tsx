@@ -72,103 +72,74 @@ const getSoundConf = (): AudioDiffConfType => ({
     '1': [
         {
             name: 'sheep',
-            incorrect: getIncorectItems('sheep', animalImagesConf),
-            correct: {
-                name: 'sheep',
-                svg: animalImages.sheep,
-                reference: <><a href="https://www.freepik.com/free-vector/farm-animals-cartoon-icons-set-hen-gobbler-cow-horse-ram-cat-bunny-isolated-vector-illustration_4188523.htm#query=farm%20animals&position=1&from_view=search&track=sph">Image by macrovector</a> on Freepik</>
-            },
+            incorrect: getIncorectItems('sheep', Object.values(Object.values(animalImagesConf))),
+            correct: animalImagesConf.sheep,
             sound: sheep,
+            soundReference: "innov8ting. Sheep_Lambs_Rhos_Wales_7pm_April_2.wav. Online. In: Freesound. 2022. Dostupné z: https://freesound.org/people/innov8ting/sounds/627859/. Available under Creative Commons 0 License. [cit. 2024-01-01]. "
         },
         {
             name: 'snake',
-            incorrect: getIncorectItems('snake', animalImagesConf),
-            correct: {
-                name: 'snake',
-                svg: animalImages.snake,
-                reference: <><a href="https://www.freepik.com/free-vector/snakes-wild-tropical-serpents-isolated-white_13778464.htm#query=snake&position=11&from_view=search&track=sph">Image by upklyak</a> on Freepik</>
-            },
+            incorrect: getIncorectItems('snake', Object.values(animalImagesConf)),
+            correct: animalImagesConf.snake,
             sound: snake,
+            soundReference: "florianreichelt. Snarling Snake. Online. In: Freesound. 2018. Dostupné z: https://freesound.org/people/florianreichelt/sounds/423454/. Available under Creative Commons 0 License. [cit. 2024-01-01]."
         },
         {
             name: 'horse',
-            incorrect: getIncorectItems('horse', animalImagesConf),
-            correct: {
-                name: 'horse',
-                svg: animalImages.horse,
-                reference: <><a href="https://www.freepik.com/free-vector/farm-animals-cartoon-icons-set-hen-gobbler-cow-horse-ram-cat-bunny-isolated-vector-illustration_4188523.htm#query=farm%20animals&position=1&from_view=search&track=sph">Image by macrovector</a> on Freepik</>
-            },
+            incorrect: getIncorectItems('horse', Object.values(animalImagesConf)),
+            correct: animalImagesConf.horse,
             sound: horse,
+            soundReference: "UEPCOMANAM2011. Cavall.mp3. Online. In: Freesound. 2017. Dostupné z: https://freesound.org/people/UEPCOMANAM2011/sounds/394831. Available under Creative Commons 0 License. [cit. 2024-01-01]."
         },
         {
             name: 'goat',
-            incorrect: getIncorectItems('goat', animalImagesConf),
-            correct: {
-                name: 'goat',
-                svg: animalImages.goat,
-                reference: <><a href="https://www.freepik.com/free-vector/farm-animals-cartoon-icons-set-hen-gobbler-cow-horse-ram-cat-bunny-isolated-vector-illustration_4188523.htm#query=farm%20animals&position=1&from_view=search&track=sph">Image by macrovector</a> on Freepik</>
-            },
+            incorrect: getIncorectItems('goat', Object.values(animalImagesConf)),
+            correct: animalImagesConf.goat,
             sound: goat,
+            soundReference: "satoristudios3. Nigerian Dwarf Buck Goat. Online. In: Freesound. 2023. Dostupné z: https://freesound.org/people/satoristudios3/sounds/677220/. Available under Creative Commons 0 License. [cit. 2024-01-01]."
         },
         {
             name: 'fly',
-            incorrect: getIncorectItems('fly', animalImagesConf),
-            correct: {
-                name: 'fly',
-                svg: animalImages.fly,
-                reference: <><a href="https://www.freepik.com/free-vector/design-with-seamless-pattern-housefly_7033958.htm#query=fly&position=18&from_view=search&track=sph">Image by brgfx</a> on Freepik</>
-            },
+            incorrect: getIncorectItems('fly', Object.values(animalImagesConf)),
+            correct: animalImagesConf.fly,
             sound: fly,
+            soundReference: "Benboncan. Fly 1.wav. Online. In: Freesound. 2009. Dostupné z: https://freesound.org/people/Benboncan/sounds/82077/. Available under Creative Commons 0 License. [cit. 2024-01-01]."
         },
         {
             name: 'elephant',
-            incorrect: getIncorectItems('elephant', animalImagesConf),
-            correct: {
-                name: 'elephant',
-                svg: animalImages.elephant,
-                reference: <><a href="https://www.freepik.com/free-vector/cute-baby-elephant-butterfly-outline-drawing-color_7038521.htm#query=elephant&position=5&from_view=search&track=sph">Image by user2104819</a> on Freepik</>
-            },
+            incorrect: getIncorectItems('elephant', Object.values(animalImagesConf)),
+            correct: animalImagesConf.elephant,
             sound: elephant,
+            soundReference: "D.jones. Elephant Trumpets Growls.flac. Online. In: Freesound. 2020. Dostupné z: https://freesound.org/people/D.jones/sounds/527845/. Available under Creative Commons 0 License. [cit. 2024-01-01]."
         },
         {
             name: 'dog',
-            incorrect: getIncorectItems('dog', animalImagesConf),
-            correct: {
-                name: 'dog',
-                svg: animalImages.dog,
-                reference: <><a href="https://www.freepik.com/free-vector/farm-animals-cartoon-icons-set-hen-gobbler-cow-horse-ram-cat-bunny-isolated-vector-illustration_4188523.htm#query=farm%20animals&position=1&from_view=search&track=sph">Image by macrovector</a> on Freepik</>
-            },
+            incorrect: getIncorectItems('dog', Object.values(animalImagesConf)),
+            correct: animalImagesConf.dog,
             sound: dog,
+            soundReference: "Jace. Dog Barking. Online. In: Freesound. 2012. Dostupné z: https://freesound.org/people/Jace/sounds/155312/. Available under Creative Commons 0 License. [cit. 2024-01-01]."
         },
         {
             name: 'cow',
-            incorrect: getIncorectItems('cow', animalImagesConf),
-            correct: {
-                name: 'cow',
-                svg: animalImages.cow,
-                reference: <><a href="https://www.freepik.com/free-vector/farm-animals-cartoon-icons-set-hen-gobbler-cow-horse-ram-cat-bunny-isolated-vector-illustration_4188523.htm#query=farm%20animals&position=1&from_view=search&track=sph">Image by macrovector</a> on Freepik</>
-            },
+            incorrect: getIncorectItems('cow', Object.values(animalImagesConf)),
+            correct: animalImagesConf.cow,
             sound: cow,
+            soundReference: " spurioustransients. Cow moo #8. Online. In: Freesound. 2020. Dostupné z: https://freesound.org/people/spurioustransients/sounds/513565/. Available under Creative Commons 0 License. [cit. 2024-01-01]."
+
         },
         {
             name: 'chicken',
-            incorrect: getIncorectItems('chicken', animalImagesConf),
-            correct: {
-                name: 'chicken',
-                svg: animalImages.chicken,
-                reference: <><a href="https://www.freepik.com/free-vector/farm-animals-cartoon-icons-set-hen-gobbler-cow-horse-ram-cat-bunny-isolated-vector-illustration_4188523.htm#query=farm%20animals&position=1&from_view=search&track=sph">Image by macrovector</a> on Freepik</>
-            },
+            incorrect: getIncorectItems('chicken', Object.values(animalImagesConf)),
+            correct: animalImagesConf.chicken,
             sound: chicken,
+            soundReference: "tom_woysky. Polish hen cackling.wav. Online. In: Freesound. 2014. Dostupné z: https://freesound.org/people/tom_woysky/sounds/232495/. Available under Creative Commons 0 License. [cit. 2024-01-01]."
         },
         {
             name: 'cat',
-            incorrect: getIncorectItems('cat', animalImagesConf),
-            correct: {
-                name: 'cat',
-                svg: animalImages.cat,
-                reference: <><a href="https://www.freepik.com/free-vector/farm-animals-cartoon-icons-set-hen-gobbler-cow-horse-ram-cat-bunny-isolated-vector-illustration_4188523.htm#query=farm%20animals&position=1&from_view=search&track=sph">Image by macrovector</a> on Freepik</>
-            },
+            incorrect: getIncorectItems('cat', Object.values(animalImagesConf)),
+            correct: animalImagesConf.cat,
             sound: cat,
+            soundReference: "nekoninja. Cat meowing. Online. In: Freesound. 2017. Dostupné z: https://freesound.org/people/nekoninja/sounds/414042/. Available under Creative Commons 0 License. [cit. 2024-01-01]."
         },
     ],
     '2': [
@@ -180,6 +151,7 @@ const getSoundConf = (): AudioDiffConfType => ({
                 svg: NormalImages.crumpledPaper,
             },
             sound: crumpledPaper,
+            soundReference: "12beesinatrenchcoat. Paper crumpling.wav. Online. In: Freesound. 2022. Dostupné z: https://freesound.org/people/12beesinatrenchcoat/sounds/653952/. Available under Creative Commons 0 License. [cit. 2024-01-01]."
         },
         {
             name: 'doorKnocking',
@@ -189,6 +161,7 @@ const getSoundConf = (): AudioDiffConfType => ({
                 svg: NormalImages.doorKnocking,
             },
             sound: doorKnocking,
+            soundReference: "SubwaySandwitch420. Door knock. Online. In: Freesound. 2020. Dostupné z: https://freesound.org/people/SubwaySandwitch420/sounds/540770/. Available under Creative Commons 0 License. [cit. 2024-01-01]."
         },
         {
             name: 'dripingFaucet',
@@ -198,6 +171,7 @@ const getSoundConf = (): AudioDiffConfType => ({
                 svg: NormalImages.dripingFaucet,
             },
             sound: dripingFaucet,
+            soundReference: "BeeProductive. Dripping tap.wav. Online. In: Freesound. 2017. Dostupné z: https://freesound.org/people/BeeProductive/sounds/381650/. Available under Creative Commons 0 License. [cit. 2024-01-01]."
         },
         {
             name: 'flowingFaceut',
@@ -207,6 +181,7 @@ const getSoundConf = (): AudioDiffConfType => ({
                 svg: NormalImages.flowingFaceut,
             },
             sound: flowingFaceut,
+            soundReference: "OwlStorm. Tap Water 1. In: Freesound [online]. 2013. Dostupné z: https://freesound.org/people/OwlStorm/sounds/212177/. Available under Creative Commons 0 License. [cit. 2024-01-01]"
         },
         {
             name: 'nailHammering',
@@ -216,6 +191,7 @@ const getSoundConf = (): AudioDiffConfType => ({
                 svg: NormalImages.nailHammering,
             },
             sound: nailHammering,
+            soundReference: "deleted_user_7146007. Construction Sounds Hammering a Nail. Online. In: Freesound. 2017. Dostupné z: https://freesound.org/people/deleted_user_7146007/sounds/383726/. Available under Creative Commons 0 License. [cit. 2024-01-01]."
         },
     ],
     '3': [
@@ -227,6 +203,7 @@ const getSoundConf = (): AudioDiffConfType => ({
                 svg: NormalImages.paperCut,
             },
             sound: paperCut,
+            soundReference: "Jagadamba. Sound of scissors cutting paper. Online. In: Freesound. 2014. Dostupné z: https://freesound.org/people/Jagadamba/sounds/257032/. Available under Creative Commons 0 License. [cit. 2024-01-01]."
         },
         {
             name: 'ringingPhone',
@@ -236,6 +213,7 @@ const getSoundConf = (): AudioDiffConfType => ({
                 svg: NormalImages.ringingPhone,
             },
             sound: ringingPhone,
+            soundReference: "BennettFilmTeacher. Old Phone Ringing. Online. In: Freesound. 2021. Dostupné z: https://freesound.org/people/BennettFilmTeacher/sounds/610191/. Available under Creative Commons 0 License. [cit. 2024-01-01]."
         },
         {
             name: 'river',
@@ -245,6 +223,7 @@ const getSoundConf = (): AudioDiffConfType => ({
                 svg: NormalImages.river,
             },
             sound: river,
+            soundReference: "Tom_Kaszuba. River flowing. Online. In: Freesound. 2022. Dostupné z: https://freesound.org/people/Tom_Kaszuba/sounds/660265/. Available under Creative Commons 0 License. [cit. 2024-01-01]."
         },
         {
             name: 'storm',
@@ -254,6 +233,7 @@ const getSoundConf = (): AudioDiffConfType => ({
                 svg: NormalImages.storm,
             },
             sound: storm,
+            soundReference: "Soojay. Distant storm 2.WAV. Online. In: Freesound. 2015. Dostupné z: https://freesound.org/people/Soojay/sounds/319567/. Available under Creative Commons 0 License. [cit. 2024-01-01]."
         },
         {
             name: 'wind',
@@ -263,6 +243,7 @@ const getSoundConf = (): AudioDiffConfType => ({
                 svg: NormalImages.wind,
             },
             sound: wind,
+            soundReference: "craigsmith. R03-03-Cold Wind on Ship.wav. Online. In: Freesound. 2019. Dostupné z: https://freesound.org/people/craigsmith/sounds/481139/. Available under Creative Commons 0 License. [cit. 2024-01-01]."
         },
     ],
 })

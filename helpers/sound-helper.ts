@@ -18,6 +18,7 @@ export type AudioDiffConfType = {
     incorrect: PictureType[]
     correct: PictureType
     sound: string
+    soundReference?: string | React.ReactNode
   }[]
 }
 
@@ -44,11 +45,13 @@ export const getAudioConfElement = (
   activityName: ActivityName
 ) => {
   const conf = getAudioConf(activityName)
-  const audiosArray = [...conf[difficulty]]
+  const currentDiffConf = conf[difficulty]
+  const audiosArray = [...(currentDiffConf ? currentDiffConf : conf[1])]
   const audioElement = getRandomElementFromList(audiosArray, 1)[0] || {}
   return {
     name: audioElement.name,
     sound: audioElement.sound,
+    soundReference: audioElement.soundReference,
     pictures:
       audioElement.incorrect && audioElement.correct
         ? shuffle([...audioElement.incorrect, audioElement.correct])
@@ -73,7 +76,7 @@ export const checkAnswer = (
 ) => {
 
   const audioConf = getAudioConf(activityName)
-  const audiosArray = audioConf[difficulty]
+  const audiosArray = audioConf[difficulty] ? audioConf[difficulty] : audioConf[1]
   const correctAnswer = audiosArray.find(
     (audio) => audio.name === audioName
   )?.correct

@@ -13,9 +13,7 @@ const publicImages = {
         "words": "/images/activity-icons/words.svg",
         "syllables": "/images/activity-icons/words.svg",
     },
-    gameSample: {
-        "01": "/images/phone.png"
-    },
+    gameSample: "/images/phone.svg",
     tutorial: {
         character: "/images/tutorial/character.svg"
     },

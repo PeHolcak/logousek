@@ -55,7 +55,7 @@ export const ModalContainer = styled.div<ModalContainerProps>`
   display: flex;
   flex-direction: column;
   margin: 12px 0;
-  padding: 0;
+  padding: 0.5rem 1rem;
   width: ${({ autoWidth }) => autoWidth ? "auto" : "100vw"};
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.4);

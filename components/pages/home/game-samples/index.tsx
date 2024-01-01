@@ -18,8 +18,8 @@ const GameSamples: React.FC = () => {
         <Header>{tHome("gameSamples.header")}</Header>
         <Pump>
           <S.GameSamplesImageWrapper>
-            <S.GameSamplesImage src={publicImages.gameSample["01"]} >
-              <S.StyledImage src={`/videos/game-samples.gif`} alt="Popis GIFu" />
+            <S.GameSamplesImage src={publicImages.gameSample} >
+              <S.StyledImage src={`/videos/game-samples.gif`} alt="game_samples" />
             </S.GameSamplesImage>
           </S.GameSamplesImageWrapper>
         </Pump>
