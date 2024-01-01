@@ -10,6 +10,7 @@ type GameCardProps = {
   image: string
   description?: string
   onMainSideClick: () => void
+  className?: string
 }
 
 const TwoSideCard: React.FC<GameCardProps> = ({
@@ -17,7 +18,8 @@ const TwoSideCard: React.FC<GameCardProps> = ({
   title,
   image,
   description,
-  onMainSideClick
+  onMainSideClick,
+  className
 }) => {
   const [isDiffSiteShown, setIsDiffSiteShown] = useState(false)
 
@@ -32,7 +34,7 @@ const TwoSideCard: React.FC<GameCardProps> = ({
   }
 
   return (
-    <S.CardWrapper>
+    <S.CardWrapper className={className}>
       <S.InnedCard isDiffSiteShown={isDiffSiteShown}>
         <S.MainSideWrapper onClick={onMainSideClick}>
           <MainSideContent

@@ -83,7 +83,7 @@ const Syllables = (
             usedCards={cards.second}
         >
             <P5 align="center" type="ghost">
-                Slož obrázek
+                Přiřaď správné počáteční slabiky
             </P5>
             <S.Container>
                 <S.TaskWrapper>

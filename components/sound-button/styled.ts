@@ -7,6 +7,8 @@ export const SoundButtonWrapper = styled.div`
   &:hover {
     transform: scale(1.1);
   }
+
+  border-radius: ${({ theme }) => theme.radius.primary};
 `;
 export const ReferenceWrapper = styled.div`
   cursor: pointer;

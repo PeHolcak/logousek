@@ -51,11 +51,11 @@ const Login: React.FC = () => {
       <S.LoginWrapper>
         <S.Header>
           <P5 margin='0'>{tLogin("register.haveNotAnAccountYet")}</P5>
-          <S.Link margin='0' onMouseDown={register}>{tLogin("register.register")}</S.Link>
+          <S.Link margin='0' onMouseDown={register} id="registerButton">{tLogin("register.register")}</S.Link>
         </S.Header>
         <S.LoginButtonsWrapper>
-          <Button onClick={loginAsUser}>{tLogin("loginButtons.userLogin")}</Button>
-          <Button onClick={loginAsGuess}>{tLogin("loginButtons.guessLogin")}</Button>
+          <Button onClick={loginAsUser} id="loginAsUserButton">{tLogin("loginButtons.userLogin")}</Button>
+          <Button onClick={loginAsGuess} id="loginAsGuessButton">{tLogin("loginButtons.guessLogin")}</Button>
         </S.LoginButtonsWrapper>
       </S.LoginWrapper>
     </RouteWrapper>

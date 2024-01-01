@@ -64,6 +64,7 @@ const DragCard: React.FC<DragCardProps> = ({
         reference={reference}
         onClick={onActivityCardClickHandler}
         selected={isSelected}
+        className='dragCard'
       >
         {content || children}
       </ActivityCard>

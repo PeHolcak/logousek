@@ -145,6 +145,8 @@ export const ButtonRow = styled.div`
 
 export const TutorialContainer = styled.div`
   position: relative;
+
+  border-radius: ${({ theme }) => theme.radius.primary};
 `
 
 type CharacterImageProps = {

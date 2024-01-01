@@ -37,7 +37,7 @@ const CharacterPart: React.FC<CharacterPartProps> = ({
     return (
         <Blob
             color={aura}
-            isBlobShowed={isTutorialOpened}
+            isBlobShowed={true}
             name="TutorialBlob"
         >
             <S.BlobContainer isTutorialOpened={isTutorialOpened}>

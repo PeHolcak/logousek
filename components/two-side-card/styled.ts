@@ -41,6 +41,8 @@ export const CardWrapper = styled.article`
   perspective: 1000px;
   margin: 1.5rem;
 
+  border-radius: ${({ theme }) => theme.radius.primary};
+
   @media only screen and (max-width: 1280px) {
     margin: 0.7rem;
   }

@@ -67,7 +67,7 @@ const RoundFooter: React.FC<RoundFooterType> = ({
           },
         }}
       >
-        <S.FooterContainer customHeight={customHeight}>
+        <S.FooterContainer customHeight={customHeight} id="roundFooter">
           {children || footerConfButtons}
         </S.FooterContainer>
       </S.AnimatedFooterContent>

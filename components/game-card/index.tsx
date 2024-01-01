@@ -45,6 +45,7 @@ const GameCard: React.FC<GameCardProps> = ({ gameInfo }) => {
       image={gameInfo.image}
       description={gameInfo.description}
       onMainSideClick={showDifficultyModal}
+      className="gameCard"
     />
   )
 }

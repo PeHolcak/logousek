@@ -25,7 +25,7 @@ const InnerDropCard: React.FC<InnerDropCardProps> = ({ onDrop, children, customR
   }))
 
   return (
-    <S.InnerDropCardWrapper ref={drop}>
+    <S.InnerDropCardWrapper ref={drop} className="dropCard">
       <ActivityCard
         color={"transparent"}
         customRadius={customRadius}

@@ -21,7 +21,7 @@ const SoundButton: React.FC<SoundButtonProps> = ({
   const { stopAudio, playAudio, isPlayed } = useSoundButton(sound, customSound)
 
   return (
-    <S.SoundButtonWrapper>
+    <S.SoundButtonWrapper id="soundButton">
       <ClickableIcon
         fontSize={fontSize}
         {...(isPlayed

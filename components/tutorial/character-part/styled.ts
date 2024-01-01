@@ -48,6 +48,8 @@ export const CharacterWrapper = styled.div<CharacterWrapperProps>`
             padding: 12px;
           }
       `}
+
+      
 `
 
 export const BubbleWrapper = styled.div`
