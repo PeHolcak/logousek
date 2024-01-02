@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Section } from "../styled"
+import styled from 'styled-components'
+import { Section } from '../styled'
 
 export const NewsWrapper = styled(Section)`
   height: auto;

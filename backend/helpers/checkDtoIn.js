@@ -1,7 +1,5 @@
-
-
 const checkDtoIn = (dtoInScheme, dtoIn) => {
-    return true
+  return true
 }
 
-export default checkDtoIn;
+export default checkDtoIn

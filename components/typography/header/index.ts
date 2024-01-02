@@ -10,9 +10,7 @@ import {
 } from '../text/styled'
 import { devices } from 'constants/screens-conf'
 
-export type HeaderType = Omit<TextWrapType, "variant">
-
-
+export type HeaderType = Omit<TextWrapType, 'variant'>
 
 export const H1 = styled.h1<HeaderType>`
   ${T1Styles};
@@ -42,12 +40,15 @@ export const PageTitle = styled(H1)`
   margin: 0px;
   font-size: ${({ theme }) => theme.typography.fontSize.pageTitle.mobile};
   font-weight: ${({ theme }) => theme.typography.fontWeight.lg};
-  letter-spacing: ${({ theme }) => theme.typography.letterSpacing.pageTitle.mobile};
+  letter-spacing: ${({ theme }) =>
+    theme.typography.letterSpacing.pageTitle.mobile};
   line-height: ${({ theme }) => theme.typography.lineHeight.pageTitle.mobile};
 
   @media ${devices.laptop} {
     font-size: ${({ theme }) => theme.typography.fontSize.pageTitle.desktop};
-    letter-spacing: ${({ theme }) => theme.typography.letterSpacing.pageTitle.desktop};
-    line-height: ${({ theme }) => theme.typography.lineHeight.pageTitle.desktop};
+    letter-spacing: ${({ theme }) =>
+      theme.typography.letterSpacing.pageTitle.desktop};
+    line-height: ${({ theme }) =>
+      theme.typography.lineHeight.pageTitle.desktop};
   }
 `

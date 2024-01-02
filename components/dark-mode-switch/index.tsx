@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import CoreContext from '../../contexts/core-context'
 import Switch from '../switch'
-import * as S from "./styled"
+import * as S from './styled'
 
 const DarkModeSwitch: React.FC = () => {
   const coreContext = useContext(CoreContext)
@@ -15,9 +15,12 @@ const DarkModeSwitch: React.FC = () => {
       onChange={_onChangeTheme}
       value={coreContext?.theme === 'dark'}
       enabledIcon={
-        <S.StyledI className={`material-icons`}>brightness_3</S.StyledI>}
+        <S.StyledI className={`material-icons`}>brightness_3</S.StyledI>
+      }
       disabledIcon={
-        <S.StyledI isLight className={`material-icons`}>highlight</S.StyledI>
+        <S.StyledI isLight className={`material-icons`}>
+          highlight
+        </S.StyledI>
       }
     />
   )

@@ -5,11 +5,7 @@
     "source.fixAll.tslint": "explicit",
     "source.fixAll.stylelint": "explicit"
   },
-  "eslint.validate": [
-    "javascript"
-  ],
-  "eslint.workingDirectories": [
-    "./"
-  ],
+  "eslint.validate": ["javascript"],
+  "eslint.workingDirectories": ["./"],
   "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

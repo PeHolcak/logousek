@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-
-
 export const ScoreDataVisualizationContainer = styled.div`
   width: 100%;
   display: flex;
@@ -18,7 +16,7 @@ export const ScoreDataItem = styled.div`
 
 export const ScoreDataItemSpan = styled.span<{ color?: string }>`
   color: ${({ color }) => {
-    return color || "none"
+    return color || 'none'
   }};
   text-align: center;
 `

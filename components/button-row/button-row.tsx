@@ -6,9 +6,7 @@ interface ButtonRowProps {
 }
 
 const ButtonRow: React.FC<ButtonRowProps> = ({ children }) => {
-  return (
-    <S.ButtonRowWrapper>{children}</S.ButtonRowWrapper>
-  )
+  return <S.ButtonRowWrapper>{children}</S.ButtonRowWrapper>
 }
 
 export default ButtonRow

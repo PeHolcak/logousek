@@ -18,10 +18,9 @@ const StoreItemOverlap: React.FC<StoreItemOverlapProps> = ({
   onItemBuyHandler,
   disabled,
   isInProgress,
-  cost
+  cost,
 }) => {
   const themeContextData = useContext(ThemeContext)
-
 
   if (!isOwned && cost) {
     if (isInProgress) {

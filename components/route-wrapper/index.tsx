@@ -9,7 +9,7 @@ import PrivateRouteForAdmin from '@components/auth/private-route-for-admin'
 import Tutorial from '@components/tutorial'
 import * as S from './styled'
 
-export type OffsetType = 'left' | 'bottom' | 'right' | 'top' | "none"
+export type OffsetType = 'left' | 'bottom' | 'right' | 'top' | 'none'
 
 type TutorialConf = {
   mobileOffset?: OffsetType

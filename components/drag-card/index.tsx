@@ -26,7 +26,7 @@ const DragCard: React.FC<DragCardProps> = ({
   reference,
   onClick,
   selected,
-  isDragged
+  isDragged,
 }) => {
   const themeContext = useContext(ThemeContext)
   const dndContext = useContext(DndContext)
@@ -46,7 +46,10 @@ const DragCard: React.FC<DragCardProps> = ({
     }
   }, [item?.keyImage, onClick])
 
-  const isSelected = useMemo(() => !isDragged && selected, [isDragged, selected])
+  const isSelected = useMemo(
+    () => !isDragged && selected,
+    [isDragged, selected]
+  )
 
   return collected.isDragging ? (
     <ActivityCard
@@ -64,7 +67,7 @@ const DragCard: React.FC<DragCardProps> = ({
         reference={reference}
         onClick={onActivityCardClickHandler}
         selected={isSelected}
-        className='dragCard'
+        className="dragCard"
       >
         {content || children}
       </ActivityCard>

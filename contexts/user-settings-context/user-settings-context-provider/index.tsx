@@ -43,7 +43,7 @@ const UserSettingsProvider: React.FC<React.PropsWithChildren> = ({
         aura: userSettings?.aura,
         setUserSettings,
         updateSettingsState,
-        dataState
+        dataState,
       }}
     >
       {children}

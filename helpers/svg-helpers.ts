@@ -12,9 +12,9 @@ import React from 'react'
 
 //TODO: Remove any type
 export type SvgListType = {
-  name: string,
-  component: React.FC | any,
-  hideSettings: string[],
+  name: string
+  component: React.FC | any
+  hideSettings: string[]
   hideDetailsSettings?: string[]
 }
 
@@ -30,33 +30,33 @@ const svgList: SvgListType[] = [
       'hideFithLeaf',
       'hideSixthLeaf',
       'hideSeventhLeaf',
-      'hideEightLeaf'
+      'hideEightLeaf',
     ],
-    hideDetailsSettings: ['scaleFlower']
+    hideDetailsSettings: ['scaleFlower'],
   },
   {
     name: 'lolipop',
     component: Lolipop,
     hideSettings: ['hideProtrusion'],
-    hideDetailsSettings: []
+    hideDetailsSettings: [],
   },
   {
     name: 'logousek',
     component: Logousek,
     hideSettings: [],
-    hideDetailsSettings: []
+    hideDetailsSettings: [],
   },
   {
     name: 'bear',
     component: Bear,
     hideSettings: ['hideLeftFoot', 'hideRightFoot'],
-    hideDetailsSettings: ['hideRightEarFilling', 'hideLeftEarFilling']
+    hideDetailsSettings: ['hideRightEarFilling', 'hideLeftEarFilling'],
   },
   {
     name: 'cloud',
     component: Cloud,
     hideSettings: ['changeColor', 'twoColorPicture'],
-    hideDetailsSettings: []
+    hideDetailsSettings: [],
   },
   {
     name: 'sun',
@@ -70,9 +70,9 @@ const svgList: SvgListType[] = [
       'hideSixthFlash',
       'hideSeventhFlash',
       'hideEightFlash',
-      "rotate"
+      'rotate',
     ],
-    hideDetailsSettings: []
+    hideDetailsSettings: [],
   },
   {
     name: 'ladybug',
@@ -85,21 +85,21 @@ const svgList: SvgListType[] = [
       'hideFifthDot',
       'hideSixthDot',
       'hideSeventhDot',
-      'hideEighthDot'
+      'hideEighthDot',
     ],
-    hideDetailsSettings: ['hideLeftFeeler', 'hideRightFeeler']
+    hideDetailsSettings: ['hideLeftFeeler', 'hideRightFeeler'],
   },
   {
     name: 'car',
     component: Car,
     hideSettings: ['hideDoor', 'changeDoorColor'],
-    hideDetailsSettings: ['hideFirstHandle', 'hideSecondHandle']
+    hideDetailsSettings: ['hideFirstHandle', 'hideSecondHandle'],
   },
   {
     name: 'lego',
     component: Lego,
-    hideSettings: []
-  }
+    hideSettings: [],
+  },
 ]
 
 // export const getSvgHideSettingsFromName = (name, useDetailConfig) => {
@@ -108,7 +108,7 @@ const svgList: SvgListType[] = [
 
 export const getRandomSvgs = (count: number, usedPictures?: string[]) => {
   const usedSvgList = [
-    ...(usedPictures ? getUsedPicturesConf(usedPictures) : svgList)
+    ...(usedPictures ? getUsedPicturesConf(usedPictures) : svgList),
   ]
 
   return getRandomElementFromList(usedSvgList, count).map(
@@ -116,9 +116,12 @@ export const getRandomSvgs = (count: number, usedPictures?: string[]) => {
   )
 }
 
-export const getRandomSvgsWithChangeConfig = (count: number, usedPictures?: string[]): SvgListType[] => {
+export const getRandomSvgsWithChangeConfig = (
+  count: number,
+  usedPictures?: string[]
+): SvgListType[] => {
   const usedSvgList = [
-    ...(usedPictures ? getUsedPicturesConf(usedPictures) : svgList)
+    ...(usedPictures ? getUsedPicturesConf(usedPictures) : svgList),
   ]
   return getRandomElementFromList(usedSvgList, count)
 }
@@ -128,10 +131,13 @@ const getUsedPicturesConf = (usedPictures: string[]) => {
 }
 
 export const getHideConfig = (elementsToHideList: string[] = []) => {
-  const elementsToHideObject = elementsToHideList.reduce((result: { [key: string]: boolean }, element) => {
-    result[element] = false
-    return result
-  }, {})
+  const elementsToHideObject = elementsToHideList.reduce(
+    (result: { [key: string]: boolean }, element) => {
+      result[element] = false
+      return result
+    },
+    {}
+  )
   elementsToHideObject[getRandomElementFromList(elementsToHideList, 1)] = true
   return elementsToHideObject
 }

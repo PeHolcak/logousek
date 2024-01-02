@@ -11,7 +11,6 @@ import { useTranslateFunctions } from '@hooks/useTranslateFunctions'
 
 import * as S from './styled'
 
-
 const getActivities = () =>
   activityConf.reduce(
     (result: { value: string; label: string }[], activities: ActivityType) => {
@@ -86,10 +85,10 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
 
         <S.FilterButtonRow span={24}>
           <Button type="primary" onClick={handleFormSubmit}>
-            {tCommon("buttons.filter")}
+            {tCommon('buttons.filter')}
           </Button>
           <Button type="default" onClick={onFilterReset}>
-            {tCommon("buttons.reset")}
+            {tCommon('buttons.reset')}
           </Button>
         </S.FilterButtonRow>
       </Row>

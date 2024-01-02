@@ -1,10 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react'
 
-import Label, { LabelProps } from '@components/label';
+import Label, { LabelProps } from '@components/label'
 
 const meta: Meta<LabelProps> = {
   title: 'ApplicationModel/Components/Label',
-  component: (props) => <div style={{ width: "100px" }}><Label {...props} /></div>,
+  component: (props) => (
+    <div style={{ width: '100px' }}>
+      <Label {...props} />
+    </div>
+  ),
   argTypes: {
     children: {
       control: 'text',
@@ -14,19 +18,18 @@ const meta: Meta<LabelProps> = {
     },
     color: {
       control: 'color',
-    }
-
+    },
   },
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<LabelProps>;
+type Story = StoryObj<LabelProps>
 
 export const Primary: Story = {
   args: {
     children: 'label',
-    content: "label",
-    color: "#f0f"
+    content: 'label',
+    color: '#f0f',
   },
-};
+}

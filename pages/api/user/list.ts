@@ -18,12 +18,13 @@ type ListUsersRequest = NextApiRequest & {
   query: { searchUserString?: string; limit?: number; cursor?: number }
 }
 
-
-export type listUsersDtoOut = {
-  users: User[]
-  totalUsersCount: number
-  warnings?: Warnings
-} | ErrorDtoOut
+export type listUsersDtoOut =
+  | {
+      users: User[]
+      totalUsersCount: number
+      warnings?: Warnings
+    }
+  | ErrorDtoOut
 
 async function listUsersMiddleware(
   req: ListUsersRequest,

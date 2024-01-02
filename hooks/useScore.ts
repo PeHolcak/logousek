@@ -6,49 +6,50 @@ import { activityGetScore } from 'calls/admin-page-calls'
 export const NOW = new Date()
 
 export const NOW_ISO = NOW.toISOString()
-export const TODAY_MIDNIGHT_ISO = new Date(new Date(NOW.getFullYear(), NOW.getMonth(), NOW.getDate())).toISOString()
+export const TODAY_MIDNIGHT_ISO = new Date(
+  new Date(NOW.getFullYear(), NOW.getMonth(), NOW.getDate())
+).toISOString()
 
 export const useScore = (selectUser?: string) => {
-    const [scoreList, setScoreList] = useState<Score[] | undefined>()
-    const onFilterChange = useCallback(
-        ({
+  const [scoreList, setScoreList] = useState<Score[] | undefined>()
+  const onFilterChange = useCallback(
+    ({
+      from,
+      to,
+      activityTypes,
+    }: {
+      from?: string
+      to?: string
+      activityTypes?: string[]
+    }) => {
+      const getData = async () => {
+        try {
+          const res = await activityGetScore(
+            selectUser,
             from,
             to,
-            activityTypes,
-        }: {
-            from?: string
-            to?: string
-            activityTypes?: string[]
-        }) => {
-            const getData = async () => {
-                try {
-                    const res = await activityGetScore(
-                        selectUser,
-                        from,
-                        to,
-                        activityTypes
-                    )
+            activityTypes
+          )
 
-                    if (res?.data?.data) {
-                        setScoreList(res?.data?.data)
-                    } else {
-                        setScoreList([])
-                    }
-
-                } catch (error) {
-                    console.error('error', error)
-                }
-            }
-            getData()
-        },
-        [selectUser]
-    )
-
-    useEffect(() => {
-        if (!!selectUser) {
-            onFilterChange({ from: TODAY_MIDNIGHT_ISO, to: NOW_ISO })
+          if (res?.data?.data) {
+            setScoreList(res?.data?.data)
+          } else {
+            setScoreList([])
+          }
+        } catch (error) {
+          console.error('error', error)
         }
-    }, [onFilterChange, selectUser])
+      }
+      getData()
+    },
+    [selectUser]
+  )
 
-    return { onFilterChange, scoreList }
+  useEffect(() => {
+    if (!!selectUser) {
+      onFilterChange({ from: TODAY_MIDNIGHT_ISO, to: NOW_ISO })
+    }
+  }, [onFilterChange, selectUser])
+
+  return { onFilterChange, scoreList }
 }

@@ -32,7 +32,7 @@ const ActivityHeader: React.FC<ActivityHeaderProps> = ({
         modalContext.closeModal()
       },
       onStornoClick: modalContext.closeModal,
-      header: tActivity("goBackModal.wantToLeave"),
+      header: tActivity('goBackModal.wantToLeave'),
       autoWidth: true,
     })
   }, [modalContext, router, tActivity])
@@ -43,7 +43,7 @@ const ActivityHeader: React.FC<ActivityHeaderProps> = ({
         <CloseIcon onClick={routeBack} />
       </S.CloseIconWrapper>
       <S.TitleWrapper>
-        <P3 margin='0'>{title}</P3>
+        <P3 margin="0">{title}</P3>
       </S.TitleWrapper>
       <Score tasksCount={tasksCount} currentTask={currentTask} />
     </HeaderWrapper>

@@ -2,9 +2,13 @@ import React from 'react'
 import { Svg, ClipPathElement } from './styled'
 import { DEFAULT_VIEWBOX } from '../../../../constants/svg-conf'
 
-export default function Sun ({ changeConfig = {}, customViewBox }) {
+export default function Sun({ changeConfig = {}, customViewBox }) {
   return (
-    <Svg xmlns="http://www.w3.org/2000/svg" viewBox={customViewBox || DEFAULT_VIEWBOX} rotate={changeConfig.rotate}>
+    <Svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox={customViewBox || DEFAULT_VIEWBOX}
+      rotate={changeConfig.rotate}
+    >
       <defs>
         <clipPath id="clip-path">
           <circle fill="none" cx="384.38" cy="454.56" r="298.61" />

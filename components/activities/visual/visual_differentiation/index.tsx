@@ -6,7 +6,6 @@ import { useTranslateFunctions } from '@hooks/useTranslateFunctions'
 
 import CardList from './visual-card-list'
 
-
 export type AddictionObjType = {
   rotateDegrees?: number
   hideConfing?: { [key: string]: boolean }
@@ -38,14 +37,14 @@ export default forwardRef(function VisualDifActivity(
   }))
 
   const onCardClickHandle = (cardName?: string) => {
-    onHandleChanged(Boolean(cardName));
-    setSelectedName(cardName);
+    onHandleChanged(Boolean(cardName))
+    setSelectedName(cardName)
   }
 
   return (
     <div>
-      <P5 align="center" type="ghost">
-        {tActivity("visual.visualDifferentation.description")}
+      <P5 align="center" type="ghost" margin="0 0 16px 0">
+        {tActivity('visual.visualDifferentation.description')}
       </P5>
       <CardList
         cards={Array.isArray(cards) ? cards : []}

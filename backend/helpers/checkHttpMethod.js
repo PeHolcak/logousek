@@ -1,5 +1,5 @@
 const checkHttpMethod = (requestedMethod, method) => {
-    return method && method === requestedMethod
+  return method && method === requestedMethod
 }
 
-export default checkHttpMethod;
+export default checkHttpMethod

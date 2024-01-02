@@ -26,7 +26,7 @@ const Icons: React.FC = () => {
   )
 
   const refreshUserScore = useMemo(
-    () => gameMenuData?.refreshUserScore ?? (() => { }),
+    () => gameMenuData?.refreshUserScore ?? (() => {}),
     [gameMenuData?.refreshUserScore]
   )
 

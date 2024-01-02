@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Section } from "../styled";
+import styled from 'styled-components'
+import { Section } from '../styled'
 import { devices } from '@constants/screens-conf'
 
 export const IntroWrapper = styled(Section)`
@@ -58,7 +58,6 @@ export const DescriptionWrapper = styled.div`
 `
 
 export const ButtonRow = styled.div`
-  
   display: none;
 
   @media ${devices.laptop} {
@@ -74,7 +73,6 @@ export const Description = styled.div`
     -webkit-box-orient: vertical;
   }
 `
-
 
 export const Hill = styled.div`
   position: absolute;

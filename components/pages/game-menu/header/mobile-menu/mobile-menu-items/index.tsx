@@ -92,13 +92,13 @@ const MobileMenuItems: React.FC<MobileMenuItemsProps> = ({
     () =>
       (sessionData?.data?.user as any)?.role === 'ADMIN'
         ? [
-          {
-            name: 'adminPages',
-            icon: 'people',
-            title: 'Stránky pro administrátory',
-            onClick: onAdminPagesRedirect,
-          },
-        ]
+            {
+              name: 'adminPages',
+              icon: 'people',
+              title: 'Stránky pro administrátory',
+              onClick: onAdminPagesRedirect,
+            },
+          ]
         : [],
     [onAdminPagesRedirect, sessionData?.data?.user]
   )

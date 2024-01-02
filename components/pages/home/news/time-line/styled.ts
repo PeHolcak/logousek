@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { devices } from "constants/screens-conf";
+import styled from 'styled-components'
+import { devices } from 'constants/screens-conf'
 
 export const Wrapper = styled.div`
   position: relative;
@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   font-weight: 600;
   font-size: 1.2rem;
   width: 100%;
-`;
+`
 
 export const CenterLine = styled.div`
   position: absolute;
@@ -22,4 +22,4 @@ export const CenterLine = styled.div`
   @media ${devices.laptop} {
     display: block;
   }
-`;
+`

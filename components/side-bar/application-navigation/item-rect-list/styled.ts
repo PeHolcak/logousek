@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const ListWrapper = styled.ul`
   display: grid;
@@ -8,4 +8,4 @@ export const ListWrapper = styled.ul`
   padding-inline-start: 0px;
   max-width: 320px;
   margin: 0px;
-`;
+`

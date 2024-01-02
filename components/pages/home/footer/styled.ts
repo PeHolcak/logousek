@@ -34,7 +34,6 @@ export const ClickableIconContainer = styled.div`
   max-width: 10rem;
 `
 
-
 export const FooterSection = styled.div`
   display: flex;
   flex-direction: column;

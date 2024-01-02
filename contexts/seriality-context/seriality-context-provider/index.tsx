@@ -2,7 +2,7 @@ import React, {
   useState,
   useEffect,
   forwardRef,
-  useImperativeHandle
+  useImperativeHandle,
 } from 'react'
 import SerialityContext from '..'
 import { SvgWrapper } from './styled'
@@ -14,12 +14,12 @@ export type SerialityContextProviderInterface = {
 }
 
 type SerialityContextProviderType = {
-  children: any,
-  type: string,
+  children: any
+  type: string
   currentTask: number
 }
 
-export type CardType = { img: React.ReactNode, keyImage: string }
+export type CardType = { img: React.ReactNode; keyImage: string }
 
 export type SerialityContextValueType = {
   cards: CardType[]
@@ -32,7 +32,6 @@ export default forwardRef(function DndContextProvider(
   { children, type, currentTask }: SerialityContextProviderType,
   ref
 ) {
-
   const [correctCards, setCorrectCards] = useState<string[]>([])
   const [cards, setCards] = useState<CardType[]>([])
 
@@ -40,46 +39,38 @@ export default forwardRef(function DndContextProvider(
     const svgs = threePictures[currentTask - 1] || threePictures[0]
     const svgInCardType = svgs?.map((Card: React.ReactNode, index: number) => {
       return {
-        img: (
-          <SvgWrapper>
-            {Card}
-          </SvgWrapper>
-        ),
+        img: <SvgWrapper>{Card}</SvgWrapper>,
         keyImage: `image_${index}`,
       }
     })
-    setCorrectCards(svgInCardType.map(svg => svg.keyImage))
-    setCards(
-      shuffle(
-        svgInCardType
-      )
-    )
+    setCorrectCards(svgInCardType.map((svg) => svg.keyImage))
+    setCards(shuffle(svgInCardType))
   }, [currentTask, type])
 
-  useImperativeHandle(ref, (): SerialityContextProviderInterface => {
-    return {
-      checkResult: () => {
-        const isCorrect = cards.reduce((result, current, index) => {
-          current.keyImage !== correctCards[index] && (result = false)
-          return result;
-        }, true)
-        return isCorrect
+  useImperativeHandle(
+    ref,
+    (): SerialityContextProviderInterface => {
+      return {
+        checkResult: () => {
+          const isCorrect = cards.reduce((result, current, index) => {
+            current.keyImage !== correctCards[index] && (result = false)
+            return result
+          }, true)
+          return isCorrect
+        },
       }
-    }
-  },
-    [cards, correctCards])
+    },
+    [cards, correctCards]
+  )
 
-  const serialityContextValue: SerialityContextValueType
-    = {
+  const serialityContextValue: SerialityContextValueType = {
     cards,
     setCards,
-    correctCards
+    correctCards,
   }
 
   return (
-    <SerialityContext.Provider
-      value={serialityContextValue}
-    >
+    <SerialityContext.Provider value={serialityContextValue}>
       {children}
     </SerialityContext.Provider>
   )

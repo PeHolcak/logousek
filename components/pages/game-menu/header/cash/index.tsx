@@ -5,7 +5,6 @@ import GameMenuContext from '@contexts/game-menu-context'
 import * as S from './styled'
 import CashValue from '../cash-value'
 
-
 const Cash: React.FC = () => {
   const gameMenuData = useContext(GameMenuContext)
   return (

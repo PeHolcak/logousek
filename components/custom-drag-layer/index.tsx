@@ -10,19 +10,22 @@ const layerStyles: CSSProperties = {
   left: 0,
   top: 0,
   width: '100%',
-  height: '100%'
+  height: '100%',
 }
-function getItemStyles(initialOffset: XYCoord | null, currentOffset: XYCoord | null) {
-  if ((initialOffset === null) || (currentOffset === null)) {
+function getItemStyles(
+  initialOffset: XYCoord | null,
+  currentOffset: XYCoord | null
+) {
+  if (initialOffset === null || currentOffset === null) {
     return {
-      display: 'none'
+      display: 'none',
     }
   }
   const { x, y } = currentOffset
   const transform = `translate(${x}px, ${y}px)`
   return {
     transform,
-    WebkitTransform: transform
+    WebkitTransform: transform,
   }
 }
 
@@ -33,14 +36,13 @@ const CustomDragLayer: React.FC = () => {
       itemType: monitor.getItemType(),
       initialOffset: monitor.getInitialSourceClientOffset(),
       currentOffset: monitor.getSourceClientOffset(),
-      isDragging: monitor.isDragging()
+      isDragging: monitor.isDragging(),
     }))
   function renderItem() {
     switch (itemType) {
       case 'image':
         return (
-          <DragCard reference={item.reference}
-            selected={false}>
+          <DragCard reference={item.reference} selected={false}>
             {item.img}
           </DragCard>
         )
@@ -55,9 +57,7 @@ const CustomDragLayer: React.FC = () => {
 
   return (
     <div style={layerStyles}>
-      <div
-        style={getItemStyles(initialOffset, currentOffset)}
-      >
+      <div style={getItemStyles(initialOffset, currentOffset)}>
         {renderItem()}
       </div>
     </div>

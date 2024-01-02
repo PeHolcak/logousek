@@ -14,7 +14,7 @@ type UserResultsProps = {
 }
 
 const UserResults: React.FC<UserResultsProps> = ({ selectedUser }) => {
-  const { onFilterChange, scoreList } = useScore(selectedUser);
+  const { onFilterChange, scoreList } = useScore(selectedUser)
   const { tAdmin } = useTranslateFunctions()
   return (
     <Row style={{ gap: '16px' }}>
@@ -25,16 +25,20 @@ const UserResults: React.FC<UserResultsProps> = ({ selectedUser }) => {
           isUserSelected={!!selectedUser}
         />
       </Col>
-      {Array.isArray(scoreList) && scoreList.length ? <>
+      {Array.isArray(scoreList) && scoreList.length ? (
+        <>
+          <Col span={24}>
+            <Chart scoreList={scoreList} />
+          </Col>
+          <Col span={24}>
+            <ScoreListItem scoreList={scoreList} />
+          </Col>
+        </>
+      ) : (
         <Col span={24}>
-          <Chart scoreList={scoreList} />
+          <P4 align="center">{tAdmin('noData')}</P4>
         </Col>
-        <Col span={24}>
-          <ScoreListItem scoreList={scoreList} />
-        </Col></> :
-        <Col span={24}>
-          <P4 align='center'>{tAdmin("noData")}</P4>
-        </Col>}
+      )}
     </Row>
   )
 }

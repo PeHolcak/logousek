@@ -30,7 +30,7 @@ export const ProgressBarWrap = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  
+
   @media ${devices.tablet} {
     width: auto;
   }

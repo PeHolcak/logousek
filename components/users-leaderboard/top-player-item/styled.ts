@@ -36,7 +36,7 @@ type TitleType = {
   isCurrentPlayer: boolean
 }
 
-export const Title = styled(P3) <TitleType>`
+export const Title = styled(P3)<TitleType>`
   max-width: 88px;
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
 
@@ -55,7 +55,7 @@ export const Title = styled(P3) <TitleType>`
       : null}
 
   @media ${devices.tablet} {
-   max-width: 100px;
+    max-width: 100px;
     font-size: ${({ theme }) => theme.typography.fontSize.md};
   }
 `

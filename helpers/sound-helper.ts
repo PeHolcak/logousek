@@ -22,12 +22,18 @@ export type AudioDiffConfType = {
   }[]
 }
 
-export type ActivityName = "word_differentiation" | "audio_memory" | "sound_differentiation" | "syllables"
+export type ActivityName =
+  | 'word_differentiation'
+  | 'audio_memory'
+  | 'sound_differentiation'
+  | 'syllables'
 
-const getAudioConf = (activityName: Omit<"syllables", ActivityName>): AudioDiffConfType => {
-  if (activityName === "word_differentiation") {
+const getAudioConf = (
+  activityName: Omit<'syllables', ActivityName>
+): AudioDiffConfType => {
+  if (activityName === 'word_differentiation') {
     return getWordDiffConf()
-  } else if (activityName === "audio_memory") {
+  } else if (activityName === 'audio_memory') {
     return getSoundConf()
   } else {
     return getSoundConf()
@@ -37,8 +43,6 @@ const getAudioConf = (activityName: Omit<"syllables", ActivityName>): AudioDiffC
 const getSyllablesConf = () => {
   return getSyllables()
 }
-
-
 
 export const getAudioConfElement = (
   difficulty: string,
@@ -59,12 +63,11 @@ export const getAudioConfElement = (
   }
 }
 
-export const getSyllablesConfElement = (
-  difficulty: string
-): Syllable => {
+export const getSyllablesConfElement = (difficulty: string): Syllable => {
   const conf = getSyllablesConf()
   const audiosArray = [...conf[difficulty]]
-  const audioElement: Syllable = getRandomElementFromList(audiosArray, 1)[0] || {}
+  const audioElement: Syllable =
+    getRandomElementFromList(audiosArray, 1)[0] || {}
   return audioElement
 }
 
@@ -74,23 +77,21 @@ export const checkAnswer = (
   selectedCardName: string,
   activityName: ActivityName
 ) => {
-
   const audioConf = getAudioConf(activityName)
-  const audiosArray = audioConf[difficulty] ? audioConf[difficulty] : audioConf[1]
+  const audiosArray = audioConf[difficulty]
+    ? audioConf[difficulty]
+    : audioConf[1]
   const correctAnswer = audiosArray.find(
     (audio) => audio.name === audioName
   )?.correct
   return correctAnswer?.name === selectedCardName
-
 }
-
 
 export const checkSyllablesAnswer = (
   difficulty: string,
   name: string,
   cardNames: string[]
 ) => {
-
   const syllablesConf = getSyllablesConf()
   const syllablesArray = syllablesConf[difficulty]
   const correctAnswer = syllablesArray.find(
@@ -102,11 +103,10 @@ export const checkSyllablesAnswer = (
       const isTrue = pair.second.name === cardNames[index]
 
       if (isTrue) {
-        return result;
+        return result
       }
       return false
     }, true)
   }
   return false
 }
-

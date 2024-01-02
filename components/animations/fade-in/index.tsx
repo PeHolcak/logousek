@@ -1,7 +1,7 @@
 import React from 'react'
 import Animate from '../animate'
 
-type FadeInProps = {children: React.ReactElement}
+type FadeInProps = { children: React.ReactElement }
 
 const FadeIn: React.FC<FadeInProps> = ({ children }) => {
   return (

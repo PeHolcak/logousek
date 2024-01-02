@@ -1,11 +1,19 @@
 import React from 'react'
 import Item from './item'
 import { ItemType } from './item'
-import * as S from "./styled"
+import * as S from './styled'
 
-type ItemListProps = { itemList: Omit<ItemType, "isMenuShow">[], setIsMenuShow: (value: boolean) => void, isMenuShow: boolean }
+type ItemListProps = {
+  itemList: Omit<ItemType, 'isMenuShow'>[]
+  setIsMenuShow: (value: boolean) => void
+  isMenuShow: boolean
+}
 
-const ItemList: React.FC<ItemListProps> = ({ itemList, isMenuShow, setIsMenuShow }) => {
+const ItemList: React.FC<ItemListProps> = ({
+  itemList,
+  isMenuShow,
+  setIsMenuShow,
+}) => {
   const arrayItemList = Array.isArray(itemList) ? itemList : []
 
   const onItemClickHandle = (onClickCallback: () => void) => {

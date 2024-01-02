@@ -26,13 +26,13 @@ const SoundButton: React.FC<SoundButtonProps> = ({
         fontSize={fontSize}
         {...(isPlayed
           ? {
-            onClick: stopAudio,
-            icon: 'pause_circle_outline',
-          }
+              onClick: stopAudio,
+              icon: 'pause_circle_outline',
+            }
           : {
-            onClick: playAudio,
-            icon: 'play_circle_outline',
-          })}
+              onClick: playAudio,
+              icon: 'play_circle_outline',
+            })}
       />
       <S.ReferenceWrapper>
         <Reference reference={reference} />

@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components'
 import { P2, P5 } from '@components/typography/paragraph'
 import { devices } from '@constants/screens-conf'
 
-
 type CharacterImageProps = {
   src: string
 }
@@ -29,14 +28,11 @@ export const Image = styled.div<CharacterImageProps>`
   }
 `
 
-export const Label = styled(P2)`
-`
+export const Label = styled(P2)``
 
 export const Cost = styled(P5)`
   padding: 8px 0;
 `
-
-
 
 type StoreItemContainerProps = {
   isOwned: boolean
@@ -47,9 +43,8 @@ export const StoreItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  
-  position: relative;
 
+  position: relative;
 `
 
 export const ImageContainer = styled.div`
@@ -59,9 +54,12 @@ export const ImageContainer = styled.div`
   justify-content: center;
 `
 export const ImageWrapper = styled.div<StoreItemContainerProps>`
-  ${({ isOwned, cost }) => isOwned || !cost ? null : css`
-    filter:  grayscale(100%) brightness(0.5) blur(5px);
-  `}
+  ${({ isOwned, cost }) =>
+    isOwned || !cost
+      ? null
+      : css`
+          filter: grayscale(100%) brightness(0.5) blur(5px);
+        `}
 
   display: flex;
   flex-direction: column;

@@ -20,6 +20,7 @@ import * as S from './styled'
 import Loading from '@components/loading'
 import UserSettingsContext from '@contexts/user-settings-context'
 import { P3 } from '@components/typography/paragraph'
+import { useTranslateFunctions } from '@hooks/useTranslateFunctions'
 
 type UserStoreProps = {
   userScore: number
@@ -30,6 +31,7 @@ const UserStore: React.FC<UserStoreProps> = ({
   userScore,
   refreshUserScore,
 }) => {
+  const { tError, tActivity } = useTranslateFunctions()
   const [selectedCharacter, setSelectedCharacter] = useState('deer')
   const [selectedAuras, setSelectedAuras] = useState('green')
   const [messageApi] = message.useMessage()
@@ -41,7 +43,7 @@ const UserStore: React.FC<UserStoreProps> = ({
     avaibleItems,
     avaibleItemsLoadingState,
     fetchShopData,
-    currentUserScore
+    currentUserScore,
   } = useShop(messageApi, refreshUserScore, userScore)
   const themeContextData = useContext(ThemeContext)
 
@@ -162,14 +164,16 @@ const UserStore: React.FC<UserStoreProps> = ({
     case 'loading':
       return <Loading />
     case 'error':
-      return <P3>Nepodařilo se načíst</P3>
+      return <P3>{tError('getDataError')}</P3>
     default:
       return (
         <S.UserStoreWrap>
           <S.StoreContainer>
-            {showLoading ? <S.LoadingWrap>
-              <Loading hideText />
-            </S.LoadingWrap> : null}
+            {showLoading ? (
+              <S.LoadingWrap>
+                <Loading hideText />
+              </S.LoadingWrap>
+            ) : null}
             <S.StoreContent>
               <H2 align="center">Character</H2>
               <S.ItemList>{characters}</S.ItemList>
@@ -183,9 +187,7 @@ const UserStore: React.FC<UserStoreProps> = ({
               size={ButtonSizesEnum.s}
               backgroundColor={themeContextData?.colors?.tertiary}
               onClick={onSubmitHandler}
-              disabled={
-                showLoading
-              }
+              disabled={showLoading}
             >
               Potvrdit
             </Button>

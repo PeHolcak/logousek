@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import { devices } from "@constants/screens-conf";
+import styled from 'styled-components'
+import { devices } from '@constants/screens-conf'
 
 export const SlideWrapper = styled.div`
   width: 100vw;
-  min-width: 100vw;    
+  min-width: 100vw;
   height: fit-content;
   min-height: calc(100vh - 70px);
   display: flex;
@@ -24,8 +24,7 @@ export const SlideWrapper = styled.div`
   @media ${devices.laptopL} {
     padding: 0.8rem 8rem;
   }
-`;
-
+`
 
 export const GameTypeDetail = styled.section`
   display: flex;
@@ -42,9 +41,7 @@ export const GameTypeDetail = styled.section`
   @media ${devices.laptopL} {
     margin: 7rem;
   }
-`;
-
-
+`
 
 export const GamesTypeHeader = styled.h1`
   text-align: center;
@@ -54,20 +51,20 @@ export const GamesTypeHeader = styled.h1`
   @media ${devices.laptop} {
     margin-bottom: 3rem;
   }
-`;
+`
 
 export const LabelWrapper = styled.div`
   display: flex;
-`;
+`
 
 export const GamesTypeContent = styled.p`
   color: ${({ theme }) => theme.colors.white};
-`;
+`
 
 export const CitationParagraph = styled.cite`
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
   text-align: end;
-`;
+`
 
 export const GameList = styled.section`
   display: flex;
@@ -77,10 +74,10 @@ export const GameList = styled.section`
   gap: 1.4rem;
 
   @media ${devices.laptop} {
-  flex: 3;  
+    flex: 3;
   }
 
   @media ${devices.laptopL} {
     gap: 0rem;
   }
-`;
+`

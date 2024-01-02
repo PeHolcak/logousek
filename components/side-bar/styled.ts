@@ -43,7 +43,7 @@ export const SidebarItemsWrapper = styled.div<SidebarItemsWrapperProps>`
     padding: 0;
     height: 100vh;
     flex-direction: row;
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
     align-content: flex-start;
     width: 50vw;
     padding: 0;
@@ -59,7 +59,6 @@ export const SidebarItemsWrapper = styled.div<SidebarItemsWrapperProps>`
       width: auto;
       padding: 0px;
     }
-
 
     & h4 {
       color: ${({ theme }) => theme.colors.black};

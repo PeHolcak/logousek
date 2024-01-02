@@ -26,6 +26,4 @@ export const ProfileIcon = styled.i`
   color: ${({ theme }) => theme.colors.white};
 `
 
-export const UserName = styled(TextWrap)`
- 
-`
+export const UserName = styled(TextWrap)``

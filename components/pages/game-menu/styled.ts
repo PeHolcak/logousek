@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const MenuWrapper = styled.div`
   position: relative;
@@ -6,4 +6,4 @@ export const MenuWrapper = styled.div`
   margin: 0px;
   display: flex;
   flex-direction: column;
-`;
+`

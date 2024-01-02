@@ -8,7 +8,9 @@ export const TemplateWrapper = styled.div<TemplateWrapperProps>`
   width: 200vw;
   display: flex;
   transition-duration: 0.5s;
-  transform: translateX(${({ isQuesionpart }) => isQuesionpart ? '-100' : '0'}vw);
+  transform: translateX(
+    ${({ isQuesionpart }) => (isQuesionpart ? '-100' : '0')}vw
+  );
 `
 
 export const ShowedPart = styled.div`
@@ -26,7 +28,6 @@ export const AnswerPart = styled.div`
   gap: 0.5rem;
   flex-wrap: wrap;
   display: flex;
-
 `
 
 export const ActivityCardList = styled.div`

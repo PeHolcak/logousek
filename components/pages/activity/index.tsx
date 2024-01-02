@@ -1,6 +1,4 @@
-import React, {
-  useContext,
-} from 'react'
+import React, { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
 
 import Timer from '@components/timer'
@@ -71,7 +69,7 @@ const Activity = () => {
       title: (
         <S.SendButton>
           <i className="material-icons">done</i>
-          <span>{tCommon("buttons.confirm")}</span>
+          <span>{tCommon('buttons.confirm')}</span>
         </S.SendButton>
       ),
       clickable: canBeEvaluated,

@@ -18,10 +18,10 @@ const TopPlayerItem: React.FC<TopPlayerItemProps> = ({
   title,
   score,
   isCurrentPlayer,
-  rank
+  rank,
 }) => {
   const image = useMemo(() => {
-    const notNullrank = typeof rank === "number" ? rank + 1 : undefined
+    const notNullrank = typeof rank === 'number' ? rank + 1 : undefined
     switch (notNullrank) {
       case 1:
         return publicImages.medals.gold

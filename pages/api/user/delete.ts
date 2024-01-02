@@ -10,8 +10,8 @@ import { ErrorDtoOut, Warnings } from 'types/api-types'
 
 export type deleteUsersDtoOut =
   | {
-    warnings?: Warnings
-  }
+      warnings?: Warnings
+    }
   | ErrorDtoOut
 
 async function deleteUserMiddleware(

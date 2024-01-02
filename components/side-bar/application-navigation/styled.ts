@@ -8,9 +8,9 @@ export const ApplicationNavigationWrapper = styled.div`
 `
 
 export const ItemRectListWrapper = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `
 
 export const DarkModeSwitchWrapper = styled.div<{ isMenuShow: boolean }>`
@@ -19,7 +19,8 @@ export const DarkModeSwitchWrapper = styled.div<{ isMenuShow: boolean }>`
   bottom: 24px;
   left: 4px;
   transition-duration: 0.5s;
-  transform: ${({ isMenuShow }) => isMenuShow ? "rotate(0deg)" : "rotate(90deg)"};
+  transform: ${({ isMenuShow }) =>
+    isMenuShow ? 'rotate(0deg)' : 'rotate(90deg)'};
 
   @media ${devices.laptop} {
     display: block;

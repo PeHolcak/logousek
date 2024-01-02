@@ -1,11 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const GameSamplesWrapper = styled.section``
 
 type GameSamplesImageProps = {
   src: string
 }
-
 
 export const GameSamplesImageWrapper = styled.div`
   display: flex;
@@ -17,11 +16,9 @@ export const GameSamplesImage = styled.div<GameSamplesImageProps>`
   height: 600px;
   display: flex;
   justify-content: center;
-  background-image: url("${({ src }) => src}");
+  background-image: url('${({ src }) => src}');
   background-size: cover;
 `
-
-
 
 export const StyledImage = styled.img`
   padding: 10px;

@@ -1,58 +1,57 @@
-import { styled } from '@storybook/theming';
-import { zIndex } from 'styles';
-import { lightColors } from 'styles/colors';
+import { styled } from '@storybook/theming'
+import { zIndex } from 'styles'
+import { lightColors } from 'styles/colors'
 
 export const MermaidWrapper = styled.div`
   // background: red;
 
-.nodes g > line {
-display: none !important;
-}
+  .nodes g > line {
+    display: none !important;
+  }
 
-.label .classTitle > div {
-margin-top: 12px !important;
-}
+  .label .classTitle > div {
+    margin-top: 12px !important;
+  }
 
-.classTitle {
-height: 48px !important;
-}
+  .classTitle {
+    height: 48px !important;
+  }
 
-rect {
+  rect {
     fill: ${lightColors.lightGrey} !important;
     stroke: ${lightColors.lightGrey} !important;
-}
+  }
 
-.green > rect {
+  .green > rect {
     fill: ${lightColors.lightGreen} !important;
     stroke: ${lightColors.lightGreen} !important;
-}
+  }
 
-.blue > rect {
+  .blue > rect {
     fill: ${lightColors.blue} !important;
     stroke: ${lightColors.blue} !important;
-}
+  }
 
-.oval > rect {
+  .oval > rect {
     rx: 50%;
     ry: 50%;
-}
+  }
 
-.edgeLabels > .edgeTerminals > foreignObject {
+  .edgeLabels > .edgeTerminals > foreignObject {
     overflow: visible;
-}
+  }
 
-.edgeTerminals > .inner > foreignObject {
+  .edgeTerminals > .inner > foreignObject {
     overflow: visible;
+  }
 
-}
-
-.edgeTerminals > .inner > foreignObject span,.edgeTerminals > foreignObject span {
+  .edgeTerminals > .inner > foreignObject span,
+  .edgeTerminals > foreignObject span {
     overflow: visible;
     font-weight: 900;
     color: ${lightColors.lightGrey};
 
     position: relative;
     z-index: ${zIndex.xxl};
-}
-
+  }
 `

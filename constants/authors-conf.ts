@@ -1,17 +1,16 @@
-import publicImages from "./public-images"
+import publicImages from './public-images'
 
 type AuthorConfType = {
-  key: string;
-  name: string;
+  key: string
+  name: string
   role: {
-    name: string;
-    color: string;
-  }[];
-  profilePic: string;
-  minimized: boolean;
-  aboutAuthor: string;
+    name: string
+    color: string
+  }[]
+  profilePic: string
+  minimized: boolean
+  aboutAuthor: string
 }[]
-
 
 const AUTHORS_CONF: AuthorConfType = [
   {
@@ -21,7 +20,7 @@ const AUTHORS_CONF: AuthorConfType = [
     profilePic: publicImages.profilePic.daniel,
     minimized: true,
     aboutAuthor:
-      'Dan se specializuje na formulování bussiness požadavků a byl pověřen sepsáním bussiness modelu pro logopedickou aplikaci.'
+      'Dan se specializuje na formulování bussiness požadavků a byl pověřen sepsáním bussiness modelu pro logopedickou aplikaci.',
   },
   {
     key: 'VeronikaPouchova',
@@ -30,17 +29,20 @@ const AUTHORS_CONF: AuthorConfType = [
     profilePic: publicImages.profilePic.veronika,
     minimized: false,
     aboutAuthor:
-      'Verča přišla s nápadem vytvoření aplikace pro předškolní děti, která by se využívala v rámci logopedické prevence. Navrhla jednotlivé hry, které rozvíjí dílčí oblasti.'
+      'Verča přišla s nápadem vytvoření aplikace pro předškolní děti, která by se využívala v rámci logopedické prevence. Navrhla jednotlivé hry, které rozvíjí dílčí oblasti.',
   },
   {
     key: 'PetrHolcak',
     name: 'Petr Holčák',
-    role: [{ name: 'Vývoj', color: 'green' }, { name: 'Návrh systému', color: 'blue' }],
+    role: [
+      { name: 'Vývoj', color: 'green' },
+      { name: 'Návrh systému', color: 'blue' },
+    ],
     profilePic: publicImages.profilePic.petr,
     minimized: true,
     aboutAuthor:
-      'Petr se zaměřuje na vývoj aplikace. Jeho práce zahrnuje nejen programování, ale také sepsání aplikačního modelu.'
-  }
+      'Petr se zaměřuje na vývoj aplikace. Jeho práce zahrnuje nejen programování, ale také sepsání aplikačního modelu.',
+  },
 ]
 
 export default AUTHORS_CONF

@@ -3,7 +3,7 @@ import React, {
   useEffect,
   forwardRef,
   useImperativeHandle,
-  useCallback
+  useCallback,
 } from 'react'
 
 import { getEmptyArray } from '@helpers/array-helper'
@@ -27,7 +27,6 @@ type DndContextProviderType = {
   usedCards: CardsInGame
 }
 
-
 export type DndContextValueType = {
   avaibleCards: CardsInGame
   setAvaibleCards: React.Dispatch<React.SetStateAction<CardsInGame>>
@@ -36,7 +35,6 @@ export type DndContextValueType = {
   aspectRatio: string
   setSelectedCard: (value?: string) => void
   selectedCard: string | undefined
-
 }
 
 export default forwardRef(function DndContextProvider(
@@ -72,7 +70,9 @@ export default forwardRef(function DndContextProvider(
   )
 
   const onSetSelectedCardChangeHandler = useCallback((value?: string) => {
-    setSelectedCard((prevState?: string) => prevState === value ? undefined : value)
+    setSelectedCard((prevState?: string) =>
+      prevState === value ? undefined : value
+    )
   }, [])
 
   const dndContextValue: DndContextValueType = {
@@ -82,7 +82,7 @@ export default forwardRef(function DndContextProvider(
     setPlacedCards,
     aspectRatio,
     setSelectedCard: onSetSelectedCardChangeHandler,
-    selectedCard
+    selectedCard,
   }
 
   return (

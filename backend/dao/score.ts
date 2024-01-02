@@ -33,7 +33,6 @@ export const getScoreByUserId = async ({
   })
 }
 
-
 export const addScore = async (
   userId: string,
   score: number,

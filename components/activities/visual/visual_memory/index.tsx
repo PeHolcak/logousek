@@ -14,7 +14,6 @@ import { shuffle } from '@helpers/array-helper'
 import * as S from './styled'
 import ActivityCard from '../../../activity-card'
 
-
 export default forwardRef(function VisualMemoryActivity(
   { complexity, onHandleChanged }: ActivityProps,
   ref
@@ -36,7 +35,6 @@ export default forwardRef(function VisualMemoryActivity(
       )
     },
   }))
-
 
   useEffect(() => {
     const svgs = getRandomSvgsWithChangeConfig(
@@ -77,7 +75,10 @@ export default forwardRef(function VisualMemoryActivity(
   }
 
   const canBeChecked = (newSelectedElements: string[]) => {
-    if ((correctAnswers.length === newSelectedElements?.length) && newSelectedElements?.length) {
+    if (
+      correctAnswers.length === newSelectedElements?.length &&
+      newSelectedElements?.length
+    ) {
       onHandleChanged(true)
     } else if (newSelectedElements?.length) {
       onHandleChanged(false)

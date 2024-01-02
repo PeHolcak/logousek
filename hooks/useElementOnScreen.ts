@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 
-function useElementOnScreen(ref: React.RefObject<HTMLDivElement> | null, rootMargin = '0px') {
+function useElementOnScreen(
+  ref: React.RefObject<HTMLDivElement> | null,
+  rootMargin = '0px'
+) {
   const [isIntersecting, setIsIntersecting] = useState(true)
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -9,7 +12,7 @@ function useElementOnScreen(ref: React.RefObject<HTMLDivElement> | null, rootMar
       },
       { rootMargin }
     )
-    const current = ref?.current;
+    const current = ref?.current
     if (current) {
       observer.observe(current)
     }

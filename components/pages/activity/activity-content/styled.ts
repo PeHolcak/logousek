@@ -14,4 +14,3 @@ export const ActivityContentWrapper = styled.div`
   display: flex;
   flex: 1;
 `
-

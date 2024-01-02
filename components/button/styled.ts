@@ -9,7 +9,7 @@ interface ButtonRowWrapperProps {
   disabled?: boolean
   color?: string
   backgroundColor?: string
-  type?: "button" | "submit" | "reset" | undefined
+  type?: 'button' | 'submit' | 'reset' | undefined
 }
 
 export const ButtonRowWrapper = styled.button<ButtonRowWrapperProps>`
@@ -43,9 +43,9 @@ export const ButtonRowWrapper = styled.button<ButtonRowWrapperProps>`
         `
       case 'lg':
         return css`
-            padding: 1.6rem 4.1rem;
-            font-size: 1.6rem;
-          `
+          padding: 1.6rem 4.1rem;
+          font-size: 1.6rem;
+        `
       default:
         return css`
           padding: 1.5rem 4rem;
@@ -92,7 +92,7 @@ export const ButtonRowWrapper = styled.button<ButtonRowWrapperProps>`
           }
 
           &::after {
-            content: "";
+            content: '';
             display: inline-block;
             height: 100%;
             width: 100%;

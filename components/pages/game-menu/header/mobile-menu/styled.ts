@@ -1,11 +1,10 @@
 import styled, { css } from 'styled-components'
 
-
 export const MobileMenuWrap = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  `
+`
 
 export const Stripe = styled.div`
   width: 32px;
@@ -33,8 +32,6 @@ export const MenuButton = styled.button<{ isMenuOpen: boolean }>`
   border-radius: 50%;
   border: 2px solid black;
 
-
-
   ${({ isMenuOpen }) =>
     isMenuOpen
       ? css`
@@ -42,7 +39,7 @@ export const MenuButton = styled.button<{ isMenuOpen: boolean }>`
           & > div:first-child {
             transform: rotate(45deg);
             width: 32px;
-            margin: 0;    
+            margin: 0;
             margin-top: 1px;
             background-color: red;
           }

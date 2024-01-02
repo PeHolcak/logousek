@@ -1,6 +1,5 @@
-import { object } from 'yup';
+import { object } from 'yup'
 
-const getSettingsDtoIn = object({
-}).strict();
+const getSettingsDtoIn = object({}).strict()
 
 export default getSettingsDtoIn

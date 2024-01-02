@@ -1,5 +1,4 @@
-import styled from "styled-components";
-
+import styled from 'styled-components'
 
 export const InformIcon = styled.div`
   cursor: help;
@@ -24,13 +23,12 @@ export const InformIcon = styled.div`
     position: relative;
     width: 24px;
   }
-`;
+`
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
 `
-
 
 export const Image = styled.img`
   flex: 1;

@@ -1,14 +1,12 @@
-import { TutorialConfigType } from "@hooks/useTutorial"
-import { sounds } from "./sounds-paths"
-
+import { TutorialConfigType } from '@hooks/useTutorial'
+import { sounds } from './sounds-paths'
 
 export const ActivityPageConf: TutorialConfigType = [
-    {
-        text: '',
-        sound: sounds.welcome,
-        confirm: false,
-        minimize: true,
-        waitMilis: 4000,
-    },
-
+  {
+    text: '',
+    sound: sounds.welcome,
+    confirm: false,
+    minimize: true,
+    waitMilis: 4000,
+  },
 ]

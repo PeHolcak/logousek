@@ -1,12 +1,12 @@
-import React from "react";
-import * as S from "./styled";
+import React from 'react'
+import * as S from './styled'
 
 type SwitchProps = {
-  enabledIcon: React.ReactElement | string;
-  disabledIcon: React.ReactElement | string;
-  onChange: (value: boolean) => void;
-  value: boolean;
-};
+  enabledIcon: React.ReactElement | string
+  disabledIcon: React.ReactElement | string
+  onChange: (value: boolean) => void
+  value: boolean
+}
 
 const Switch: React.FC<SwitchProps> = ({
   enabledIcon,
@@ -15,8 +15,8 @@ const Switch: React.FC<SwitchProps> = ({
   value,
 }) => {
   const _onChangeHangler = () => {
-    onChange(!value);
-  };
+    onChange(!value)
+  }
   return (
     <S.SwitchWrapper onMouseDown={_onChangeHangler}>
       <S.SwitchPointer enabled={value}>
@@ -24,7 +24,7 @@ const Switch: React.FC<SwitchProps> = ({
       </S.SwitchPointer>
       <S.SwitchBackground />
     </S.SwitchWrapper>
-  );
-};
+  )
+}
 
-export default Switch;
+export default Switch

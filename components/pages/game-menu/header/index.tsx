@@ -9,22 +9,23 @@ import * as S from './styled'
 import MobileMenu from './mobile-menu'
 
 const GameMenuHeader: React.FC = () => {
-  return (<>
-    <S.MobileOnly>
-      <HeaderWrapper>
-        <User />
-        <Cash />
-        <MobileMenu />
-      </HeaderWrapper>
-    </S.MobileOnly>
-    <S.DesktopOnly>
-      <HeaderWrapper>
-        <User />
-        <Cash />
-        <Icons />
-      </HeaderWrapper >
-    </S.DesktopOnly>
-  </>
+  return (
+    <>
+      <S.MobileOnly>
+        <HeaderWrapper>
+          <User />
+          <Cash />
+          <MobileMenu />
+        </HeaderWrapper>
+      </S.MobileOnly>
+      <S.DesktopOnly>
+        <HeaderWrapper>
+          <User />
+          <Cash />
+          <Icons />
+        </HeaderWrapper>
+      </S.DesktopOnly>
+    </>
   )
 }
 

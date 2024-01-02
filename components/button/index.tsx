@@ -6,8 +6,8 @@ import * as S from './styled'
 export enum ButtonSizesEnum {
   xs = 'xs',
   s = 's',
-  md = "md",
-  lg = "lg"
+  md = 'md',
+  lg = 'lg',
 }
 
 export type ButtonProps = {
@@ -18,7 +18,7 @@ export type ButtonProps = {
   disabled?: boolean
   color?: string
   backgroundColor?: string
-  type?: "button" | "submit" | "reset" | undefined
+  type?: 'button' | 'submit' | 'reset' | undefined
   id?: string
 }
 
@@ -31,7 +31,7 @@ const Button: React.FC<ButtonProps> = ({
   color,
   backgroundColor,
   type,
-  id
+  id,
 }) => {
   const themeContext = useContext(ThemeContext)
   const colors = themeContext.colors || {}
@@ -39,9 +39,7 @@ const Button: React.FC<ButtonProps> = ({
     <S.ButtonRowWrapper
       color={color || colors.seventy}
       backgroundColor={
-        disabled
-          ? colors.lightGrey
-          : backgroundColor || colors.white
+        disabled ? colors.lightGrey : backgroundColor || colors.white
       }
       disabled={disabled}
       size={size}

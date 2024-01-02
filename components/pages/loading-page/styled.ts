@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const LoadingPageWrapper = styled.div`
   position: relative;
@@ -8,7 +8,7 @@ export const LoadingPageWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: ${({ theme }) => theme.colors.primary};
-`;
+`
 
 export const ClickableIconWrapper = styled.div`
   position: absolute;

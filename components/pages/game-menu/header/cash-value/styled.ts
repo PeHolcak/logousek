@@ -5,7 +5,7 @@ export const CashContainer = styled.div`
   align-items: center;
   justify-content: center;
 
-  &>span{
+  & > span {
     max-width: 60px;
     white-space: nowrap;
     overflow: hidden;

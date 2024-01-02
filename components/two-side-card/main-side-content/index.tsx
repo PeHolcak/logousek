@@ -16,7 +16,7 @@ const MainSideContent: React.FC<MainSideContentProps> = ({
   name,
   title,
   image,
-  showSecondSide
+  showSecondSide,
 }) => {
   const onInformIconClickHandle = (e: { stopPropagation: () => void }) => {
     e.stopPropagation()

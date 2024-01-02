@@ -11,16 +11,10 @@ export type GameMenuContextValueType = {
   refreshUserScore?: () => void
 }
 
-const GameMenuProvider: React.FC<React.PropsWithChildren> = (
-  { children }
-) => {
+const GameMenuProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { score, refreshUserScore } = usePlayerScore()
   return (
-    <GameMenuContext.Provider
-      value={
-        { score, refreshUserScore }
-      }
-    >
+    <GameMenuContext.Provider value={{ score, refreshUserScore }}>
       {children}
     </GameMenuContext.Provider>
   )

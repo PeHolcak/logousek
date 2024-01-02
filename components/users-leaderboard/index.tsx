@@ -31,24 +31,21 @@ const UsersLeaderboard: React.FC = () => {
     [other]
   )
 
-  const topPlayersContent = useMemo(
-    () => {
-      if (firstThree) {
-        const sortedArray = [firstThree[1], firstThree[0], firstThree[2]]
-        return sortedArray?.map((user) => (
-          <TopPlayerItem
-            key={`top_player_${user.nickName}`}
-            title={user.nickName}
-            score={user.amount ?? 0}
-            rank={user.rank}
-            isCurrentPlayer={user.isCurrentUser}
-          />
-        ))
-      } return undefined
+  const topPlayersContent = useMemo(() => {
+    if (firstThree) {
+      const sortedArray = [firstThree[1], firstThree[0], firstThree[2]]
+      return sortedArray?.map((user) => (
+        <TopPlayerItem
+          key={`top_player_${user.nickName}`}
+          title={user.nickName}
+          score={user.amount ?? 0}
+          rank={user.rank}
+          isCurrentPlayer={user.isCurrentUser}
+        />
+      ))
     }
-    ,
-    [firstThree]
-  )
+    return undefined
+  }, [firstThree])
 
   if (state === 'loading') {
     return (
@@ -62,9 +59,7 @@ const UsersLeaderboard: React.FC = () => {
 
   if (state === 'error') {
     return (
-      <S.LeaderboardWrapper>
-        Data se nepodařilo načíst
-      </S.LeaderboardWrapper>
+      <S.LeaderboardWrapper>Data se nepodařilo načíst</S.LeaderboardWrapper>
     )
   }
 

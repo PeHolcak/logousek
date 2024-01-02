@@ -34,7 +34,6 @@ const RoundFooter: React.FC<RoundFooterType> = ({
   const footerConfButtons = useMemo(
     () =>
       footerConf.map((footerItem, index) => {
-
         const onClick = footerItem.disabled ? undefined : footerItem.onClick
         return (
           <RoundFooterItem

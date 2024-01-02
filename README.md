@@ -13,7 +13,7 @@ Logousek is an interactive logopedic application crafted specifically for presch
 
 ## Deployment
 
-The application is live at [link](https://www.logousek.cz/).
+The application is live at [link](https://logousek-peholcak-s-team.vercel.app/).
 
 For documentation, visit the [Storybook](https://logousek-storybook.vercel.app/?path=/docs/applicationmodel-apiroutes-activity-add-score--docs).
 

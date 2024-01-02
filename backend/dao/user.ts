@@ -184,7 +184,9 @@ export const getUsersByIds = async (userId: string[]): Promise<User[]> => {
   })
 }
 
-export const createUser = async (userData: Omit<User, 'id' | "createdAt" | "nickName">): Promise<User> => {
+export const createUser = async (
+  userData: Omit<User, 'id' | 'createdAt' | 'nickName'>
+): Promise<User> => {
   return await prisma.user.create({
     data: userData,
   })

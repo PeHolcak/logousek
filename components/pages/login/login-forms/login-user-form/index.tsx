@@ -8,27 +8,29 @@ import Form from '../form'
 type OnFormFilledHandlerType = {
   nickName: string
   password: string
-  type: "registredUser"
+  type: 'registredUser'
 }
 
 type LoginUserFormProps = {
   onFormFilledHandler: ({
     nickName,
     password,
-    type
+    type,
   }: OnFormFilledHandlerType) => void
 }
 
 type FormValues = { nickName: string; password: string }
 
-const LoginUserForm: React.FC<LoginUserFormProps> = ({ onFormFilledHandler }) => {
+const LoginUserForm: React.FC<LoginUserFormProps> = ({
+  onFormFilledHandler,
+}) => {
   const { tCommon } = useTranslateFunctions()
 
   const handleSubmit = (values: FormValues) => {
     onFormFilledHandler({
       nickName: values.nickName,
       password: values.password,
-      type: "registredUser"
+      type: 'registredUser',
     })
   }
 
@@ -37,11 +39,12 @@ const LoginUserForm: React.FC<LoginUserFormProps> = ({ onFormFilledHandler }) =>
       onFormFilledHandler={handleSubmit}
       fields={{
         nickName: FIELDS.nickName,
-        password: FIELDS.password
+        password: FIELDS.password,
       }}
       name="LoginForm"
       buttonName={tCommon('buttons.send')}
-    />)
+    />
+  )
 }
 
 export default LoginUserForm

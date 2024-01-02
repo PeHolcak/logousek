@@ -20,10 +20,8 @@ export const ReferenceWrapper = styled.div`
   }
 `
 
-
 export const ReferenceContent = styled.div`
   a {
     color: ${({ theme }) => theme.colors.blue} !important;
   }
 `
-

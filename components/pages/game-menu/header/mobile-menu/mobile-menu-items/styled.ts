@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-
-
 export const MobileMenuItemsWrapper = styled.div`
   width: 100vw;
   height: 100vh;
@@ -11,7 +9,6 @@ export const MobileMenuItemsWrapper = styled.div`
   padding: 12px;
 
   position: relative;
-
 `
 
 export const CashWrapper = styled.div`

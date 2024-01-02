@@ -10,7 +10,7 @@ import {
   T7Styles,
 } from '../text/styled'
 
-type ParagraphType = Omit<TextWrapType, "variant">
+type ParagraphType = Omit<TextWrapType, 'variant'>
 
 export const P1 = styled.p<ParagraphType>`
   ${T1Styles};

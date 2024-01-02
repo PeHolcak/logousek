@@ -18,15 +18,15 @@ export const StyledListItem = styled.li`
   border-radius: ${({ theme }) => theme.radius.primary};
   transition: 0.7s;
   background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.white};;
+  color: ${({ theme }) => theme.colors.white};
 
-  &>span{
+  & > span {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  &:hover{
+  &:hover {
     transform: scale(1.05);
   }
 `
@@ -45,5 +45,5 @@ export const StarsWrap = styled.span<{ level: number }>`
       default:
         return theme.colors.white
     }
-  }}
+  }};
 `

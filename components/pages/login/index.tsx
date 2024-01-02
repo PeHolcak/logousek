@@ -15,7 +15,7 @@ import * as S from './styled'
 
 const Login: React.FC = () => {
   const modalContext = useContext(ModalContext)
-  const [messageApi, contextHolder] = message.useMessage();
+  const [messageApi, contextHolder] = message.useMessage()
 
   const { tLogin } = useTranslateFunctions()
   const themeContext = useContext(ThemeContext)
@@ -25,7 +25,7 @@ const Login: React.FC = () => {
     modalContext?.showModal({
       autoWidth: true,
       content: <LoginUser onFormFilledHandler={onLogin} />,
-      header: tLogin("modals.loginUser.title"),
+      header: tLogin('modals.loginUser.title'),
     })
   }
 
@@ -37,25 +37,31 @@ const Login: React.FC = () => {
     modalContext?.showModal({
       autoWidth: true,
       content: <RegisterUser onFormFilledHandler={onRegister} />,
-      header: tLogin("modals.registerUser.title"),
+      header: tLogin('modals.registerUser.title'),
     })
   }
 
   return (
     <RouteWrapper
       colorScheme={themeContext?.colors.primary}
-      title={tLogin("title")}
+      title={tLogin('title')}
       type="onlyPublic"
     >
       {contextHolder}
       <S.LoginWrapper>
         <S.Header>
-          <P5 margin='0'>{tLogin("register.haveNotAnAccountYet")}</P5>
-          <S.Link margin='0' onMouseDown={register} id="registerButton">{tLogin("register.register")}</S.Link>
+          <P5 margin="0">{tLogin('register.haveNotAnAccountYet')}</P5>
+          <S.Link margin="0" onMouseDown={register} id="registerButton">
+            {tLogin('register.register')}
+          </S.Link>
         </S.Header>
         <S.LoginButtonsWrapper>
-          <Button onClick={loginAsUser} id="loginAsUserButton">{tLogin("loginButtons.userLogin")}</Button>
-          <Button onClick={loginAsGuess} id="loginAsGuessButton">{tLogin("loginButtons.guessLogin")}</Button>
+          <Button onClick={loginAsUser} id="loginAsUserButton">
+            {tLogin('loginButtons.userLogin')}
+          </Button>
+          <Button onClick={loginAsGuess} id="loginAsGuessButton">
+            {tLogin('loginButtons.guessLogin')}
+          </Button>
         </S.LoginButtonsWrapper>
       </S.LoginWrapper>
     </RouteWrapper>

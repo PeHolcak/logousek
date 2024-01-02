@@ -24,7 +24,7 @@ const Author: React.FC<AuthorType> = ({
   role,
   aboutAuthor,
   minimized,
-  picture
+  picture,
 }) => {
   return (
     <S.AuthorWrapper minimized={minimized}>
@@ -33,7 +33,9 @@ const Author: React.FC<AuthorType> = ({
           <S.Picture src={picture} />
         </S.PictureWrapper>
         <S.AuthorInfo>
-          <TextWrap variant="T5" type="primary" >{name}</TextWrap>
+          <TextWrap variant="T5" type="primary">
+            {name}
+          </TextWrap>
           <S.LabelsWrapper>
             {role.map((roleItem, index) => (
               <Label

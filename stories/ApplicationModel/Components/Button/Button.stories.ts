@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react'
 
-import Button, { ButtonProps, ButtonSizesEnum } from '@components/button';
+import Button, { ButtonProps, ButtonSizesEnum } from '@components/button'
 
 const meta: Meta<ButtonProps> = {
   title: 'ApplicationModel/Components/Button',
@@ -26,58 +26,57 @@ const meta: Meta<ButtonProps> = {
       control: 'boolean',
     },
     type: {
-      options: ["button", "submit", "reset", undefined],
+      options: ['button', 'submit', 'reset', undefined],
       control: { type: 'radio' },
-    }
-
+    },
   },
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<ButtonProps>;
+type Story = StoryObj<ButtonProps>
 
 export const ExtraSmall: Story = {
   args: {
     children: 'Button',
-    backgroundColor: "#aaaaff",
+    backgroundColor: '#aaaaff',
     size: ButtonSizesEnum.xs,
-    color: "#fff"
+    color: '#fff',
   },
-};
+}
 
 export const Small: Story = {
   args: {
     children: 'Button',
-    backgroundColor: "#aaaaff",
+    backgroundColor: '#aaaaff',
     size: ButtonSizesEnum.s,
-    color: "#fff"
+    color: '#fff',
   },
-};
+}
 
 export const Medium: Story = {
   args: {
     children: 'Button',
-    backgroundColor: "#aaaaff",
+    backgroundColor: '#aaaaff',
     size: ButtonSizesEnum.md,
-    color: "#fff"
+    color: '#fff',
   },
-};
+}
 
 export const Large: Story = {
   args: {
     children: 'Button',
-    backgroundColor: "#aaaaff",
+    backgroundColor: '#aaaaff',
     size: ButtonSizesEnum.lg,
-    color: "#fff"
+    color: '#fff',
   },
-};
+}
 
 export const Disabled: Story = {
   args: {
     children: 'Button',
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     disabled: true,
-    color: "#000"
+    color: '#000',
   },
-};
+}

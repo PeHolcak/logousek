@@ -11,7 +11,9 @@ const SlideList: React.FC<SlideListProps> = ({ currentSlide }) => {
   return (
     <S.ContentWrapper currentSlide={currentSlide}>
       {activityConf.map((activity) => (
-        <Slide key={`slide_${activity.name}`} name={activity.name}
+        <Slide
+          key={`slide_${activity.name}`}
+          name={activity.name}
           title={activity.title}
           labels={activity.labels}
           description={activity.description}

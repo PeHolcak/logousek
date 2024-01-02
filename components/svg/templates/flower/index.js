@@ -9,7 +9,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
       xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox={customViewBox || DEFAULT_VIEWBOX}
       style={{
-        scale: 2
+        scale: 2,
       }}
     >
       <defs>
@@ -586,7 +586,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
       </defs>
       <g
         style={{
-          isolation: 'isolate'
+          isolation: 'isolate',
         }}
       >
         <g id="Kyti\u010Dka">
@@ -595,7 +595,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
               <path
                 d="m558.26 507.52-41.77-41.76s6.37-98.54 108.21-180.69c75.45-60.87 175.1 38.78 114.23 114.23-82.15 101.84-180.67 108.22-180.67 108.22Z"
                 style={{
-                  fill: 'url(#linear-gradient)'
+                  fill: 'url(#linear-gradient)',
                 }}
               />
               <circle fill="#1d1d1b" cx={524.68} cy={499.32} r={17.94} />
@@ -606,7 +606,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
               <path
                 d="M547.87 541.54v-59.06s74.19-65.18 204.28-51.26c96.39 10.32 96.39 151.24 0 161.56-130.09 13.92-204.28-51.24-204.28-51.24Z"
                 style={{
-                  fill: 'url(#linear-gradient-2)'
+                  fill: 'url(#linear-gradient-2)',
                 }}
               />
               <circle fill="#1d1d1b" cx={529.94} cy={512} r={17.94} />
@@ -617,7 +617,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
               <path
                 d="m516.48 558.26 41.76-41.77s98.54 6.37 180.69 108.21c60.87 75.45-38.78 175.1-114.23 114.23-101.84-82.15-108.22-180.67-108.22-180.67Z"
                 style={{
-                  fill: 'url(#linear-gradient-3)'
+                  fill: 'url(#linear-gradient-3)',
                 }}
               />
               <circle fill="#1d1d1b" cx={524.68} cy={524.68} r={17.94} />
@@ -628,7 +628,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
               <path
                 d="M482.46 547.87h59.06s65.18 74.19 51.26 204.28c-10.32 96.39-151.24 96.39-161.56 0-13.92-130.09 51.24-204.28 51.24-204.28Z"
                 style={{
-                  fill: 'url(#linear-gradient-4)'
+                  fill: 'url(#linear-gradient-4)',
                 }}
               />
               <circle fill="#1d1d1b" cx={512} cy={529.94} r={17.94} />
@@ -639,7 +639,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
               <path
                 d="m465.74 516.48 41.77 41.76s-6.37 98.54-108.21 180.69c-75.45 60.87-175.1-38.78-114.23-114.23 82.15-101.84 180.67-108.22 180.67-108.22Z"
                 style={{
-                  fill: 'url(#linear-gradient-5)'
+                  fill: 'url(#linear-gradient-5)',
                 }}
               />
               <circle fill="#1d1d1b" cx={499.32} cy={524.68} r={17.94} />
@@ -650,7 +650,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
               <path
                 d="M476.13 482.46v59.06s-74.19 65.18-204.28 51.26c-96.39-10.32-96.39-151.24 0-161.56 130.09-13.92 204.28 51.24 204.28 51.24Z"
                 style={{
-                  fill: 'url(#linear-gradient-6)'
+                  fill: 'url(#linear-gradient-6)',
                 }}
               />
               <circle fill="#1d1d1b" cx={494.06} cy={512} r={17.94} />
@@ -661,7 +661,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
               <path
                 d="m507.52 465.74-41.76 41.77s-98.54-6.37-180.69-108.21c-60.87-75.45 38.78-175.1 114.23-114.23 101.84 82.15 108.22 180.67 108.22 180.67Z"
                 style={{
-                  fill: 'url(#linear-gradient-7)'
+                  fill: 'url(#linear-gradient-7)',
                 }}
               />
               <circle fill="#1d1d1b" cx={499.32} cy={499.32} r={17.94} />
@@ -672,7 +672,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
               <path
                 d="M541.54 476.13h-59.06s-65.18-74.19-51.26-204.28c10.32-96.39 151.24-96.39 161.56 0 13.92 130.09-51.24 204.28-51.24 204.28Z"
                 style={{
-                  fill: 'url(#linear-gradient-8)'
+                  fill: 'url(#linear-gradient-8)',
                 }}
               />
               <circle fill="#1d1d1b" cx={512} cy={494.06} r={17.94} />
@@ -691,7 +691,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
               cy={512}
               r={113.2}
               style={{
-                fill: 'url(#radial-gradient)'
+                fill: 'url(#radial-gradient)',
               }}
             />
             <g id="Pylove_tecky" data-name="Pylove tecky">
@@ -706,7 +706,12 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 transform="rotate(-40 898.384 -403.583) scale(.24)"
                 xlinkHref="#image-2"
               />
-              <circle className="cls-14-flower" cx={493.59} cy={485.16} r={7.81} />
+              <circle
+                className="cls-14-flower"
+                cx={493.59}
+                cy={485.16}
+                r={7.81}
+              />
               <use
                 className="cls-11-flower"
                 transform="rotate(-40 880.197 -386.867) scale(.24)"
@@ -717,7 +722,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={477.47}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-4)'
+                  fill: 'url(#radial-gradient-4)',
                 }}
               />
               <use
@@ -730,7 +735,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={458.95}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-5)'
+                  fill: 'url(#radial-gradient-5)',
                 }}
               />
               <use
@@ -743,7 +748,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={454.28}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-6)'
+                  fill: 'url(#radial-gradient-6)',
                 }}
               />
               <use
@@ -757,7 +762,12 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 transform="matrix(.24 0 0 .24 497.88 461.4)"
                 xlinkHref="#image-7"
               />
-              <circle className="cls-19-flower" cx={514.9} cy={478.44} r={7.81} />
+              <circle
+                className="cls-19-flower"
+                cx={514.9}
+                cy={478.44}
+                r={7.81}
+              />
               <use
                 className="cls-11-flower"
                 transform="matrix(.24 0 0 .24 491.4 445.8)"
@@ -768,7 +778,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={462.82}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-9)'
+                  fill: 'url(#radial-gradient-9)',
                 }}
               />
               <use
@@ -781,7 +791,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={448.34}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-10)'
+                  fill: 'url(#radial-gradient-10)',
                 }}
               />
               <use
@@ -794,7 +804,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={431.57}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-11)'
+                  fill: 'url(#radial-gradient-11)',
                 }}
               />
               <use
@@ -807,7 +817,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={497.09}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-12)'
+                  fill: 'url(#radial-gradient-12)',
                 }}
               />
               <use
@@ -820,7 +830,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={486.99}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-13)'
+                  fill: 'url(#radial-gradient-13)',
                 }}
               />
               <use
@@ -833,7 +843,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={470.75}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-14)'
+                  fill: 'url(#radial-gradient-14)',
                 }}
               />
               <use
@@ -846,7 +856,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={467.09}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-15)'
+                  fill: 'url(#radial-gradient-15)',
                 }}
               />
               <use
@@ -859,7 +869,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={446.07}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-16)'
+                  fill: 'url(#radial-gradient-16)',
                 }}
               />
               <use
@@ -872,7 +882,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={506.67}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-17)'
+                  fill: 'url(#radial-gradient-17)',
                 }}
               />
               <use
@@ -885,7 +895,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={506.81}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-18)'
+                  fill: 'url(#radial-gradient-18)',
                 }}
               />
               <use
@@ -898,7 +908,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={497.55}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-19)'
+                  fill: 'url(#radial-gradient-19)',
                 }}
               />
               <use
@@ -911,7 +921,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={506.42}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-20)'
+                  fill: 'url(#radial-gradient-20)',
                 }}
               />
               <use
@@ -924,7 +934,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={490.98}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-21)'
+                  fill: 'url(#radial-gradient-21)',
                 }}
               />
               <use
@@ -937,7 +947,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={518.31}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-22)'
+                  fill: 'url(#radial-gradient-22)',
                 }}
               />
               <use
@@ -950,7 +960,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={528.63}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-23)'
+                  fill: 'url(#radial-gradient-23)',
                 }}
               />
               <use
@@ -963,7 +973,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={530.68}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-24)'
+                  fill: 'url(#radial-gradient-24)',
                 }}
               />
               <use
@@ -976,7 +986,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={547.93}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-25)'
+                  fill: 'url(#radial-gradient-25)',
                 }}
               />
               <use
@@ -989,7 +999,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={545.3}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-26)'
+                  fill: 'url(#radial-gradient-26)',
                 }}
               />
               <use
@@ -1002,7 +1012,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={526.56}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-27)'
+                  fill: 'url(#radial-gradient-27)',
                 }}
               />
               <use
@@ -1015,7 +1025,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={542.24}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-28)'
+                  fill: 'url(#radial-gradient-28)',
                 }}
               />
               <use
@@ -1028,7 +1038,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={554.64}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-29)'
+                  fill: 'url(#radial-gradient-29)',
                 }}
               />
               <use
@@ -1041,7 +1051,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={572.2}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-30)'
+                  fill: 'url(#radial-gradient-30)',
                 }}
               />
               <use
@@ -1054,7 +1064,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={583.61}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-31)'
+                  fill: 'url(#radial-gradient-31)',
                 }}
               />
               <use
@@ -1067,7 +1077,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={527.58}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-32)'
+                  fill: 'url(#radial-gradient-32)',
                 }}
               />
               <use
@@ -1080,7 +1090,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={541.26}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-33)'
+                  fill: 'url(#radial-gradient-33)',
                 }}
               />
               <use
@@ -1093,7 +1103,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={558.22}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-34)'
+                  fill: 'url(#radial-gradient-34)',
                 }}
               />
               <use
@@ -1106,7 +1116,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={567.87}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-35)'
+                  fill: 'url(#radial-gradient-35)',
                 }}
               />
               <use
@@ -1119,7 +1129,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={587.98}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-36)'
+                  fill: 'url(#radial-gradient-36)',
                 }}
               />
               <use
@@ -1132,7 +1142,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={520.87}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-37)'
+                  fill: 'url(#radial-gradient-37)',
                 }}
               />
               <use
@@ -1145,7 +1155,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={526.17}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-38)'
+                  fill: 'url(#radial-gradient-38)',
                 }}
               />
               <use
@@ -1158,7 +1168,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={539.74}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-39)'
+                  fill: 'url(#radial-gradient-39)',
                 }}
               />
               <use
@@ -1171,7 +1181,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={536.97}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-40)'
+                  fill: 'url(#radial-gradient-40)',
                 }}
               />
               <use
@@ -1184,7 +1194,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={556.37}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-41)'
+                  fill: 'url(#radial-gradient-41)',
                 }}
               />
               <use
@@ -1197,7 +1207,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={509.58}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-42)'
+                  fill: 'url(#radial-gradient-42)',
                 }}
               />
               <use
@@ -1210,7 +1220,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={504.01}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-43)'
+                  fill: 'url(#radial-gradient-43)',
                 }}
               />
               <use
@@ -1223,7 +1233,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={507.85}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-44)'
+                  fill: 'url(#radial-gradient-44)',
                 }}
               />
               <use
@@ -1236,7 +1246,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={493.95}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-45)'
+                  fill: 'url(#radial-gradient-45)',
                 }}
               />
               <use
@@ -1249,7 +1259,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={503.57}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-46)'
+                  fill: 'url(#radial-gradient-46)',
                 }}
               />
               <use
@@ -1263,7 +1273,12 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 transform="matrix(.18 -.15 .15 .18 469.6 483.05)"
                 xlinkHref="#image-2"
               />
-              <circle className="cls-14-flower" cx={493.59} cy={485.16} r={7.81} />
+              <circle
+                className="cls-14-flower"
+                cx={493.59}
+                cy={485.16}
+                r={7.81}
+              />
               <use
                 className="cls-11-flower"
                 transform="matrix(.18 -.15 .15 .18 454.6 475.27)"
@@ -1274,7 +1289,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={477.47}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-49)'
+                  fill: 'url(#radial-gradient-49)',
                 }}
               />
               <use
@@ -1287,7 +1302,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={458.95}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-50)'
+                  fill: 'url(#radial-gradient-50)',
                 }}
               />
               <use
@@ -1300,7 +1315,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={454.28}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-51)'
+                  fill: 'url(#radial-gradient-51)',
                 }}
               />
               <use
@@ -1314,7 +1329,12 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 transform="matrix(.24 0 0 .24 497.88 461.4)"
                 xlinkHref="#image-7"
               />
-              <circle className="cls-19-flower" cx={514.9} cy={478.44} r={7.81} />
+              <circle
+                className="cls-19-flower"
+                cx={514.9}
+                cy={478.44}
+                r={7.81}
+              />
               <use
                 className="cls-11-flower"
                 transform="matrix(.24 0 0 .24 491.4 445.8)"
@@ -1325,7 +1345,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={462.82}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-54)'
+                  fill: 'url(#radial-gradient-54)',
                 }}
               />
               <use
@@ -1338,7 +1358,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={448.34}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-55)'
+                  fill: 'url(#radial-gradient-55)',
                 }}
               />
               <use
@@ -1351,7 +1371,7 @@ const Flower = ({ changeConfig = {}, customViewBox }) => (
                 cy={431.57}
                 r={7.81}
                 style={{
-                  fill: 'url(#radial-gradient-56)'
+                  fill: 'url(#radial-gradient-56)',
                 }}
               />
             </g>

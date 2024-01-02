@@ -2,10 +2,9 @@ import styled from 'styled-components'
 
 import { devices } from 'constants/screens-conf'
 
-
 export const AdminPageWrapper = styled.div`
   min-height: 100vh;
-  position: relative;  
+  position: relative;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -31,8 +30,6 @@ export const AdminPageInnerContainer = styled.div`
   width: 1200px;
 `
 
-
 export const ClickableIconWrapper = styled.div`
   padding: 16px;
-  
 `

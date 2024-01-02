@@ -1,7 +1,7 @@
 import React from 'react'
 import Animate from '../animate'
 
-type PumpProps = {children: React.ReactElement}
+type PumpProps = { children: React.ReactElement }
 
 const Pump: React.FC<PumpProps> = ({ children }) => {
   return (
@@ -14,4 +14,4 @@ const Pump: React.FC<PumpProps> = ({ children }) => {
   )
 }
 
-export default Pump;
+export default Pump

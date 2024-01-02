@@ -13,13 +13,30 @@
     }
   },
   "audio": {
-    "title": "Sluch"
+    "title": "Sluch",
+    "audioDiff": {
+      "playSound": "Přehrajte si zvuk",
+      "chooseCorrectAnswer": "Vyberte správnou odpověď"
+    },
+    "syllables": {
+      "title": "Přiřaď správné počáteční slabiky"
+    }
   },
   "seriality": {
-    "title": "Serialita"
+    "title": "Serialita",
+    "threeCards": {
+      "title": "Slož správně příběh"
+    }
   },
   "oromotorics": {
-    "title": "Jazyk"
+    "title": "Jazyk",
+
+    "languagePracticing": {
+      "title": "Opakuj po mě"
+    }
+  },
+  "as": {
+    "title": "Slož obrázek"
   },
   "buttons": {
     "skip": "Přeskočit"

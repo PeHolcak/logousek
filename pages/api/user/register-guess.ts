@@ -14,9 +14,9 @@ const DEFAULT_VALUES = {
 
 export type registerGuessDtoOut =
   | {
-    nickName: string
-    warnings?: Warnings
-  }
+      nickName: string
+      warnings?: Warnings
+    }
   | ErrorDtoOut
 
 async function registerGuess(

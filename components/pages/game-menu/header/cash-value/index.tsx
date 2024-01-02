@@ -10,7 +10,9 @@ const CashValue: React.FC<CashValueProps> = ({ score = 0 }) => {
   return (
     <S.CashContainer>
       <S.Icon className={'material-icons'}>payments</S.Icon>
-      <TextWrap type="primary" variant="T5">{score}</TextWrap>
+      <TextWrap type="primary" variant="T5">
+        {score}
+      </TextWrap>
     </S.CashContainer>
   )
 }

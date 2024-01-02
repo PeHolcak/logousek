@@ -1,9 +1,9 @@
 export type Warnings = {
-    code?: string
-    unSupportedKeys?: string[]
+  code?: string
+  unSupportedKeys?: string[]
 }[]
 
 export type ErrorDtoOut = {
-    errorCode?: string
-    warnings?: Warnings
+  errorCode?: string
+  warnings?: Warnings
 }

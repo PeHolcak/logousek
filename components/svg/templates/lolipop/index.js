@@ -2,25 +2,28 @@ import * as React from 'react'
 import { DEFAULT_VIEWBOX } from '../../../../constants/svg-conf'
 
 const Lolipop = ({ changeConfig = {}, customViewBox }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox={customViewBox || DEFAULT_VIEWBOX}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox={customViewBox || DEFAULT_VIEWBOX}
+  >
     <g id="L\xEDz\xE1tko">
       <g id="Lizatko_tycka" data-name="Lizatko tycka">
         <path
           d="M492.89 418.5h38.22v576.84a7.52 7.52 0 0 1-7.52 7.52h-23.18a7.52 7.52 0 0 1-7.52-7.52V418.5Z"
           style={{
-            fill: '#e8e8e8'
+            fill: '#e8e8e8',
           }}
         />
         <path
           d="M499.27 418.5h25.47v576.84a7.52 7.52 0 0 1-7.52 7.52h-10.44a7.52 7.52 0 0 1-7.52-7.52V418.5Z"
           style={{
-            fill: '#f2f2f2'
+            fill: '#f2f2f2',
           }}
         />
         <path
           d="M510.32 418.5h3.36v583.1a1.25 1.25 0 0 1-1.25 1.25h-.86a1.25 1.25 0 0 1-1.25-1.25V418.5Z"
           style={{
-            fill: '#fff'
+            fill: '#fff',
           }}
         />
       </g>
@@ -40,10 +43,12 @@ const Lolipop = ({ changeConfig = {}, customViewBox }) => (
           d="M720.25 229.39v1.65c-3.87-2.64-10.36-7.2-11.16-18.4C704 142 650.18 55.26 552.62 25.12a208.48 208.48 0 0 1 163.92 164.94c.34 1.76.66 3.53.94 5.31q1.59 9.69 2.28 19.66c.12 1.79.22 3.58.3 5.36.12 2.98.19 5.98.19 9Z"
         />
       </g>
-      {changeConfig.hideProtrusion || <path
-        fill="#ee7c9f"
-        d="M719.76 215H304.24q.56-8.13 1.73-16.11c.17-1.18.36-2.36.56-3.55h411q1.54 9.72 2.23 19.66Z"
-      />}
+      {changeConfig.hideProtrusion || (
+        <path
+          fill="#ee7c9f"
+          d="M719.76 215H304.24q.56-8.13 1.73-16.11c.17-1.18.36-2.36.56-3.55h411q1.54 9.72 2.23 19.66Z"
+        />
+      )}
       <g id="Lights">
         <path
           fill="#ee7c9f"
@@ -54,18 +59,22 @@ const Lolipop = ({ changeConfig = {}, customViewBox }) => (
         fill="#ee7c9f"
         d="M296.09 260.73a5.4 5.4 0 0 1-5.4-5.4v-51.88a5.4 5.4 0 0 1 5.4-5.4s-3.68 37.73 0 62.68Z"
       />
-      {changeConfig.hideProtrusion || <path
-        fill="#c73060"
-        d="m719.16 235.74-2.27 30.78H307.06a211.07 211.07 0 0 1-3-26.11v-.12Z"
-      />}
-      {changeConfig.hideProtrusion || <rect
-        fill="#e9426e"
-        x={290.69}
-        y={198.05}
-        width={442.62}
-        height={62.68}
-        rx={5.4}
-      />}
+      {changeConfig.hideProtrusion || (
+        <path
+          fill="#c73060"
+          d="m719.16 235.74-2.27 30.78H307.06a211.07 211.07 0 0 1-3-26.11v-.12Z"
+        />
+      )}
+      {changeConfig.hideProtrusion || (
+        <rect
+          fill="#e9426e"
+          x={290.69}
+          y={198.05}
+          width={442.62}
+          height={62.68}
+          rx={5.4}
+        />
+      )}
     </g>
   </svg>
 )

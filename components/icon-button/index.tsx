@@ -9,15 +9,16 @@ type IconButtonProps = ButtonProps & {
   children?: string | React.ReactNode
 }
 
-
-const IconButton: React.FC<IconButtonProps> = ({ children, icon, ...remainingProps }) => {
+const IconButton: React.FC<IconButtonProps> = ({
+  children,
+  icon,
+  ...remainingProps
+}) => {
   return (
     <Button {...remainingProps}>
       <S.ButtonContent>
         <i className={'material-icons'}>{icon}</i>
-        <div>
-          {children}
-        </div>
+        <div>{children}</div>
       </S.ButtonContent>
     </Button>
   )

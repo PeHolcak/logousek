@@ -20,7 +20,6 @@ export const listCredit = async (upTo: number): Promise<Credit[]> => {
   })
 }
 
-
 export const getRankByUserId = async (
   userCreditAmount: number,
   userId: string

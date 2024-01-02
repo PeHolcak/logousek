@@ -2,8 +2,7 @@ import React from 'react'
 import useGetNews from '@hooks/useGetNews'
 import Bubble from '@components/bubble'
 import { getFormatedDate } from '@helpers/date-helper'
-import * as S from "./styled"
-
+import * as S from './styled'
 
 const TimeLine = () => {
   const { news } = useGetNews()
@@ -16,7 +15,9 @@ const TimeLine = () => {
           key={`new-${index}`}
           leftSide={index % 2 === 0}
           desc={newObj.desc}
-          caption={newObj.data ? getFormatedDate(newObj.data) : "Zatím neproběhlo"}
+          caption={
+            newObj.data ? getFormatedDate(newObj.data) : 'Zatím neproběhlo'
+          }
         />
       ))}
     </S.Wrapper>

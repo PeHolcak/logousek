@@ -1,6 +1,6 @@
 import React from 'react'
 import RectItem, { RectItemProps } from './rect-item/index'
-import * as S from "./styled"
+import * as S from './styled'
 
 type ItemRectListProps = { itemList: RectItemProps[] }
 

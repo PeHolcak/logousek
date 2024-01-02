@@ -10,7 +10,7 @@ export const PlayerContainer = styled.div<PlayerType>`
   display: flex;
   justify-content: space-between;
   padding: 16px;
-  margin-bottom:1px;
+  margin-bottom: 1px;
 
   &:last-child {
     border-bottom: none;
@@ -45,8 +45,8 @@ export const Rank = styled.span``
 export const Score = styled.span`
   font-weight: bold;
 
-    max-width: 80px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  max-width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `

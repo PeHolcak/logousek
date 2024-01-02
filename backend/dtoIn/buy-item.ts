@@ -1,7 +1,7 @@
-import { object, string } from 'yup';
+import { object, string } from 'yup'
 
 const buyItemDtoIn = object({
-    itemName: string().required(),
-}).strict();
+  itemName: string().required(),
+}).strict()
 
 export default buyItemDtoIn

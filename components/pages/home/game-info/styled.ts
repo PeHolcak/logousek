@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Section } from "../styled"
+import styled from 'styled-components'
+import { Section } from '../styled'
 import { devices } from '@constants/screens-conf'
 
 export const GameInfoWrapper = styled(Section)`

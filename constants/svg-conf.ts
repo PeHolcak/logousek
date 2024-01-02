@@ -1,1 +1,1 @@
-export const DEFAULT_VIEWBOX = "0 0 1024 1024";
+export const DEFAULT_VIEWBOX = '0 0 1024 1024'

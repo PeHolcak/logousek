@@ -12,70 +12,70 @@ import * as S from './styled'
 const TIMER_COUNT_DOWN_TIME = 6000
 
 type ActivitySliderProps = {
-    questionPart?: React.ReactElement
-    cardData: PictureType[]
-    setSelectedElement: (value: string) => void
-    selectedElements: string[]
-    onTimerIsDoneHandler?: () => void
+  questionPart?: React.ReactElement
+  cardData: PictureType[]
+  setSelectedElement: (value: string) => void
+  selectedElements: string[]
+  onTimerIsDoneHandler?: () => void
 }
 
 const ActivitySlider: React.FC<ActivitySliderProps> = ({
-    questionPart,
-    cardData,
-    setSelectedElement,
-    selectedElements,
-    onTimerIsDoneHandler,
+  questionPart,
+  cardData,
+  setSelectedElement,
+  selectedElements,
+  onTimerIsDoneHandler,
 }) => {
-    const [isQuesionpart, setIsQuesionpart] = useState(false)
-    const { tActivity } = useTranslateFunctions()
+  const [isQuesionpart, setIsQuesionpart] = useState(false)
+  const { tActivity } = useTranslateFunctions()
 
-    const onTimerDone = () => {
-        if (typeof onTimerIsDoneHandler === 'function') {
-            onTimerIsDoneHandler()
-        }
+  const onTimerDone = () => {
+    if (typeof onTimerIsDoneHandler === 'function') {
+      onTimerIsDoneHandler()
     }
+  }
 
-    const _onTimerIsDoneHandler = () => {
-        onTimerDone()
-        setIsQuesionpart(true)
-    }
+  const _onTimerIsDoneHandler = () => {
+    onTimerDone()
+    setIsQuesionpart(true)
+  }
 
-    const onSkipHandle = () => {
-        onTimerDone()
-        setIsQuesionpart(true)
-    }
-    const answerPart = cardData.map((element) => {
-        const elementName = element?.name
-        return (
-            <ActivityCard
-                key={`element-card-${elementName}`}
-                onClick={() => setSelectedElement(elementName)}
-                selected={selectedElements?.includes(elementName)}
-                reference={element.reference}
-            >
-                {element.svg}
-            </ActivityCard>
-        )
-    })
-
+  const onSkipHandle = () => {
+    onTimerDone()
+    setIsQuesionpart(true)
+  }
+  const answerPart = cardData.map((element) => {
+    const elementName = element?.name
     return (
-        <S.TemplateWrapper isQuesionpart={isQuesionpart}>
-            <S.ShowedPart>
-                <P2>
-                    <Timer
-                        countdownTime={TIMER_COUNT_DOWN_TIME}
-                        timerIsDone={_onTimerIsDoneHandler}
-                    />
-                </P2>
-                <TrafficLights countdownTime={TIMER_COUNT_DOWN_TIME} />
-                {questionPart}
-                <S.SkipButton onClick={onSkipHandle}>
-                    {tActivity('buttons.skip')}
-                </S.SkipButton>
-            </S.ShowedPart>
-            <S.AnswerPart>{answerPart}</S.AnswerPart>
-        </S.TemplateWrapper>
+      <ActivityCard
+        key={`element-card-${elementName}`}
+        onClick={() => setSelectedElement(elementName)}
+        selected={selectedElements?.includes(elementName)}
+        reference={element.reference}
+      >
+        {element.svg}
+      </ActivityCard>
     )
+  })
+
+  return (
+    <S.TemplateWrapper isQuesionpart={isQuesionpart}>
+      <S.ShowedPart>
+        <P2>
+          <Timer
+            countdownTime={TIMER_COUNT_DOWN_TIME}
+            timerIsDone={_onTimerIsDoneHandler}
+          />
+        </P2>
+        <TrafficLights countdownTime={TIMER_COUNT_DOWN_TIME} />
+        {questionPart}
+        <S.SkipButton onClick={onSkipHandle}>
+          {tActivity('buttons.skip')}
+        </S.SkipButton>
+      </S.ShowedPart>
+      <S.AnswerPart>{answerPart}</S.AnswerPart>
+    </S.TemplateWrapper>
+  )
 }
 
 export default ActivitySlider

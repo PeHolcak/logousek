@@ -6,7 +6,7 @@ import DndContext from '@contexts/dnd-context'
 import { CardType } from '@hooks/use-get-cards'
 
 import CustomDragLayer from '../../custom-drag-layer'
-import * as S from "./styled"
+import * as S from './styled'
 
 type InnerDropCardProps = {
   onDrop: (item: CardType) => void
@@ -14,7 +14,11 @@ type InnerDropCardProps = {
   customRadius?: string
 }
 
-const InnerDropCard: React.FC<InnerDropCardProps> = ({ onDrop, children, customRadius = "0px" }) => {
+const InnerDropCard: React.FC<InnerDropCardProps> = ({
+  onDrop,
+  children,
+  customRadius = '0px',
+}) => {
   const dndContext = useContext(DndContext)
 
   const [, drop] = useDrop(() => ({
@@ -27,7 +31,7 @@ const InnerDropCard: React.FC<InnerDropCardProps> = ({ onDrop, children, customR
   return (
     <S.InnerDropCardWrapper ref={drop} className="dropCard">
       <ActivityCard
-        color={"transparent"}
+        color={'transparent'}
         customRadius={customRadius}
         customAspectRatio={dndContext?.aspectRatio}
         cursor="default"

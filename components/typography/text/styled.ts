@@ -1,22 +1,24 @@
-import styled, { css } from "styled-components";
-import { Variant } from "./index"
+import styled, { css } from 'styled-components'
+import { Variant } from './index'
 
-export type TStylesType = { type?: "primary" | "ghost", color?: string }
+export type TStylesType = { type?: 'primary' | 'ghost'; color?: string }
 
-type AlignStylesType = { align?: "left" | "center" | "end" }
+type AlignStylesType = { align?: 'left' | 'center' | 'end' }
 
 type MarginStylesType = { margin?: string }
 
-export type TextWrapType = { variant: Variant } & TStylesType & AlignStylesType & MarginStylesType
+export type TextWrapType = { variant: Variant } & TStylesType &
+  AlignStylesType &
+  MarginStylesType
 
 export const ColorStyles = css<TStylesType>`
-  color: ${({ type, theme, color }) => color ? color : type === "ghost" ? theme.colors.white : theme.colors.black};
+  color: ${({ type, theme, color }) =>
+    color ? color : type === 'ghost' ? theme.colors.white : theme.colors.black};
 `
 
 export const AlignStyles = css<AlignStylesType>`
   text-align: ${({ align }) => align};
 `
-
 
 export const MarginStyles = css<MarginStylesType>`
   margin: ${({ margin }) => margin};
@@ -84,23 +86,22 @@ export const T7Styles = css<TStylesType>`
   ${AdditionalStyles};
 `
 
-
 export const TextWrap = styled.span<TextWrapType>`
   ${({ variant }) => {
     switch (variant) {
-      case "T1":
+      case 'T1':
         return T1Styles
-      case "T2":
+      case 'T2':
         return T2Styles
-      case "T3":
+      case 'T3':
         return T3Styles
-      case "T4":
+      case 'T4':
         return T4Styles
-      case "T5":
+      case 'T5':
         return T5Styles
-      case "T6":
+      case 'T6':
         return T6Styles
-      case "T7":
+      case 'T7':
         return T7Styles
     }
   }}

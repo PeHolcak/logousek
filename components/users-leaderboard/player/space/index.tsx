@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 import * as S from './styled'
 
 const Space: React.FC = () => {

@@ -1,6 +1,4 @@
-import React, {
-  useContext,
-} from 'react'
+import React, { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
 
 import { useTranslateFunctions } from '@hooks/useTranslateFunctions'
@@ -16,10 +14,14 @@ interface ModalButtonsProps {
   onOkClick?: () => void
 }
 
-const ModalButtons: React.FC<ModalButtonsProps> = ({ onOkClick, onStornoClick, onOkText, onStornoText }) => {
+const ModalButtons: React.FC<ModalButtonsProps> = ({
+  onOkClick,
+  onStornoClick,
+  onOkText,
+  onStornoText,
+}) => {
   const { tCommon } = useTranslateFunctions()
   const themeContextData = useContext(ThemeContext)
-
 
   return (
     <>
@@ -34,7 +36,7 @@ const ModalButtons: React.FC<ModalButtonsProps> = ({ onOkClick, onStornoClick, o
                 size={ButtonSizesEnum.xs}
                 icon="check"
               >
-                {onOkText || tCommon("modal.buttons.continue")}
+                {onOkText || tCommon('modal.buttons.continue')}
               </IconButton>
             ) : undefined}
             {onStornoClick !== undefined ? (
@@ -45,15 +47,14 @@ const ModalButtons: React.FC<ModalButtonsProps> = ({ onOkClick, onStornoClick, o
                 onClick={onStornoClick}
                 icon="close"
               >
-                {onStornoText || tCommon("modal.buttons.storno")}
+                {onStornoText || tCommon('modal.buttons.storno')}
               </IconButton>
             ) : undefined}
           </>
         </ButtonRow>
-      ) : undefined}</>
+      ) : undefined}
+    </>
   )
 }
-
-
 
 export default ModalButtons

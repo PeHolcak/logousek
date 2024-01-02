@@ -1,10 +1,10 @@
 import React from 'react'
 import * as S from './styled'
 
-export type Variant = "T1" | "T2" | "T3" | "T4" | "T5" | "T6" | "T7"
+export type Variant = 'T1' | 'T2' | 'T3' | 'T4' | 'T5' | 'T6' | 'T7'
 
 type TextProps = {
-  variant: Variant,
+  variant: Variant
   children: string
 }
 

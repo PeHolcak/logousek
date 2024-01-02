@@ -1,16 +1,13 @@
 import styled from 'styled-components'
 
-
 export const BlobContainer = styled.div`
-  position: relative;    
+  position: relative;
 `
 
-export const Figure = styled.div`
-
-`
+export const Figure = styled.div``
 
 type BlobContainerInnerProps = {
-  position: "absolute" | "static"
+  position: 'absolute' | 'static'
 }
 
 export const BlobContainerInner = styled.div<BlobContainerInnerProps>`

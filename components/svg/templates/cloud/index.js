@@ -7,7 +7,7 @@ const Cloud = ({ changeConfig = {}, customViewBox }) => {
     second: '#b9e1eb',
     third: '#def0f1',
     fourth: '#e4f1f4',
-    fifth: '#fff'
+    fifth: '#fff',
   }
 
   const darkColors = {
@@ -15,7 +15,7 @@ const Cloud = ({ changeConfig = {}, customViewBox }) => {
     second: '#84B5BF',
     third: '#98d1dd',
     fourth: '#A7E6F2',
-    fifth: '#fff'
+    fifth: '#fff',
   }
 
   const twoColors = {
@@ -23,7 +23,7 @@ const Cloud = ({ changeConfig = {}, customViewBox }) => {
     second: '#b9e1eb',
     third: '#b9e1eb',
     fourth: '#b9e1eb',
-    fifth: '#fff'
+    fifth: '#fff',
   }
 
   let colors = lightColors
@@ -34,7 +34,10 @@ const Cloud = ({ changeConfig = {}, customViewBox }) => {
   }
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox={customViewBox || DEFAULT_VIEWBOX}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox={customViewBox || DEFAULT_VIEWBOX}
+    >
       <defs>
         <clipPath id="clip-path">
           <circle fill="none" cx={385.75} cy={444.55} r={324.26} />
@@ -62,7 +65,13 @@ const Cloud = ({ changeConfig = {}, customViewBox }) => {
             fill={colors.first}
             d="M865.27 597v2.92a1.71 1.71 0 0 1 0 .32A134.63 134.63 0 0 1 850 660.15c-18.14 34.33-50.64 57.2-87.72 57.2H261.76c-28.34 0-54-13.36-72.61-35a120.81 120.81 0 0 1-18.83-29.87 135.65 135.65 0 0 1-11.55-52.38v-3.11Z"
           />
-          <ellipse fill={colors.first} cx={532} cy={592.86} rx={32.81} ry={30} />
+          <ellipse
+            fill={colors.first}
+            cx={532}
+            cy={592.86}
+            rx={32.81}
+            ry={30}
+          />
           <path
             fill={colors.first}
             d="M372.74 492a70.82 70.82 0 0 1-131.45 36.59A70.55 70.55 0 0 1 231.11 492c0-1.86.07-3.7.22-5.52a70.78 70.78 0 0 1 62.06-64.77 68.55 68.55 0 0 1 8.53-.52A70.74 70.74 0 0 1 372.74 492Z"
@@ -70,7 +79,7 @@ const Cloud = ({ changeConfig = {}, customViewBox }) => {
         </g>
         <g
           style={{
-            clipPath: 'url(#clip-path)'
+            clipPath: 'url(#clip-path)',
           }}
           id="Treti_oddil_mraku"
           data-name="Treti oddil mraku"
@@ -89,7 +98,13 @@ const Cloud = ({ changeConfig = {}, customViewBox }) => {
             fill={colors.second}
             d="M865.27 597v2.92a1.71 1.71 0 0 1 0 .32A134.63 134.63 0 0 1 850 660.15c-18.14 34.33-50.64 57.2-87.72 57.2H261.76c-28.34 0-54-13.36-72.61-35a120.81 120.81 0 0 1-18.83-29.87 135.65 135.65 0 0 1-11.55-52.38v-3.11Z"
           />
-          <ellipse fill={colors.second} cx={532} cy={592.86} rx={32.81} ry={30} />
+          <ellipse
+            fill={colors.second}
+            cx={532}
+            cy={592.86}
+            rx={32.81}
+            ry={30}
+          />
           <path
             fill={colors.second}
             d="M372.74 492a70.82 70.82 0 0 1-131.45 36.59A70.55 70.55 0 0 1 231.11 492c0-1.86.07-3.7.22-5.52a70.78 70.78 0 0 1 62.06-64.77 68.55 68.55 0 0 1 8.53-.52A70.74 70.74 0 0 1 372.74 492Z"
@@ -97,7 +112,7 @@ const Cloud = ({ changeConfig = {}, customViewBox }) => {
         </g>
         <g
           style={{
-            clipPath: 'url(#clip-path-2)'
+            clipPath: 'url(#clip-path-2)',
           }}
           id="Druhy_oddil_mraku"
           data-name="Druhy oddil mraku"
@@ -116,7 +131,13 @@ const Cloud = ({ changeConfig = {}, customViewBox }) => {
             fill={colors.third}
             d="M865.27 597v2.92a1.71 1.71 0 0 1 0 .32A134.63 134.63 0 0 1 850 660.15c-18.14 34.33-50.64 57.2-87.72 57.2H261.76c-28.34 0-54-13.36-72.61-35a120.81 120.81 0 0 1-18.83-29.87 135.65 135.65 0 0 1-11.55-52.38v-3.11Z"
           />
-          <ellipse fill={colors.third} cx={532} cy={592.86} rx={32.81} ry={30} />
+          <ellipse
+            fill={colors.third}
+            cx={532}
+            cy={592.86}
+            rx={32.81}
+            ry={30}
+          />
           <path
             fill={colors.third}
             d="M372.74 492a70.82 70.82 0 0 1-131.45 36.59A70.55 70.55 0 0 1 231.11 492c0-1.86.07-3.7.22-5.52a70.78 70.78 0 0 1 62.06-64.77 68.55 68.55 0 0 1 8.53-.52A70.74 70.74 0 0 1 372.74 492Z"
@@ -124,7 +145,7 @@ const Cloud = ({ changeConfig = {}, customViewBox }) => {
         </g>
         <g
           style={{
-            clipPath: 'url(#clip-path-3)'
+            clipPath: 'url(#clip-path-3)',
           }}
           id="Prvni_oddil_mraku"
           data-name="Prvni oddil mraku"
@@ -143,7 +164,13 @@ const Cloud = ({ changeConfig = {}, customViewBox }) => {
             fill={colors.fourth}
             d="M865.27 597v2.92a1.71 1.71 0 0 1 0 .32A134.63 134.63 0 0 1 850 660.15c-18.14 34.33-50.64 57.2-87.72 57.2H261.76c-28.34 0-54-13.36-72.61-35a120.81 120.81 0 0 1-18.83-29.87 135.65 135.65 0 0 1-11.55-52.38v-3.11Z"
           />
-          <ellipse fill={colors.fourth} cx={532} cy={592.86} rx={32.81} ry={30} />
+          <ellipse
+            fill={colors.fourth}
+            cx={532}
+            cy={592.86}
+            rx={32.81}
+            ry={30}
+          />
           <path
             fill={colors.fourth}
             d="M372.74 492a70.82 70.82 0 0 1-131.45 36.59A70.55 70.55 0 0 1 231.11 492c0-1.86.07-3.7.22-5.52a70.78 70.78 0 0 1 62.06-64.77 68.55 68.55 0 0 1 8.53-.52A70.74 70.74 0 0 1 372.74 492Z"

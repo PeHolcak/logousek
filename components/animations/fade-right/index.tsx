@@ -1,7 +1,7 @@
 import React from 'react'
 import Animate from '../animate'
 
-type FadeRightProps = {children: React.ReactElement}
+type FadeRightProps = { children: React.ReactElement }
 
 const FadeRight: React.FC<FadeRightProps> = ({ children }) => {
   return (

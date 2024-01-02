@@ -4,7 +4,7 @@ import { SessionProvider } from 'next-auth/react'
 import { AnimatePresence } from 'framer-motion'
 import { DndProvider } from 'react-dnd'
 import { TouchBackend } from 'react-dnd-touch-backend'
-import 'normalize.css/normalize.css';
+import 'normalize.css/normalize.css'
 
 import '../styles/globals.css'
 import Modal, { ModalInterfaceType } from '../components/modal'
@@ -19,7 +19,7 @@ import {
   radius,
   lightColors,
   darkColors,
-  zIndex
+  zIndex,
 } from '../styles'
 import { useDarkMode } from '../hooks/useDarkmode'
 import { appWithTranslation } from 'next-i18next'
@@ -69,7 +69,7 @@ function MyApp({
       letterSpacing,
     },
     radius,
-    zIndex
+    zIndex,
   }
 
   function getDropTargetElementsAtPoint(

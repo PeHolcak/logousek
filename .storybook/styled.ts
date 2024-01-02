@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const PreviewWrapper = styled.div`
   /* background: red; */
-  .mermaid{
+  .mermaid {
     background: red;
   }
-`;
+`

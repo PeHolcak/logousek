@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react'
 
-import * as S from "./styled";
+import * as S from './styled'
 
 type ItemListProps = {
   items: {
-    id: number;
-    level: number;
-    points: number;
-  }[];
-  onItemClick: (itemId: number) => void;
-};
+    id: number
+    level: number
+    points: number
+  }[]
+  onItemClick: (itemId: number) => void
+}
 
 const ItemList: React.FC<ItemListProps> = ({ items, onItemClick }) => {
   const getStars = (level: number) => {
@@ -18,20 +18,20 @@ const ItemList: React.FC<ItemListProps> = ({ items, onItemClick }) => {
 
   const formedItems = Array.isArray(items)
     ? items.map((item) => (
-      <S.StyledListItem
-        key={`list-item-${item.id}`}
-        onClick={() =>
-          typeof onItemClick === "function" && onItemClick(item.id)
-        }
-      >
-        <span>{item.id}</span>
-        <S.StarsWrap level={item.level}>{getStars(item.level)}</S.StarsWrap>
-        <span>{item.points}</span>
-      </S.StyledListItem >
-    ))
-    : [];
+        <S.StyledListItem
+          key={`list-item-${item.id}`}
+          onClick={() =>
+            typeof onItemClick === 'function' && onItemClick(item.id)
+          }
+        >
+          <span>{item.id}</span>
+          <S.StarsWrap level={item.level}>{getStars(item.level)}</S.StarsWrap>
+          <span>{item.points}</span>
+        </S.StyledListItem>
+      ))
+    : []
 
-  return <S.StyledList>{formedItems}</S.StyledList>;
-};
+  return <S.StyledList>{formedItems}</S.StyledList>
+}
 
-export default ItemList;
+export default ItemList

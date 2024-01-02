@@ -6,10 +6,7 @@ import { CharacterEnum, CharacterType, ItemType } from '@constants/shop'
 import StoreItem from '../store-item'
 
 type CharacterActivityCardProps = {
-  onCharacterClickHandler: (
-    name: string,
-    isOwnedByLoggedUser: boolean
-  ) => void
+  onCharacterClickHandler: (name: string, isOwnedByLoggedUser: boolean) => void
   selectedCharacter: string
   itemInProgress: ItemType | undefined
   buyItem: (itemName: CharacterEnum, cost: number) => Promise<void>

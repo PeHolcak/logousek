@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 import { devices } from '@constants/screens-conf'
 
@@ -10,4 +10,4 @@ export const TimerWrapper = styled.div`
     flex-direction: row;
     gap: 8px;
   }
-`;
+`

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 import { devices } from '@constants/screens-conf'
 
 export const AuthorWrapper = styled.article<{ minimized: boolean }>`
@@ -10,9 +10,9 @@ export const AuthorWrapper = styled.article<{ minimized: boolean }>`
   transform: scale(1);
 
   @media ${devices.laptop} {
-    transform: scale(${({ minimized }) => minimized ? "0.95" : "1"});
+    transform: scale(${({ minimized }) => (minimized ? '0.95' : '1')});
   }
-`;
+`
 
 export const AuthorContainer = styled.div`
   height: 100%;
@@ -27,7 +27,7 @@ export const AuthorContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.wtiteTransparent};
   box-shadow: 0px 2px 16px ${({ theme }) => theme.colors.seventy};
   border-radius: ${({ theme }) => theme.radius.secondary};
-`;
+`
 
 export const PictureWrapper = styled.div`
   position: relative;
@@ -35,16 +35,21 @@ export const PictureWrapper = styled.div`
   display: flex;
   justify-content: center;
 
-  &::after{
-    content: "";
+  &::after {
+    content: '';
     width: 100%;
     height: calc(50% + 24px);
     position: absolute;
-    background: linear-gradient(347deg, ${({ theme }) => theme.colors.blue} 0%, ${({ theme }) => theme.colors.orrange} 100%);
+    background: linear-gradient(
+      347deg,
+      ${({ theme }) => theme.colors.blue} 0%,
+      ${({ theme }) => theme.colors.orrange} 100%
+    );
     z-index: ${({ theme }) => theme.zIndex.negative};
-    border-radius: ${({ theme }) => theme.radius.secondary} ${({ theme }) => theme.radius.secondary} 0 0;
+    border-radius: ${({ theme }) => theme.radius.secondary}
+      ${({ theme }) => theme.radius.secondary} 0 0;
   }
-`;
+`
 
 type PictureProps = { src: string }
 
@@ -61,9 +66,9 @@ export const Picture = styled.div<PictureProps>`
   border: 3px solid ${({ theme }) => theme.colors.white};
 
   @media ${devices.tablet} {
-  width: 120px;
+    width: 120px;
   }
-`;
+`
 
 export const AuthorInfo = styled.div`
   display: flex;
@@ -81,9 +86,9 @@ export const AuthorInfo = styled.div`
     margin: 0px;
     text-align: center;
   }
-`;
+`
 
 export const LabelsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-`;
+`

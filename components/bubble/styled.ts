@@ -1,9 +1,9 @@
-import styled, { css } from "styled-components";
-import { devices } from "constants/screens-conf";
-import { zIndex } from "styles";
+import styled, { css } from 'styled-components'
+import { devices } from 'constants/screens-conf'
+import { zIndex } from 'styles'
 
-type TimeLineItemWrapperProps = { leftSide: boolean };
-type BeakProps = { leftSide: boolean };
+type TimeLineItemWrapperProps = { leftSide: boolean }
+type BeakProps = { leftSide: boolean }
 
 export const TimeLineItemWrapper = styled.div<TimeLineItemWrapperProps>`
   display: flex;
@@ -19,7 +19,7 @@ export const TimeLineItemWrapper = styled.div<TimeLineItemWrapperProps>`
   @media ${devices.laptop} {
     margin: 0rem;
   }
-`;
+`
 
 export const Container = styled.article<{ fillWidth?: boolean }>`
   position: relative;
@@ -30,9 +30,9 @@ export const Container = styled.article<{ fillWidth?: boolean }>`
   padding: 1rem;
 
   @media ${devices.laptop} {
-    width: ${({ fillWidth }) => fillWidth ? "100%" : "calc(50% - 40px)"};
+    width: ${({ fillWidth }) => (fillWidth ? '100%' : 'calc(50% - 40px)')};
   }
-`;
+`
 
 export const Beak = styled.div<BeakProps>`
   @media ${devices.laptop} {
@@ -44,27 +44,26 @@ export const Beak = styled.div<BeakProps>`
     top: calc(50% - 16px);
     transform: rotate(45deg);
     ${({ leftSide }) =>
-    leftSide
-      ? css`
+      leftSide
+        ? css`
             left: -0.75rem;
           `
-      : css`
+        : css`
             right: -0.75rem;
           `}
   }
-`;
+`
 
-export const Content = styled.div`
-`;
+export const Content = styled.div``
 
 export const Date = styled.span`
   color: ${({ theme }) => theme.colors.lightGrey};
   font-size: ${({ theme }) => theme.typography.fontSize.md};
-`;
+`
 
 export const Desc = styled.p`
   color: ${({ theme }) => theme.colors.white};
   margin: 0.3rem;
   font-weight: 600;
   font-size: ${({ theme }) => theme.typography.fontSize.lg};
-`;
+`

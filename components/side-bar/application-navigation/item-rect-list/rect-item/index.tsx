@@ -1,7 +1,12 @@
 import React from 'react'
-import * as S from "./styled"
+import * as S from './styled'
 
-export type RectItemProps = { name: string, icon: string, title: string, onClick: () => void }
+export type RectItemProps = {
+  name: string
+  icon: string
+  title: string
+  onClick: () => void
+}
 
 const RectItem: React.FC<RectItemProps> = ({ title, icon, onClick }) => {
   return (

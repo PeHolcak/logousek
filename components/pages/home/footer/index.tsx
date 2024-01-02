@@ -40,7 +40,7 @@ const Footer = () => {
               <ClickableIcon
                 key={`clickable_icon_${icon.name}`}
                 icon={icon.name}
-                onClick={() => { }}
+                onClick={() => {}}
                 color={themeContext.colors.white}
               />
             ))}

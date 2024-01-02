@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const ItemWrap = styled.li`
   display: flex;
@@ -12,7 +12,7 @@ export const ItemWrap = styled.li`
     box-shadow: 0 3rem 5rem rgb(0 0 0 / 8%);
     background-color: ${({ theme }) => theme.colors.lightGrey};
   }
-`;
+`
 
 export const ItemLink = styled.a`
   display: flex;
@@ -25,10 +25,11 @@ export const ItemLink = styled.a`
     justify-content: flex-start;
     color: ${({ theme }) => theme.colors.tenth};
   }
-`;
+`
 
-export const ItemIcon = styled.i<{ isMenuShow: boolean }>` 
-   font-size: 2.5rem;
-   padding: 0.75rem;
-   color: ${({ theme, isMenuShow }) => isMenuShow ? theme.colors.blue : theme.colors.black};
-`;
+export const ItemIcon = styled.i<{ isMenuShow: boolean }>`
+  font-size: 2.5rem;
+  padding: 0.75rem;
+  color: ${({ theme, isMenuShow }) =>
+    isMenuShow ? theme.colors.blue : theme.colors.black};
+`

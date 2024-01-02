@@ -4,9 +4,8 @@ import { useTranslateFunctions } from '@hooks/useTranslateFunctions'
 
 import SectionLayout from '../section-layout'
 import AboutUsList from './about-us-list'
-import Header from "../header"
-import * as S from "./styled"
-
+import Header from '../header'
+import * as S from './styled'
 
 const AboutUs: React.FC = () => {
   const { tHome } = useTranslateFunctions()
@@ -14,7 +13,7 @@ const AboutUs: React.FC = () => {
     <S.AboutAsWrapper id="aboutAs">
       <S.AboutAsContainer>
         <SectionLayout>
-          <Header>{tHome("aboutAs.header")}</Header>
+          <Header>{tHome('aboutAs.header')}</Header>
           <AboutUsList />
         </SectionLayout>
       </S.AboutAsContainer>

@@ -19,7 +19,7 @@ const TwoSideCard: React.FC<GameCardProps> = ({
   image,
   description,
   onMainSideClick,
-  className
+  className,
 }) => {
   const [isDiffSiteShown, setIsDiffSiteShown] = useState(false)
 
@@ -41,7 +41,8 @@ const TwoSideCard: React.FC<GameCardProps> = ({
             name={name}
             title={title}
             image={image}
-            showSecondSide={showSecondSide} />
+            showSecondSide={showSecondSide}
+          />
         </S.MainSideWrapper>
         <S.DescriptionSideWrapper>
           <DescriptionSideContent

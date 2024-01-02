@@ -9,7 +9,6 @@ const CloseIcon: React.FC<CloseIconProps> = ({ onClick }) => {
       <S.Icon className={'material-icons'}>close</S.Icon>
     </S.IconWrapper>
   )
-
 }
 
-export default CloseIcon;
+export default CloseIcon

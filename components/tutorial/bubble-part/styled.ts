@@ -6,22 +6,34 @@ import { OffsetType } from '@components/route-wrapper'
 
 type BlobContainer = { isTutorialOpened: boolean }
 
-type TutorialWrapperProps = { isTutorialOpened: boolean, mobileOffset: OffsetType, desktopOffset: OffsetType }
+type TutorialWrapperProps = {
+  isTutorialOpened: boolean
+  mobileOffset: OffsetType
+  desktopOffset: OffsetType
+}
 
 type CharacterWrapperProps = { isTutorialOpened: boolean }
 
-const OFFSET = "72px"
+const OFFSET = '72px'
 
 const getOffset = (offsetType: OffsetType) => {
   switch (offsetType) {
-    case "left":
-      return css`left: ${OFFSET};`
-    case "right":
-      return css`right: ${OFFSET};`
-    case "top":
-      return css`top: ${OFFSET};`
-    case "bottom":
-      return css`bottom: ${OFFSET};`
+    case 'left':
+      return css`
+        left: ${OFFSET};
+      `
+    case 'right':
+      return css`
+        right: ${OFFSET};
+      `
+    case 'top':
+      return css`
+        top: ${OFFSET};
+      `
+    case 'bottom':
+      return css`
+        bottom: ${OFFSET};
+      `
     default:
       return css``
   }
@@ -33,7 +45,7 @@ export const TutorialWrapper = styled.div<TutorialWrapperProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   transition-duration: 1s;
   transition-property: left, bottom, transform;
 
@@ -46,12 +58,20 @@ export const TutorialWrapper = styled.div<TutorialWrapperProps>`
           border-image-slice: 1;
           background-color: rgba(255, 255, 255, 0.4);
           backdrop-filter: blur(10px);
-          -webkit-mask-image: radial-gradient(circle at center, black 70%, transparent 100%);
-          mask-image: radial-gradient(circle at center, black 80%, transparent 100%);
+          -webkit-mask-image: radial-gradient(
+            circle at center,
+            black 70%,
+            transparent 100%
+          );
+          mask-image: radial-gradient(
+            circle at center,
+            black 80%,
+            transparent 100%
+          );
           border-radius: 64px;
           height: fit-content;
           padding: 0 48px;
-          
+
           width: 90%;
 
           @media ${devices.tablet} {
@@ -60,14 +80,13 @@ export const TutorialWrapper = styled.div<TutorialWrapperProps>`
           @media ${devices.laptop} {
             width: 460px;
           }
-          
         `
       : css`
           left: 0;
           bottom: 0;
 
-          @media (max-width: ${size.laptop}){
-          ${getOffset(mobileOffset)}
+          @media (max-width: ${size.laptop}) {
+            ${getOffset(mobileOffset)}
           }
 
           @media ${devices.laptop} {
@@ -79,8 +98,6 @@ export const TutorialWrapper = styled.div<TutorialWrapperProps>`
           background: transparent;
           box-shadow: none;
         `}
-        
- 
 `
 
 export const BlobContainer = styled.div<BlobContainer>`
@@ -122,7 +139,7 @@ export const CharacterWrapper = styled.div<CharacterWrapperProps>`
           @media ${devices.tablet} {
             padding: 12px;
           }
-      `}
+        `}
 `
 
 export const BubbleWrapper = styled.div`

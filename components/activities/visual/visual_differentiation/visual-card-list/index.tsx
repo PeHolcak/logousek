@@ -5,17 +5,16 @@ import { PictureType } from '@helpers/sound-helper'
 import { CardType } from '..'
 
 type CardListType = {
-  cards: CardType[],
-  selectedName?: string,
+  cards: CardType[]
+  selectedName?: string
   setSelectedName: (name?: string) => void
 }
 
 const VisualCardList: React.FC<CardListType> = ({
   cards,
   selectedName,
-  setSelectedName
+  setSelectedName,
 }) => {
-
   const chooseItem = (name: string) => {
     if (name !== selectedName) {
       setSelectedName(name)
@@ -31,16 +30,20 @@ const VisualCardList: React.FC<CardListType> = ({
       name: card.name,
       svg: <Component changeConfig={card.hideConfing} />,
       rotateDegrees: card.rotateDegrees,
-      reference: card.reference
+      reference: card.reference,
     }
   }
-
 
   const getCards = () => {
     return cards.map((correctAnswer: CardType) => getCard(correctAnswer))
   }
-  return <CardList cards={getCards()} onChange={chooseItem} selected={selectedName} />
+  return (
+    <CardList
+      cards={getCards()}
+      onChange={chooseItem}
+      selected={selectedName}
+    />
+  )
 }
-
 
 export default VisualCardList

@@ -14,14 +14,14 @@ export const DragableArea = styled.div<DragableAreaProps>`
   margin: 1.5px;
 
   ${({ cursor }) =>
-        cursor === 'pointer'
-            ? css`
+    cursor === 'pointer'
+      ? css`
           cursor: pointer;
           &:hover {
             opacity: 0.7;
           }
         `
-            : null}
+      : null}
 `
 
 export const DragableAreaIcon = styled.i`

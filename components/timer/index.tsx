@@ -10,7 +10,6 @@ type TimerType = { countdownTime?: number; timerIsDone?: () => void }
 
 const Timer: React.FC<TimerType> = ({ countdownTime, timerIsDone }) => {
   const elapsedTime = useTimer(countdownTime, timerIsDone)
-  console.log('elapsedTime', elapsedTime)
 
   const formattedTimeArray = formatTime(elapsedTime)
 
@@ -21,21 +20,14 @@ const Timer: React.FC<TimerType> = ({ countdownTime, timerIsDone }) => {
       index: number
     ) => {
       if (formattedTime) {
-        result.push(
-          <P5 key={`formatted_time_${index}`}>{formattedTime}</P5>
-        )
+        result.push(<P5 key={`formatted_time_${index}`}>{formattedTime}</P5>)
       }
       return result
     },
     [] as React.ReactNode[]
   )
 
-
-  return (
-    <S.TimerWrapper>
-      {timeParagraphs}
-    </S.TimerWrapper>
-  )
+  return <S.TimerWrapper>{timeParagraphs}</S.TimerWrapper>
 }
 
 export default Timer

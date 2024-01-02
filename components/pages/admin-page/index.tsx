@@ -38,7 +38,11 @@ function AdminPage() {
     >
       <S.AdminPageWrapper>
         <S.ClickableIconWrapper>
-          <ClickableIcon icon="home" onClick={redirectToHome} fontSize={fontSize.xl} />
+          <ClickableIcon
+            icon="home"
+            onClick={redirectToHome}
+            fontSize={fontSize.xl}
+          />
         </S.ClickableIconWrapper>
         <S.AdminPageContainer>
           <S.AdminPageInnerContainer>

@@ -9,12 +9,18 @@ type ActivityCardProps = {
   onChange: (selectedCardName: string) => void
 }
 
-const CardList: React.FC<ActivityCardProps> = ({ cards, selected, onChange }) => {
+const CardList: React.FC<ActivityCardProps> = ({
+  cards,
+  selected,
+  onChange,
+}) => {
   const getCards = () => {
     return cards.map((card) => {
       const PictureSvg = card.svg
       const isSelected = selected === card.name
-      const onClickHandler = () => { onChange(card.name) }
+      const onClickHandler = () => {
+        onChange(card.name)
+      }
 
       return (
         <ActivityCard

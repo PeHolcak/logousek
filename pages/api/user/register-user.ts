@@ -9,9 +9,9 @@ import { ErrorDtoOut, Warnings } from 'types/api-types'
 
 export type registerUserDtoOut =
   | {
-    nickName: string
-    warnings?: Warnings
-  }
+      nickName: string
+      warnings?: Warnings
+    }
   | ErrorDtoOut
 
 async function registerUser(

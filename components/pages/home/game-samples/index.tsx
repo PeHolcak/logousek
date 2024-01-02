@@ -5,9 +5,8 @@ import { useTranslateFunctions } from '@hooks/useTranslateFunctions'
 import publicImages from '@constants/public-images'
 
 import SectionLayout from '../section-layout'
-import Header from "../header"
-import * as S from "./styled"
-
+import Header from '../header'
+import * as S from './styled'
 
 const GameSamples: React.FC = () => {
   const { tHome } = useTranslateFunctions()
@@ -15,16 +14,19 @@ const GameSamples: React.FC = () => {
   return (
     <S.GameSamplesWrapper>
       <SectionLayout>
-        <Header>{tHome("gameSamples.header")}</Header>
+        <Header>{tHome('gameSamples.header')}</Header>
         <Pump>
           <S.GameSamplesImageWrapper>
-            <S.GameSamplesImage src={publicImages.gameSample} >
-              <S.StyledImage src={`/videos/game-samples.gif`} alt="game_samples" />
+            <S.GameSamplesImage src={publicImages.gameSample}>
+              <S.StyledImage
+                src={`/videos/game-samples.gif`}
+                alt="game_samples"
+              />
             </S.GameSamplesImage>
           </S.GameSamplesImageWrapper>
         </Pump>
       </SectionLayout>
-    </S.GameSamplesWrapper >
+    </S.GameSamplesWrapper>
   )
 }
 

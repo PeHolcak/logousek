@@ -9,13 +9,13 @@ export const ItemList = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4px;
-  background-color: rgba(155,155,155, 0.4);
+  background-color: rgba(155, 155, 155, 0.4);
   padding: 4px;
   border-radius: 16px;
 
   @media ${devices.mobileM} {
     padding: 12px;
-  gap: 16px;
+    gap: 16px;
   }
 
   @media ${devices.tablet} {
@@ -40,7 +40,6 @@ export const StoreContent = styled.div`
   @media ${devices.tablet} {
     height: 80vh;
   }
-  
 `
 
 export const StoreContainer = styled.div`
@@ -53,7 +52,7 @@ export const LoadingWrap = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(128,128,128,0.6);
+  background-color: rgba(128, 128, 128, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;

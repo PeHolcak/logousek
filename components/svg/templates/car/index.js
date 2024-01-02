@@ -1,10 +1,12 @@
 import React from 'react'
 import { DEFAULT_VIEWBOX } from '../../../../constants/svg-conf'
 
-export default function Car ({ changeConfig = {}, customViewBox }) {
-  ;
+export default function Car({ changeConfig = {}, customViewBox }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox={customViewBox || DEFAULT_VIEWBOX}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox={customViewBox || DEFAULT_VIEWBOX}
+    >
       <defs>
         <style>
           {
@@ -61,7 +63,7 @@ export default function Car ({ changeConfig = {}, customViewBox }) {
             height={22.67}
             rx={10.89}
             style={{
-              fill: '#5f5f5e'
+              fill: '#5f5f5e',
             }}
           />
           <rect
@@ -71,7 +73,7 @@ export default function Car ({ changeConfig = {}, customViewBox }) {
             height={11.33}
             rx={5.44}
             style={{
-              fill: '#777'
+              fill: '#777',
             }}
           />
           <rect
@@ -81,7 +83,7 @@ export default function Car ({ changeConfig = {}, customViewBox }) {
             height={2.83}
             rx={1.36}
             style={{
-              fill: '#c4c4c4'
+              fill: '#c4c4c4',
             }}
           />
         </g>
@@ -90,7 +92,7 @@ export default function Car ({ changeConfig = {}, customViewBox }) {
           data-name="Obrys auta"
           d="M816.84 459.55h-26l-51.24-80.09-29.24-45.7a74.56 74.56 0 0 0-62.81-34.38H287.44a74.56 74.56 0 0 0-62.81 34.38l-29.24 45.7-51.24 80.09h-69.1a15.32 15.32 0 0 0-15.27 15.28v115a57.87 57.87 0 0 0 57.7 57.71H127c-.12-2-.21-4-.21-6a91.18 91.18 0 0 1 182.36 0c0 2-.09 4-.22 6h348.89c-.13-2-.21-4-.21-6a91.18 91.18 0 0 1 182.36 0c0 2-.09 4-.22 6H974a15.33 15.33 0 0 0 15.28-15.28v-39.7C985.13 500 978.51 468 816.84 459.55Z"
           style={{
-            fill: '#2559a5'
+            fill: '#2559a5',
           }}
         />
         <path
@@ -139,11 +141,15 @@ export default function Car ({ changeConfig = {}, customViewBox }) {
           {changeConfig.hideDoor || (
             <g id="Zadni_dvere_okynko" data-name="Zadni dvere okynko">
               <path
-                className={changeConfig.changeDoorColor ? 'cls-1' : 'cls-12-car'}
+                className={
+                  changeConfig.changeDoorColor ? 'cls-1' : 'cls-12-car'
+                }
                 d="M271.8 313.68a69.69 69.69 0 0 0-32.54 26.44l-27.52 41.95-37.64 57.4a10.4 10.4 0 0 0 8.7 16.11h70.32Z"
               />
               <path
-                className={changeConfig.changeDoorColor ? 'cls-1' : 'cls-12-car'}
+                className={
+                  changeConfig.changeDoorColor ? 'cls-1' : 'cls-12-car'
+                }
                 d="M255.35 458.13H182.8a13 13 0 0 1-10.8-20.06l65.16-99.35a71.89 71.89 0 0 1 33.72-27.41l4-1.61Zm13.33-140.32a66.63 66.63 0 0 0-27.29 23.71l-65.16 99.35A7.85 7.85 0 0 0 182.8 453h68.09Z"
               />
             </g>

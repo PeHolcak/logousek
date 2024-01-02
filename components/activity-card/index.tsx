@@ -13,7 +13,7 @@ export type ActivityCardType = {
   customAspectRatio?: string
   cursor?: 'default' | 'pointer'
   fill?: boolean
-  reference?: React.ReactNode,
+  reference?: React.ReactNode
   showBorder?: boolean
   disabled?: boolean
   className?: string
@@ -32,7 +32,7 @@ const ActivityCard: React.FC<ActivityCardType> = ({
   reference,
   showBorder = true,
   disabled,
-  className
+  className,
 }) => {
   return (
     <S.ActivityCardWrapper
@@ -43,7 +43,7 @@ const ActivityCard: React.FC<ActivityCardType> = ({
       customRadius={customRadius}
       customAspectRatio={customAspectRatio}
       fill={fill}
-      cursor={disabled ? "default" : cursor}
+      cursor={disabled ? 'default' : cursor}
       disabled={disabled}
       showBorder={showBorder}
       className={className}
@@ -51,9 +51,7 @@ const ActivityCard: React.FC<ActivityCardType> = ({
       {selected ? (
         <S.CheckIcon className={'material-icons'}>check</S.CheckIcon>
       ) : null}
-      {reference ?
-        <Reference reference={reference} />
-        : null}
+      {reference ? <Reference reference={reference} /> : null}
       {children}
     </S.ActivityCardWrapper>
   )

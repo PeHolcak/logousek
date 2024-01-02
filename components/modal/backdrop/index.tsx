@@ -4,7 +4,9 @@ import Fireworks from '@components/modal/backdrop/particles/fireworks'
 import Confetti from '@components/modal/backdrop/particles/confetti'
 import { getRandomElementFromList } from '@helpers/array-helper'
 
-interface Backdrop { children: React.ReactNode }
+interface Backdrop {
+  children: React.ReactNode
+}
 
 export type ShowBackdropParam = {
   backgroundType?: string
@@ -21,7 +23,7 @@ export default forwardRef(function Backdrop({ children }: Backdrop, ref) {
 
   useImperativeHandle(ref, () => ({
     show: showBackdrop,
-    close: closeBackdrop
+    close: closeBackdrop,
   }))
 
   const showBackdrop = (showBackdropParam?: ShowBackdropParam) => {
@@ -34,15 +36,22 @@ export default forwardRef(function Backdrop({ children }: Backdrop, ref) {
     setBackdropDetail({})
   }
 
-
   const getBackground = () => {
     switch (backdropDetail?.backgroundType) {
-      case "party":
-        return getRandomElementFromList([<Confetti key={`confetti`} />, <Fireworks key={`fireworks`} />], 1)
+      case 'party':
+        return getRandomElementFromList(
+          [<Confetti key={`confetti`} />, <Fireworks key={`fireworks`} />],
+          1
+        )
       default:
         return
     }
   }
 
-  return <S.StyledBackdrop show={show}>{children}{getBackground()}</S.StyledBackdrop>
+  return (
+    <S.StyledBackdrop show={show}>
+      {children}
+      {getBackground()}
+    </S.StyledBackdrop>
+  )
 })

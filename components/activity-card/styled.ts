@@ -33,8 +33,8 @@ export const ActivityCardWrapper = styled.div<ActivityCardType>`
     showBorder
       ? css`
           border: ${selected
-          ? `0.4rem solid ${theme.colors.blue}`
-          : '0.4rem solid transparent'};
+            ? `0.4rem solid ${theme.colors.blue}`
+            : '0.4rem solid transparent'};
         `
       : null}
 `

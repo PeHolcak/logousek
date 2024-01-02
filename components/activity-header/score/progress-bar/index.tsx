@@ -8,9 +8,12 @@ type ActivityHeaderProps = {
 
 const ProgressBar: React.FC<ActivityHeaderProps> = ({
   tasksCount,
-  taskElapsed
+  taskElapsed,
 }) => {
-  const width = useMemo(() => `${(100 / tasksCount) * taskElapsed}%`, [taskElapsed, tasksCount])
+  const width = useMemo(
+    () => `${(100 / tasksCount) * taskElapsed}%`,
+    [taskElapsed, tasksCount]
+  )
 
   return (
     <S.ProgressBarWrap>

@@ -15,7 +15,7 @@ type DescriptionSideContentProps = {
 const DescriptionSideContent: React.FC<DescriptionSideContentProps> = ({
   title,
   description,
-  showMainSide
+  showMainSide,
 }) => {
   const onInformIconClickHandle = (e: { stopPropagation: () => void }) => {
     e.stopPropagation()
@@ -31,7 +31,9 @@ const DescriptionSideContent: React.FC<DescriptionSideContentProps> = ({
       </S.Navbar>
       <S.ContentWrap>
         <Description>{title}</Description>
-        <P6 margin="0" align="left">{description}</P6>
+        <P6 margin="0" align="left">
+          {description}
+        </P6>
       </S.ContentWrap>
     </ActivityCard>
   )

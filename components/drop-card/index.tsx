@@ -17,11 +17,13 @@ type DropCardProps = {
 const RADIUS = '0'
 
 const DropCard: React.FC<DropCardProps> = ({ index, card }) => {
-
   const dndContext = useContext(DndContext)
   const { onItemDropHandle, onDropCardClick } = useDrop(dndContext)
 
-  const cursor = useMemo(() => dndContext?.selectedCard ? "pointer" : "default", [dndContext?.selectedCard])
+  const cursor = useMemo(
+    () => (dndContext?.selectedCard ? 'pointer' : 'default'),
+    [dndContext?.selectedCard]
+  )
 
   const onDragableAreaClickHandler = useCallback(() => {
     onDropCardClick(index, dndContext?.avaibleCards)
@@ -46,7 +48,9 @@ const DropCard: React.FC<DropCardProps> = ({ index, card }) => {
         </DragCard>
       ) : (
         <S.DragableArea cursor={cursor} onClick={onDragableAreaClickHandler}>
-          <S.DragableAreaIcon className="material-icons">play_for_work</S.DragableAreaIcon>
+          <S.DragableAreaIcon className="material-icons">
+            play_for_work
+          </S.DragableAreaIcon>
         </S.DragableArea>
       )}
     </InnerDropCard>

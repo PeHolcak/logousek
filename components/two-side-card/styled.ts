@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 interface InnedCardProps {
-  isDiffSiteShown: boolean;
+  isDiffSiteShown: boolean
 }
 
 export const Side = styled.div`
@@ -10,16 +10,16 @@ export const Side = styled.div`
   position: absolute;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-`;
+`
 
 export const DescriptionSideWrapper = styled(Side)`
   cursor: default;
   transform: rotateY(180deg);
-`;
+`
 
-export const MainSideWrapper = styled(Side)` 
+export const MainSideWrapper = styled(Side)`
   cursor: pointer;
-`;
+`
 
 export const InnedCard = styled.div<InnedCardProps>`
   position: relative;
@@ -30,9 +30,9 @@ export const InnedCard = styled.div<InnedCardProps>`
   transition: transform 0.6s;
   transform-style: preserve-3d;
   transform: ${({ isDiffSiteShown }) =>
-    isDiffSiteShown ? "rotateY(180deg)" : "rotateY(0deg)"};
+    isDiffSiteShown ? 'rotateY(180deg)' : 'rotateY(0deg)'};
   box-shadow: 0px 2px 16px ${({ theme }) => theme.colors.seventy};
-`;
+`
 
 export const CardWrapper = styled.article`
   background-color: ${({ theme }) => theme.colors.transparent};
@@ -55,8 +55,7 @@ export const CardWrapper = styled.article`
     transition: all 0.2s ease-in-out;
     transform: scale(1.1);
   }
-`;
-
+`
 
 //common styled components for children
 export const Description = styled.p`
@@ -65,9 +64,9 @@ export const Description = styled.p`
   margin: 0;
   padding: 0.5rem 0;
   font-weight: 600;
-  text-align: "center";
+  text-align: 'center';
   color: ${({ theme }) => theme.colors.seventy};
-`;
+`
 
 export const InformIcon = styled.div`
   cursor: help;
@@ -92,4 +91,4 @@ export const InformIcon = styled.div`
     position: relative;
     width: 24px;
   }
-`;
+`

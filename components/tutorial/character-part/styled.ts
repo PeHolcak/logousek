@@ -6,8 +6,6 @@ type BlobContainer = { isTutorialOpened: boolean }
 
 type CharacterWrapperProps = { isTutorialOpened: boolean }
 
-
-
 export const BlobContainer = styled.div<BlobContainer>`
   position: relative;
 
@@ -47,9 +45,7 @@ export const CharacterWrapper = styled.div<CharacterWrapperProps>`
           @media ${devices.tablet} {
             padding: 12px;
           }
-      `}
-
-      
+        `}
 `
 
 export const BubbleWrapper = styled.div`
@@ -69,7 +65,6 @@ export const ButtonRow = styled.div`
   margin: 8px;
   gap: 8px;
 `
-
 
 type CharacterImageProps = {
   src: string

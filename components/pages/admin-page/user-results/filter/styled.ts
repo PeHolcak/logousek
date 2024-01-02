@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { DatePicker, Col } from 'antd';
+import { DatePicker, Col } from 'antd'
 
-const { RangePicker } = DatePicker;
+const { RangePicker } = DatePicker
 
 export const StyledRangePicker = styled(RangePicker)`
   width: 100%;

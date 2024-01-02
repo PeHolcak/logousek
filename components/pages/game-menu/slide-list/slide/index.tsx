@@ -2,10 +2,7 @@ import React from 'react'
 
 import Label from '@components/label'
 import GameCard from '@components/game-card'
-import {
-  LabelType,
-  GameType,
-} from '@constants/activity-confs/activity-conf'
+import { LabelType, GameType } from '@constants/activity-confs/activity-conf'
 
 import * as S from './styled'
 
@@ -26,11 +23,11 @@ const getLabels = (labels?: LabelType[]) => {
 }
 
 type SlideProps = {
-  name: string,
-  title: string,
-  labels?: LabelType[];
-  description?: string,
-  cite?: string,
+  name: string
+  title: string
+  labels?: LabelType[]
+  description?: string
+  cite?: string
   games: GameType[]
 }
 
@@ -48,9 +45,7 @@ const Slide: React.FC<SlideProps> = ({
         <S.GamesTypeHeader>{title}</S.GamesTypeHeader>
         <S.LabelWrapper>{getLabels(labels)}</S.LabelWrapper>
         <S.GamesTypeContent>{description}</S.GamesTypeContent>
-        <S.CitationParagraph>
-          {cite}
-        </S.CitationParagraph>
+        <S.CitationParagraph>{cite}</S.CitationParagraph>
       </S.GameTypeDetail>
       <S.GameList>{getCards(games)}</S.GameList>
     </S.SlideWrapper>

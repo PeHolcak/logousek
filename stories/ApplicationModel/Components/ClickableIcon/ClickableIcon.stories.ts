@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react'
 
-import ClickableIcon, { ClickableIconProps } from '@components/clickable-icon';
+import ClickableIcon, { ClickableIconProps } from '@components/clickable-icon'
 
 const meta: Meta<ClickableIconProps> = {
   title: 'ApplicationModel/Components/ClickableIcon',
@@ -13,19 +13,25 @@ const meta: Meta<ClickableIconProps> = {
       control: 'color',
     },
     icon: {
-      options: ['tiktok', "insert_chart", "accessible", "alarm_add", "facebook"],
+      options: [
+        'tiktok',
+        'insert_chart',
+        'accessible',
+        'alarm_add',
+        'facebook',
+      ],
       control: { type: 'radio' },
     },
   },
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<ClickableIconProps>;
+type Story = StoryObj<ClickableIconProps>
 
 export const Primary: Story = {
   args: {
-    icon: "facebook",
-    fontSize: "40px"
+    icon: 'facebook',
+    fontSize: '40px',
   },
-};
+}

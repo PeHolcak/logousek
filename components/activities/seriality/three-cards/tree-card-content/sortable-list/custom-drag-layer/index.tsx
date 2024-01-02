@@ -1,7 +1,4 @@
-import React, {
-  useContext,
-  CSSProperties
-} from 'react'
+import React, { useContext, CSSProperties } from 'react'
 import SerialityContext from '@contexts/seriality-context'
 import { useDragLayer } from 'react-dnd'
 import { XYCoord } from 'react-dnd/dist/types'
@@ -14,12 +11,15 @@ const layerStyles: CSSProperties = {
   left: 0,
   top: 0,
   width: '100%',
-  height: '100%'
+  height: '100%',
 }
-function getItemStyles(initialOffset: XYCoord | null, currentOffset: XYCoord | null) {
-  if ((initialOffset == null) || (currentOffset == null)) {
+function getItemStyles(
+  initialOffset: XYCoord | null,
+  currentOffset: XYCoord | null
+) {
+  if (initialOffset == null || currentOffset == null) {
     return {
-      display: 'none'
+      display: 'none',
     }
   }
   initialOffset.y
@@ -27,23 +27,28 @@ function getItemStyles(initialOffset: XYCoord | null, currentOffset: XYCoord | n
   const transform = `translate(${x}px, ${y}px)`
   return {
     transform,
-    WebkitTransform: transform
+    WebkitTransform: transform,
   }
 }
 
 const CustomDragLayer: React.FC = () => {
-  const { isDragging, item, initialOffset, currentOffset } =
-    useDragLayer((monitor) => ({
+  const { isDragging, item, initialOffset, currentOffset } = useDragLayer(
+    (monitor) => ({
       item: monitor.getItem(),
       itemType: monitor.getItemType(),
       initialOffset: monitor.getInitialSourceClientOffset(),
       currentOffset: monitor.getSourceClientOffset(),
-      isDragging: monitor.isDragging()
-    }))
+      isDragging: monitor.isDragging(),
+    })
+  )
 
-  const serialityContext = useContext(SerialityContext);
+  const serialityContext = useContext(SerialityContext)
   function renderItem() {
-    return <ActivityCard>{serialityContext?.cards.find(card => card.keyImage === item.id)?.img}</ActivityCard>
+    return (
+      <ActivityCard>
+        {serialityContext?.cards.find((card) => card.keyImage === item.id)?.img}
+      </ActivityCard>
+    )
   }
 
   if (!isDragging) {
@@ -52,9 +57,7 @@ const CustomDragLayer: React.FC = () => {
 
   return (
     <div style={layerStyles}>
-      <div
-        style={getItemStyles(initialOffset, currentOffset)}
-      >
+      <div style={getItemStyles(initialOffset, currentOffset)}>
         {renderItem()}
       </div>
     </div>

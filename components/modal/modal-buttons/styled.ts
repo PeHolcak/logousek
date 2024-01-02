@@ -2,7 +2,9 @@ import styled from 'styled-components'
 import { devices } from '@constants/screens-conf'
 import React from 'react'
 
-interface ModalWrapperType { show?: boolean }
+interface ModalWrapperType {
+  show?: boolean
+}
 
 interface ModalContainerProps {
   children: Array<React.ReactElement | undefined>
@@ -21,7 +23,7 @@ export const ModalWrapper = styled.div<ModalWrapperType>`
   transform: scale(0);
   opacity: 0;
   animation: ${({ show }) =>
-    show ? 'popup' : show === undefined ? 'none' : 'dump'}
+      show ? 'popup' : show === undefined ? 'none' : 'dump'}
     1s forwards;
   @keyframes popup {
     from {
@@ -54,29 +56,29 @@ export const ModalContainer = styled.div<ModalContainerProps>`
   flex-direction: column;
   margin: 1rem;
   padding: 8px 16px !important;
-  width: ${({ autoWidth }) => autoWidth ? "auto" : "100vw"};
+  width: ${({ autoWidth }) => (autoWidth ? 'auto' : '100vw')};
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.4);
   border-radius: ${({ theme }) => theme.radius.primary};
 
   @media ${devices.tablet} {
-    width: ${({ autoWidth }) => autoWidth ? "auto" : "70vw"};
+    width: ${({ autoWidth }) => (autoWidth ? 'auto' : '70vw')};
   }
 
   @media ${devices.laptop} {
-    width:  ${({ autoWidth }) => autoWidth ? "auto" : "60vw"};
+    width: ${({ autoWidth }) => (autoWidth ? 'auto' : '60vw')};
   }
 
   @media ${devices.laptopL} {
-    width:  ${({ autoWidth }) => autoWidth ? "auto" : "50vw"};
+    width: ${({ autoWidth }) => (autoWidth ? 'auto' : '50vw')};
   }
 
   @media ${devices.desktop} {
-    width:  ${({ autoWidth }) => autoWidth ? "auto" : "40vw"};
+    width: ${({ autoWidth }) => (autoWidth ? 'auto' : '40vw')};
   }
 
   @media ${devices.desktopL} {
-    width:  ${({ autoWidth }) => autoWidth ? "auto" : "25vw"};
+    width: ${({ autoWidth }) => (autoWidth ? 'auto' : '25vw')};
   }
 `
 
@@ -87,11 +89,11 @@ export const Modalheader = styled.div`
 `
 
 export const ModalTitle = styled.h3`
-  margin: 0px;  
+  margin: 0px;
   font-weight: 500;
   font-size: 20pt;
   flex: 1;
-  padding: 0.5rem 2rem; 
+  padding: 0.5rem 2rem;
   color: ${({ theme }) => theme.colors.black};
 `
 

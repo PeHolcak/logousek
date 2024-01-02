@@ -5,7 +5,6 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.eighty};
   z-index: 2;
   flex: 1;
-  
 `
 export const WelcomeRowWrapper = styled.div`
   position: relative;

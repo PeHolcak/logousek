@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 import { devices } from '@constants/screens-conf'
-import { Section } from "../styled"
+import { Section } from '../styled'
 
 export const AboutAsWrapper = styled(Section)`
   width: 100%;

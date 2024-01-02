@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react'
 
 import { getActivity } from '@helpers/get-activity'
 import Loading from '@components/loading'
-import { ActivityInterface, ActivityProps } from "@components/pages/activity";
+import { ActivityInterface, ActivityProps } from '@components/pages/activity'
 
 import * as S from './styled'
-
-
 
 type ActivityContentProps = {
   gameState: string
@@ -27,37 +25,38 @@ const ActivityContent: React.FC<ActivityContentProps> = ({
   checkResult,
   activityDifficulty,
   activityRef,
-  activityName
+  activityName,
 }) => {
-  const [Activity, setActivity] = useState<React.FC<ActivityProps> | undefined>()
-  const [activityLoadingState, setActivityloadingState] = useState("loading")
+  const [Activity, setActivity] = useState<
+    React.FC<ActivityProps> | undefined
+  >()
+  const [activityLoadingState, setActivityloadingState] = useState('loading')
 
   useEffect(() => {
-
-    (async () => {
+    ;(async () => {
       const Activity = await getActivity(activityName)
       setActivity(Activity)
-      setActivityloadingState("ready")
+      setActivityloadingState('ready')
     })()
-
   })
 
-  const content = gameState !== 'finish' && Activity ? (
-    <Activity
-      ref={activityRef}
-      key={`activity_${currentTask}`}
-      onHandleChanged={onHandleChanged}
-      canBeEvaluated={canBeEvaluated}
-      checkResult={checkResult}
-      complexity={activityDifficulty || '1'}
-      currentTask={currentTask}
-    />
-  ) : null
+  const content =
+    gameState !== 'finish' && Activity ? (
+      <Activity
+        ref={activityRef}
+        key={`activity_${currentTask}`}
+        onHandleChanged={onHandleChanged}
+        canBeEvaluated={canBeEvaluated}
+        checkResult={checkResult}
+        complexity={activityDifficulty || '1'}
+        currentTask={currentTask}
+      />
+    ) : null
 
   return (
     <S.ActivityContentWrapper>
       <S.ActivityContentContainer>
-        {activityLoadingState === "loading" ? <Loading /> : content}
+        {activityLoadingState === 'loading' ? <Loading /> : content}
       </S.ActivityContentContainer>
     </S.ActivityContentWrapper>
   )
