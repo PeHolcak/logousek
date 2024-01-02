@@ -3,7 +3,7 @@ const appConf = {
   name: 'Logoušek',
   description:
     'An application for preschool children supporting speech therapy prevention in a playful manner.',
-  demo: 'https://www.logousek.cz/',
+  demo: 'https://logousek-peholcak-s-team.vercel.app/',
 }
 
 export default appConf
